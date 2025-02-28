@@ -5,6 +5,7 @@ import { FaGoogle, FaGithub, FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import image from "../assets/image1.png";//academicpal/src/assets/image1.png
+import ReCAPTCHA from "react-google-recaptcha";
 
 const SignUp = () => {
   const [name, setName] = useState<string>("");
@@ -12,6 +13,13 @@ const SignUp = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
+   const [isVerified, setIsVerified] = useState(false);
+
+
+   const handleCaptchaChange = (value) => {
+    setIsVerified(!!value);
+  };
+
 
   const handleGoogleSignUp = async () => {
     const provider = new GoogleAuthProvider();
@@ -167,6 +175,11 @@ const SignUp = () => {
           />
         </div>
       </div>
+
+       <div className="flex justify-center mb-4">
+                  <ReCAPTCHA sitekey="6LfOfOUqAAAAABLxxBJJ9636ZFZ-tKVBKx2VU0Uq" onChange={handleCaptchaChange} />
+                </div>
+          
 
       {/* Error Message */}
       {error && (
