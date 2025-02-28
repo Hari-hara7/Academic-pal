@@ -142,7 +142,7 @@ const Login = () => {
           </div>
     
           <div className="flex justify-center mb-4">
-            <ReCAPTCHA sitekey="6LdRa-UqAAAAAOH_h9AVd-lGUFeKt9dgjgXcf5TZ" onChange={handleCaptchaChange} />
+            <ReCAPTCHA sitekey="6LfOfOUqAAAAABLxxBJJ9636ZFZ-tKVBKx2VU0Uq" onChange={handleCaptchaChange} />
           </div>
     
           {error && <p className="text-red-500 text-center text-sm sm:text-base md:text-lg mb-4">{error}</p>}
