@@ -1,13 +1,47 @@
+# =====================================
+#    Academic Pal — Funding Options
+#    Website: https://academicpal.in
+# =====================================
+
+# GitHub Sponsors (up to 4 usernames)
 github: [academicpal, harihara7]
+
+# Patreon
 patreon: academicpal
+
+# Open Collective
 open_collective: academicpal
+
+# Ko-fi
 ko_fi: academicpal
+
+# Tidelift (platform-name/package-name)
 tidelift: npm/academicpal
+
+# Community Bridge
 community_bridge: academicpal
+
+# Liberapay
 liberapay: academicpal
+
+# IssueHunt
 issuehunt: academicpal
+
+# LFX Crowdfunding
 lfx_crowdfunding: academicpal
+
+# Polar
 polar: academicpal
+
+# Buy Me a Coffee
 buy_me_a_coffee: academicpal
+
+# thanks.dev
 thanks_dev: academicpal
-custom: ['https://academicpal.in/donate', 'https://www.paypal.me/academicpal']
+
+# Custom sponsorship links (max 4)
+custom:
+  - https://academicpal.in/donate
+  - https://www.paypal.me/academicpal
+  - https://ko-fi.com/academicpal
+  - https://www.buymeacoffee.com/academicpal
