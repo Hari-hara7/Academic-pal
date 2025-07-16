@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
   Menu, Home, Calendar, LogOut, BookOpen, ClipboardList,
-  BellRing, BarChart2 ,GraduationCap
+  BellRing, BarChart2, GraduationCap
 } from 'lucide-react';
-import { FaProjectDiagram } from 'react-icons/fa';
-import { FaPenNib, FaUsers } from 'react-icons/fa';
+import { FaProjectDiagram, FaPenNib, FaUsers, FaComments } from 'react-icons/fa';
 import { Toaster } from 'sonner';
-import { FaComments } from 'react-icons/fa';
+import { Input } from '@/components/ui/input'; // ✅ Import Input
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(''); // ✅ Search term state
 
   const navItems = [
     { href: '/dashboard', icon: <Home className="h-4 w-4" />, label: 'Home' },
@@ -24,10 +24,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     { href: '/dashboard/study-reminders', icon: <BellRing className="h-4 w-4" />, label: 'Reminders' },
     { href: '/dashboard/blogs', icon: <FaPenNib className="h-4 w-4" />, label: 'Blogs' },
     { href: '/dashboard/study-groups', icon: <FaUsers className="h-4 w-4" />, label: 'Groups' },
-     { href: '/dashboard/mind-map', icon: <FaProjectDiagram className="h-4 w-4" />, label: 'Mind-map' },
-     { href: '/dashboard/forum', icon: <FaComments className="h-4 w-4" />, label: 'Forum' },
-      { href: '/dashboard/tutoring', icon: <GraduationCap className="h-4 w-4" />, label: 'Tutoring' },
+    { href: '/dashboard/mind-map', icon: <FaProjectDiagram className="h-4 w-4" />, label: 'Mind-map' },
+    { href: '/dashboard/forum', icon: <FaComments className="h-4 w-4" />, label: 'Forum' },
+    { href: '/dashboard/tutoring', icon: <GraduationCap className="h-4 w-4" />, label: 'Tutoring' },
   ];
+
+  // ✅ Filter navItems based on searchTerm
+  const filteredItems = navItems.filter(item =>
+    item.label.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="flex min-h-screen bg-black text-white relative overflow-hidden">
@@ -51,12 +56,20 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <h1 className="text-3xl font-bold mb-8 tracking-tight mt-16 font-bold font-poppins">
+        <h1 className="text-3xl font-bold mb-8 tracking-tight mt-16 font-poppins">
           Academic <span className="text-blue-400">Pal</span>
         </h1>
 
+        {/* ✅ Search Bar */}
+        <Input
+          placeholder="Search components..."
+          className="mb-4 bg-transparent text-white border-white placeholder-white focus-visible:ring-blue-400"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
         <nav className="space-y-2">
-          {navItems.map(({ href, icon, label }) => (
+          {filteredItems.map(({ href, icon, label }) => (
             <Link
               key={href}
               href={href}
@@ -82,10 +95,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </nav>
       </aside>
 
-    
       <div className="hidden lg:block fixed top-0 left-64 h-full w-[1px] bg-white/20 z-30"></div>
 
-     
       <main className="flex-1 px-6 py-10 mt-16 lg:mt-0 lg:ml-64 overflow-y-auto">
         {children}
       </main>

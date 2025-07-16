@@ -73,13 +73,10 @@ export default function DashboardClient({ email }: { email: string }) {
         {/* Avatar Options */}
         <div className="flex gap-4 flex-wrap">
           <Button className='bg-black' onClick={handleGenerateNewAvatar}>
-            🎲 Random Avatar
+            🎲 change Avatar
           </Button>
 
-          <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
-            Upload Avatar
-            <input type="file" accept="image/*" className="hidden" onChange={handleUpload} />
-          </label>
+         
         </div>
 
         {/* Neon Card with Custom Logo */}
