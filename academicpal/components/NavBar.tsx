@@ -13,6 +13,8 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 
+import { GitStarButton } from "@/components/eldoraui/gitstarbutton";
+
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -127,6 +129,11 @@ const NavBar = () => {
 
               {/* Close Button */}
              
+            </div>
+
+              {/* GitHub Star Button - Mobile */}
+            <div className="mb-6">
+              <GitStarButton />
             </div>
 
             {/* Navigation Links */}

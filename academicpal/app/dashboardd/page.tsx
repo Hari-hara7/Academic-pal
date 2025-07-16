@@ -11,8 +11,8 @@ import {
   NotebookText,
   Search,
   UploadCloud,
-  Users2,
   LogOut,
+  Users2,
   Mail,
   UserCircle,
   Info,
@@ -28,6 +28,7 @@ import Link from "next/link"
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { GitStarButton } from "@/components/eldoraui/gitstarbutton"
 
 const FEATURES = [
   {
@@ -46,7 +47,6 @@ const FEATURES = [
     link: "/notes",
     buttonText: "Access Notes",
   },
-
   {
     title: 'Tech Roadmaps',
     description:
@@ -175,6 +175,11 @@ const Dashboard = () => {
       <h1 className="text-2xl md:text-4xl font-bold mb-8 flex items-center gap-2 justify-center mt-12">
         <UserCircle className="w-8 h-8" /> Welcome, {user.displayName?.split(" ")[0]}!
       </h1>
+
+      {/* GitHub Star Button */}
+      <div className="flex justify-center mb-8">
+        <GitStarButton />
+      </div>
 
       <Card className="w-full max-w-md mx-auto bg-black-900 text-white shadow-xl rounded-2xl border border-gray-700 mb-12">
         <CardHeader className="flex flex-col items-center gap-4">

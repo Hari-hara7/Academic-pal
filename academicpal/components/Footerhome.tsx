@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from "react";
 import Link from "next/link";
@@ -17,6 +17,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+import { GitStarButton } from "@/components/eldoraui/gitstarbutton";
+
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-16 px-6 lg:px-12 xl:px-24">
@@ -33,7 +35,7 @@ const Footer = () => {
                 height={50}
                 className="rounded"
               />
-              <h2 className="text-xl lg:text-2xl font-bold font-bold font-poppins">Academic Pal</h2>
+              <h2 className="text-xl lg:text-2xl font-bold font-poppins">Academic Pal</h2>
             </div>
             <p className="text-gray-400 text-sm lg:text-base leading-relaxed mb-4">
               Your all-in-one academic resource platform for B.Tech students. Notes, question banks, syllabus & more!
@@ -49,9 +51,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <ChevronRight className="w-4 h-4 text-blue-400" />
-               Supports all branches & semesters
+                Supports all branches & semesters
               </li>
             </ul>
+
+            {/* GitHub Star Button */}
+            <div className="mt-6">
+              <GitStarButton />
+            </div>
           </div>
 
           {/* Explore */}
@@ -138,7 +145,7 @@ const Footer = () => {
         <Separator className="my-10 bg-gray-700" />
         <div className="flex flex-col lg:flex-row justify-between items-center text-xs lg:text-sm text-gray-500 gap-2">
           <span>© 2025 Academic Pal. All rights reserved.</span>
-       <span>Made in India 🇮🇳 | Built with ❤️ | MIT Licensed</span>
+          <span>Made in India 🇮🇳 | Built with ❤️ | MIT Licensed</span>
         </div>
       </div>
     </footer>
