@@ -405,16 +405,7 @@ const Dashboard = () => {
               
               <Separator className="bg-gray-700" />
               <div className="space-y-2">
-                <Link href="/settings">
-                  <Button variant="outline" className="w-full justify-start text-gray-300 border-gray-600 hover:bg-gray-700/50">
-                    <Settings className="w-4 h-4 mr-2" />
-                    Account Settings
-                  </Button>
-                </Link>
-                <Button variant="outline" className="w-full justify-start text-gray-300 border-gray-600 hover:bg-gray-700/50">
-                  <Bell className="w-4 h-4 mr-2" />
-                  Notifications
-                </Button>
+             
               </div>
             </CardContent>
             <CardFooter>
