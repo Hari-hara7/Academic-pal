@@ -204,7 +204,7 @@ const NavBar = () => {
               </SheetTrigger>
 
               <SheetContent side="left" className="bg-black/95 backdrop-blur-md text-white w-80 p-0 border-r border-gray-800">
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full overflow-hidden">
                   {/* Mobile Header */}
                   <div className="p-6 border-b border-gray-800">
                     {loading ? (
@@ -247,7 +247,7 @@ const NavBar = () => {
                   </div>
 
                   {/* Navigation Links */}
-                  <div className="flex-1 p-6 space-y-2">
+                  <div className="flex-1 overflow-y-auto p-6 space-y-2">
                     {navLinks.map((link) => (
                       <Link
                         key={link.href}
