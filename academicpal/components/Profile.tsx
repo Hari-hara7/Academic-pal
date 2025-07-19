@@ -136,26 +136,27 @@ const Profile = () => {
       {/* Enhanced Header */}
       <div className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
-        <div className="relative max-w-6xl mx-auto px-4 py-8">
-          <div className="flex items-center gap-6">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <Link href="/dashboardd">
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 backdrop-blur-sm border border-gray-700 hover:border-gray-600"
+                className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 backdrop-blur-sm border border-gray-700 hover:border-gray-600 h-10 w-10 sm:h-12 sm:w-12"
               >
-                <ArrowLeft className="h-5 w-5" />
+                <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </Link>
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg">
-                <UserIcon className="h-6 w-6 text-white" />
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+              <div className="p-2 sm:p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg flex-shrink-0">
+                <UserIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
-              <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <div className="min-w-0 flex-1">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight">
                   My Profile
                 </h1>
-                <p className="text-gray-400 mt-1">Manage your personal information and preferences</p>
+                <p className="text-gray-400 mt-1 text-sm sm:text-base hidden sm:block">Manage your personal information and preferences</p>
+                <p className="text-gray-400 mt-1 text-xs sm:hidden">Manage your info & preferences</p>
               </div>
             </div>
           </div>
@@ -206,7 +207,7 @@ const Profile = () => {
                   {/* Bio */}
                   {bio && (
                     <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
-                      <p className="text-sm text-gray-300 italic">"{bio}"</p>
+                      <p className="text-sm text-gray-300 italic">&ldquo;{bio}&rdquo;</p>
                     </div>
                   )}
                 </div>
