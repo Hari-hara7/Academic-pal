@@ -405,18 +405,11 @@ const Dashboard = () => {
               
               <Separator className="bg-gray-700" />
               <div className="space-y-2">
-             
+              
               </div>
             </CardContent>
             <CardFooter>
-              <Button
-                onClick={handleLogout}
-                variant="destructive"
-                className="w-full bg-red-600 hover:bg-red-700"
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
-              </Button>
+             
             </CardFooter>
           </Card>
 
@@ -628,7 +621,6 @@ const Dashboard = () => {
                   transition-all duration-500 ease-out
                   hover:scale-[1.03] hover:-translate-y-2
                   hover:shadow-${iconColor.split('-')[1]}-500/20
-                  cursor-pointer
                   before:absolute before:inset-0 before:bg-gradient-to-br 
                   before:from-white/5 before:to-transparent 
                   before:opacity-0 before:transition-opacity before:duration-300
@@ -676,11 +668,14 @@ const Dashboard = () => {
                     {description}
                   </p>
                 </CardContent>
-                <CardFooter className="pt-4">
+                <CardFooter className="pt-4 relative z-20">
                   <Link href={link} target={link.startsWith("http") ? "_blank" : "_self"} className="w-full">
                     <Button 
                       variant="outline" 
-                      className="w-full bg-gray-900/50 border-gray-600 text-white hover:bg-gray-800/70 hover:border-gray-500 transition-colors duration-200"
+                      className="w-full bg-gray-900/50 border-gray-600 text-white hover:bg-gray-800/70 hover:border-gray-500 transition-colors duration-200 relative z-30"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
                     >
                       {buttonText}
                       <ChevronRight className="w-4 h-4 ml-2" />
@@ -720,7 +715,10 @@ const Dashboard = () => {
                     </Button>
                   </Link>
                   <Link href="https://academicpal-ml-chatbot-g6gn.vercel.app/" target="_blank">
-                    <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-6 py-2 rounded-full font-medium transition-all duration-300 w-full sm:w-auto">
+                    <Button 
+                   
+                      className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-6 py-2 rounded-full font-medium transition-all duration-300 w-full sm:w-auto hover:scale-105 shadow-md hover:shadow-lg backdrop-blur-sm"
+                    >
                       <Search className="w-4 h-4 mr-2" />
                       Try AI Search
                     </Button>
