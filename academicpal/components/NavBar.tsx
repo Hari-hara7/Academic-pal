@@ -233,7 +233,7 @@ const NavBar = () => {
                         </div>
                       </div>
                     ) : (
-                      <Link href="/login">
+                      <Link href="/">
                         <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 font-medium">
                           Login
                         </Button>
@@ -257,7 +257,7 @@ const NavBar = () => {
                         <span className="group-hover:scale-110 transition-transform duration-200">
                           {link.icon}
                         </span>
-                        <span className="font-medium">{link.label}</span>
+                        <span className="font-medium text-sm">{link.label}</span>
                       </Link>
                     ))}
                   </div>
