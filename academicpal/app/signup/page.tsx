@@ -178,12 +178,7 @@ const SignUp = () => {
           >
             {/* Logo/Brand */}
             <motion.div variants={itemVariants} className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
-                <BookOpen className="w-8 h-8 text-white" />
-              </div>
-              <h1 className="text-3xl xl:text-4xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                AcademicPal
-              </h1>
+              
             </motion.div>
 
             {/* Heading */}
@@ -234,12 +229,7 @@ const SignUp = () => {
               <CardHeader className="space-y-4 pb-6">
                 {/* Mobile Logo */}
                 <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4">
-                  <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
-                  <h1 className="text-2xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    AcademicPal
-                  </h1>
+                  
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="text-center space-y-2">

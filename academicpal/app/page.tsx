@@ -186,17 +186,7 @@ const Login = () => {
             className="max-w-lg xl:max-w-xl 2xl:max-w-2xl space-y-6 xl:space-y-8"
           >
             {/* Logo/Brand */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 xl:gap-4">
-              <motion.div 
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                className="p-2.5 xl:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl xl:rounded-2xl shadow-lg shadow-blue-500/25"
-              >
-                <BookOpen className="w-7 h-7 xl:w-8 xl:h-8 text-white" />
-              </motion.div>
-              <h1 className="text-3xl xl:text-4xl 2xl:text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                AcademicPal
-              </h1>
-            </motion.div>
+        
 
             {/* Heading */}
             <motion.div variants={itemVariants} className="space-y-4 xl:space-y-6">
@@ -268,7 +258,7 @@ const Login = () => {
           </motion.div>
         </div>
 
-        {/* Right Side - Login Form */}
+     
         <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           <motion.div
             variants={containerVariants}
@@ -276,16 +266,11 @@ const Login = () => {
             animate="visible"
             className="w-full max-w-md"
           >
-            <Card className="bg-black/80 backdrop-blur-sm border border-blue-500/30 shadow-2xl shadow-blue-500/10">
+            <Card className="bg-black/80 backdrop-blur-sm border border-white-500/20 shadow-2xl shadow-blue-500/10">
               <CardHeader className="space-y-4 pb-6">
-                {/* Mobile Logo */}
+                
                 <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4">
-                  <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
-                  <h1 className="text-2xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    AcademicPal
-                  </h1>
+                 
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="text-center space-y-2">
