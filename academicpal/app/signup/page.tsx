@@ -197,7 +197,7 @@ const SignUp = () => {
             {/* Features */}
             <motion.div variants={itemVariants} className="space-y-4">
               {[
-                { icon: Shield, text: "Secure NMAMIT Integration" },
+                { icon: Shield, text: "Secure Google Integration" },
                 { icon: Users, text: "Join 4,000+ Students" },
                 { icon: Sparkles, text: "AI-Powered Study Tools" },
                 { icon: Star, text: "Top-Rated Platform" }
@@ -225,7 +225,7 @@ const SignUp = () => {
             animate="visible"
             className="w-full max-w-md"
           >
-            <Card className="bg-black/80 backdrop-blur-sm border border-blue-500/30 shadow-2xl shadow-blue-500/10">
+            <Card className="bg-black/80 backdrop-blur-sm border border-white-500/10 shadow-2xl shadow-blue-500/10">
               <CardHeader className="space-y-4 pb-6">
                 {/* Mobile Logo */}
                 <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4">

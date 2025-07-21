@@ -204,7 +204,7 @@ const Login = () => {
             {/* Features */}
             <motion.div variants={itemVariants} className="space-y-3 xl:space-y-4">
               {[
-                { icon: Shield, text: "Secure NMAMIT Integration", color: "from-blue-500/20 to-cyan-500/20" },
+                { icon: Shield, text: "Secure Google Integration", color: "from-blue-500/20 to-cyan-500/20" },
                 { icon: Sparkles, text: "AI-Powered Study Tools", color: "from-purple-500/20 to-pink-500/20" },
                 { icon: BookOpen, text: "Personalized Learning Paths", color: "from-emerald-500/20 to-teal-500/20" }
               ].map((feature, index) => (
