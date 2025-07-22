@@ -12,13 +12,13 @@ export default function BottomNav() {
     { href: "/home", icon: Home, label: "Home" },
     { href: "https://academicpal.vercel.app/notes.html", icon: BookOpen, label: "Notes" },
     { href: "/chat", icon: MessageCircle, label: "Messages" },
-    { href: "/dashboardd", icon: User, label: "Profile" },
+    { href: "/profile", icon: User, label: "Profile" },
     { href: "/login", icon: Wrench, label: "Tools" },
 
   ];
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 bg-black/80 backdrop-blur-md border-t border-neutral-800 flex justify-around px-2 py-1 sm:px-4 sm:py-2 z-50 shadow-lg md:hidden">
+    <nav className="fixed bottom-0 inset-x-0 bg-black  backdrop-blur-md border-t border-neutral-800 flex justify-around px-2 py-1 sm:px-4 sm:py-2 z-50 shadow-lg md:hidden">
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         const Icon = item.icon;
