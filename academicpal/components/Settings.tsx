@@ -282,7 +282,7 @@ const Settings = () => {
   if (!user) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <Card className="w-96 bg-gray-900 border-gray-800">
+        <Card className="w-96 bg-black border-gray-800">
           <CardContent className="flex flex-col items-center gap-4 pt-6">
             <UserIcon className="h-16 w-16 text-gray-400" />
             <h2 className="text-xl font-semibold text-white">Not Authenticated</h2>
@@ -301,7 +301,7 @@ const Settings = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 text-white">
       {/* Enhanced Header */}
-      <div className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 shadow-2xl">
+      <div className="relative bg-black border-b border-gray-700 shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
@@ -334,7 +334,7 @@ const Settings = () => {
         <Tabs defaultValue="profile" className="space-y-8">
           {/* Enhanced Tab Navigation */}
           <div className="flex justify-center">
-            <TabsList className="grid grid-cols-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-md border border-gray-700 rounded-xl p-1 shadow-2xl">
+            <TabsList className="grid grid-cols-4 bg-black backdrop-blur-md border border-gray-700 rounded-xl p-1 shadow-2xl">
               <TabsTrigger 
                 value="profile" 
                 className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-700 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-blue-700/20"
@@ -370,7 +370,7 @@ const Settings = () => {
           <TabsContent value="profile" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-3">
               {/* Profile Summary Card */}
-              <Card className="lg:col-span-1 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+              <Card className="lg:col-span-1 bg-black border-gray-700 shadow-xl">
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="relative group">
@@ -400,7 +400,7 @@ const Settings = () => {
               </Card>
 
               {/* Profile Information Card */}
-              <Card className="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+              <Card className="lg:col-span-2 bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600">
@@ -469,7 +469,7 @@ const Settings = () => {
 
           {/* Enhanced Security Tab */}
           <TabsContent value="security" className="space-y-6">
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+            <Card className="bg-bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-gradient-to-r from-red-600 to-orange-600">
@@ -599,7 +599,7 @@ const Settings = () => {
 
           {/* Enhanced Notifications Tab */}
           <TabsContent value="notifications" className="space-y-6">
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+            <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600">
@@ -704,7 +704,7 @@ const Settings = () => {
           <TabsContent value="preferences" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Appearance Settings */}
-              <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+              <Card className="bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600">
@@ -807,7 +807,7 @@ const Settings = () => {
               </Card>
 
               {/* Data & Storage */}
-              <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+              <Card className="bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-gradient-to-r from-orange-600 to-red-600">

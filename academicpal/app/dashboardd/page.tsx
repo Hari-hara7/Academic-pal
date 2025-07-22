@@ -305,7 +305,7 @@ const Dashboard = () => {
         }
       `}</style>
       
-      <main className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 text-white relative overflow-hidden">
+      <main className="min-h-screen bg-black text-white relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full blur-3xl float-animation" />
@@ -313,7 +313,7 @@ const Dashboard = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-600/5 to-blue-600/5 rounded-full blur-3xl float-animation" style={{animationDelay: '3s'}} />
         </div>        {/* Hero Section */}
         <div className="relative overflow-hidden z-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+        <div className="absolute inset-0 bg-black" />
         <div className="relative px-4 sm:px-6 py-6 sm:py-8 md:px-8 lg:px-20 md:py-16">
           {/* Welcome Header */}
           <div className="text-center mb-6 sm:mb-8 md:mb-12">
@@ -336,10 +336,10 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="px-4 sm:px-6 md:px-8 lg:px-20 pb-6 sm:pb-8 md:pb-12">{/* User Profile Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-12">
+      <div className="px-4 sm:px-6 bg-black md:px-8 lg:px-20 pb-6 sm:pb-8 md:pb-12">{/* User Profile Section */}
+        <div className="grid grid-cols-1 bg-black lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-12">
           {/* Profile Card */}
-          <Card className="lg:col-span-1 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-2xl">
+          <Card className="lg:col-span-1 bg-black border-gray-700 shadow-2xl"> 
             <CardHeader className="text-center pb-3 md:pb-4">
               <div className="relative inline-block mb-3 md:mb-4">
                 <Image
@@ -349,7 +349,7 @@ const Dashboard = () => {
                   height={100}
                   className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-4 border-gradient-to-r from-blue-500 to-purple-500 shadow-xl"
                 />
-                <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-green-500 rounded-full border-2 md:border-4 border-gray-900 flex items-center justify-center">
+                <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-green-500 rounded-full border-2 md:border-4 border-black flex items-center justify-center">
                   <div className="w-2 h-2 md:w-3 md:h-3 bg-white rounded-full"></div>
                 </div>
               </div>
@@ -375,7 +375,7 @@ const Dashboard = () => {
               </div>
               
               {/* Quick Actions */}
-              <div className="space-y-2 md:space-y-3">
+              <div className="space-y-2">
                 <h4 className="text-xs md:text-sm font-semibold text-gray-300 uppercase tracking-wide">Quick Actions</h4>
                 <div className="grid grid-cols-2 gap-1.5 md:gap-2">
                   <Link href="/chat">
@@ -514,7 +514,7 @@ const Dashboard = () => {
             </div>
 
             {/* Recent Activity */}
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+            <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -526,7 +526,7 @@ const Dashboard = () => {
                       <p className="text-sm text-gray-400">Explore what you can do with AcademicPal</p>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-700/50">
+                  <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-black/50">
                     Explore All
                   </Button>
                 </div>
@@ -672,7 +672,7 @@ const Dashboard = () => {
                   <Link href={link} target={link.startsWith("http") ? "_blank" : "_self"} className="w-full">
                     <Button 
                       variant="outline" 
-                      className="w-full bg-gray-900/50 border-gray-600 text-white hover:bg-gray-800/70 hover:border-gray-500 transition-colors duration-200 relative z-30"
+                      className="w-full bg-black/50 border-gray-600 text-white hover:bg-black/70 hover:border-gray-500 transition-colors duration-200 relative z-30"
                       onClick={(e) => {
                         e.stopPropagation();
                       }}

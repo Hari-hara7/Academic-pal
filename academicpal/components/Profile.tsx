@@ -132,9 +132,9 @@ const Profile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Enhanced Header */}
-      <div className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 shadow-2xl">
+      <div className="relative bg-black border-b border-gray-700 shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
@@ -166,7 +166,7 @@ const Profile = () => {
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Profile Card */}
-          <Card className="lg:col-span-1 bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+          <Card className="lg:col-span-1 bg-black border-gray-700 shadow-xl">
             <CardContent className="p-6">
               <div className="flex flex-col items-center text-center space-y-6">
                 {/* Avatar Section */}
@@ -227,7 +227,7 @@ const Profile = () => {
           {/* Profile Information */}
           <div className="lg:col-span-2 space-y-6">
             {/* Account Information */}
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+            <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600">
@@ -244,7 +244,7 @@ const Profile = () => {
               <CardContent className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-4">
-                    <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
+                    <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Calendar className="h-4 w-4 text-blue-400" />
                         <span className="text-sm font-medium text-white">Member Since</span>
@@ -252,7 +252,7 @@ const Profile = () => {
                       <p className="text-gray-300">{formatDate(user.metadata?.creationTime)}</p>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
+                    <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Clock className="h-4 w-4 text-green-400" />
                         <span className="text-sm font-medium text-white">Last Sign In</span>
@@ -262,7 +262,7 @@ const Profile = () => {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
+                    <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Shield className="h-4 w-4 text-orange-400" />
                         <span className="text-sm font-medium text-white">Account Status</span>
@@ -270,7 +270,7 @@ const Profile = () => {
                       <p className="text-green-400 font-medium">Active & Verified</p>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
+                    <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Mail className="h-4 w-4 text-purple-400" />
                         <span className="text-sm font-medium text-white">Email Status</span>
@@ -285,7 +285,7 @@ const Profile = () => {
             </Card>
 
             {/* Editable Profile Information */}
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 shadow-xl">
+            <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
