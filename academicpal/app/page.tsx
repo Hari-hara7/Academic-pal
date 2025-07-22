@@ -324,7 +324,7 @@ const Login = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="your.name@nmamit.in"
+                      placeholder="usn@nmamit.in"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="h-12 bg-gray-900/50 border-gray-600 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-gray-500 transition-all"
