@@ -17,7 +17,7 @@ export default function AboutSection() {
       id="about"
       className={`${poppins.className} relative bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-8 md:px-16 lg:px-32 text-white overflow-hidden`}
     >
-      {/* Content */}
+      
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export default function AboutSection() {
         className="relative z-10 max-w-5xl mx-auto text-center"
       >
         <Badge className="mb-4 bg-gradient-to-r from-white to-blue-400 text-black shadow-xl text-sm sm:text-base px-4 py-1 rounded-full">
-          🚀 Empowering Students
+           Empowering Students
         </Badge>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent drop-shadow-xl">
@@ -43,7 +43,7 @@ export default function AboutSection() {
           <span className="text-white font-semibold">real-time chat</span> — all in one place.
         </p>
 
-        {/* Highlight Cards */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 sm:mt-10">
           {[
             {

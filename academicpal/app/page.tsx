@@ -284,24 +284,24 @@ const Login = () => {
                 <motion.div variants={itemVariants} className="space-y-3">
                   <Button
                     variant="outline"
-                    className="w-full h-12 bg-white/10 border-gray-600 hover:bg-white/20 text-white font-medium transition-all duration-300 group"
+                    className="w-full h-12 bg-white/10 border-gray-600 hover:bg-white/20 text-white  font-medium transition-all duration-300 group flex items-center justify-center gap-3"
                     onClick={handleGoogleSignIn}
                     disabled={isLoading}
                   >
-                    <FcGoogle className="mr-3 w-5 h-5" />
+                    <FcGoogle className="w-5 h-5" />
                     <span>Continue with Google</span>
-                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </Button>
                   
                   <Button
                     variant="outline"
-                    className="w-full h-12 bg-white/10 border-gray-600 hover:bg-white/20 text-white font-medium transition-all duration-300 group"
+                    className="w-full h-12 bg-white/10 border-gray-600 hover:bg-white/20 text-white font-medium transition-all duration-300 group flex items-center justify-center gap-3"
                     onClick={handleGithubSignIn}
                     disabled={isLoading}
                   >
-                    <FaGithub className="mr-3 w-5 h-5" />
+                    <FaGithub className="w-5 h-5" />
                     <span>Continue with GitHub</span>
-                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </Button>
                 </motion.div>
 
