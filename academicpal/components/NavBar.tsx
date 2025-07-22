@@ -99,7 +99,7 @@ const NavBar = () => {
                 alt="Academicpal Logo" 
                 width={48} 
                 height={48} 
-                className="rounded-xl transition-transform duration-300 group-hover:scale-105 lg:w-12 lg:h-12" 
+                className="rounded-xl transition-transform duration-300 group-hover:scale-105 lg:w-17 lg:h-12" 
               />
               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
