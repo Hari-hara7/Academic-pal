@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '@/lib/firebase';
 import { FaGoogle, FaCommentAlt, FaQuestionCircle } from 'react-icons/fa';
-import { Button } from '@/components/ui/button';
-import { NeonGradientCard } from '@/components/magicui/neon-gradient-card'; // Make sure the path is correct
+import { motion } from 'framer-motion';
 
 interface AuthProps {
   setUser: (user: any) => void;
@@ -46,56 +45,83 @@ const Auth = ({ setUser }: AuthProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans flex flex-col justify-between">
-      {/* Header */}
-      <header className="w-full p-4 border-b border-white/10 backdrop-blur-md flex justify-end mt-20">
-        <Button
-          onClick={signIn}
-          className="flex items-center gap-2 px-4 py-2 bg-white text-black font-semibold rounded-lg  "
-        >
-          <FaGoogle />
-          Sign in with Google
-        </Button>
-      </header>
+    <div className="min-h-screen relative flex flex-col justify-between overflow-hidden">
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-900 via-black to-blue-900 animate-gradient-x" />
+
+      {/* Floating Orbs */}
+      <div className="absolute top-10 left-5 sm:left-20 w-40 sm:w-64 h-40 sm:h-64 bg-purple-600/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-10 right-5 sm:right-20 w-40 sm:w-64 h-40 sm:h-64 bg-blue-600/30 rounded-full blur-3xl animate-pulse delay-500" />
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col justify-center items-center px-4 text-center">
-        <NeonGradientCard className="w-full max-w-xl p-[1px] rounded-2xl">
-          <section className="space-y-6  backdrop-blur-md bg-black p-8 rounded-2xl shadow-md">
-            <h1 className="text-3xl md:text-4xl font-bold text-white">{text}</h1>
-            <p className="text-gray-300 text-base md:text-lg">
-              Connect, collaborate, and access{' '}
-              <span className="text-blue-400 font-semibold">
-                valuable academic resources
+      <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 py-10 text-center space-y-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="w-full max-w-md sm:max-w-lg md:max-w-2xl"
+        >
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-3xl px-6 sm:px-10 py-8 sm:py-12 space-y-8">
+            {/* Heading */}
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
+                {text}
+              </span>
+            </h1>
+
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mx-auto">
+              Discover, discuss, and access{' '}
+              <span className="font-semibold text-blue-400">
+                powerful academic resources
               </span>{' '}
-              effortlessly.
+              with ease.
             </p>
 
-            {/* Responsive Button Grid */}
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <Button
+            {/* Google Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={signIn}
+              className="relative w-full flex items-center justify-center gap-3 px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold 
+                         bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg 
+                         border border-white/20 backdrop-blur-sm
+                         transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.7)]"
+            >
+              <FaGoogle className="text-lg sm:text-xl" />
+              Continue with Google
+            </motion.button>
+
+            {/* Feature Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={handleProtectedAction}
-                className="w-full flex items-center justify-center gap-2 px-12 sm:px-8 py-3 bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition"
+                className="relative w-full flex items-center justify-center gap-3 px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold
+                           bg-white/10 text-white border border-white/20 backdrop-blur-md
+                           shadow-md transition-all duration-300 hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
               >
-                <FaCommentAlt />
-                <span>Start Chat</span>
-              </Button>
-              <Button
+                <FaCommentAlt className="text-base sm:text-lg" />
+                Start Chat
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={handleProtectedAction}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition"
+                className="relative w-full flex items-center justify-center gap-3 px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold
+                           bg-white/10 text-white border border-white/20 backdrop-blur-md
+                           shadow-md transition-all duration-300 hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
               >
-                <FaQuestionCircle />
-                <span>Ask </span>
-              </Button>
+                <FaQuestionCircle className="text-base sm:text-lg" />
+                Ask
+              </motion.button>
             </div>
-          </section>
-        </NeonGradientCard>
+          </div>
+        </motion.div>
       </main>
 
-      {/* Footer */}
-      <footer className="text-center p-4 text-sm text-gray-500 border-t border-white/10 backdrop-blur-md">
-        &copy; {new Date().getFullYear()} Academic Pal. All rights reserved.
-      </footer>
+    
     </div>
   );
 };
