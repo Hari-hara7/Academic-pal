@@ -53,37 +53,48 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="bg-black text-white py-16 px-4 sm:px-6 md:px-8 lg:px-10 max-w-6xl mx-auto">
+    <section className="relative py-16 px-2 sm:px-4 md:px-8 lg:px-10 max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
+      {/* Gradient background effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#6366f1] opacity-90 blur-sm rounded-3xl" />
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-3xl sm:text-4xl  text-center mb-10 md:mb-12 drop-shadow-md font-bold font-poppins"
+        className="text-3xl sm:text-4xl text-center mb-10 md:mb-14 drop-shadow-lg font-extrabold font-poppins bg-gradient-to-r from-blue-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent"
       >
         Frequently Asked Questions
       </motion.h2>
 
-      <Accordion
-        type="single"
-        collapsible
-        className="space-y-4 w-full"
-      >
-        {faqs.map(({ question, answer }, idx) => (
-          <AccordionItem
-            key={idx}
-            value={`item-${idx}`}
-            className="border border-gray-700 rounded-lg bg-neutral-900 overflow-hidden"
-          >
-            <AccordionTrigger className="text-base sm:text-lg font-semibold px-4 sm:px-6 py-3 sm:py-4 hover:bg-blue-700 hover:text-white transition">
-              {question}
-            </AccordionTrigger>
-            <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-gray-300 text-sm sm:text-base">
-              {answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div className="rounded-2xl shadow-2xl bg-black/80 ring-1 ring-white/10 p-2 sm:p-6 md:p-8">
+        <Accordion
+          type="single"
+          collapsible
+          className="space-y-4 w-full"
+        >
+          {faqs.map(({ question, answer }, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+            >
+              <AccordionItem
+                value={`item-${idx}`}
+                className="border border-gray-700/60 rounded-xl bg-neutral-900/90 overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+              >
+                <AccordionTrigger className="text-base sm:text-lg font-semibold px-4 sm:px-6 py-3 sm:py-4 hover:bg-blue-700/80 hover:text-white transition-colors">
+                  {question}
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-gray-300 text-sm sm:text-base bg-black/60">
+                  {answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
+          ))}
+        </Accordion>
+      </div>
     </section>
   );
 }

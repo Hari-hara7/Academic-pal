@@ -117,8 +117,11 @@ const Footer = () => {
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4" /> Hariharanath247@gmail.com
               </p>
-              <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4" /> +91 7989777877
+              <p className="flex items-center gap-2 flex-wrap break-all text-xs sm:text-sm md:text-base">
+                <Phone className="w-4 h-4 min-w-[1rem] min-h-[2rem]" />
+                <a href="tel:+917989777877" className="hover:underline focus:underline outline-none transition-colors break-all">
+                  +91 7989777877
+                </a>
               </p>
             </div>
 
