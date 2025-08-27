@@ -27,7 +27,7 @@ export default function AboutSection() {
         className="relative z-10 max-w-5xl mx-auto text-center"
       >
         <Badge className="mb-4 bg-gradient-to-r from-white to-blue-400 text-black shadow-xl text-sm sm:text-base px-4 py-1 rounded-full">
-           Empowering Students 🚀
+          🚀 Empowering Students 
         </Badge>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent drop-shadow-xl">
