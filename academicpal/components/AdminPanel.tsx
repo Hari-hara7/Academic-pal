@@ -4,45 +4,68 @@ import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { dbA } from "@/services/firebaseConfig"; // Adjust path to your Project A firebase config
 import { FaLink, FaFileAlt, FaCloudUploadAlt, FaBook } from "react-icons/fa";
+import { toast } from "sonner";
 
-export default function AdminPanel({ user }: { user: any }) {
+interface User {
+  uid?: string;
+  email?: string;
+  displayName?: string;
+  photoURL?: string;
+}
+
+export default function AdminPanel({ user }: { user: User }) {
   const [resourceName, setResourceName] = useState("");
   const [shareableLink, setShareableLink] = useState("");
   const [year, setYear] = useState("");
   const [semester, setSemester] = useState("");
   const [branch, setBranch] = useState("");
   const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (user && user.email?.endsWith("@nmamit.in")) {
-      try {
-        await addDoc(collection(dbA, "resources"), {
-          userEmail: user.email,
-          resourceName,
-          resourceUrl: shareableLink, // using this as main field
-          year,
-          semester,
-          branch,
-          subject,
-          createdAt: new Date(),
-        });
+    if (!user || !user.email?.endsWith("@nmamit.in")) {
+      toast.error("Only @nmamit.in emails are allowed to upload resources.");
+      return;
+    }
 
-        setMessage("Resource uploaded successfully!");
-        setResourceName("");
-        setShareableLink("");
-        setYear("");
-        setSemester("");
-        setBranch("");
-        setSubject("");
-      } catch (error) {
-        console.error("Error uploading resource:", error);
-        setMessage("Upload failed. Try again.");
-      }
-    } else {
-      alert("Only @nmamit.in emails are allowed to upload resources.");
+    // Validate URL format
+    try {
+      new URL(shareableLink);
+    } catch {
+      toast.error("Please enter a valid URL for the shareable link.");
+      return;
+    }
+
+    try {
+      const resourceData = {
+        userEmail: user.email,
+        resourceName: resourceName.trim(),
+        resourceType: "link" as const,
+        resourceUrl: shareableLink,
+        shareableLink: shareableLink,
+        year,
+        semester: parseInt(semester),
+        branch,
+        subject: subject.trim(),
+        createdAt: new Date(),
+      };
+
+      console.log("Uploading resource:", resourceData);
+      
+      await addDoc(collection(dbA, "resources"), resourceData);
+
+      toast.success("Resource uploaded successfully! It should now appear in the resource list.");
+      setResourceName("");
+      setShareableLink("");
+      setYear("");
+      setSemester("");
+      setBranch("");
+      setSubject("");
+    } catch (error) {
+      console.error("Error uploading resource:", error);
+      toast.error(`Upload failed: ${error instanceof Error ? error.message : "Unknown error"}`);
     }
   };
 
@@ -55,12 +78,6 @@ export default function AdminPanel({ user }: { user: any }) {
         <FaCloudUploadAlt className="text-4xl text-cyan-400" />
         Upload Resource
       </h2>
-
-      {message && (
-        <div className="text-center text-sm text-green-400 mb-4">
-          {message}
-        </div>
-      )}
 
       {/* Resource Name */}
       <div className="mb-4">

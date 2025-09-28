@@ -163,13 +163,11 @@ const UploadPage = () => {
             </div>
           </section>
         )}
-        <Home />
+        <Home user={user} />
       </main>
 
       {/* Footer */}
-      <footer className="text-center py-6 text-gray-400 text-xs sm:text-sm border-t border-white/10 backdrop-blur-md">
-        &copy; {new Date().getFullYear()} Academic Pal. All rights reserved.
-      </footer>
+     
     </div>
   );
 };

@@ -229,7 +229,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {(pathname === "/" || pathname === "/signup") && <Loginfooter />}
 
 
-          <Toaster richColors position="top-right" /> {/* ✅ Toast is injected here */}
+          <Toaster 
+            position="top-right"
+            theme="dark"
+            duration={4000}
+            toastOptions={{
+              style: {
+                background: '#1f2937',
+                color: '#fff',
+                border: '1px solid #374151',
+              },
+            }}
+          /> {/* ✅ Toast notifications */}
       </body>
     </html>
   );

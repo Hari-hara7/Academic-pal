@@ -1,43 +1,90 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { dbA } from '@/services/firebaseConfig';
 import ResourceCard from '@/components/ResourceCard';
-import { Search, Filter, Book, GraduationCap, Calendar } from 'lucide-react';
+import { Filter, Book, GraduationCap, Calendar, RefreshCw } from 'lucide-react';
+import { toast } from 'sonner';
+import { Resource } from '@/types/resource';
 
-type Resource = {
-  id: string;
-  year: string;
-  semester: number;
-  branch: string;
-  subject: string;
-  [key: string]: any; // For any extra fields
-};
+interface User {
+  uid?: string;
+  email?: string;
+  displayName?: string;
+  photoURL?: string;
+}
 
-const Home = () => {
+interface HomeProps {
+  user?: User | null;
+}
+
+const Home = ({ user }: HomeProps) => {
   const [resources, setResources] = useState<Resource[]>([]);
   const [filteredResources, setFilteredResources] = useState<Resource[]>([]);
   const [year, setYear] = useState('');
   const [semester, setSemester] = useState('');
   const [branch, setBranch] = useState('');
   const [subject, setSubject] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  const fetchResources = async () => {
+    try {
+      setLoading(true);
+      const querySnapshot = await getDocs(collection(dbA, 'resources'));
+      const data = querySnapshot.docs.map((doc) => {
+        const docData = doc.data();
+        return {
+          id: doc.id,
+          ...docData,
+          // Ensure backward compatibility for existing data
+          shareableLink: docData.shareableLink || docData.resourceUrl,
+          semester: typeof docData.semester === 'string' ? parseInt(docData.semester) : docData.semester,
+        };
+      }) as Resource[];
+      console.log('Fetched resources:', data);
+      setResources(data);
+      setFilteredResources(data);
+      if (data.length === 0) {
+        toast.info('No resources found in the database.');
+      }
+    } catch (error) {
+      console.error('Error fetching resources:', error);
+      toast.error('Failed to load resources. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteResource = async (resourceId: string) => {
+    if (!user) {
+      toast.error('Please sign in to delete resources.');
+      return;
+    }
+
+    // Only allow the specific user with this UID to delete resources
+    const AUTHORIZED_USER_UID = '8wBHYgtKpPQ37go66ivmLtXVF7b2';
+    
+    if (user.uid !== AUTHORIZED_USER_UID) {
+      toast.error('You are not authorized to delete resources.');
+      return;
+    }
+
+    if (window.confirm('Are you sure you want to delete this resource?')) {
+      try {
+        await deleteDoc(doc(dbA, 'resources', resourceId));
+        toast.success('Resource deleted successfully!');
+        console.log('Resource deleted successfully');
+        // Refresh the resources list
+        fetchResources();
+      } catch (error) {
+        console.error('Error deleting resource:', error);
+        toast.error('Failed to delete resource. Please try again.');
+      }
+    }
+  };
 
   useEffect(() => {
-    const fetchResources = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(dbA, 'resources'));
-        const data = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Resource[];
-        setResources(data);
-        setFilteredResources(data);
-      } catch (error) {
-        console.error('Error fetching resources:', error);
-      }
-    };
-
     fetchResources();
   }, []);
 
@@ -60,9 +107,26 @@ const Home = () => {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-cyan-400 mb-6">
-        📚 Explore Resources
-      </h1>
+      <div className="flex flex-col sm:flex-row items-center justify-between mb-6">
+        <div className="text-center sm:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-cyan-400">
+            📚 Explore Resources
+          </h1>
+          {!loading && (
+            <p className="text-gray-400 mt-2">
+              {filteredResources.length} of {resources.length} resources shown
+            </p>
+          )}
+        </div>
+        <button
+          onClick={fetchResources}
+          disabled={loading}
+          className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 border border-cyan-400/50 rounded-lg hover:bg-cyan-500/30 transition-colors disabled:opacity-50"
+        >
+          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+          {loading ? 'Loading...' : 'Refresh'}
+        </button>
+      </div>
 
       <div className="flex flex-wrap md:flex-row flex-col gap-4 justify-center bg-opacity-80 bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-md border border-gray-700 mb-10 overflow-x-auto whitespace-nowrap">
         {/* Year */}
@@ -136,14 +200,24 @@ const Home = () => {
 
       {/* Resource Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredResources.length > 0 ? (
+        {loading ? (
+          <div className="col-span-3 text-center py-12">
+            <RefreshCw className="w-8 h-8 mx-auto text-cyan-400 animate-spin mb-4" />
+            <p className="text-gray-400 text-lg font-semibold">Loading resources...</p>
+          </div>
+        ) : filteredResources.length > 0 ? (
           filteredResources.map((resource) => (
-            <ResourceCard key={resource.id} resource={resource} />
+            <ResourceCard 
+              key={resource.id} 
+              resource={resource} 
+              user={user}
+              onDelete={handleDeleteResource}
+            />
           ))
         ) : (
-          <div className="col-span-3 text-center">
+          <div className="col-span-3 text-center py-12">
             <p className="text-gray-400 text-lg font-semibold">
-              ❌ No resources found. Try adjusting the filters.
+              ❌ No resources found. Try adjusting the filters or uploading some resources.
             </p>
           </div>
         )}

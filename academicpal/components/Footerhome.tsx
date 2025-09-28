@@ -71,7 +71,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/notes" className="hover:text-white flex items-center gap-2">
+                <Link href="/upload" className="hover:text-white flex items-center gap-2">
                   <BookOpen className="w-4 h-4" /> Notes
                 </Link>
               </li>
