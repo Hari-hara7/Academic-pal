@@ -110,39 +110,56 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact + Socials */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
-            <div className="text-sm lg:text-base text-gray-400 space-y-3">
-              <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4" /> Hariharanath247@gmail.com
-              </p>
-              <p className="flex items-center gap-2 flex-wrap break-all text-xs sm:text-sm md:text-base">
-                <Phone className="w-4 h-4 min-w-[1rem] min-h-[2rem]" />
-                <a href="tel:+917989777877" className="hover:underline focus:underline outline-none transition-colors break-all">
-                  +91 7989777877
-                </a>
-              </p>
-            </div>
+       {/* Contact + Socials */}
+<div>
+  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Connect</h3>
+  
+  {/* Contact Info */}
+  <div className="text-sm sm:text-base text-gray-400 space-y-3 mb-4">
+    <div className="flex items-start gap-2">
+      <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" /> 
+      <a 
+        href="mailto:Hariharanath247@gmail.com"
+        className="hover:text-white transition-colors break-words leading-relaxed"
+      >
+        Hariharanath247@gmail.com
+      </a>
+    </div>
+    <div className="flex items-start gap-2">
+      <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
+      <a 
+        href="tel:+917989777877" 
+        className="hover:text-white hover:underline focus:underline outline-none transition-colors"
+      >
+        7989777877
+      </a>
+    </div>
+  </div>
 
-            <div className="mt-4 flex flex-col gap-3 text-gray-400">
-              <a
-                href="https://github.com/Academic-pal"
-                target="_blank"
-                className="hover:text-white flex items-center gap-2"
-              >
-                <Github className="w-4 h-4" /> GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/company/102724699/admin/dashboard/"
-                target="_blank"
-                className="hover:text-white flex items-center gap-2"
-              >
-                <Linkedin className="w-4 h-4" /> LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
+  {/* Social Links */}
+  <div className="flex flex-col gap-3 text-gray-400">
+    <a
+      href="https://github.com/Academic-pal"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white flex items-center gap-2 py-1 transition-colors group"
+    >
+      <Github className="w-4 h-4 flex-shrink-0 group-hover:scale-110 transition-transform" /> 
+      <span>GitHub</span>
+    </a>
+    <a
+      href="https://www.linkedin.com/company/102724699/admin/dashboard/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white flex items-center gap-2 py-1 transition-colors group"
+    >
+      <Linkedin className="w-4 h-4 flex-shrink-0 group-hover:scale-110 transition-transform" /> 
+      <span>LinkedIn</span>
+    </a>
+  </div>
+</div>
+</div>
+
 
         {/* Bottom */}
         <Separator className="my-10 bg-gray-700" />
