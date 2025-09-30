@@ -237,7 +237,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               style: {
                 background: '#000000',
                 color: '#fff',
-                border: '1px solid #374151',
+                border: '1px solid #ffffffff',
               },
             }}
           />
