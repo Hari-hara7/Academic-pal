@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Explore */}
+        
           <div>
             <h3 className="text-lg font-semibold mb-4">Explore</h3>
             <ul className="space-y-3 text-gray-400 text-sm lg:text-base">
@@ -83,7 +83,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
+      
           <div>
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-3 text-gray-400 text-sm lg:text-base">
@@ -110,7 +110,7 @@ const Footer = () => {
             </ul>
           </div>
 
-       {/* Contact + Socials */}
+       
 <div>
   <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Connect</h3>
   
@@ -136,7 +136,7 @@ const Footer = () => {
     </div>
   </div>
 
-  {/* Social Links */}
+  
   <div className="flex flex-col gap-3 text-gray-400">
     <a
       href="https://github.com/Academic-pal"
@@ -161,7 +161,7 @@ const Footer = () => {
 </div>
 
 
-        {/* Bottom */}
+       
         <Separator className="my-10 bg-gray-700" />
         <div className="flex flex-col lg:flex-row justify-between items-center text-xs lg:text-sm text-gray-500 gap-2">
           <span>© 2025 Academic Pal. All rights reserved.</span>
