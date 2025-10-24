@@ -22,7 +22,8 @@ import {
   Sparkles,
   ChevronRight,
   Star,
-  Zap
+  Zap,
+  Bot
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -63,6 +64,19 @@ const features = [
     category: 'Resources',
     isPopular: false,
   },
+  {
+  title: 'AI Study Assistant',
+  description: 'Get instant academic help powered by Gemini Flash 2.5 — ask doubts, generate notes, or get study guidance.',
+  icon: Bot,
+  iconColor: 'text-sky-400',
+  bgGradient: 'from-sky-500/10 to-cyan-500/10',
+  borderColor: 'border-sky-500/30',
+  link: '/ai-assistant',
+  buttonText: 'Ask AI Assistant',
+  category: 'Productivity',
+  isPopular: true,
+}
+,
   {
     title: 'Create & Explore Mindtrees',
     description: 'Visualize your learning with interactive mind maps for complex topics.',

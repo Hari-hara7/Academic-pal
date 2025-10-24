@@ -207,14 +207,14 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/about">
+                <Link href="/ai-assistant">
                   <Button 
                     variant="outline" 
                     size="lg" 
                     className="w-full sm:w-auto h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-10 text-base sm:text-lg md:text-xl font-semibold bg-transparent border-2 border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded-xl sm:rounded-2xl transition-all duration-300 group"
                   >
                     <div className="flex items-center gap-2 sm:gap-3">
-                    learn more
+                    Ai-Assistant
                       <motion.div
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
