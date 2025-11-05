@@ -23,9 +23,9 @@ import { toast } from 'sonner';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
 });
 
 const containerVariants = {
@@ -35,14 +35,14 @@ const containerVariants = {
     y: 0,
     transition: {
       delayChildren: 0.2,
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
+  visible: { y: 0, opacity: 1 },
 };
 
 const SignUp = () => {
@@ -93,6 +93,7 @@ const SignUp = () => {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
 
     if (!acceptTerms) {
       setError('You must accept the Terms & Conditions to continue.');
@@ -130,94 +131,66 @@ const SignUp = () => {
 
   return (
     <div className={`${inter.className} min-h-screen bg-black text-white overflow-hidden relative`}>
-      {/* Enhanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-transparent to-purple-950/10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(147,51,234,0.08),transparent_50%)]" />
-        
-        {/* Animated orbs */}
-        <motion.div 
-          animate={{ 
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ 
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-blue-500/5 rounded-full blur-3xl" 
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.04),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.035),transparent_55%)]" />
+        <motion.div
+          animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-white/5 rounded-full blur-3xl"
         />
-        <motion.div 
-          animate={{ 
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-            scale: [1, 0.8, 1]
-          }}
-          transition={{ 
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5
-          }}
-          className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 h-40 sm:h-56 md:h-72 bg-purple-500/4 rounded-full blur-3xl" 
+        <motion.div
+          animate={{ x: [0, -80, 0], y: [0, 60, 0], scale: [1, 0.9, 1] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
+          className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 h-40 sm:h-56 md:h-72 bg-white/5 rounded-full blur-3xl"
         />
       </div>
 
-      {/* Main Content */}
       <div className="relative flex min-h-screen">
-        {/* Left Side - Hidden on mobile, visible on large screens */}
-        <div className="hidden lg:flex lg:w-1/2 xl:w-3/5 items-center justify-center p-8 xl:p-12">
+        <div className="hidden lg:flex lg:w-1/2 xl:w-3/5 items-center justify-center p-6 lg:p-8 xl:p-12">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="max-w-lg xl:max-w-xl space-y-6 xl:space-y-8"
           >
-            {/* Logo/Brand */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3">
-              
-            </motion.div>
-
-            {/* Heading */}
             <motion.div variants={itemVariants} className="space-y-4">
-              <h2 className="text-4xl xl:text-5xl font-black leading-tight">
+              <h2 className="text-4xl xl:text-5xl font-black leading-tight tracking-tight text-white">
                 Start your journey to
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                  Academic Excellence
-                </span>
+                <span className="block mt-2 text-white/80">Academic Excellence</span>
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-lg xl:text-xl text-white/70 leading-relaxed font-medium">
                 Join thousands of students transforming their academic journey with AI-powered study tools and personalized learning paths.
               </p>
             </motion.div>
 
-            {/* Features */}
-            <motion.div variants={itemVariants} className="space-y-4">
+            <motion.div variants={itemVariants} className="space-y-3">
               {[
-                { icon: Shield, text: "Secure Google Integration" },
-                { icon: Users, text: "Join 4,000+ Students" },
-                { icon: Sparkles, text: "AI-Powered Study Tools" },
-                { icon: Star, text: "Top-Rated Platform" }
+                { icon: Shield, text: 'Secure Google Integration' },
+                { icon: Users, text: 'Join 4,000+ Students' },
+                { icon: Sparkles, text: 'AI-Powered Study Tools' },
+                { icon: Star, text: 'Top-Rated Platform' },
               ].map((feature, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-gray-900/50 to-gray-800/30 border border-gray-700/50 backdrop-blur-sm"
+                  variants={itemVariants}
+                  whileHover={{ x: 8, scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="p-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg">
-                    <feature.icon className="w-5 h-5 text-blue-400" />
+                  <div className="p-2.5 bg-gradient-to-r from-white/10 to-white/5 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-5 h-5 text-white/80" />
                   </div>
-                  <span className="text-gray-300 font-medium">{feature.text}</span>
+                  <span className="text-white/80 group-hover:text-white font-medium transition-colors duration-300">
+                    {feature.text}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Right Side - Sign Up Form */}
         <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           <motion.div
             variants={containerVariants}
@@ -225,59 +198,52 @@ const SignUp = () => {
             animate="visible"
             className="w-full max-w-md"
           >
-            <Card className="bg-black/80 backdrop-blur-sm border border-white-500/10 shadow-2xl shadow-blue-500/10">
+            <Card className="bg-black/70 backdrop-blur-sm border border-white/15 shadow-2xl shadow-white/5">
               <CardHeader className="space-y-4 pb-6">
-                {/* Mobile Logo */}
-                <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4">
-                  
-                </motion.div>
-
+                <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4"></motion.div>
                 <motion.div variants={itemVariants} className="text-center space-y-2">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white">Create Account</h2>
-                  <p className="text-gray-400">Join the academic revolution today</p>
+                  <p className="text-white/60">Join the academic revolution today</p>
                 </motion.div>
               </CardHeader>
 
               <CardContent className="space-y-6">
-                {/* Social Sign Up Buttons */}
                 <motion.div variants={itemVariants} className="space-y-3">
                   <Button
                     variant="outline"
-                    className="w-full h-12 bg-white/10 border-gray-600 hover:bg-white/20 text-white font-medium transition-all duration-300 group flex items-center justify-center gap-3"
+                    className="w-full h-12 rounded-xl bg-white text-black border border-white/20 hover:bg-neutral-100 active:bg-neutral-200 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-sm hover:shadow"
                     onClick={handleGoogleSignUp}
                     disabled={isLoading}
                   >
                     <FcGoogle className="w-5 h-5" />
                     <span>Continue with Google</span>
-                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-black" />
                   </Button>
-                  
+
                   <Button
                     variant="outline"
-                    className="w-full h-12 bg-white/10 border-gray-600 hover:bg-white/20 text-white font-medium transition-all duration-300 group flex items-center justify-center gap-3"
+                    className="w-full h-12 rounded-xl bg-white text-black border border-white/20 hover:bg-neutral-100 active:bg-neutral-200 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-sm hover:shadow"
                     onClick={handleGithubSignUp}
                     disabled={isLoading}
                   >
                     <FaGithub className="w-5 h-5" />
                     <span>Continue with GitHub</span>
-                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-black" />
                   </Button>
                 </motion.div>
 
-                {/* Divider */}
                 <motion.div variants={itemVariants} className="relative">
                   <div className="absolute inset-0 flex items-center">
-                    <Separator className="w-full bg-gray-600" />
+                    <Separator className="w-full bg-white/15" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-black px-4 text-gray-400 font-medium">Or continue with email</span>
+                    <span className="bg-black px-4 text-white/60 font-medium">Or continue with email</span>
                   </div>
                 </motion.div>
 
-                {/* Sign Up Form */}
                 <motion.form variants={itemVariants} onSubmit={handleSignUp} className="space-y-5">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm font-medium text-gray-300">
+                    <Label htmlFor="name" className="text-sm font-medium text-white/80">
                       Full Name
                     </Label>
                     <Input
@@ -286,14 +252,14 @@ const SignUp = () => {
                       placeholder="Enter your full name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="h-12 bg-gray-900/50 border-gray-600 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-gray-500 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
                       required
                       disabled={isLoading}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="usn" className="text-sm font-medium text-gray-300">
+                    <Label htmlFor="usn" className="text-sm font-medium text-white/80">
                       USN
                     </Label>
                     <Input
@@ -302,14 +268,14 @@ const SignUp = () => {
                       placeholder="Enter your USN"
                       value={usn}
                       onChange={(e) => setUsn(e.target.value)}
-                      className="h-12 bg-gray-900/50 border-gray-600 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-gray-500 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
                       required
                       disabled={isLoading}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium text-gray-300">
+                    <Label htmlFor="email" className="text-sm font-medium text-white/80">
                       NMAMIT Email
                     </Label>
                     <Input
@@ -318,54 +284,54 @@ const SignUp = () => {
                       placeholder="usn@nmamit.in"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 bg-gray-900/50 border-gray-600 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-gray-500 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
                       required
                       disabled={isLoading}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password" className="text-sm font-medium text-gray-300">
+                    <Label htmlFor="password" className="text-sm font-medium text-white/80">
                       Password
                     </Label>
                     <div className="relative">
                       <Input
                         id="password"
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? 'text' : 'password'}
                         placeholder="Create a strong password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="h-12 bg-gray-900/50 border-gray-600 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-gray-500 pr-12 transition-all"
+                        className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 pr-12 transition-all"
                         required
                         disabled={isLoading}
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300 transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+                        disabled={isLoading}
                       >
                         {showPassword ? <FaEyeSlash className="w-5 h-5" /> : <FaEye className="w-5 h-5" />}
                       </button>
                     </div>
                   </div>
 
-                  {/* Terms Checkbox */}
                   <div className="flex items-start gap-3 pt-2">
                     <input
                       type="checkbox"
                       id="terms"
                       checked={acceptTerms}
                       onChange={() => setAcceptTerms(!acceptTerms)}
-                      className="w-4 h-4 mt-1 rounded border-gray-600 bg-gray-900/50 text-blue-600 focus:ring-blue-500/20 transition-all duration-300"
+                      className="w-4 h-4 mt-1 rounded border-white/20 bg-black/40 text-black focus:ring-white/20 transition-all duration-300"
                       disabled={isLoading}
                     />
-                    <label htmlFor="terms" className="text-sm text-gray-400 leading-relaxed">
+                    <label htmlFor="terms" className="text-sm text-white/70 leading-relaxed">
                       I agree to the{' '}
-                      <Link href="/terms-and-conditions" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">
+                      <Link href="/terms-and-conditions" className="text-white hover:text-white/80 underline underline-offset-2 transition-colors">
                         Terms & Conditions
-                      </Link>
-                      {' '}and{' '}
-                      <Link href="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">
+                      </Link>{' '}
+                      and{' '}
+                      <Link href="/privacy-policy" className="text-white hover:text-white/80 underline underline-offset-2 transition-colors">
                         Privacy Policy
                       </Link>
                     </label>
@@ -377,24 +343,24 @@ const SignUp = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg"
                     >
-                      <p className="text-red-400 text-sm">{error}</p>
+                      <p className="text-red-300 text-sm">{error}</p>
                     </motion.div>
                   )}
 
-                  <Button 
-                    type="submit" 
-                    className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 font-semibold text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 group"
+                  <Button
+                    type="submit"
+                    className="w-full h-12 rounded-xl bg-white text-black hover:bg-neutral-100 active:bg-neutral-200 border border-white/20 font-semibold shadow-sm hover:shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={!acceptTerms || isLoading}
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                         <span>Creating Account...</span>
                       </div>
                     ) : (
                       <div className="flex items-center gap-3">
                         <span>Create Account</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4 text-black" />
                       </div>
                     )}
                   </Button>
@@ -403,12 +369,9 @@ const SignUp = () => {
 
               <CardFooter className="space-y-4 pt-6">
                 <motion.div variants={itemVariants} className="w-full text-center space-y-3">
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-white/60">
                     Already have an account?{' '}
-                    <Link 
-                      href="/" 
-                      className="text-blue-400 hover:text-blue-300 hover:underline font-medium transition-colors"
-                    >
+                    <Link href="/" className="text-white hover:underline underline-offset-4 font-medium transition-colors">
                       Sign in here
                     </Link>
                   </p>
