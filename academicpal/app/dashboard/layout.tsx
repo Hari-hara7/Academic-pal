@@ -9,11 +9,11 @@ import {
 } from 'lucide-react';
 import { FaProjectDiagram, FaPenNib, FaUsers, FaComments } from 'react-icons/fa';
 import { Toaster } from 'sonner';
-import { Input } from '@/components/ui/input'; // ✅ Import Input
+import { Input } from '@/components/ui/input'; //  Import Input
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // ✅ Search term state
+  const [searchTerm, setSearchTerm] = useState(''); // Search term state
 
   const navItems = [
     { href: '/dashboard', icon: <Home className="h-4 w-4" />, label: 'Home' },
@@ -29,7 +29,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     { href: '/dashboard/tutoring', icon: <GraduationCap className="h-4 w-4" />, label: 'Tutoring' },
   ];
 
-  // ✅ Filter navItems based on searchTerm
+   
   const filteredItems = navItems.filter(item =>
     item.label.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </Button>
       </div>
 
-      {/* Sidebar */}
+    
       <aside
         className={`fixed top-0 left-0 z-40 h-screen w-64 bg-black border-r border-white/20 transition-transform duration-300 ease-in-out p-6 lg:translate-x-0 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -60,7 +60,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           Academic <span className="text-blue-400">Pal</span>
         </h1>
 
-        {/* ✅ Search Bar */}
+      
         <Input
           placeholder="Search components..."
           className="mb-4 bg-transparent text-white border-white placeholder-white focus-visible:ring-blue-400"
