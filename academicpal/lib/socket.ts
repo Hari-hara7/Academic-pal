@@ -1,4 +1,4 @@
-import { io, Socket } from 'socket.io-client';
+import { io, Socket } from "socket.io-client";
 
 let socket: Socket;
 
@@ -10,6 +10,6 @@ export function initSocket() {
 }
 
 export function getSocket(): Socket {
-  if (!socket) throw new Error('Socket not initialized');
+  if (!socket) throw new Error("Socket not initialized");
   return socket;
 }

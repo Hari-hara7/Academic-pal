@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { TimetableType } from '@/types/timetable';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Pencil, Trash2, CalendarPlus } from 'lucide-react';
-import { Card, CardHeader, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge';
+import { useEffect, useState } from "react";
+import { TimetableType } from "@/types/timetable";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Pencil, Trash2, CalendarPlus } from "lucide-react";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 
 export default function TimetableListPage() {
   const [timetables, setTimetables] = useState<TimetableType[]>([]);
@@ -15,9 +15,9 @@ export default function TimetableListPage() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch('/api/timetable/get');
+        const res = await fetch("/api/timetable/get");
         const data = await res.json();
-        console.log('Fetched data:', data);
+        console.log("Fetched data:", data);
 
         if (Array.isArray(data)) {
           setTimetables(data);
@@ -27,7 +27,7 @@ export default function TimetableListPage() {
           setTimetables([]);
         }
       } catch (error) {
-        console.error('Error fetching timetables:', error);
+        console.error("Error fetching timetables:", error);
         setTimetables([]);
       }
     }
@@ -39,7 +39,9 @@ export default function TimetableListPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Your Timetables</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            Your Timetables
+          </h1>
           <Link href="/dashboard/timetable/create" className="w-full sm:w-auto">
             <Button className="w-full sm:w-auto bg-white text-black font-medium hover:bg-gray-100 transition flex items-center justify-center sm:justify-start gap-2 px-5 py-2 rounded-xl shadow-lg">
               <CalendarPlus className="w-4 h-4" />
@@ -58,7 +60,9 @@ export default function TimetableListPage() {
               >
                 <CardHeader>
                   <div className="flex justify-between items-center gap-2 flex-wrap">
-                    <h2 className="text-lg md:text-xl font-semibold text-white break-words">{tt.title}</h2>
+                    <h2 className="text-lg md:text-xl font-semibold text-white break-words">
+                      {tt.title}
+                    </h2>
                     <Badge className="bg-white/10 text-white border border-white/40 whitespace-nowrap">
                       {tt.days.length} days
                     </Badge>
@@ -72,8 +76,10 @@ export default function TimetableListPage() {
                       <ul className="ml-4 list-disc text-white/60">
                         {day.subjects.map((subject, sIdx) => (
                           <li key={sIdx}>
-                            <span className="text-white font-medium">{subject.name}</span> —{' '}
-                            {subject.time}
+                            <span className="text-white font-medium">
+                              {subject.name}
+                            </span>{" "}
+                            — {subject.time}
                           </li>
                         ))}
                       </ul>
@@ -105,7 +111,9 @@ export default function TimetableListPage() {
               </Card>
             ))
           ) : (
-            <p className="col-span-full text-center text-white/60">No timetables found.</p>
+            <p className="col-span-full text-center text-white/60">
+              No timetables found.
+            </p>
           )}
         </div>
       </div>

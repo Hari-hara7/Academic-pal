@@ -39,16 +39,12 @@ export function TimelineDemo() {
                   <h3 className="text-lg font-bold text-white">
                     The Beginning
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Foundation & Launch
-                  </p>
+                  <p className="text-xs text-gray-400">Foundation & Launch</p>
                 </div>
               </div>
               <p className="mb-3 text-sm leading-relaxed text-gray-300">
                 Academic Pal started with a{" "}
-                <span className="font-semibold text-blue-400">
-                  bold vision
-                </span>{" "}
+                <span className="font-semibold text-blue-400">bold vision</span>{" "}
                 to democratize quality education. Built with{" "}
                 <span className="rounded bg-white/5 px-2 py-0.5 font-mono text-xs text-blue-400">
                   HTML, CSS, JavaScript
@@ -193,17 +189,13 @@ export function TimelineDemo() {
                   <h3 className="text-lg font-bold text-white">
                     Next Generation
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    AI-Powered & Scalable
-                  </p>
+                  <p className="text-xs text-gray-400">AI-Powered & Scalable</p>
                 </div>
               </div>
               <p className="mb-4 text-sm leading-relaxed text-gray-300">
                 Academic Pal enters the{" "}
-                <span className="font-semibold text-blue-400">
-                  AI era
-                </span>{" "}
-                with cutting-edge technologies and intelligent features.
+                <span className="font-semibold text-blue-400">AI era</span> with
+                cutting-edge technologies and intelligent features.
               </p>
               <div className="mb-4 grid grid-cols-3 gap-2 md:grid-cols-4">
                 <div className="rounded-lg bg-white/5 border border-white/10 px-2 py-1.5 text-center">
@@ -222,17 +214,13 @@ export function TimelineDemo() {
                   </p>
                 </div>
                 <div className="rounded-lg bg-white/5 border border-white/10 px-2 py-1.5 text-center">
-                  <p className="text-[10px] font-medium text-blue-400">
-                    AI/ML
-                  </p>
+                  <p className="text-[10px] font-medium text-blue-400">AI/ML</p>
                 </div>
               </div>
               <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-2xl font-bold text-blue-400">
-                      4,000+
-                    </p>
+                    <p className="text-2xl font-bold text-blue-400">4,000+</p>
                     <p className="text-xs text-gray-400">Active Users</p>
                   </div>
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 shadow-lg shadow-blue-500/40">
@@ -255,12 +243,8 @@ export function TimelineDemo() {
             <div className="absolute bottom-4 left-4 right-4">
               <div className="flex items-center justify-between rounded-lg bg-black/60 border border-blue-500/30 px-4 py-3 backdrop-blur-sm">
                 <div>
-                  <p className="text-sm font-bold text-white">
-                    Record Growth
-                  </p>
-                  <p className="text-xs text-gray-300">
-                    300% increase in 2025
-                  </p>
+                  <p className="text-sm font-bold text-white">Record Growth</p>
+                  <p className="text-xs text-gray-300">300% increase in 2025</p>
                 </div>
                 <Award className="h-6 w-6 text-blue-500" />
               </div>

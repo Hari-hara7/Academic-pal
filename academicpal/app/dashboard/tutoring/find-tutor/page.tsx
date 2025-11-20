@@ -1,53 +1,53 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Star, Users, Search } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Star, Users, Search } from "lucide-react";
 
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Tutor } from '@/types/tutor';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tutor } from "@/types/tutor";
 
 const SUBJECT_OPTIONS: Record<string, string[]> = {
-  '1st Year': [
-    'Engineering Mathematics-I',
-    'Engineering Physics',
-    'Basic Electrical',
-    'C Programming',
-    'Environmental Science',
+  "1st Year": [
+    "Engineering Mathematics-I",
+    "Engineering Physics",
+    "Basic Electrical",
+    "C Programming",
+    "Environmental Science",
   ],
-  '2nd Year': [
-    'Data Structures',
-    'Object-Oriented Programming',
-    'Digital Logic Design',
-    'Discrete Mathematics',
-    'Database Systems',
+  "2nd Year": [
+    "Data Structures",
+    "Object-Oriented Programming",
+    "Digital Logic Design",
+    "Discrete Mathematics",
+    "Database Systems",
   ],
-  '3rd Year': [
-    'Operating Systems',
-    'Computer Networks',
-    'Web Technologies',
-    'Software Engineering',
-    'Machine Learning',
+  "3rd Year": [
+    "Operating Systems",
+    "Computer Networks",
+    "Web Technologies",
+    "Software Engineering",
+    "Machine Learning",
   ],
-  '4th Year': [
-    'Cloud Computing',
-    'Cyber Security',
-    'Blockchain Technology',
-    'Big Data Analytics',
-    'Project Management',
+  "4th Year": [
+    "Cloud Computing",
+    "Cyber Security",
+    "Blockchain Technology",
+    "Big Data Analytics",
+    "Project Management",
   ],
 };
 
-const AVAILABILITY_OPTIONS = ['Mornings', 'Afternoons', 'Evenings', 'Weekends'];
+const AVAILABILITY_OPTIONS = ["Mornings", "Afternoons", "Evenings", "Weekends"];
 
 export default function FindTutorPage() {
   const [tutors, setTutors] = useState<Tutor[]>([]);
-  const [subject, setSubject] = useState('');
-  const [year, setYear] = useState('');
-  const [availability, setAvailability] = useState('');
+  const [subject, setSubject] = useState("");
+  const [year, setYear] = useState("");
+  const [availability, setAvailability] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -57,9 +57,10 @@ export default function FindTutorPage() {
 
     if (subject) query.push(`subject=${encodeURIComponent(subject)}`);
     if (year) query.push(`year=${encodeURIComponent(year)}`);
-    if (availability) query.push(`availability=${encodeURIComponent(availability)}`);
+    if (availability)
+      query.push(`availability=${encodeURIComponent(availability)}`);
 
-    const res = await fetch(`/api/tutoring/tutors/list?${query.join('&')}`);
+    const res = await fetch(`/api/tutoring/tutors/list?${query.join("&")}`);
     const data = await res.json();
 
     if (data.success) setTutors(data.tutors);
@@ -79,7 +80,8 @@ export default function FindTutorPage() {
             <h2 className="text-3xl sm:text-4xl font-bold">Find a Tutor</h2>
           </div>
           <p className="text-sm text-gray-400 max-w-md">
-            Browse verified student tutors based on year, subject, and availability.
+            Browse verified student tutors based on year, subject, and
+            availability.
           </p>
         </div>
 
@@ -120,7 +122,9 @@ export default function FindTutorPage() {
             </div>
 
             <div>
-              <label className="text-sm text-white mb-1 block">Availability</label>
+              <label className="text-sm text-white mb-1 block">
+                Availability
+              </label>
               <select
                 value={availability}
                 onChange={(e) => setAvailability(e.target.value)}
@@ -142,7 +146,7 @@ export default function FindTutorPage() {
                 className="w-full bg-white text-black hover:bg-gray-200"
               >
                 <Search className="w-4 h-4 mr-2" />
-                {loading ? 'Searching...' : 'Search'}
+                {loading ? "Searching..." : "Search"}
               </Button>
             </div>
           </CardContent>
@@ -150,7 +154,9 @@ export default function FindTutorPage() {
 
         {/* Tutors List */}
         {tutors.length === 0 ? (
-          <div className="text-center text-gray-500 text-sm">No tutors found. Try adjusting your filters.</div>
+          <div className="text-center text-gray-500 text-sm">
+            No tutors found. Try adjusting your filters.
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {tutors.map((tutor) => (
@@ -160,25 +166,41 @@ export default function FindTutorPage() {
               >
                 <CardContent className="p-6 space-y-3">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-semibold text-white">{tutor.name}</h3>
-                    <Badge variant="outline" className="bg-white/10 border-white/30 text-white">
+                    <h3 className="text-xl font-semibold text-white">
+                      {tutor.name}
+                    </h3>
+                    <Badge
+                      variant="outline"
+                      className="bg-white/10 border-white/30 text-white"
+                    >
                       {tutor.branch} - Year {tutor.year}
                     </Badge>
                   </div>
 
                   <div className="text-sm text-white/80 space-y-1">
-                    <p><strong>Subjects:</strong> {tutor.subjects?.join(', ') || 'N/A'}</p>
-                    <p><strong>Availability:</strong> {tutor.availability?.join(', ') || 'N/A'}</p>
-                    <p><strong>Teaching Modes:</strong> {tutor.teachingModes?.join(', ') || 'N/A'}</p>
+                    <p>
+                      <strong>Subjects:</strong>{" "}
+                      {tutor.subjects?.join(", ") || "N/A"}
+                    </p>
+                    <p>
+                      <strong>Availability:</strong>{" "}
+                      {tutor.availability?.join(", ") || "N/A"}
+                    </p>
+                    <p>
+                      <strong>Teaching Modes:</strong>{" "}
+                      {tutor.teachingModes?.join(", ") || "N/A"}
+                    </p>
                   </div>
 
                   <div className="flex items-center gap-1 text-yellow-400 text-sm">
                     <Star className="h-4 w-4" />
-                    {tutor.rating?.toFixed(1) || 'No rating yet'}
+                    {tutor.rating?.toFixed(1) || "No rating yet"}
                   </div>
 
                   <Button
-                    onClick={() => router.push(`/dashboard/tutoring/schedule/${tutor._id}`)}
+                    onClick={() =>
+                      router.push(`/dashboard/tutoring/schedule/${tutor._id}`)
+                    }
                     className="w-full mt-3 bg-white text-black hover:bg-gray-200"
                   >
                     Connect

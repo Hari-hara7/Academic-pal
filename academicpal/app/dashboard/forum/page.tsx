@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { ForumPost } from '@/types/forum';
-import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { formatDistanceToNow } from 'date-fns';
-import { Button } from '@/components/ui/button';
-import { Plus, MessageCircle } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { ForumPost } from "@/types/forum";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { formatDistanceToNow } from "date-fns";
+import { Button } from "@/components/ui/button";
+import { Plus, MessageCircle } from "lucide-react";
 
 export default function ForumPage() {
   const [threads, setThreads] = useState<ForumPost[]>([]);
 
   useEffect(() => {
     const fetchThreads = async () => {
-      const res = await fetch('/api/forum/get');
+      const res = await fetch("/api/forum/get");
       const data = await res.json();
       if (data.success) {
         setThreads(data.posts);
@@ -30,14 +30,19 @@ export default function ForumPage() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div className="flex items-center gap-3">
           <MessageCircle className="h-6 w-6 text-white/80" />
-          <h1 className="text-3xl font-semibold tracking-tight mt-4">Student Forum</h1>
+          <h1 className="text-3xl font-semibold tracking-tight mt-4">
+            Student Forum
+          </h1>
         </div>
         <Button
           variant="ghost"
           className="bg-white text-black hover:bg-white/90 transition"
           asChild
         >
-          <Link href="/dashboard/forum/create" className="flex items-center gap-2 font-medium">
+          <Link
+            href="/dashboard/forum/create"
+            className="flex items-center gap-2 font-medium"
+          >
             <Plus className="h-4 w-4" />
             New Thread
           </Link>
@@ -63,8 +68,11 @@ export default function ForumPage() {
                 </Link>
 
                 <div className="text-sm text-white/70">
-                  Posted by <span className="text-white font-medium">{thread.username}</span> •{' '}
-                  {formatDistanceToNow(new Date(thread.createdAt ?? ''))} ago
+                  Posted by{" "}
+                  <span className="text-white font-medium">
+                    {thread.username}
+                  </span>{" "}
+                  • {formatDistanceToNow(new Date(thread.createdAt ?? ""))} ago
                 </div>
 
                 <div className="flex flex-wrap gap-2 mt-2">

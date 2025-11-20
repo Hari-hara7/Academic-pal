@@ -8,9 +8,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white py-10 border-t border-white/10">
       <div className="container mx-auto px-6 font-sans">
-      
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-         
           <div className="flex flex-col items-center md:items-start">
             <h1 className="text-4xl  text-white font-bold font-poppins">
               Academic <span className="text-blue-500">Pal</span>

@@ -8,10 +8,7 @@ export function Glow() {
     <section className="py-16 px-6 md:px-12 bg-black text-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 font-bold font-poppins">
-          Why Choose{" "}
-         
-            Academic Pal
-         
+          Why Choose Academic Pal
         </h2>
 
         <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">

@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "All fields are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -20,6 +20,9 @@ export async function POST(req: Request) {
     return NextResponse.json(feedback);
   } catch (error) {
     console.error("POST /feedback error:", error);
-    return NextResponse.json({ error: "Failed to submit feedback" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to submit feedback" },
+      { status: 500 },
+    );
   }
 }

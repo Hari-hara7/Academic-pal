@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const NewsletterSignup = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -15,7 +15,9 @@ const NewsletterSignup = () => {
 
   return (
     <section className="py-20 px-6 bg-black border border-white/20 text-white text-center rounded-xl max-w-3xl mx-auto">
-      <h2 className="text-3xl font-bold mb-4">Subscribe to our <span className="text-blue-500">Newsletter</span></h2>
+      <h2 className="text-3xl font-bold mb-4">
+        Subscribe to our <span className="text-blue-500">Newsletter</span>
+      </h2>
       {!submitted ? (
         <form onSubmit={handleSubmit} className="flex max-w-md mx-auto">
           <input

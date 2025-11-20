@@ -1,14 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
   User as FirebaseUser,
-} from 'firebase/auth';
-import { auth, googleProvider, githubProvider } from '@/services/firebaseConfig';
-import { LogOut, User, Github, Google } from 'lucide-react';
+} from "firebase/auth";
+import {
+  auth,
+  googleProvider,
+  githubProvider,
+} from "@/services/firebaseConfig";
+import { LogOut, User, Github, Google } from "lucide-react";
 
 const SignInPage = () => {
   const [user, setUser] = useState<FirebaseUser | null>(null);
@@ -25,7 +29,7 @@ const SignInPage = () => {
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (error) {
-      console.error('Google Sign-in Error', error);
+      console.error("Google Sign-in Error", error);
     }
   };
 
@@ -33,7 +37,7 @@ const SignInPage = () => {
     try {
       await signInWithPopup(auth, githubProvider);
     } catch (error) {
-      console.error('GitHub Sign-in Error', error);
+      console.error("GitHub Sign-in Error", error);
     }
   };
 
@@ -41,7 +45,7 @@ const SignInPage = () => {
     try {
       await signOut(auth);
     } catch (error) {
-      console.error('Sign-out Error', error);
+      console.error("Sign-out Error", error);
     }
   };
 
@@ -50,7 +54,9 @@ const SignInPage = () => {
       {user ? (
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-80">
           <User size={48} className="mx-auto mb-3 text-cyan-400" />
-          <h2 className="text-2xl font-semibold">Welcome, {user.displayName}</h2>
+          <h2 className="text-2xl font-semibold">
+            Welcome, {user.displayName}
+          </h2>
           <p className="text-gray-400">{user.email}</p>
           <button
             onClick={handleSignOut}

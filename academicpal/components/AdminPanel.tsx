@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
@@ -20,7 +20,6 @@ export default function AdminPanel({ user }: { user: User }) {
   const [semester, setSemester] = useState("");
   const [branch, setBranch] = useState("");
   const [subject, setSubject] = useState("");
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,10 +52,12 @@ export default function AdminPanel({ user }: { user: User }) {
       };
 
       console.log("Uploading resource:", resourceData);
-      
+
       await addDoc(collection(dbA, "resources"), resourceData);
 
-      toast.success("Resource uploaded successfully! It should now appear in the resource list.");
+      toast.success(
+        "Resource uploaded successfully! It should now appear in the resource list.",
+      );
       setResourceName("");
       setShareableLink("");
       setYear("");
@@ -65,7 +66,9 @@ export default function AdminPanel({ user }: { user: User }) {
       setSubject("");
     } catch (error) {
       console.error("Error uploading resource:", error);
-      toast.error(`Upload failed: ${error instanceof Error ? error.message : "Unknown error"}`);
+      toast.error(
+        `Upload failed: ${error instanceof Error ? error.message : "Unknown error"}`,
+      );
     }
   };
 
@@ -81,7 +84,10 @@ export default function AdminPanel({ user }: { user: User }) {
 
       {/* Resource Name */}
       <div className="mb-4">
-        <label htmlFor="resourceName" className="text-gray-300 font-medium mb-2 block">
+        <label
+          htmlFor="resourceName"
+          className="text-gray-300 font-medium mb-2 block"
+        >
           <FaFileAlt className="inline-block mr-2 text-gray-400" />
           Resource Name
         </label>
@@ -98,7 +104,10 @@ export default function AdminPanel({ user }: { user: User }) {
 
       {/* Shareable Link */}
       <div className="mb-4">
-        <label htmlFor="shareableLink" className="text-gray-300 font-medium mb-2 block">
+        <label
+          htmlFor="shareableLink"
+          className="text-gray-300 font-medium mb-2 block"
+        >
           <FaLink className="inline-block mr-2 text-gray-400" />
           Shareable Link (Drive, etc.)
         </label>
@@ -132,7 +141,9 @@ export default function AdminPanel({ user }: { user: User }) {
         </div>
 
         <div>
-          <label className="text-gray-300 font-medium mb-2 block">Semester</label>
+          <label className="text-gray-300 font-medium mb-2 block">
+            Semester
+          </label>
           <select
             value={semester}
             onChange={(e) => setSemester(e.target.value)}

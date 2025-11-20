@@ -6,7 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "motion/react";
-import { Loader2, User, Mail, HelpCircle, MessageSquare, LifeBuoy, Zap, Smile } from "lucide-react";
+import {
+  Loader2,
+  User,
+  Mail,
+  HelpCircle,
+  MessageSquare,
+  LifeBuoy,
+  Zap,
+  Smile,
+} from "lucide-react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
@@ -26,7 +35,9 @@ export default function SupportAndHelp() {
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -65,7 +76,10 @@ export default function SupportAndHelp() {
     type?: string;
   }) => (
     <div className="relative">
-      <Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={18} />
+      <Icon
+        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+        size={18}
+      />
       <Input
         {...rest}
         className="pl-10 bg-black border-white/20 text-white focus:border-blue-500 transition-colors"
@@ -92,7 +106,7 @@ export default function SupportAndHelp() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <LifeBuoy size={18} className="text-blue-400" /> 
+        <LifeBuoy size={18} className="text-blue-400" />
         Need assistance? We're here to help! Submit your support request below.
       </motion.p>
 
@@ -130,7 +144,10 @@ export default function SupportAndHelp() {
                 onChange={handleChange}
               />
               <div className="relative">
-                <MessageSquare className="absolute left-3 top-3 text-gray-500" size={18} />
+                <MessageSquare
+                  className="absolute left-3 top-3 text-gray-500"
+                  size={18}
+                />
                 <Textarea
                   placeholder="Describe your issue..."
                   name="description"
@@ -145,7 +162,9 @@ export default function SupportAndHelp() {
                 disabled={submitting}
                 className="w-full bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors"
               >
-                {submitting && <Loader2 className="animate-spin h-4 w-4 mr-2" />}
+                {submitting && (
+                  <Loader2 className="animate-spin h-4 w-4 mr-2" />
+                )}
                 {submitting ? "Submitting..." : "Submit Request"}
               </Button>
             </CardContent>
@@ -167,9 +186,12 @@ export default function SupportAndHelp() {
           >
             <Zap className="text-blue-500" size={40} />
           </motion.div>
-          <p className="text-lg font-semibold text-white">Lightning-Fast Support</p>
+          <p className="text-lg font-semibold text-white">
+            Lightning-Fast Support
+          </p>
           <p className="text-gray-400 max-w-xs sm:max-w-sm text-sm sm:text-base">
-            Our team is always on standby to zap away your issues ⚡️. Expect a quick response!
+            Our team is always on standby to zap away your issues ⚡️. Expect a
+            quick response!
           </p>
 
           <motion.div
@@ -178,7 +200,9 @@ export default function SupportAndHelp() {
             className="mt-6"
           >
             <Smile className="text-white" size={40} />
-            <p className="mt-2 text-white font-bold text-sm sm:text-base">Stay Positive & Let’s Fix It! 🎉</p>
+            <p className="mt-2 text-white font-bold text-sm sm:text-base">
+              Stay Positive & Let’s Fix It! 🎉
+            </p>
           </motion.div>
         </motion.div>
       </div>

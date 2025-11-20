@@ -1,50 +1,51 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { StudyGroup } from '@/types/studyGroup';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { useEffect, useState } from "react";
+import { StudyGroup } from "@/types/studyGroup";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Loader2, Search, Plus } from 'lucide-react';
-import Link from 'next/link';
+} from "@/components/ui/select";
+import { Loader2, Search, Plus } from "lucide-react";
+import Link from "next/link";
 
 export default function StudyGroupsPage() {
   const [groups, setGroups] = useState<StudyGroup[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   // Filters
-  const [subject, setSubject] = useState('');
-  const [location, setLocation] = useState('');
-  const [isOpen, setIsOpen] = useState<'all' | 'open' | 'closed'>('all');
+  const [subject, setSubject] = useState("");
+  const [location, setLocation] = useState("");
+  const [isOpen, setIsOpen] = useState<"all" | "open" | "closed">("all");
 
   const fetchGroups = async () => {
     setLoading(true);
-    setError('');
+    setError("");
 
     const params = new URLSearchParams();
-    if (subject.trim()) params.append('subject', subject.trim());
-    if (location.trim()) params.append('location', location.trim());
-    if (isOpen !== 'all') params.append('isOpen', isOpen === 'open' ? 'true' : 'false');
+    if (subject.trim()) params.append("subject", subject.trim());
+    if (location.trim()) params.append("location", location.trim());
+    if (isOpen !== "all")
+      params.append("isOpen", isOpen === "open" ? "true" : "false");
 
     try {
-      const res = await fetch('/api/study-groups/get?' + params.toString());
+      const res = await fetch("/api/study-groups/get?" + params.toString());
       const data = await res.json();
 
       if (data.success) {
         setGroups(data.groups);
       } else {
-        setError(data.message || 'Failed to load study groups.');
+        setError(data.message || "Failed to load study groups.");
       }
     } catch {
-      setError('Failed to load study groups.');
+      setError("Failed to load study groups.");
     } finally {
       setLoading(false);
     }
@@ -60,7 +61,10 @@ export default function StudyGroupsPage() {
         <h1 className="text-2xl sm:text-3xl font-bold whitespace-nowrap">
           🔎 Browse Study Groups
         </h1>
-        <Link href="/dashboard/study-groups/create" className="w-full sm:w-auto">
+        <Link
+          href="/dashboard/study-groups/create"
+          className="w-full sm:w-auto"
+        >
           <Button
             variant="outline"
             className="flex gap-2 border border-white/20 hover:border-white/40 text-black justify-center w-full sm:w-auto"
@@ -119,7 +123,9 @@ export default function StudyGroupsPage() {
       {error && <p className="text-red-400 text-center">{error}</p>}
 
       {!loading && !error && groups.length === 0 && (
-        <p className="text-white text-center">No groups found matching your criteria.</p>
+        <p className="text-white text-center">
+          No groups found matching your criteria.
+        </p>
       )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -127,21 +133,25 @@ export default function StudyGroupsPage() {
           <Card
             key={group._id}
             className="bg-transparent border border-white/20 hover:border-white/40 transition cursor-pointer"
-            onClick={() => (window.location.href = `/dashboard/study-groups/${group._id}`)}
+            onClick={() =>
+              (window.location.href = `/dashboard/study-groups/${group._id}`)
+            }
           >
             <CardHeader>
-              <CardTitle className="text-white truncate">{group.groupName}</CardTitle>
+              <CardTitle className="text-white truncate">
+                {group.groupName}
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-1 text-sm text-white/70">
               <p className="truncate">{group.subject}</p>
               <p className="text-white/50 truncate">{group.description}</p>
               <p className="text-white/50 truncate">
                 Meeting: {group.meetingTime} @ {group.location}
-                {group.platform ? ` (${group.platform})` : ''}
+                {group.platform ? ` (${group.platform})` : ""}
               </p>
               <p className="text-white/50">
-                Members: {group.members.length} / {group.maxMembers} —{' '}
-                {group.isOpen ? 'Open' : 'Closed'}
+                Members: {group.members.length} / {group.maxMembers} —{" "}
+                {group.isOpen ? "Open" : "Closed"}
               </p>
             </CardContent>
           </Card>

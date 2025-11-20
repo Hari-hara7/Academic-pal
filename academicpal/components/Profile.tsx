@@ -1,16 +1,22 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { onAuthStateChanged, User, updateProfile } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { toast } from 'sonner';
+import { useState, useEffect } from "react";
+import { onAuthStateChanged, User, updateProfile } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { toast } from "sonner";
 import {
   User as UserIcon,
   ArrowLeft,
@@ -26,8 +32,8 @@ import {
   Edit3,
   Clock,
   Verified,
-} from 'lucide-react';
-import Link from 'next/link';
+} from "lucide-react";
+import Link from "next/link";
 
 const Profile = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -36,28 +42,28 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   // Form states
-  const [displayName, setDisplayName] = useState('');
-  const [bio, setBio] = useState('');
-  const [location, setLocation] = useState('');
-  const [website, setWebsite] = useState('');
-  const [phone, setPhone] = useState('');
+  const [displayName, setDisplayName] = useState("");
+  const [bio, setBio] = useState("");
+  const [location, setLocation] = useState("");
+  const [website, setWebsite] = useState("");
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        setDisplayName(currentUser.displayName || '');
+        setDisplayName(currentUser.displayName || "");
         // Load additional profile data from localStorage if available
         const savedProfile = localStorage.getItem(`profile-${currentUser.uid}`);
         if (savedProfile) {
           try {
             const profile = JSON.parse(savedProfile);
-            setBio(profile.bio || '');
-            setLocation(profile.location || '');
-            setWebsite(profile.website || '');
-            setPhone(profile.phone || '');
+            setBio(profile.bio || "");
+            setLocation(profile.location || "");
+            setWebsite(profile.website || "");
+            setPhone(profile.phone || "");
           } catch (error) {
-            console.error('Failed to load saved profile:', error);
+            console.error("Failed to load saved profile:", error);
           }
         }
       }
@@ -68,7 +74,7 @@ const Profile = () => {
 
   const handleUpdateProfile = async () => {
     if (!user) return;
-    
+
     setUpdating(true);
     try {
       // Update Firebase profile
@@ -82,10 +88,10 @@ const Profile = () => {
         location,
         website,
         phone,
-        lastUpdated: new Date().toISOString()
+        lastUpdated: new Date().toISOString(),
       };
       localStorage.setItem(`profile-${user.uid}`, JSON.stringify(profileData));
-      
+
       toast.success("Profile updated successfully!");
       setIsEditing(false);
     } catch (error) {
@@ -96,11 +102,11 @@ const Profile = () => {
   };
 
   const formatDate = (dateString: string | undefined) => {
-    if (!dateString) return 'Unknown';
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    if (!dateString) return "Unknown";
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -118,8 +124,12 @@ const Profile = () => {
         <Card className="w-96 bg-gray-900 border-gray-800">
           <CardContent className="flex flex-col items-center gap-4 pt-6">
             <UserIcon className="h-16 w-16 text-gray-400" />
-            <h2 className="text-xl font-semibold text-white">Not Authenticated</h2>
-            <p className="text-gray-400 text-center">Please log in to view your profile.</p>
+            <h2 className="text-xl font-semibold text-white">
+              Not Authenticated
+            </h2>
+            <p className="text-gray-400 text-center">
+              Please log in to view your profile.
+            </p>
             <Link href="/login">
               <Button className="bg-blue-500 hover:bg-blue-600">
                 Go to Login
@@ -139,9 +149,9 @@ const Profile = () => {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <Link href="/dashboardd">
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 backdrop-blur-sm border border-gray-700 hover:border-gray-600 h-10 w-10 sm:h-12 sm:w-12"
               >
                 <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -155,8 +165,12 @@ const Profile = () => {
                 <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight">
                   My Profile
                 </h1>
-                <p className="text-gray-400 mt-1 text-sm sm:text-base hidden sm:block">Manage your personal information and preferences</p>
-                <p className="text-gray-400 mt-1 text-xs sm:hidden">Manage your info & preferences</p>
+                <p className="text-gray-400 mt-1 text-sm sm:text-base hidden sm:block">
+                  Manage your personal information and preferences
+                </p>
+                <p className="text-gray-400 mt-1 text-xs sm:hidden">
+                  Manage your info & preferences
+                </p>
               </div>
             </div>
           </div>
@@ -172,13 +186,16 @@ const Profile = () => {
                 {/* Avatar Section */}
                 <div className="relative group">
                   <Avatar className="h-32 w-32 ring-4 ring-blue-500 shadow-lg">
-                    <AvatarImage src={user.photoURL || ''} alt={user.displayName || 'User'} />
+                    <AvatarImage
+                      src={user.photoURL || ""}
+                      alt={user.displayName || "User"}
+                    />
                     <AvatarFallback className="bg-blue-500 text-white text-4xl font-bold">
-                      {user.displayName?.[0] || user.email?.[0] || 'U'}
+                      {user.displayName?.[0] || user.email?.[0] || "U"}
                     </AvatarFallback>
                   </Avatar>
-                  <Button 
-                    size="icon" 
+                  <Button
+                    size="icon"
                     className="absolute -bottom-3 -right-3 h-12 w-12 rounded-full bg-blue-500 hover:bg-blue-600 border-2 border-gray-900 shadow-lg transition-all duration-200 hover:scale-105"
                   >
                     <Camera className="h-5 w-5" />
@@ -187,9 +204,11 @@ const Profile = () => {
 
                 {/* User Info */}
                 <div className="space-y-3 w-full">
-                  <h2 className="text-2xl font-bold text-white">{user.displayName || 'User'}</h2>
+                  <h2 className="text-2xl font-bold text-white">
+                    {user.displayName || "User"}
+                  </h2>
                   <p className="text-gray-400">{user.email}</p>
-                  
+
                   {/* Status Badges */}
                   <div className="flex flex-wrap justify-center gap-2">
                     <Badge className="bg-blue-500 text-white border-0 shadow-lg">
@@ -207,18 +226,20 @@ const Profile = () => {
                   {/* Bio */}
                   {bio && (
                     <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
-                      <p className="text-sm text-gray-300 italic">&ldquo;{bio}&rdquo;</p>
+                      <p className="text-sm text-gray-300 italic">
+                        &ldquo;{bio}&rdquo;
+                      </p>
                     </div>
                   )}
                 </div>
 
                 {/* Edit Profile Button */}
-                <Button 
+                <Button
                   onClick={() => setIsEditing(!isEditing)}
                   className="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-200 hover:scale-105 shadow-lg"
                 >
                   <Edit3 className="h-4 w-4 mr-2" />
-                  {isEditing ? 'Cancel Editing' : 'Edit Profile'}
+                  {isEditing ? "Cancel Editing" : "Edit Profile"}
                 </Button>
               </div>
             </CardContent>
@@ -234,7 +255,9 @@ const Profile = () => {
                     <UserIcon className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-white text-xl">Account Information</CardTitle>
+                    <CardTitle className="text-white text-xl">
+                      Account Information
+                    </CardTitle>
                     <CardDescription className="text-gray-400">
                       Your account details and registration information
                     </CardDescription>
@@ -247,17 +270,25 @@ const Profile = () => {
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Calendar className="h-4 w-4 text-blue-400" />
-                        <span className="text-sm font-medium text-white">Member Since</span>
+                        <span className="text-sm font-medium text-white">
+                          Member Since
+                        </span>
                       </div>
-                      <p className="text-gray-300">{formatDate(user.metadata?.creationTime)}</p>
+                      <p className="text-gray-300">
+                        {formatDate(user.metadata?.creationTime)}
+                      </p>
                     </div>
 
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Clock className="h-4 w-4 text-blue-400" />
-                        <span className="text-sm font-medium text-white">Last Sign In</span>
+                        <span className="text-sm font-medium text-white">
+                          Last Sign In
+                        </span>
                       </div>
-                      <p className="text-gray-300">{formatDate(user.metadata?.lastSignInTime)}</p>
+                      <p className="text-gray-300">
+                        {formatDate(user.metadata?.lastSignInTime)}
+                      </p>
                     </div>
                   </div>
 
@@ -265,18 +296,32 @@ const Profile = () => {
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Shield className="h-4 w-4 text-blue-400" />
-                        <span className="text-sm font-medium text-white">Account Status</span>
+                        <span className="text-sm font-medium text-white">
+                          Account Status
+                        </span>
                       </div>
-                      <p className="text-blue-400 font-medium">Active & Verified</p>
+                      <p className="text-blue-400 font-medium">
+                        Active & Verified
+                      </p>
                     </div>
 
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
                         <Mail className="h-4 w-4 text-blue-400" />
-                        <span className="text-sm font-medium text-white">Email Status</span>
+                        <span className="text-sm font-medium text-white">
+                          Email Status
+                        </span>
                       </div>
-                      <p className={user.emailVerified ? "text-blue-400 font-medium" : "text-blue-400 font-medium"}>
-                        {user.emailVerified ? 'Verified' : 'Pending Verification'}
+                      <p
+                        className={
+                          user.emailVerified
+                            ? "text-blue-400 font-medium"
+                            : "text-blue-400 font-medium"
+                        }
+                      >
+                        {user.emailVerified
+                          ? "Verified"
+                          : "Pending Verification"}
                       </p>
                     </div>
                   </div>
@@ -293,7 +338,9 @@ const Profile = () => {
                       <Edit3 className="h-5 w-5 text-white" />
                     </div>
                     <div>
-                      <CardTitle className="text-white text-xl">Personal Information</CardTitle>
+                      <CardTitle className="text-white text-xl">
+                        Personal Information
+                      </CardTitle>
                       <CardDescription className="text-gray-400">
                         Update your personal details and contact information
                       </CardDescription>
@@ -304,7 +351,12 @@ const Profile = () => {
               <CardContent className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="displayName" className="text-white font-medium">Display Name</Label>
+                    <Label
+                      htmlFor="displayName"
+                      className="text-white font-medium"
+                    >
+                      Display Name
+                    </Label>
                     <Input
                       id="displayName"
                       value={displayName}
@@ -316,7 +368,12 @@ const Profile = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="location" className="text-white font-medium">Location</Label>
+                    <Label
+                      htmlFor="location"
+                      className="text-white font-medium"
+                    >
+                      Location
+                    </Label>
                     <div className="relative">
                       <Input
                         id="location"
@@ -331,7 +388,9 @@ const Profile = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="website" className="text-white font-medium">Website</Label>
+                    <Label htmlFor="website" className="text-white font-medium">
+                      Website
+                    </Label>
                     <div className="relative">
                       <Input
                         id="website"
@@ -346,7 +405,9 @@ const Profile = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-white font-medium">Phone</Label>
+                    <Label htmlFor="phone" className="text-white font-medium">
+                      Phone
+                    </Label>
                     <div className="relative">
                       <Input
                         id="phone"
@@ -362,7 +423,9 @@ const Profile = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="bio" className="text-white font-medium">Bio</Label>
+                  <Label htmlFor="bio" className="text-white font-medium">
+                    Bio
+                  </Label>
                   <textarea
                     id="bio"
                     value={bio}
@@ -378,7 +441,7 @@ const Profile = () => {
                   <>
                     <Separator className="bg-gray-700" />
                     <div className="flex gap-3">
-                      <Button 
+                      <Button
                         onClick={handleUpdateProfile}
                         disabled={updating}
                         className="bg-blue-500 hover:bg-blue-600 transition-all duration-200 hover:scale-105 shadow-lg"
@@ -390,10 +453,10 @@ const Profile = () => {
                             Saving...
                           </span>
                         ) : (
-                          'Save Changes'
+                          "Save Changes"
                         )}
                       </Button>
-                      <Button 
+                      <Button
                         variant="outline"
                         onClick={() => setIsEditing(false)}
                         className="border-gray-600 text-gray-300 hover:bg-gray-700/50"

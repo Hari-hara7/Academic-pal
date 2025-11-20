@@ -1,33 +1,33 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import { toast } from 'sonner';
+import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { toast } from "sonner";
 
-import { Card, CardContent } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
 
-import { Star, MessageCircleHeart } from 'lucide-react';
+import { Star, MessageCircleHeart } from "lucide-react";
 
 export default function FeedbackPage() {
   const { sessionId } = useParams();
   const router = useRouter();
 
   const [rating, setRating] = useState(5);
-  const [review, setReview] = useState('');
+  const [review, setReview] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch('/api/tutoring/sessions/feedback', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/tutoring/sessions/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ sessionId, rating, review }),
     });
 
@@ -35,10 +35,10 @@ export default function FeedbackPage() {
     setLoading(false);
 
     if (data.success) {
-      toast.success('🎉 Thank you for your feedback!');
-      router.push('/dashboard/tutoring/my-sessions');
+      toast.success("🎉 Thank you for your feedback!");
+      router.push("/dashboard/tutoring/my-sessions");
     } else {
-      toast.error('❌ Error submitting feedback');
+      toast.error("❌ Error submitting feedback");
     }
   };
 
@@ -103,7 +103,7 @@ export default function FeedbackPage() {
               disabled={loading}
               className="bg-white text-black hover:bg-gray-200"
             >
-              {loading ? 'Submitting...' : 'Submit Feedback'}
+              {loading ? "Submitting..." : "Submit Feedback"}
             </Button>
           </div>
         </form>

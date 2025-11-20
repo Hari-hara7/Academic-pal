@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function EditStudyTaskPage() {
   const { id } = useParams();
   const router = useRouter();
 
   const [form, setForm] = useState({
-    id: '',
-    title: '',
-    description: '',
-    subject: '',
-    dueDate: '',
-    priority: 'Normal',
-    status: 'Pending',
+    id: "",
+    title: "",
+    description: "",
+    subject: "",
+    dueDate: "",
+    priority: "Normal",
+    status: "Pending",
   });
 
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function EditStudyTaskPage() {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const res = await fetch('/api/study-planner/get');
+        const res = await fetch("/api/study-planner/get");
         const data = await res.json();
         if (data.success) {
           const task = data.tasks.find((t: any) => t._id === id);
@@ -42,12 +42,12 @@ export default function EditStudyTaskPage() {
               status: task.status,
             });
           } else {
-            alert('Task not found');
-            router.push('/dashboard/study-planner');
+            alert("Task not found");
+            router.push("/dashboard/study-planner");
           }
         }
       } catch (err) {
-        console.error('Failed to load task:', err);
+        console.error("Failed to load task:", err);
       }
     };
 
@@ -55,7 +55,9 @@ export default function EditStudyTaskPage() {
   }, [id, router]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -65,21 +67,21 @@ export default function EditStudyTaskPage() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/study-planner/update', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/study-planner/update", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        router.push('/dashboard/study-planner');
+        router.push("/dashboard/study-planner");
       } else {
-        alert('Update failed');
+        alert("Update failed");
       }
     } catch (err) {
-      console.error('Update error:', err);
+      console.error("Update error:", err);
     } finally {
       setLoading(false);
     }
@@ -89,7 +91,9 @@ export default function EditStudyTaskPage() {
     <div className="p-6 max-w-xl mx-auto bg-black min-h-screen text-white">
       <Card className="bg-transparent border border-white/40 backdrop-blur-md shadow-md">
         <CardContent className="p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-white">✏️ Edit Study Task</h2>
+          <h2 className="text-xl font-semibold text-white">
+            ✏️ Edit Study Task
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="title" className="text-white">
@@ -187,8 +191,12 @@ export default function EditStudyTaskPage() {
               </select>
             </div>
 
-            <Button type="submit" disabled={loading} className="bg-white text-black hover:bg-gray-200">
-              {loading ? 'Updating...' : 'Update Task'}
+            <Button
+              type="submit"
+              disabled={loading}
+              className="bg-white text-black hover:bg-gray-200"
+            >
+              {loading ? "Updating..." : "Update Task"}
             </Button>
           </form>
         </CardContent>

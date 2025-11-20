@@ -1,31 +1,43 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
-} from 'firebase/auth';
-import { auth } from '@/lib/firebase';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { FaGithub, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-import { motion } from 'motion/react';
-import { Sparkles, ArrowRight, Shield, BookOpen, Users, Star } from 'lucide-react';
-import Link from 'next/link';
-import { toast } from 'sonner';
-import { Inter } from 'next/font/google';
+} from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { motion } from "motion/react";
+import {
+  Sparkles,
+  ArrowRight,
+  Shield,
+  BookOpen,
+  Users,
+  Star,
+} from "lucide-react";
+import Link from "next/link";
+import { toast } from "sonner";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 });
 
 const containerVariants = {
@@ -47,10 +59,10 @@ const itemVariants = {
 
 const SignUp = () => {
   const router = useRouter();
-  const [name, setName] = useState('');
-  const [usn, setUsn] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [usn, setUsn] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -61,10 +73,11 @@ const SignUp = () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      toast.success('🎉 Signed up with Google successfully!');
-      router.push('/home');
+      toast.success("🎉 Signed up with Google successfully!");
+      router.push("/home");
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      const errorMessage =
+        err instanceof Error ? err.message : "An error occurred";
       setError(errorMessage);
       toast.error(`❌ ${errorMessage}`);
     } finally {
@@ -77,10 +90,11 @@ const SignUp = () => {
     try {
       const provider = new GithubAuthProvider();
       await signInWithPopup(auth, provider);
-      toast.success('🎉 Signed up with GitHub successfully!');
-      router.push('/home');
+      toast.success("🎉 Signed up with GitHub successfully!");
+      router.push("/home");
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      const errorMessage =
+        err instanceof Error ? err.message : "An error occurred";
       setError(errorMessage);
       toast.error(`❌ ${errorMessage}`);
     } finally {
@@ -88,7 +102,8 @@ const SignUp = () => {
     }
   };
 
-  const isValidEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@nmamit\.in$/.test(email);
+  const isValidEmail = (email: string) =>
+    /^[a-zA-Z0-9._%+-]+@nmamit\.in$/.test(email);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,32 +111,33 @@ const SignUp = () => {
     setError(null);
 
     if (!acceptTerms) {
-      setError('You must accept the Terms & Conditions to continue.');
-      toast.error('⚠️ You must accept the Terms & Conditions.');
+      setError("You must accept the Terms & Conditions to continue.");
+      toast.error("⚠️ You must accept the Terms & Conditions.");
       setIsLoading(false);
       return;
     }
 
     if (!isValidEmail(email)) {
-      setError('Please enter a valid NMAMIT email.');
-      toast.error('⚠️ Enter a valid NMAMIT email.');
+      setError("Please enter a valid NMAMIT email.");
+      toast.error("⚠️ Enter a valid NMAMIT email.");
       setIsLoading(false);
       return;
     }
 
     if (!name.trim() || !usn.trim()) {
-      setError('Please enter your full name and USN.');
-      toast.error('⚠️ Name and USN are required.');
+      setError("Please enter your full name and USN.");
+      toast.error("⚠️ Name and USN are required.");
       setIsLoading(false);
       return;
     }
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      toast.success('✅ Registration successful!');
-      router.push('/');
+      toast.success("✅ Registration successful!");
+      router.push("/");
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      const errorMessage =
+        err instanceof Error ? err.message : "An error occurred";
       setError(errorMessage);
       toast.error(`❌ ${errorMessage}`);
     } finally {
@@ -130,19 +146,26 @@ const SignUp = () => {
   };
 
   return (
-    <div className={`${inter.className} min-h-screen bg-black text-white overflow-hidden relative`}>
+    <div
+      className={`${inter.className} min-h-screen bg-black text-white overflow-hidden relative`}
+    >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.04),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.035),transparent_55%)]" />
         <motion.div
           animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-white/5 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ x: [0, -80, 0], y: [0, 60, 0], scale: [1, 0.9, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5,
+          }}
           className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 h-40 sm:h-56 md:h-72 bg-white/5 rounded-full blur-3xl"
         />
       </div>
@@ -158,19 +181,22 @@ const SignUp = () => {
             <motion.div variants={itemVariants} className="space-y-4">
               <h2 className="text-4xl xl:text-5xl font-black leading-tight tracking-tight text-white">
                 Start your journey to
-                <span className="block mt-2 text-blue-500">Academic Excellence</span>
+                <span className="block mt-2 text-blue-500">
+                  Academic Excellence
+                </span>
               </h2>
               <p className="text-lg xl:text-xl text-white/70 leading-relaxed font-medium">
-                Join thousands of students transforming their academic journey with AI-powered study tools and personalized learning paths.
+                Join thousands of students transforming their academic journey
+                with AI-powered study tools and personalized learning paths.
               </p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-3">
               {[
-                { icon: Shield, text: 'Secure Google Integration' },
-                { icon: Users, text: 'Join 4,000+ Students' },
-                { icon: Sparkles, text: 'AI-Powered Study Tools' },
-                { icon: Star, text: 'Top-Rated Platform' },
+                { icon: Shield, text: "Secure Google Integration" },
+                { icon: Users, text: "Join 4,000+ Students" },
+                { icon: Sparkles, text: "AI-Powered Study Tools" },
+                { icon: Star, text: "Top-Rated Platform" },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
@@ -200,10 +226,20 @@ const SignUp = () => {
           >
             <Card className="bg-black/70 backdrop-blur-sm border border-white/15 shadow-2xl shadow-white/5">
               <CardHeader className="space-y-4 pb-6">
-                <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4"></motion.div>
-                <motion.div variants={itemVariants} className="text-center space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Create <span className="text-blue-500">Account</span></h2>
-                  <p className="text-white/60">Join the academic revolution today</p>
+                <motion.div
+                  variants={itemVariants}
+                  className="flex lg:hidden items-center justify-center gap-3 mb-4"
+                ></motion.div>
+                <motion.div
+                  variants={itemVariants}
+                  className="text-center space-y-2"
+                >
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                    Create <span className="text-blue-500">Account</span>
+                  </h2>
+                  <p className="text-white/60">
+                    Join the academic revolution today
+                  </p>
                 </motion.div>
               </CardHeader>
 
@@ -237,13 +273,22 @@ const SignUp = () => {
                     <Separator className="w-full bg-white/15" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-black px-4 text-white/60 font-medium">Or continue with email</span>
+                    <span className="bg-black px-4 text-white/60 font-medium">
+                      Or continue with email
+                    </span>
                   </div>
                 </motion.div>
 
-                <motion.form variants={itemVariants} onSubmit={handleSignUp} className="space-y-5">
+                <motion.form
+                  variants={itemVariants}
+                  onSubmit={handleSignUp}
+                  className="space-y-5"
+                >
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm font-medium text-white/80">
+                    <Label
+                      htmlFor="name"
+                      className="text-sm font-medium text-white/80"
+                    >
                       Full Name
                     </Label>
                     <Input
@@ -259,7 +304,10 @@ const SignUp = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="usn" className="text-sm font-medium text-white/80">
+                    <Label
+                      htmlFor="usn"
+                      className="text-sm font-medium text-white/80"
+                    >
                       USN
                     </Label>
                     <Input
@@ -275,7 +323,10 @@ const SignUp = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium text-white/80">
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-medium text-white/80"
+                    >
                       NMAMIT Email
                     </Label>
                     <Input
@@ -291,13 +342,16 @@ const SignUp = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password" className="text-sm font-medium text-white/80">
+                    <Label
+                      htmlFor="password"
+                      className="text-sm font-medium text-white/80"
+                    >
                       Password
                     </Label>
                     <div className="relative">
                       <Input
                         id="password"
-                        type={showPassword ? 'text' : 'password'}
+                        type={showPassword ? "text" : "password"}
                         placeholder="Create a strong password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -311,7 +365,11 @@ const SignUp = () => {
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
                         disabled={isLoading}
                       >
-                        {showPassword ? <FaEyeSlash className="w-5 h-5" /> : <FaEye className="w-5 h-5" />}
+                        {showPassword ? (
+                          <FaEyeSlash className="w-5 h-5" />
+                        ) : (
+                          <FaEye className="w-5 h-5" />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -325,13 +383,22 @@ const SignUp = () => {
                       className="w-4 h-4 mt-1 rounded border-white/20 bg-black/40 text-black focus:ring-white/20 transition-all duration-300"
                       disabled={isLoading}
                     />
-                    <label htmlFor="terms" className="text-sm text-white/70 leading-relaxed">
-                      I agree to the{' '}
-                      <Link href="/terms-and-conditions" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">
+                    <label
+                      htmlFor="terms"
+                      className="text-sm text-white/70 leading-relaxed"
+                    >
+                      I agree to the{" "}
+                      <Link
+                        href="/terms-and-conditions"
+                        className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors"
+                      >
                         Terms & Conditions
-                      </Link>{' '}
-                      and{' '}
-                      <Link href="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        href="/privacy-policy"
+                        className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors"
+                      >
                         Privacy Policy
                       </Link>
                     </label>
@@ -368,10 +435,16 @@ const SignUp = () => {
               </CardContent>
 
               <CardFooter className="space-y-4 pt-6">
-                <motion.div variants={itemVariants} className="w-full text-center space-y-3">
+                <motion.div
+                  variants={itemVariants}
+                  className="w-full text-center space-y-3"
+                >
                   <p className="text-sm text-white/60">
-                    Already have an account?{' '}
-                    <Link href="/" className="text-blue-400 hover:text-blue-300 hover:underline underline-offset-4 font-medium transition-colors">
+                    Already have an account?{" "}
+                    <Link
+                      href="/"
+                      className="text-blue-400 hover:text-blue-300 hover:underline underline-offset-4 font-medium transition-colors"
+                    >
                       Sign in here
                     </Link>
                   </p>

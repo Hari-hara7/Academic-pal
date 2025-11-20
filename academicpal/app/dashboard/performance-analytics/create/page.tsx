@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Book, Clock, Calendar, BarChart } from 'lucide-react';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Book, Clock, Calendar, BarChart } from "lucide-react";
 
 export default function CreateStudySession() {
   const router = useRouter();
   const [form, setForm] = useState({
-    subject: '',
-    hours: '',
-    date: '',
-    performance: '',
+    subject: "",
+    hours: "",
+    date: "",
+    performance: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,21 +23,21 @@ export default function CreateStudySession() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/performance-analytics/create', {
-      method: 'POST',
+    const res = await fetch("/api/performance-analytics/create", {
+      method: "POST",
       body: JSON.stringify({
         subject: form.subject,
         hours: parseFloat(form.hours),
         date: form.date,
         performance: form.performance ? parseInt(form.performance) : undefined,
       }),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (res.ok) {
-      router.push('/dashboard/performance-analytics');
+      router.push("/dashboard/performance-analytics");
     } else {
-      alert('Failed to log study session');
+      alert("Failed to log study session");
     }
   };
 
@@ -49,7 +49,10 @@ export default function CreateStudySession() {
       </h1>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <Label htmlFor="subject" className="flex items-center gap-2 text-white">
+          <Label
+            htmlFor="subject"
+            className="flex items-center gap-2 text-white"
+          >
             <Book className="w-4 h-4" />
             Subject
           </Label>
@@ -92,7 +95,10 @@ export default function CreateStudySession() {
           />
         </div>
         <div>
-          <Label htmlFor="performance" className="flex items-center gap-2 text-white">
+          <Label
+            htmlFor="performance"
+            className="flex items-center gap-2 text-white"
+          >
             <BarChart className="w-4 h-4" />
             Performance (1-10, optional)
           </Label>

@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '@/lib/firebase';
-import { FaGoogle, FaCommentAlt, FaQuestionCircle } from 'react-icons/fa';
-import { motion } from 'motion/react';
+import { useEffect, useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "@/lib/firebase";
+import { FaGoogle, FaCommentAlt, FaQuestionCircle } from "react-icons/fa";
+import { motion } from "motion/react";
 
 interface AuthProps {
   setUser: (user: any) => void;
 }
 
 const Auth = ({ setUser }: AuthProps) => {
-  const [text, setText] = useState('');
-  const welcomeMessage = 'Welcome to Academic Pal Chat!';
+  const [text, setText] = useState("");
+  const welcomeMessage = "Welcome to Academic Pal Chat!";
 
   useEffect(() => {
     let index = 0;
@@ -26,7 +26,7 @@ const Auth = ({ setUser }: AuthProps) => {
       }
     };
 
-    setText('');
+    setText("");
     animationFrameId = window.setTimeout(animateText, 200);
     return () => clearTimeout(animationFrameId);
   }, []);
@@ -36,12 +36,12 @@ const Auth = ({ setUser }: AuthProps) => {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
     } catch (error) {
-      console.error('Error signing in:', error);
+      console.error("Error signing in:", error);
     }
   };
 
   const handleProtectedAction = () => {
-    alert('Please sign in with Google to continue.');
+    alert("Please sign in with Google to continue.");
   };
 
   return (
@@ -64,16 +64,14 @@ const Auth = ({ setUser }: AuthProps) => {
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-3xl px-6 sm:px-10 py-8 sm:py-12 space-y-8">
             {/* Heading */}
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold">
-              <span className="text-white drop-shadow-lg">
-                {text}
-              </span>
+              <span className="text-white drop-shadow-lg">{text}</span>
             </h1>
 
             <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mx-auto">
-              Discover, discuss, and access{' '}
+              Discover, discuss, and access{" "}
               <span className="font-semibold text-blue-400">
                 powerful academic resources
-              </span>{' '}
+              </span>{" "}
               with ease.
             </p>
 
@@ -120,8 +118,6 @@ const Auth = ({ setUser }: AuthProps) => {
           </div>
         </motion.div>
       </main>
-
-    
     </div>
   );
 };

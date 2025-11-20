@@ -4,7 +4,16 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Users, BookOpen, Zap, Shield, Sparkles, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Star,
+  Users,
+  BookOpen,
+  Zap,
+  Shield,
+  Sparkles,
+  TrendingUp,
+} from "lucide-react";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -19,14 +28,14 @@ const containerVariants = {
     opacity: 1,
     transition: {
       delayChildren: 0.3,
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
+  visible: { y: 0, opacity: 1 },
 };
 
 export default function HeroSection() {
@@ -39,48 +48,48 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-blue-500/5" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]" />
-        
+
         {/* Animated orbs */}
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
-          className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 lg:w-80 h-32 sm:h-48 md:h-64 lg:h-80 bg-blue-500/5 rounded-full blur-3xl" 
+          className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 lg:w-80 h-32 sm:h-48 md:h-64 lg:h-80 bg-blue-500/5 rounded-full blur-3xl"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, -80, 0],
             y: [0, 60, 0],
-            scale: [1, 0.8, 1]
+            scale: [1, 0.8, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 25,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 5
+            delay: 5,
           }}
-          className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 lg:w-96 h-40 sm:h-56 md:h-72 lg:h-96 bg-blue-500/4 rounded-full blur-3xl" 
+          className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 lg:w-96 h-40 sm:h-56 md:h-72 lg:h-96 bg-blue-500/4 rounded-full blur-3xl"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, 60, 0],
             y: [0, -80, 0],
-            scale: [1, 1.1, 1]
+            scale: [1, 1.1, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 18,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 10
+            delay: 10,
           }}
-          className="absolute top-1/2 right-1/3 w-24 sm:w-36 md:w-48 lg:w-64 h-24 sm:h-36 md:h-48 lg:h-64 bg-blue-500/3 rounded-full blur-2xl" 
+          className="absolute top-1/2 right-1/3 w-24 sm:w-36 md:w-48 lg:w-64 h-24 sm:h-36 md:h-48 lg:h-64 bg-blue-500/3 rounded-full blur-2xl"
         />
       </div>
 
@@ -93,8 +102,8 @@ export default function HeroSection() {
           className="flex flex-col lg:grid lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center"
         >
           {/* Content Section - Always First on Mobile */}
-          <motion.div 
-            variants={itemVariants} 
+          <motion.div
+            variants={itemVariants}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full order-1 lg:order-1 space-y-4 xs:space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12"
           >
@@ -113,33 +122,32 @@ export default function HeroSection() {
                   <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-4 sm:h-4 text-white" />
                 </motion.div>
                 <span className="text-xs xs:text-xs sm:text-sm md:text-base font-medium text-white group-hover:text-blue-400 transition-colors">
-                  Trusted by 4,000+ students 
+                  Trusted by 4,000+ students
                 </span>
               </motion.div>
             </div>
 
             {/* Main Heading */}
-            <motion.div 
-              variants={itemVariants} 
+            <motion.div
+              variants={itemVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-6"
             >
               <motion.h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight">
                 <div className="flex flex-row flex-wrap gap-x-2 sm:gap-x-3 md:gap-x-4">
-                  <span className="text-white">
-                    Academic
-                  </span>
-                  <span className="text-blue-500">Unleashed
-                  </span>
+                  <span className="text-white">Academic</span>
+                  <span className="text-blue-500">Unleashed</span>
                 </div>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 variants={itemVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-full lg:max-w-2xl"
               >
-                Transform your academic journey with AI-powered study tools, personalized learning paths, and collaborative features designed for modern students.
+                Transform your academic journey with AI-powered study tools,
+                personalized learning paths, and collaborative features designed
+                for modern students.
               </motion.p>
             </motion.div>
 
@@ -155,7 +163,7 @@ export default function HeroSection() {
                 { icon: Zap, label: "AI Assistance" },
                 { icon: TrendingUp, label: "Progress Tracking" },
                 { icon: Shield, label: "Secure Platform" },
-                { icon: Star, label: "Top Rated" }
+                { icon: Star, label: "Top Rated" },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
@@ -178,10 +186,13 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4 sm:pt-6 md:pt-8"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link href="/upload">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="w-full sm:w-auto h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-10 text-base sm:text-lg md:text-xl font-semibold bg-blue-500 hover:bg-blue-600 border-0 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 group"
                   >
                     <motion.div
@@ -196,15 +207,18 @@ export default function HeroSection() {
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link href="/ai-assistant">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="w-full sm:w-auto h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-10 text-base sm:text-lg md:text-xl font-semibold bg-transparent border-2 border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded-xl sm:rounded-2xl transition-all duration-300 group"
                   >
                     <div className="flex items-center gap-2 sm:gap-3">
-                    Ai-Assistant
+                      Ai-Assistant
                       <motion.div
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
@@ -225,22 +239,22 @@ export default function HeroSection() {
               {[
                 { value: "4K+", label: "Students" },
                 { value: "12+", label: "Features" },
-                { value: "24/7", label: "Support" }
+                { value: "24/7", label: "Support" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
                   className="text-center group cursor-pointer"
                 >
-                  <motion.div 
-                    animate={{ 
+                  <motion.div
+                    animate={{
                       scale: [1, 1.05, 1],
-                      opacity: [0.7, 1, 0.7]
+                      opacity: [0.7, 1, 0.7],
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 3,
                       repeat: Infinity,
-                      delay: index * 0.5
+                      delay: index * 0.5,
                     }}
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white group-hover:text-blue-400 transition-colors"
                   >
@@ -253,7 +267,7 @@ export default function HeroSection() {
               ))}
             </motion.div>
           </motion.div>
-            
+
           {/* Enhanced Right Image Section */}
           <motion.div
             variants={itemVariants}
@@ -261,72 +275,72 @@ export default function HeroSection() {
             className="relative flex justify-center lg:justify-end order-1 lg:order-2"
           >
             {/* Enhanced floating elements */}
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 y: [0, -10, 0],
-                rotate: [0, 5, 0]
+                rotate: [0, 5, 0],
               }}
-              transition={{ 
+              transition={{
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
-              className="absolute -top-6 sm:-top-8 md:-top-10 -left-6 sm:-left-8 md:-left-10 w-12 sm:w-16 md:w-20 lg:w-24 h-12 sm:h-16 md:h-20 lg:h-24 bg-blue-500/20 rounded-full blur-2xl" 
+              className="absolute -top-6 sm:-top-8 md:-top-10 -left-6 sm:-left-8 md:-left-10 w-12 sm:w-16 md:w-20 lg:w-24 h-12 sm:h-16 md:h-20 lg:h-24 bg-blue-500/20 rounded-full blur-2xl"
             />
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 y: [0, 15, 0],
-                rotate: [0, -5, 0]
+                rotate: [0, -5, 0],
               }}
-              transition={{ 
+              transition={{
                 duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 1
+                delay: 1,
               }}
-              className="absolute -bottom-6 sm:-bottom-8 md:-bottom-10 -right-6 sm:-right-8 md:-right-10 w-16 sm:w-20 md:w-24 lg:w-28 h-16 sm:h-20 md:h-24 lg:h-28 bg-blue-500/15 rounded-full blur-2xl" 
+              className="absolute -bottom-6 sm:-bottom-8 md:-bottom-10 -right-6 sm:-right-8 md:-right-10 w-16 sm:w-20 md:w-24 lg:w-28 h-16 sm:h-20 md:h-24 lg:h-28 bg-blue-500/15 rounded-full blur-2xl"
             />
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 scale: [1, 1.1, 1],
-                opacity: [0.3, 0.6, 0.3]
+                opacity: [0.3, 0.6, 0.3],
               }}
-              transition={{ 
+              transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 2
+                delay: 2,
               }}
-              className="absolute top-1/2 -right-3 sm:-right-4 md:-right-6 w-8 sm:w-10 md:w-12 lg:w-16 h-8 sm:h-10 md:h-12 lg:h-16 bg-blue-500/12 rounded-full blur-lg" 
+              className="absolute top-1/2 -right-3 sm:-right-4 md:-right-6 w-8 sm:w-10 md:w-12 lg:w-16 h-8 sm:h-10 md:h-12 lg:h-16 bg-blue-500/12 rounded-full blur-lg"
             />
 
             {/* Enhanced image container */}
             <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
               {/* Multiple glow layers */}
-              <motion.div 
-                animate={{ 
+              <motion.div
+                animate={{
                   scale: [1, 1.05, 1],
-                  opacity: [0.3, 0.5, 0.3]
+                  opacity: [0.3, 0.5, 0.3],
                 }}
-                transition={{ 
+                transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
-                className="absolute inset-0 bg-blue-500/15 rounded-2xl sm:rounded-3xl blur-2xl" 
+                className="absolute inset-0 bg-blue-500/15 rounded-2xl sm:rounded-3xl blur-2xl"
               />
               <div className="absolute -inset-1 bg-blue-500/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50" />
-              
+
               {/* Main image card */}
-              <motion.div 
-                whileHover={{ 
+              <motion.div
+                whileHover={{
                   scale: 1.02,
                   rotateY: 5,
-                  rotateX: 2
+                  rotateX: 2,
                 }}
                 transition={{ duration: 0.3 }}
                 className="relative bg-black/80 backdrop-blur-sm border border-blue-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 lg:p-8 shadow-2xl group perspective-1000"
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="relative overflow-hidden rounded-xl sm:rounded-2xl">
                   <Image
@@ -337,67 +351,66 @@ export default function HeroSection() {
                     priority
                     className="object-contain w-full h-auto transition-all duration-500 group-hover:scale-[1.01]"
                   />
-                  
+
                   {/* Interactive overlay */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl" />
                 </div>
-                
+
                 {/* Enhanced floating UI indicators */}
-                <motion.div 
-                  animate={{ 
+                <motion.div
+                  animate={{
                     scale: [1, 1.2, 1],
-                    opacity: [0.6, 1, 0.6]
+                    opacity: [0.6, 1, 0.6],
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 2,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
-                  className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-2 sm:w-3 md:w-4 h-2 sm:h-3 md:h-4 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50" 
+                  className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-2 sm:w-3 md:w-4 h-2 sm:h-3 md:h-4 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50"
                 />
-                <motion.div 
-                  animate={{ 
+                <motion.div
+                  animate={{
                     scale: [1, 1.1, 1],
-                    opacity: [0.5, 0.8, 0.5]
+                    opacity: [0.5, 0.8, 0.5],
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: 0.5
+                    delay: 0.5,
                   }}
-                  className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-3 sm:left-4 md:left-6 w-1.5 sm:w-2 md:w-3 h-1.5 sm:h-2 md:h-3 bg-blue-400 rounded-full shadow-md shadow-blue-400/50" 
+                  className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-3 sm:left-4 md:left-6 w-1.5 sm:w-2 md:w-3 h-1.5 sm:h-2 md:h-3 bg-blue-400 rounded-full shadow-md shadow-blue-400/50"
                 />
-                <motion.div 
-                  animate={{ 
+                <motion.div
+                  animate={{
                     scale: [1, 1.3, 1],
-                    opacity: [0.4, 0.7, 0.4]
+                    opacity: [0.4, 0.7, 0.4],
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 2.5,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: 1
+                    delay: 1,
                   }}
-                  className="absolute top-1/2 left-2 sm:left-3 md:left-4 w-1 sm:w-1.5 md:w-2 h-1 sm:h-1.5 md:h-2 bg-blue-500 rounded-full shadow-sm shadow-blue-500/50" 
+                  className="absolute top-1/2 left-2 sm:left-3 md:left-4 w-1 sm:w-1.5 md:w-2 h-1 sm:h-1.5 md:h-2 bg-blue-500 rounded-full shadow-sm shadow-blue-500/50"
                 />
-                <motion.div 
-                  animate={{ 
+                <motion.div
+                  animate={{
                     scale: [1, 1.15, 1],
-                    opacity: [0.3, 0.6, 0.3]
+                    opacity: [0.3, 0.6, 0.3],
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: 1.5
+                    delay: 1.5,
                   }}
-                  className="absolute top-1/4 right-1/4 w-0.5 sm:w-1 md:w-1.5 h-0.5 sm:h-1 md:h-1.5 bg-white rounded-full shadow-sm shadow-white/50" 
+                  className="absolute top-1/4 right-1/4 w-0.5 sm:w-1 md:w-1.5 h-0.5 sm:h-1 md:h-1.5 bg-white rounded-full shadow-sm shadow-white/50"
                 />
               </motion.div>
             </div>
           </motion.div>
-
         </motion.div>
 
         {/* Enhanced Bottom CTA */}
@@ -411,25 +424,22 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 sm:gap-3 md:gap-4 px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4 bg-white/5 border border-blue-500/30 rounded-full backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 group cursor-pointer"
           >
             <div className="flex -space-x-1 sm:-space-x-1.5">
-              {[
-                "bg-blue-400",
-                "bg-blue-500", 
-                "bg-blue-600"
-              ].map((color, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${color} rounded-full border-2 border-black`}
-                />
-              ))}
+              {["bg-blue-400", "bg-blue-500", "bg-blue-600"].map(
+                (color, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${color} rounded-full border-2 border-black`}
+                  />
+                ),
+              )}
             </div>
             <span className="text-xs sm:text-sm md:text-base lg:text-lg font-medium text-white group-hover:text-blue-400 transition-colors">
               Start your academic transformation today
             </span>
           </motion.div>
         </motion.div>
-        
       </div>
     </section>
   );

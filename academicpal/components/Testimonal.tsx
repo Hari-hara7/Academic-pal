@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { BorderBeam } from "@/components/magicui/border-beam";
 
@@ -17,12 +12,14 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "The notes provided here are excellent. They helped me ace my exams!",
+    quote:
+      "The notes provided here are excellent. They helped me ace my exams!",
     name: "Prajwal",
     rating: 5,
   },
   {
-    quote: "Academic Pal has been a lifesaver for my studies. Highly recommended!",
+    quote:
+      "Academic Pal has been a lifesaver for my studies. Highly recommended!",
     name: "Nagendra",
     rating: 5,
   },
@@ -33,12 +30,14 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "The website is actually good. It's like a last moment savior. Nothing.",
+    quote:
+      "The website is actually good. It's like a last moment savior. Nothing.",
     name: "Anup C",
     rating: 4,
   },
   {
-    quote: "Recommended for its informative and useful resources during exam times.",
+    quote:
+      "Recommended for its informative and useful resources during exam times.",
     name: "Maneesh",
     rating: 5,
   },
@@ -82,7 +81,9 @@ export default function Testimonials() {
           >
             <Card className="relative w-full max-w-xs sm:max-w-sm overflow-hidden bg-black shadow-lg rounded-2xl cursor-pointer border border-white/20 hover:border-blue-500 transition-all duration-300">
               <CardHeader className="pb-2">
-                <CardTitle className="text-white text-sm sm:text-base">{name}</CardTitle>
+                <CardTitle className="text-white text-sm sm:text-base">
+                  {name}
+                </CardTitle>
                 <StarRating count={rating} />
               </CardHeader>
               <CardContent className="text-gray-300 italic text-xs sm:text-sm leading-relaxed">

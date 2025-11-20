@@ -10,8 +10,6 @@ import {
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyCp7culM97yeWN2GFZjk47sqlu0YaHQR2o",
   authDomain: "tail-44bd6.firebaseapp.com",
@@ -22,20 +20,14 @@ const firebaseConfig = {
   appId: "1:92562125471:web:e55634f4994ad3c4a1a8aa",
 };
 
-
 const app = initializeApp(firebaseConfig);
-
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 export const provider = new GoogleAuthProvider();
 
-
 const db = getFirestore(app);
-
-
-
 
 export {
   auth,

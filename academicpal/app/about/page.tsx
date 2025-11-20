@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   BookOpen,
@@ -15,7 +15,7 @@ import {
   Layers,
   MessageSquare,
   Hash,
-} from "lucide-react"
+} from "lucide-react";
 
 import {
   SiNextdotjs,
@@ -28,36 +28,39 @@ import {
   SiScikitlearn,
   SiNumpy,
 } from "react-icons/si";
-import { FiCpu, FiLayers, FiMessageSquare, FiHash, FiTable } from "react-icons/fi";
+import {
+  FiCpu,
+  FiLayers,
+  FiMessageSquare,
+  FiHash,
+  FiTable,
+} from "react-icons/fi";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import Link from "next/link"
-
-
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export default function AboutPage() {
+  const techIcons: { [key: string]: JSX.Element } = {
+    "Next.js 15": <SiNextdotjs className="w-5 h-5" />,
+    "Tailwind CSS": <SiTailwindcss className="w-5 h-5" />,
+    TypeScript: <SiTypescript className="w-5 h-5" />,
+    MongoDB: <SiMongodb className="w-5 h-5" />,
+    Firebase: <SiFirebase className="w-5 h-5" />,
+  };
 
-const techIcons: { [key: string]: JSX.Element } = {
-  "Next.js 15": <SiNextdotjs className="w-5 h-5" />,
-  "Tailwind CSS": <SiTailwindcss className="w-5 h-5" />,
-  TypeScript: <SiTypescript className="w-5 h-5" />,
-  MongoDB: <SiMongodb className="w-5 h-5" />,
-  Firebase: <SiFirebase className="w-5 h-5" />,
-};
+  const mlTechIcons: { [key: string]: JSX.Element } = {
+    Flask: <SiFlask className="w-5 h-5" />,
+    Pandas: <SiPandas className="w-5 h-5" />,
+    "Scikit-Learn": <SiScikitlearn className="w-5 h-5" />,
+    NLTK: <FiMessageSquare className="w-5 h-5" />, // fallback generic icon
+    NumPy: <SiNumpy className="w-5 h-5" />,
+  };
 
-const mlTechIcons: { [key: string]: JSX.Element } = {
-  Flask: <SiFlask className="w-5 h-5" />,
-  Pandas: <SiPandas className="w-5 h-5" />,
-  "Scikit-Learn": <SiScikitlearn className="w-5 h-5" />,
-  NLTK: <FiMessageSquare className="w-5 h-5" />, // fallback generic icon
-  NumPy: <SiNumpy className="w-5 h-5" />,
-};
-
-const TechIcon = ({ tech }: { tech: string }) => techIcons[tech] || null;
-const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
+  const TechIcon = ({ tech }: { tech: string }) => techIcons[tech] || null;
+  const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
 
   return (
     <main className="min-h-screen bg-black text-gray-100 py-12 px-4 sm:px-6 md:px-12 lg:px-20">
@@ -70,8 +73,8 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl leading-relaxed">
             AcademicPal is a powerful academic companion used by{" "}
             <span className="font-semibold">4,000+ students</span> at NMAMIT. It
-            provides curated notes,  PYQs, AI-powered search, real-time
-            chat, and more — all in one place.
+            provides curated notes, PYQs, AI-powered search, real-time chat, and
+            more — all in one place.
           </p>
         </header>
 
@@ -123,14 +126,17 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
 
         {/* About the Developer */}
         <section>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 font-bold font-poppins">About the Developer</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 font-bold font-poppins">
+            About the Developer
+          </h2>
           <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-md">
             <CardContent className="p-5 sm:p-6">
               <h3 className="text-xl sm:text-2xl font-bold mb-1 text-gray-100 font-bold font-poppins">
                 Hariharanath
               </h3>
               <p className="text-gray-300 text-sm sm:text-lg">
-                3rd Year CSE Student · Full Stack Developer · Founder of AcademicPal
+                3rd Year CSE Student · Full Stack Developer · Founder of
+                AcademicPal
               </p>
             </CardContent>
           </Card>
@@ -139,54 +145,59 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
         <Separator className="border-gray-700" />
 
         {/* Tech Stack */}
-       <section>
-      <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
-        Tech Stack
-      </h2>
-      <div className="flex flex-wrap gap-3 sm:gap-4">
-        {[
-          "Next.js 15",
-          "Tailwind CSS",
-          "TypeScript",
-          "MongoDB",
-          "Firebase",
-        ].map((tech) => (
-          <Badge
-            key={tech}
-            className="flex items-center gap-2 border border-gray-600 bg-white/5 text-gray-300 px-3 py-1 rounded"
-          >
-            <TechIcon tech={tech} />
-            {tech}
-          </Badge>
-        ))}
-      </div>
-    </section>
+        <section>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
+            Tech Stack
+          </h2>
+          <div className="flex flex-wrap gap-3 sm:gap-4">
+            {[
+              "Next.js 15",
+              "Tailwind CSS",
+              "TypeScript",
+              "MongoDB",
+              "Firebase",
+            ].map((tech) => (
+              <Badge
+                key={tech}
+                className="flex items-center gap-2 border border-gray-600 bg-white/5 text-gray-300 px-3 py-1 rounded"
+              >
+                <TechIcon tech={tech} />
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </section>
 
-    <Separator className="border-gray-700" />
+        <Separator className="border-gray-700" />
 
-    {/* Machine Learning Tech Stack */}
-    <section>
-      <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 font-bold font-poppins">
-        Machine Learning Tech Stack
-      </h2>
-      <div className="flex flex-wrap gap-3 sm:gap-4 mb-4">
-        {["Flask", "Pandas", "Scikit-Learn", "NLTK", "NumPy"].map((tech) => (
-          <Badge
-            key={tech}
-            className="flex items-center gap-2 border border-gray-600 bg-white/5 text-gray-300 px-3 py-1 rounded"
-          >
-            <MLTechIcon tech={tech} />
-            {tech}
-          </Badge>
-        ))}
-      </div>
-      <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-md p-4">
-        <p className="text-gray-300 text-sm sm:text-base ">
-          Chatbot with AI NLP developed by{" "}
-          <span className="font-semibold text-white font-bold font-poppins">Teja</span>.
-        </p>
-      </Card>
-    </section>
+        {/* Machine Learning Tech Stack */}
+        <section>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 font-bold font-poppins">
+            Machine Learning Tech Stack
+          </h2>
+          <div className="flex flex-wrap gap-3 sm:gap-4 mb-4">
+            {["Flask", "Pandas", "Scikit-Learn", "NLTK", "NumPy"].map(
+              (tech) => (
+                <Badge
+                  key={tech}
+                  className="flex items-center gap-2 border border-gray-600 bg-white/5 text-gray-300 px-3 py-1 rounded"
+                >
+                  <MLTechIcon tech={tech} />
+                  {tech}
+                </Badge>
+              ),
+            )}
+          </div>
+          <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-md p-4">
+            <p className="text-gray-300 text-sm sm:text-base ">
+              Chatbot with AI NLP developed by{" "}
+              <span className="font-semibold text-white font-bold font-poppins">
+                Teja
+              </span>
+              .
+            </p>
+          </Card>
+        </section>
 
         {/* Call to action buttons */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-8">
@@ -206,7 +217,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
         </div>
       </section>
     </main>
-  )
+  );
 }
 
 function Feature({
@@ -214,9 +225,9 @@ function Feature({
   title,
   description,
 }: {
-  icon: React.ReactNode
-  title: string
-  description: string
+  icon: React.ReactNode;
+  title: string;
+  description: string;
 }) {
   return (
     <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-default">
@@ -230,7 +241,7 @@ function Feature({
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 function TechBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -239,24 +250,24 @@ function TechBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
       {icon}
       {text}
     </Badge>
-  )
+  );
 }
 
 function TechIcon({ tech }: { tech: string }) {
   switch (tech) {
     case "Next.js 15":
-      return <Cpu className="w-5 h-5 text-gray-300" />
+      return <Cpu className="w-5 h-5 text-gray-300" />;
     case "Tailwind CSS":
-      return <Layers className="w-5 h-5 text-gray-300" />
+      return <Layers className="w-5 h-5 text-gray-300" />;
     case "TypeScript":
-      return <Hash className="w-5 h-5 text-gray-300" />
+      return <Hash className="w-5 h-5 text-gray-300" />;
     case "ShadCN UI":
-      return <User2 className="w-5 h-5 text-gray-300" />
+      return <User2 className="w-5 h-5 text-gray-300" />;
     case "MongoDB":
-      return <Table className="w-5 h-5 text-gray-300" />
+      return <Table className="w-5 h-5 text-gray-300" />;
     case "Firebase":
-      return <Send className="w-5 h-5 text-gray-300" />
+      return <Send className="w-5 h-5 text-gray-300" />;
     default:
-      return null
+      return null;
   }
 }

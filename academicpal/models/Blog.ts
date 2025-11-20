@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const commentSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
   username: String,
@@ -20,7 +20,7 @@ const blogSchema = new mongoose.Schema(
     content: { type: String, required: true },
     authorId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     authorName: String,
@@ -30,7 +30,7 @@ const blogSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-export const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
+export const Blog = mongoose.models.Blog || mongoose.model("Blog", blogSchema);

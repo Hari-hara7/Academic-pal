@@ -10,7 +10,7 @@ export default function MessageBubble({ message }: { message: ChatMessage }) {
     <div
       className={cn(
         "w-full my-1.5 flex items-end gap-2",
-        isUser ? "justify-end" : "justify-start"
+        isUser ? "justify-end" : "justify-start",
       )}
     >
       {!isUser && (
@@ -25,10 +25,12 @@ export default function MessageBubble({ message }: { message: ChatMessage }) {
           "shadow-sm",
           isUser
             ? "bg-sky-500 text-white rounded-br-md"
-            : "bg-neutral-950 text-neutral-100 border border-white/10 rounded-bl-md"
+            : "bg-neutral-950 text-neutral-100 border border-white/10 rounded-bl-md",
         )}
       >
-        <p className="whitespace-pre-wrap selection:bg-sky-500/30">{message.content}</p>
+        <p className="whitespace-pre-wrap selection:bg-sky-500/30">
+          {message.content}
+        </p>
       </div>
 
       {isUser && (

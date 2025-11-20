@@ -1,14 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { connectDB } from '@/lib/db';
-import ForumPost from '@/models/ForumPost';
-import { verifyToken } from '@/lib/auth';
+import { NextRequest, NextResponse } from "next/server";
+import { connectDB } from "@/lib/db";
+import ForumPost from "@/models/ForumPost";
+import { verifyToken } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   await connectDB();
 
-  const token = req.cookies.get('token')?.value;
+  const token = req.cookies.get("token")?.value;
   if (!token) {
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
   try {
@@ -18,7 +18,10 @@ export async function POST(req: NextRequest) {
     const { title, body: content, tags } = body;
 
     if (!title || !content) {
-      return NextResponse.json({ message: 'Title and content are required.' }, { status: 400 });
+      return NextResponse.json(
+        { message: "Title and content are required." },
+        { status: 400 },
+      );
     }
 
     const newPost = await ForumPost.create({
@@ -26,7 +29,7 @@ export async function POST(req: NextRequest) {
       body: content,
       tags: tags || [],
       userId: decoded.id,
-      username: decoded.name || 'Anonymous',
+      username: decoded.name || "Anonymous",
       replies: [],
       views: 0,
       isResolved: false,
@@ -36,7 +39,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, post: newPost }, { status: 201 });
   } catch (err) {
-    console.error('Create ForumPost error:', err);
-    return NextResponse.json({ message: 'Internal error' }, { status: 500 });
+    console.error("Create ForumPost error:", err);
+    return NextResponse.json({ message: "Internal error" }, { status: 500 });
   }
 }

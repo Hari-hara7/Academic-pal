@@ -35,7 +35,9 @@ type Comment = {
 export default function RoadmapList() {
   const [roadmaps, setRoadmaps] = useState<Roadmap[]>([]);
   const [loading, setLoading] = useState(false);
-  const [activeCommentsRoadmapId, setActiveCommentsRoadmapId] = useState<string | null>(null);
+  const [activeCommentsRoadmapId, setActiveCommentsRoadmapId] = useState<
+    string | null
+  >(null);
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const sessionId = typeof window !== "undefined" ? getSessionId() : "";
@@ -101,8 +103,7 @@ export default function RoadmapList() {
     );
 
   return (
-   <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-6 max-w-6xl mx-auto font-inter">
-
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-6 max-w-6xl mx-auto font-inter">
       {roadmaps.map((r) => (
         <Card
           key={r.id}
@@ -122,8 +123,7 @@ export default function RoadmapList() {
           </CardHeader>
 
           <CardFooter className="flex flex-col gap-4">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 w-full">
-
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 w-full">
               <div className="flex gap-3 items-center text-sm">
                 <Button
                   size="icon"
@@ -193,8 +193,7 @@ export default function RoadmapList() {
                     </p>
                   </div>
                 ))}
-           <div className="mt-2 flex flex-col sm:flex-row gap-2">
-
+                <div className="mt-2 flex flex-col sm:flex-row gap-2">
                   <textarea
                     className="flex-grow rounded-md bg-black text-white border border-gray-600 p-2 resize-none"
                     rows={2}

@@ -1,31 +1,36 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
   sendPasswordResetEmail,
-} from 'firebase/auth';
-import { auth } from '@/lib/firebase';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { FaGithub, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-import { motion } from 'motion/react';
-import { Sparkles, ArrowRight, Shield, BookOpen } from 'lucide-react';
-import Link from 'next/link';
-import { toast } from 'sonner';
-import { Inter } from 'next/font/google';
+} from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { motion } from "motion/react";
+import { Sparkles, ArrowRight, Shield, BookOpen } from "lucide-react";
+import Link from "next/link";
+import { toast } from "sonner";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", '500', '600', "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-inter",
 });
 
@@ -34,36 +39,38 @@ const containerVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { delayChildren: 0.2, staggerChildren: 0.1 }
-  }
+    transition: { delayChildren: 0.2, staggerChildren: 0.1 },
+  },
 };
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
+  visible: { y: 0, opacity: 1 },
 };
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const isValidEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@nmamit\.in$/.test(email);
+  const isValidEmail = (email: string) =>
+    /^[a-zA-Z0-9._%+-]+@nmamit\.in$/.test(email);
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      toast.success('Signed in successfully with Google!');
-      router.push('/home');
+      toast.success("Signed in successfully with Google!");
+      router.push("/home");
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'Google sign-in failed';
-      toast.error('Google sign-in failed');
+      const errorMessage =
+        err instanceof Error ? err.message : "Google sign-in failed";
+      toast.error("Google sign-in failed");
       setError(errorMessage);
     } finally {
       setIsLoading(false);
@@ -75,11 +82,12 @@ const Login = () => {
     try {
       const provider = new GithubAuthProvider();
       await signInWithPopup(auth, provider);
-      toast.success('Signed in successfully with GitHub!');
-      router.push('/home');
+      toast.success("Signed in successfully with GitHub!");
+      router.push("/home");
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'GitHub sign-in failed';
-      toast.error('GitHub sign-in failed');
+      const errorMessage =
+        err instanceof Error ? err.message : "GitHub sign-in failed";
+      toast.error("GitHub sign-in failed");
       setError(errorMessage);
     } finally {
       setIsLoading(false);
@@ -88,18 +96,18 @@ const Login = () => {
 
   const handleForgotPassword = async () => {
     if (!isValidEmail(email)) {
-      setError('Please enter a valid NMAMIT email.');
-      toast.error('Invalid NMAMIT email.');
+      setError("Please enter a valid NMAMIT email.");
+      toast.error("Invalid NMAMIT email.");
       return;
     }
     setIsLoading(true);
     try {
       await sendPasswordResetEmail(auth, email);
-      setMessage('Password reset email sent. Check your inbox.');
-      toast.success('Password reset email sent!');
+      setMessage("Password reset email sent. Check your inbox.");
+      toast.success("Password reset email sent!");
     } catch {
-      setError('Failed to send password reset email.');
-      toast.error('Error sending password reset email.');
+      setError("Failed to send password reset email.");
+      toast.error("Error sending password reset email.");
     } finally {
       setIsLoading(false);
     }
@@ -110,24 +118,29 @@ const Login = () => {
     setIsLoading(true);
 
     if (!isValidEmail(email)) {
-      setError('Please enter a valid NMAMIT email.');
-      toast.error('Invalid NMAMIT email.');
+      setError("Please enter a valid NMAMIT email.");
+      toast.error("Invalid NMAMIT email.");
       setIsLoading(false);
       return;
     }
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success('Logged in successfully!');
-      router.push('/home');
+      toast.success("Logged in successfully!");
+      router.push("/home");
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'Login failed';
-      if (errorMessage.includes('wrong-password') || errorMessage.includes('user-not-found')) {
-        setError('Incorrect credentials. Please sign up if you don&apos;t have an account.');
-        toast.error('Incorrect credentials.');
+      const errorMessage = err instanceof Error ? err.message : "Login failed";
+      if (
+        errorMessage.includes("wrong-password") ||
+        errorMessage.includes("user-not-found")
+      ) {
+        setError(
+          "Incorrect credentials. Please sign up if you don&apos;t have an account.",
+        );
+        toast.error("Incorrect credentials.");
       } else {
         setError(errorMessage);
-        toast.error('Login failed.');
+        toast.error("Login failed.");
       }
     } finally {
       setIsLoading(false);
@@ -135,7 +148,9 @@ const Login = () => {
   };
 
   return (
-    <div className={`${inter.className} min-h-screen bg-black text-white overflow-hidden relative`}>
+    <div
+      className={`${inter.className} min-h-screen bg-black text-white overflow-hidden relative`}
+    >
       {/* Minimal white glow background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
@@ -150,7 +165,12 @@ const Login = () => {
         />
         <motion.div
           animate={{ x: [0, -80, 0], y: [0, 60, 0], scale: [1, 0.9, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 5 }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5,
+          }}
           className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 h-40 sm:h-56 md:h-72 bg-white/5 rounded-full blur-3xl"
         />
       </div>
@@ -164,21 +184,30 @@ const Login = () => {
             animate="visible"
             className="max-w-lg xl:max-w-xl 2xl:max-w-2xl space-y-6 xl:space-y-8"
           >
-            <motion.div variants={itemVariants} className="space-y-4 xl:space-y-6">
+            <motion.div
+              variants={itemVariants}
+              className="space-y-4 xl:space-y-6"
+            >
               <h2 className="text-3xl xl:text-4xl 2xl:text-5xl font-black leading-tight tracking-tight text-white">
                 Welcome back to your
-                <span className="block mt-2 text-blue-500">Academic Journey</span>
+                <span className="block mt-2 text-blue-500">
+                  Academic Journey
+                </span>
               </h2>
               <p className="text-lg xl:text-xl 2xl:text-2xl text-white/70 leading-relaxed font-medium">
-                Continue your path to academic excellence with AI-powered tools and personalized learning experiences.
+                Continue your path to academic excellence with AI-powered tools
+                and personalized learning experiences.
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="space-y-3 xl:space-y-4">
+            <motion.div
+              variants={itemVariants}
+              className="space-y-3 xl:space-y-4"
+            >
               {[
                 { icon: Shield, text: "Secure Google Integration" },
                 { icon: Sparkles, text: "AI-Powered Study Tools" },
-                { icon: BookOpen, text: "Personalized Learning Paths" }
+                { icon: BookOpen, text: "Personalized Learning Paths" },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
@@ -197,11 +226,14 @@ const Login = () => {
               ))}
             </motion.div>
 
-            <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4 xl:gap-6 pt-4 xl:pt-6">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-3 gap-4 xl:gap-6 pt-4 xl:pt-6"
+            >
               {[
                 { value: "4K+", label: "Students" },
                 { value: "95%", label: "Success Rate" },
-                { value: "24/7", label: "Support" }
+                { value: "24/7", label: "Support" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -210,7 +242,11 @@ const Login = () => {
                 >
                   <motion.div
                     animate={{ scale: [1, 1.05, 1], opacity: [0.85, 1, 0.85] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: index * 0.5,
+                    }}
                     className="text-2xl xl:text-3xl font-black text-white group-hover:text-blue-400"
                   >
                     {stat.value}
@@ -234,9 +270,16 @@ const Login = () => {
           >
             <Card className="bg-black/70 backdrop-blur-sm border border-white/15 shadow-2xl shadow-white/5">
               <CardHeader className="space-y-4 pb-6">
-                <motion.div variants={itemVariants} className="text-center space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Sign <span className="text-blue-500">In</span></h2>
-                  <p className="text-white/60">Welcome back! Please sign in to continue</p>
+                <motion.div
+                  variants={itemVariants}
+                  className="text-center space-y-2"
+                >
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                    Sign <span className="text-blue-500">In</span>
+                  </h2>
+                  <p className="text-white/60">
+                    Welcome back! Please sign in to continue
+                  </p>
                 </motion.div>
               </CardHeader>
 
@@ -272,14 +315,23 @@ const Login = () => {
                     <Separator className="w-full bg-white/15" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-black px-4 text-white/60 font-medium">Or continue with email</span>
+                    <span className="bg-black px-4 text-white/60 font-medium">
+                      Or continue with email
+                    </span>
                   </div>
                 </motion.div>
 
                 {/* Form */}
-                <motion.form variants={itemVariants} onSubmit={handleLogin} className="space-y-5">
+                <motion.form
+                  variants={itemVariants}
+                  onSubmit={handleLogin}
+                  className="space-y-5"
+                >
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium text-white/80">
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-medium text-white/80"
+                    >
                       NMAMIT Email
                     </Label>
                     <Input
@@ -294,7 +346,10 @@ const Login = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password" className="text-sm font-medium text-white/80">
+                    <Label
+                      htmlFor="password"
+                      className="text-sm font-medium text-white/80"
+                    >
                       Password
                     </Label>
                     <div className="relative">
@@ -312,7 +367,11 @@ const Login = () => {
                         onClick={() => setShowPassword(!showPassword)}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
                       >
-                        {showPassword ? <FaEyeSlash className="w-5 h-5" /> : <FaEye className="w-5 h-5" />}
+                        {showPassword ? (
+                          <FaEyeSlash className="w-5 h-5" />
+                        ) : (
+                          <FaEye className="w-5 h-5" />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -358,7 +417,10 @@ const Login = () => {
               </CardContent>
 
               <CardFooter className="space-y-4 pt-6">
-                <motion.div variants={itemVariants} className="w-full text-center space-y-3">
+                <motion.div
+                  variants={itemVariants}
+                  className="w-full text-center space-y-3"
+                >
                   <button
                     onClick={handleForgotPassword}
                     className="text-sm text-white/70 hover:text-blue-400 underline-offset-4 hover:underline transition-colors"
@@ -368,7 +430,7 @@ const Login = () => {
                   </button>
 
                   <p className="text-sm text-white/60">
-                    Don&apos;t have an account?{' '}
+                    Don&apos;t have an account?{" "}
                     <Link
                       href="/signup"
                       className="text-blue-400 hover:text-blue-300 hover:underline underline-offset-4 font-medium transition-colors"

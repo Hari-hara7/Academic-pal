@@ -1,24 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { toast } from 'sonner';
-import {
-  FileText,
-  AlignLeft,
-  Tag,
-  Send,
-} from 'lucide-react';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "sonner";
+import { FileText, AlignLeft, Tag, Send } from "lucide-react";
 
 export default function CreateForumThreadPage() {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [tags, setTags] = useState('');
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [tags, setTags] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -26,13 +21,16 @@ export default function CreateForumThreadPage() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch('/api/forum/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/forum/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title,
         body,
-        tags: tags.split(',').map((t) => t.trim()).filter(Boolean),
+        tags: tags
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean),
       }),
     });
 
@@ -40,10 +38,10 @@ export default function CreateForumThreadPage() {
     setLoading(false);
 
     if (data.success) {
-      toast.success('Thread posted successfully!');
-      router.push('/dashboard/forum');
+      toast.success("Thread posted successfully!");
+      router.push("/dashboard/forum");
     } else {
-      toast.error('Failed to post thread.');
+      toast.error("Failed to post thread.");
     }
   };
 
@@ -110,7 +108,7 @@ export default function CreateForumThreadPage() {
               className="bg-white text-black hover:bg-white/90 flex items-center gap-2"
             >
               <Send className="h-4 w-4" />
-              {loading ? 'Posting...' : 'Post Thread'}
+              {loading ? "Posting..." : "Post Thread"}
             </Button>
           </CardContent>
         </Card>

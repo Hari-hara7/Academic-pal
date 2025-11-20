@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { SessionType } from '@/types/session';
-import { format } from 'date-fns';
-import { Card, CardContent } from '@/components/ui/card';
-import { CalendarClock, Video, User, NotebookPen } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { SessionType } from "@/types/session";
+import { format } from "date-fns";
+import { Card, CardContent } from "@/components/ui/card";
+import { CalendarClock, Video, User, NotebookPen } from "lucide-react";
 
 export default function MySessionsPage() {
   const [sessions, setSessions] = useState<SessionType[]>([]);
 
   useEffect(() => {
     const fetchSessions = async () => {
-      const res = await fetch('/api/tutoring/sessions/my');
+      const res = await fetch("/api/tutoring/sessions/my");
       const data = await res.json();
       if (data.success) {
         setSessions(data.sessions);
@@ -29,7 +29,9 @@ export default function MySessionsPage() {
         </h2>
 
         {sessions.length === 0 ? (
-          <p className="text-gray-400">You haven’t scheduled or joined any sessions yet.</p>
+          <p className="text-gray-400">
+            You haven’t scheduled or joined any sessions yet.
+          </p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {sessions.map((session) => (
@@ -41,24 +43,27 @@ export default function MySessionsPage() {
                   <h3 className="text-xl font-semibold">{session.subject}</h3>
 
                   <p className="text-sm">
-                    <span className="font-medium text-white/70">📅 Date:</span>{' '}
-                    {format(new Date(session.scheduledAt), 'PPpp')}
+                    <span className="font-medium text-white/70">📅 Date:</span>{" "}
+                    {format(new Date(session.scheduledAt), "PPpp")}
                   </p>
 
                   <p className="text-sm">
-                    <span className="font-medium text-white/70">🎥 Mode:</span> {session.mode}
+                    <span className="font-medium text-white/70">🎥 Mode:</span>{" "}
+                    {session.mode}
                   </p>
 
                   <p className="text-sm">
-                    <span className="font-medium text-white/70">👥 With:</span>{' '}
+                    <span className="font-medium text-white/70">👥 With:</span>{" "}
                     {session.tutorId.name && session.learnerId.name
                       ? `${session.tutorId.name} / ${session.learnerId.name}`
-                      : 'N/A'}
+                      : "N/A"}
                   </p>
 
                   {session.meetingLink && (
                     <p className="text-sm">
-                      <span className="font-medium text-white/70">🔗 Meeting Link:</span>{' '}
+                      <span className="font-medium text-white/70">
+                        🔗 Meeting Link:
+                      </span>{" "}
                       <a
                         href={session.meetingLink}
                         target="_blank"
@@ -72,7 +77,10 @@ export default function MySessionsPage() {
 
                   {session.notes && (
                     <p className="text-sm">
-                      <span className="font-medium text-white/70">📝 Notes:</span> {session.notes}
+                      <span className="font-medium text-white/70">
+                        📝 Notes:
+                      </span>{" "}
+                      {session.notes}
                     </p>
                   )}
                 </CardContent>

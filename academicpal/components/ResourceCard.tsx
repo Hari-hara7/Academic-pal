@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Resource } from '@/types/resource'; // adjust the path as per your structure
+import { Resource } from "@/types/resource"; // adjust the path as per your structure
 import {
   FaLink,
   FaFileAlt,
@@ -9,8 +9,8 @@ import {
   FaBook,
   FaGraduationCap,
   FaTrash,
-} from 'react-icons/fa';
-import { motion } from 'motion/react';
+} from "react-icons/fa";
+import { motion } from "motion/react";
 
 interface User {
   uid?: string;
@@ -27,7 +27,7 @@ interface Props {
 
 const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
   // Only allow the specific authorized user to delete resources
-  const AUTHORIZED_USER_UID = '8wBHYgtKpPQ37go66ivmLtXVF7b2';
+  const AUTHORIZED_USER_UID = "8wBHYgtKpPQ37go66ivmLtXVF7b2";
   const canDelete = user && user.uid === AUTHORIZED_USER_UID;
 
   const handleDelete = () => {
@@ -40,7 +40,9 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
-        {(resource.resourceType === 'link' || (!resource.resourceType && (resource.shareableLink || resource.resourceUrl))) ? (
+        {resource.resourceType === "link" ||
+        (!resource.resourceType &&
+          (resource.shareableLink || resource.resourceUrl)) ? (
           <FaLink className="text-blue-400 text-4xl" />
         ) : (
           <FaFileAlt className="text-blue-400 text-4xl" />
@@ -54,7 +56,7 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
       <div className="space-y-2 text-gray-300">
         <p className="flex items-center gap-2">
           <FaExternalLinkAlt className="text-blue-400" />
-          <span>Type: {resource.resourceType || 'link'}</span>
+          <span>Type: {resource.resourceType || "link"}</span>
         </p>
         <p className="flex items-center gap-2">
           <FaUser className="text-blue-400" />
@@ -86,7 +88,7 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
             <FaExternalLinkAlt /> Open Resource
           </a>
         )}
-        
+
         {canDelete && (
           <button
             onClick={handleDelete}

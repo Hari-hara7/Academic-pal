@@ -63,11 +63,17 @@ const ReviewCard = ({
         // Background: subtle transparent white
         "bg-white/5 hover:bg-white/10",
         // Text: pure white
-        "text-white"
+        "text-white",
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt={name} src={img} />
+        <img
+          className="rounded-full"
+          width="32"
+          height="32"
+          alt={name}
+          src={img}
+        />
         <div className="flex flex-col">
           <figcaption className="text-sm font-semibold text-white">
             {name}
@@ -83,7 +89,7 @@ const ReviewCard = ({
 export function MarqueeDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-black py-10">
-         <h2 className="text-2xl md:text-4xl  text-white mb-8 font-bold font-poppins">
+      <h2 className="text-2xl md:text-4xl  text-white mb-8 font-bold font-poppins">
         ❤️ Loved by Our Students
       </h2>
       <Marquee pauseOnHover className="[--duration:25s]">

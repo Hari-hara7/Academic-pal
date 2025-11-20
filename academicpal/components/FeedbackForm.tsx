@@ -48,7 +48,9 @@ export default function FeedbackForm() {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-1">
-          <Label htmlFor="name" className="text-white">Name</Label>
+          <Label htmlFor="name" className="text-white">
+            Name
+          </Label>
           <Input
             id="name"
             placeholder="Your name"
@@ -58,7 +60,9 @@ export default function FeedbackForm() {
           />
         </div>
         <div className="space-y-1">
-          <Label htmlFor="email" className="text-white">Email</Label>
+          <Label htmlFor="email" className="text-white">
+            Email
+          </Label>
           <Input
             id="email"
             type="email"
@@ -69,7 +73,9 @@ export default function FeedbackForm() {
           />
         </div>
         <div className="space-y-1">
-          <Label htmlFor="message" className="text-white">Message</Label>
+          <Label htmlFor="message" className="text-white">
+            Message
+          </Label>
           <Textarea
             id="message"
             placeholder="Your message"

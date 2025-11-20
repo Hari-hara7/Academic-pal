@@ -1,26 +1,32 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { CalendarClock } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CalendarClock } from "lucide-react";
 
-const TEACHING_MODES = ['Chat', 'Voice', 'Video', 'Notes Sharing'];
+const TEACHING_MODES = ["Chat", "Voice", "Video", "Notes Sharing"];
 
 export default function ScheduleSessionPage() {
   const { tutorId } = useParams();
   const router = useRouter();
 
   const [tutor, setTutor] = useState<any>(null);
-  const [subject, setSubject] = useState('');
-  const [scheduledAt, setScheduledAt] = useState('');
+  const [subject, setSubject] = useState("");
+  const [scheduledAt, setScheduledAt] = useState("");
   const [mode, setMode] = useState(TEACHING_MODES[0]);
-  const [meetingLink, setMeetingLink] = useState('');
-  const [notes, setNotes] = useState('');
+  const [meetingLink, setMeetingLink] = useState("");
+  const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -29,7 +35,7 @@ export default function ScheduleSessionPage() {
       const data = await res.json();
       if (data.success && data.tutors.length > 0) {
         setTutor(data.tutors[0]);
-        setSubject(data.tutors[0].subjects[0] || '');
+        setSubject(data.tutors[0].subjects[0] || "");
       }
     }
     fetchTutor();
@@ -39,20 +45,27 @@ export default function ScheduleSessionPage() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch('/api/tutoring/sessions/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tutorId, subject, scheduledAt, mode, meetingLink, notes }),
+    const res = await fetch("/api/tutoring/sessions/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tutorId,
+        subject,
+        scheduledAt,
+        mode,
+        meetingLink,
+        notes,
+      }),
     });
 
     const data = await res.json();
     setLoading(false);
 
     if (data.success) {
-      alert('Session request sent!');
-      router.push('/dashboard/tutoring/my-sessions');
+      alert("Session request sent!");
+      router.push("/dashboard/tutoring/my-sessions");
     } else {
-      alert('Failed to schedule session.');
+      alert("Failed to schedule session.");
     }
   };
 
@@ -73,11 +86,18 @@ export default function ScheduleSessionPage() {
                 <Label className="text-white">Subject</Label>
                 <Select value={subject} onValueChange={setSubject}>
                   <SelectTrigger className="bg-black text-white border-white/30 mt-4">
-                    <SelectValue placeholder="Select subject" className="text-white" />
+                    <SelectValue
+                      placeholder="Select subject"
+                      className="text-white"
+                    />
                   </SelectTrigger>
                   <SelectContent className="bg-black text-white border-white/30">
                     {tutor.subjects.map((subj: string) => (
-                      <SelectItem key={subj} value={subj} className="hover:bg-white/10 text-white mt-4">
+                      <SelectItem
+                        key={subj}
+                        value={subj}
+                        className="hover:bg-white/10 text-white mt-4"
+                      >
                         {subj}
                       </SelectItem>
                     ))}
@@ -100,11 +120,18 @@ export default function ScheduleSessionPage() {
                 <Label className="text-white">Teaching Mode</Label>
                 <Select value={mode} onValueChange={setMode}>
                   <SelectTrigger className="bg-black text-white border-white/30 mt-4">
-                    <SelectValue placeholder="Select mode" className="text-white" />
+                    <SelectValue
+                      placeholder="Select mode"
+                      className="text-white"
+                    />
                   </SelectTrigger>
                   <SelectContent className="bg-black text-white border-white/30">
                     {TEACHING_MODES.map((m) => (
-                      <SelectItem key={m} value={m} className="hover:bg-white/10 text-white ">
+                      <SelectItem
+                        key={m}
+                        value={m}
+                        className="hover:bg-white/10 text-white "
+                      >
                         {m}
                       </SelectItem>
                     ))}
@@ -124,7 +151,9 @@ export default function ScheduleSessionPage() {
               </div>
 
               <div>
-                <Label className="text-white">Additional Notes (optional)</Label>
+                <Label className="text-white">
+                  Additional Notes (optional)
+                </Label>
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
@@ -139,7 +168,7 @@ export default function ScheduleSessionPage() {
                 disabled={loading}
                 className="w-full bg-white text-black hover:bg-white/80 transition"
               >
-                {loading ? 'Scheduling...' : 'Schedule Session'}
+                {loading ? "Scheduling..." : "Schedule Session"}
               </Button>
             </form>
           </CardContent>

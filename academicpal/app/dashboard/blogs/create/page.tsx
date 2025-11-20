@@ -1,42 +1,42 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 export default function CreateBlogPage() {
   const router = useRouter();
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !content) {
-      setError('Please fill in all fields.');
+      setError("Please fill in all fields.");
       return;
     }
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      const res = await fetch('/api/blogs/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/blogs/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, content }),
       });
       const data = await res.json();
 
       if (data.success) {
-        router.push('/dashboard/blogs');
+        router.push("/dashboard/blogs");
       } else {
-        setError(data.message || 'Failed to create blog');
+        setError(data.message || "Failed to create blog");
       }
     } catch {
-      setError('An error occurred.');
+      setError("An error occurred.");
     } finally {
       setLoading(false);
     }
@@ -78,7 +78,7 @@ export default function CreateBlogPage() {
             disabled={loading}
             className="w-full bg-white text-black hover:bg-yellow-400 hover:text-black transition"
           >
-            {loading ? 'Publishing...' : 'Publish'}
+            {loading ? "Publishing..." : "Publish"}
           </Button>
         </form>
       </div>

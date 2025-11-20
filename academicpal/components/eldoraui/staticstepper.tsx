@@ -37,9 +37,7 @@ export const CodeContainer = ({ children }: { children: ReactNode }) => {
   return (
     <div className="h-fit w-full rounded-lg border border-white/20 bg-black px-5 py-3 backdrop-blur-sm transition-colors duration-300 hover:bg-white/5">
       <code
-        className={cn(
-          "whitespace-pre-wrap text-sm text-gray-300 font-mono",
-        )}
+        className={cn("whitespace-pre-wrap text-sm text-gray-300 font-mono")}
       >
         {children}
       </code>

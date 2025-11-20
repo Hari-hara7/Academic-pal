@@ -1,32 +1,38 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { db } from "@/lib/firebase"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
-import Link from "next/link"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setLoading(true)
-    setSuccess(null)
-    setError(null)
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
 
     try {
       await addDoc(collection(db, "contactMessages"), {
@@ -34,15 +40,15 @@ export default function ContactPage() {
         email: formData.email,
         message: formData.message,
         createdAt: serverTimestamp(),
-      })
+      });
 
-      setSuccess("Thanks for contacting us! We'll get back to you soon.")
-      setFormData({ name: "", email: "", message: "" })
+      setSuccess("Thanks for contacting us! We'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
-      console.error("Error saving message: ", err)
-      setError("Failed to send message. Please try again later.")
+      console.error("Error saving message: ", err);
+      setError("Failed to send message. Please try again later.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -54,7 +60,8 @@ export default function ContactPage() {
             Contact <span className="text-white">AcademicPal</span>
           </h1>
           <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed">
-            Have questions, feedback, or want to contribute? Reach out to us — we’re here to help!
+            Have questions, feedback, or want to contribute? Reach out to us —
+            we’re here to help!
           </p>
         </header>
 
@@ -112,9 +119,7 @@ export default function ContactPage() {
               {success && (
                 <p className="text-green-400 font-medium">{success}</p>
               )}
-              {error && (
-                <p className="text-red-500 font-medium">{error}</p>
-              )}
+              {error && <p className="text-red-500 font-medium">{error}</p>}
 
               <Button
                 type="submit"
@@ -130,17 +135,25 @@ export default function ContactPage() {
         <Separator className="border-gray-700" />
 
         <section>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6 font-semibold font-poppins">Other Ways to Reach Us</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6 font-semibold font-poppins">
+            Other Ways to Reach Us
+          </h2>
           <ul className="space-y-4 text-gray-300">
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
-              <a href="mailto:support@academicpal.com" className="underline hover:text-white transition text-sm md:text-base">
+              <a
+                href="mailto:support@academicpal.com"
+                className="underline hover:text-white transition text-sm md:text-base"
+              >
                 hariharanath247@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
-              <a href="tel:+919789777877" className="underline hover:text-white transition text-sm md:text-base">
+              <a
+                href="tel:+919789777877"
+                className="underline hover:text-white transition text-sm md:text-base"
+              >
                 +91 7989777877
               </a>
             </li>
@@ -173,5 +186,5 @@ export default function ContactPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }

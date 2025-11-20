@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { FaGoogle, FaUpload, FaLock, FaEye, FaHandshake } from 'react-icons/fa';
-import { motion } from 'motion/react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import { FaGoogle, FaUpload, FaLock, FaEye, FaHandshake } from "react-icons/fa";
+import { motion } from "motion/react";
+import Image from "next/image";
 
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
-import Home from '@/components/Home';
-import AdminPanel from '@/components/AdminPanel';
+import useFirebaseAuth from "@/hooks/useFirebaseAuth";
+import Home from "@/components/Home";
+import AdminPanel from "@/components/AdminPanel";
 
 const UploadPage = () => {
   const { user, signInWithGoogle, signOutUser } = useFirebaseAuth();
@@ -24,7 +24,13 @@ const UploadPage = () => {
       <header className="flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 bg-black/30 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Image src="/academicpal.jpg" alt="Logo" width={40} height={40} className="rounded-full shadow-md" />
+          <Image
+            src="/academicpal.jpg"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="rounded-full shadow-md"
+          />
           <h1 className="text-lg sm:text-xl font-bold">Academic Pal</h1>
         </div>
 
@@ -32,7 +38,9 @@ const UploadPage = () => {
         <div className="hidden sm:flex items-center gap-4">
           {user ? (
             <>
-              <span className="text-sm sm:text-base text-gray-300">{user.displayName}</span>
+              <span className="text-sm sm:text-base text-gray-300">
+                {user.displayName}
+              </span>
               <button
                 onClick={signOutUser}
                 className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-blue-500 hover:bg-blue-600 transition-all shadow-lg"
@@ -108,20 +116,21 @@ const UploadPage = () => {
             Welcome, {user.displayName}!
             <motion.span
               className="inline-block ml-2"
-              whileHover={{ scale: 1.2, rotate: 15, color: '#ff00ff' }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              whileHover={{ scale: 1.2, rotate: 15, color: "#ff00ff" }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <FaHandshake className="inline-block" />
             </motion.span>
           </h1>
           <p className="text-gray-300 text-sm sm:text-base md:text-lg mt-4 max-w-xl mx-auto">
-            Let’s get started! Upload your resources and help others in the academic community.
+            Let’s get started! Upload your resources and help others in the
+            academic community.
           </p>
         </section>
       )}
 
       {/* Admin Panel */}
-      {user?.email?.endsWith('@nmamit.in') && <AdminPanel user={user} />}
+      {user?.email?.endsWith("@nmamit.in") && <AdminPanel user={user} />}
 
       {/* Features Section */}
       <main className="mt-8 px-4 sm:px-6 md:px-10 flex-1">
@@ -133,19 +142,25 @@ const UploadPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
-                  icon: <FaLock className="text-blue-400 text-3xl sm:text-4xl mr-3" />,
-                  title: 'How to Use This Website',
-                  desc: 'Upload and manage resources easily. Share valuable content securely with Google sign-in.',
+                  icon: (
+                    <FaLock className="text-blue-400 text-3xl sm:text-4xl mr-3" />
+                  ),
+                  title: "How to Use This Website",
+                  desc: "Upload and manage resources easily. Share valuable content securely with Google sign-in.",
                 },
                 {
-                  icon: <FaUpload className="text-blue-400 text-3xl sm:text-4xl mr-3" />,
-                  title: 'How It Helps Students',
-                  desc: 'Shared resources help the student community by making valuable study material accessible.',
+                  icon: (
+                    <FaUpload className="text-blue-400 text-3xl sm:text-4xl mr-3" />
+                  ),
+                  title: "How It Helps Students",
+                  desc: "Shared resources help the student community by making valuable study material accessible.",
                 },
                 {
-                  icon: <FaEye className="text-blue-400 text-3xl sm:text-4xl mr-3" />,
-                  title: 'Public Access',
-                  desc: 'Make resources public so that everyone has access to crucial educational content.',
+                  icon: (
+                    <FaEye className="text-blue-400 text-3xl sm:text-4xl mr-3" />
+                  ),
+                  title: "Public Access",
+                  desc: "Make resources public so that everyone has access to crucial educational content.",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -155,9 +170,13 @@ const UploadPage = () => {
                 >
                   <div className="flex items-center mb-4">
                     {item.icon}
-                    <h3 className="text-lg sm:text-xl font-semibold">{item.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold">
+                      {item.title}
+                    </h3>
                   </div>
-                  <p className="text-gray-300 text-sm sm:text-base">{item.desc}</p>
+                  <p className="text-gray-300 text-sm sm:text-base">
+                    {item.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -167,7 +186,6 @@ const UploadPage = () => {
       </main>
 
       {/* Footer */}
-     
     </div>
   );
 };

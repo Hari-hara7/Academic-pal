@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import { StudyGroup } from '@/models/StudyGroup';
-import { connectDB } from '@/lib/db';
+import { NextResponse } from "next/server";
+import { StudyGroup } from "@/models/StudyGroup";
+import { connectDB } from "@/lib/db";
 
 export async function POST(request: Request) {
   try {
@@ -28,13 +28,13 @@ export async function POST(request: Request) {
       !maxMembers
     ) {
       return NextResponse.json(
-        { success: false, message: 'Missing required fields' },
-        { status: 400 }
+        { success: false, message: "Missing required fields" },
+        { status: 400 },
       );
     }
 
     // TODO: Replace with actual user ID from auth/session
-    const creatorId = 'sampleUserId123'; // This should come from user session/auth
+    const creatorId = "sampleUserId123"; // This should come from user session/auth
 
     const newGroup = new StudyGroup({
       creatorId,
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
       description,
       meetingTime,
       location,
-      platform: platform || '',
+      platform: platform || "",
       maxMembers,
       isOpen,
       members: [creatorId], // creator is first member
@@ -54,10 +54,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, group: newGroup });
   } catch (error) {
-    console.error('Error creating study group:', error);
+    console.error("Error creating study group:", error);
     return NextResponse.json(
-      { success: false, message: 'Internal server error' },
-      { status: 500 }
+      { success: false, message: "Internal server error" },
+      { status: 500 },
     );
   }
 }

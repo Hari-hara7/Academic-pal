@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Toaster, toast } from 'sonner';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Toaster, toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function CreateStudyTaskPage() {
   const router = useRouter();
 
   const [form, setForm] = useState({
-    title: '',
-    description: '',
-    subject: '',
-    dueDate: '',
-    priority: 'Normal',
-    status: 'Pending',
+    title: "",
+    description: "",
+    subject: "",
+    dueDate: "",
+    priority: "Normal",
+    status: "Pending",
   });
 
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ export default function CreateStudyTaskPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -39,23 +39,23 @@ export default function CreateStudyTaskPage() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/study-planner/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/study-planner/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        toast.success('Task created successfully!');
-        router.push('/dashboard/study-planner');
+        toast.success("Task created successfully!");
+        router.push("/dashboard/study-planner");
       } else {
-        toast.error('Failed to create task.');
+        toast.error("Failed to create task.");
       }
     } catch (err) {
-      console.error('Error creating task:', err);
-      toast.error('An error occurred. Please try again.');
+      console.error("Error creating task:", err);
+      toast.error("An error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -80,7 +80,9 @@ export default function CreateStudyTaskPage() {
 
         <Card className="bg-transparent border border-white/40 backdrop-blur-md shadow-md">
           <CardHeader>
-            <h2 className="text-xl font-semibold text-white">📝 New Study Task</h2>
+            <h2 className="text-xl font-semibold text-white">
+              📝 New Study Task
+            </h2>
           </CardHeader>
           <Separator className="bg-white/40" />
           <CardContent className="p-6 space-y-4">
@@ -174,7 +176,7 @@ export default function CreateStudyTaskPage() {
                 disabled={loading}
                 className="w-full bg-white text-black hover:bg-gray-200"
               >
-                {loading ? 'Creating...' : 'Create Task'}
+                {loading ? "Creating..." : "Create Task"}
               </Button>
             </form>
           </CardContent>

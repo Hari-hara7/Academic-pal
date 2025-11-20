@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface IStudyReminder extends Document {
   userId: string;
@@ -27,8 +27,8 @@ const StudyReminderSchema = new Schema<IStudyReminder>(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.models.StudyReminder ||
-  mongoose.model<IStudyReminder>('StudyReminder', StudyReminderSchema);
+  mongoose.model<IStudyReminder>("StudyReminder", StudyReminderSchema);

@@ -67,11 +67,7 @@ export default function FAQ() {
       </motion.h2>
 
       <div className="rounded-2xl shadow-2xl bg-black/80 ring-1 ring-white/10 p-2 sm:p-6 md:p-8">
-        <Accordion
-          type="single"
-          collapsible
-          className="space-y-4 w-full"
-        >
+        <Accordion type="single" collapsible className="space-y-4 w-full">
           {faqs.map(({ question, answer }, idx) => (
             <motion.div
               key={idx}

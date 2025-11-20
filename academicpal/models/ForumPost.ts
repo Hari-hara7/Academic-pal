@@ -1,10 +1,10 @@
-import mongoose, { Schema, models } from 'mongoose';
+import mongoose, { Schema, models } from "mongoose";
 
 const ReplySchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     username: {
@@ -29,7 +29,7 @@ const ReplySchema = new Schema(
       default: Date.now,
     },
   },
-  { _id: true } // allow individual reply _id
+  { _id: true }, // allow individual reply _id
 );
 
 const ForumPostSchema = new Schema(
@@ -52,7 +52,7 @@ const ForumPostSchema = new Schema(
     },
     userId: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     username: {
@@ -79,8 +79,9 @@ const ForumPostSchema = new Schema(
       type: Date,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-const ForumPost = models.ForumPost || mongoose.model('ForumPost', ForumPostSchema);
+const ForumPost =
+  models.ForumPost || mongoose.model("ForumPost", ForumPostSchema);
 export default ForumPost;
