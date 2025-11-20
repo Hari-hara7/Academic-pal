@@ -32,9 +32,9 @@ const features = [
     title: 'Comprehensive Notes',
     description: 'Access crisp, well-organized notes for all subjects. Designed for clarity and speed.',
     icon: NotebookText,
-    iconColor: 'text-purple-400',
-    bgGradient: 'from-purple-500/10 to-violet-500/10',
-    borderColor: 'border-purple-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: 'https://academicpal.vercel.app/notes.html',
     buttonText: 'Access Notes',
     category: 'Study',
@@ -44,9 +44,9 @@ const features = [
     title: 'Past Question Papers',
     description: 'Prepare with confidence using past papers and understand exam patterns.',
     icon: FileText,
-    iconColor: 'text-orange-400',
-    bgGradient: 'from-orange-500/10 to-red-500/10',
-    borderColor: 'border-orange-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: 'https://academicpal.vercel.app/Pyq.html',
     buttonText: 'View Papers',
     category: 'Exam Prep',
@@ -56,9 +56,9 @@ const features = [
     title: 'Access & Contribute Materials',
     description: 'Upload your resources and gain access to shared study content.',
     icon: UploadCloud,
-    iconColor: 'text-red-400',
-    bgGradient: 'from-red-500/10 to-pink-500/10',
-    borderColor: 'border-red-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/upload',
     buttonText: 'Upload or Explore',
     category: 'Resources',
@@ -68,9 +68,9 @@ const features = [
   title: 'AI Study Assistant',
   description: 'Get instant academic help powered by Gemini Flash 2.5 — ask doubts, generate notes, or get study guidance.',
   icon: Bot,
-  iconColor: 'text-sky-400',
-  bgGradient: 'from-sky-500/10 to-cyan-500/10',
-  borderColor: 'border-sky-500/30',
+  iconColor: 'text-blue-400',
+  bgGradient: 'from-blue-500/10 to-blue-400/10',
+  borderColor: 'border-blue-500/30',
   link: '/ai-assistant',
   buttonText: 'Ask AI Assistant',
   category: 'Productivity',
@@ -81,9 +81,9 @@ const features = [
     title: 'Create & Explore Mindtrees',
     description: 'Visualize your learning with interactive mind maps for complex topics.',
     icon: BrainCircuit,
-    iconColor: 'text-indigo-400',
-    bgGradient: 'from-indigo-500/10 to-purple-500/10',
-    borderColor: 'border-indigo-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Start Mapping',
     category: 'Visual Learning',
@@ -93,9 +93,9 @@ const features = [
     title: 'Peer-to-Peer Tutoring',
     description: 'Become a tutor or find one to guide you through tough subjects.',
     icon: GraduationCap,
-    iconColor: 'text-green-400',
-    bgGradient: 'from-green-500/10 to-emerald-500/10',
-    borderColor: 'border-green-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Find or Become Tutor',
     category: 'Community',
@@ -106,7 +106,7 @@ const features = [
     description: 'Post questions and get answers from fellow students and mentors.',
     icon: MessageSquareMore,
     iconColor: 'text-blue-400',
-    bgGradient: 'from-blue-500/10 to-cyan-500/10',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
     borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Join Discussion',
@@ -117,9 +117,9 @@ const features = [
     title: 'Blogs',
     description: 'Read and write blogs on study strategies and academic tips.',
     icon: FileText,
-    iconColor: 'text-pink-400',
-    bgGradient: 'from-pink-500/10 to-rose-500/10',
-    borderColor: 'border-pink-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Explore Blogs',
     category: 'Content',
@@ -129,9 +129,9 @@ const features = [
     title: 'Tech Roadmaps',
     description: 'Structured roadmaps for frontend, backend, DevOps, AI, and more.',
     icon: Map,
-    iconColor: 'text-yellow-400',
-    bgGradient: 'from-yellow-500/10 to-amber-500/10',
-    borderColor: 'border-yellow-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/roadmaps',
     buttonText: 'Explore Roadmaps',
     category: 'Learning Paths',
@@ -141,9 +141,9 @@ const features = [
     title: 'Real-Time Chat',
     description: 'Engage with peers instantly and get help right when you need it.',
     icon: MessageCircle,
-    iconColor: 'text-cyan-400',
-    bgGradient: 'from-cyan-500/10 to-blue-500/10',
-    borderColor: 'border-cyan-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/chat',
     buttonText: 'Chat Now',
     category: 'Communication',
@@ -153,9 +153,9 @@ const features = [
     title: 'AcademicPal AI - Smart Search',
     description: 'AI-powered search for notes, references, and materials in seconds.',
     icon: Search,
-    iconColor: 'text-emerald-400',
-    bgGradient: 'from-emerald-500/10 to-green-500/10',
-    borderColor: 'border-emerald-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: 'https://academicpal-ml-chatbot-g6gn.vercel.app/',
     buttonText: 'Try AI Search',
     category: 'AI Tools',
@@ -165,9 +165,9 @@ const features = [
     title: 'Flashcards',
     description: 'Memorize key concepts with interactive flashcards.',
     icon: Brain,
-    iconColor: 'text-purple-400',
-    bgGradient: 'from-purple-500/10 to-indigo-500/10',
-    borderColor: 'border-purple-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Start Reviewing',
     category: 'Study Tools',
@@ -178,7 +178,7 @@ const features = [
     description: 'Plan your study schedule with customizable timetables.',
     icon: CalendarCheck,
     iconColor: 'text-blue-400',
-    bgGradient: 'from-blue-500/10 to-indigo-500/10',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
     borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Plan Now',
@@ -189,9 +189,9 @@ const features = [
     title: 'Performance Analytics',
     description: 'Track study hours and visualize progress with detailed charts.',
     icon: BarChart4,
-    iconColor: 'text-green-400',
-    bgGradient: 'from-green-500/10 to-teal-500/10',
-    borderColor: 'border-green-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'View Analytics',
     category: 'Analytics',
@@ -201,9 +201,9 @@ const features = [
     title: 'Study Reminders',
     description: 'Personalized study notifications sent to your browser.',
     icon: AlarmClock,
-    iconColor: 'text-amber-400',
-    bgGradient: 'from-amber-500/10 to-yellow-500/10',
-    borderColor: 'border-amber-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Set Reminders',
     category: 'Productivity',
@@ -213,9 +213,9 @@ const features = [
     title: 'Study Groups',
     description: 'Join or create study groups with like-minded peers.',
     icon: Users2,
-    iconColor: 'text-pink-400',
-    bgGradient: 'from-pink-500/10 to-rose-500/10',
-    borderColor: 'border-pink-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Join Groups',
     category: 'Community',
@@ -225,9 +225,9 @@ const features = [
     title: 'Timetable Generator',
     description: 'Create academic timetables based on your preferences.',
     icon: CalendarDays,
-    iconColor: 'text-violet-400',
-    bgGradient: 'from-violet-500/10 to-purple-500/10',
-    borderColor: 'border-violet-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Generate Timetable',
     category: 'Organization',
@@ -291,17 +291,17 @@ const KeyFeatures = () => {
       <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 bg-gradient-to-br from-black via-gray-950 to-black text-white overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" />
-          <div className="absolute bottom-1/4 right-1/4 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-cyan-600/3 to-blue-600/3 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" style={{animationDelay: '3s'}} />
+          <div className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-blue-600/5 to-blue-500/5 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" />
+          <div className="absolute bottom-1/4 right-1/4 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-blue-500/5 to-blue-400/5 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-blue-600/3 to-blue-500/3 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" style={{animationDelay: '3s'}} />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Enhanced Header */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-            <div className="relative inline-flex items-center gap-1.5 sm:gap-2 md:gap-3 px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 border border-blue-500/30 mb-4 sm:mb-6 md:mb-7 lg:mb-8 hover:scale-105 transition-all duration-300 cursor-pointer group/badge">
+            <div className="relative inline-flex items-center gap-1.5 sm:gap-2 md:gap-3 px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-400/20 border border-blue-500/30 mb-4 sm:mb-6 md:mb-7 lg:mb-8 hover:scale-105 transition-all duration-300 cursor-pointer group/badge">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-400 animate-pulse" />
-              <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
+              <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-300 to-blue-200 bg-clip-text text-transparent">
                 Powerful Features
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full blur-lg opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300" />
@@ -426,11 +426,11 @@ const KeyFeatures = () => {
           {/* Enhanced Bottom CTA Section */}
           <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 text-center relative px-2 sm:px-4 md:px-6 lg:px-8">
             {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5 rounded-xl sm:rounded-2xl md:rounded-3xl blur-xl sm:blur-2xl md:blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-blue-500/5 to-blue-400/5 rounded-xl sm:rounded-2xl md:rounded-3xl blur-xl sm:blur-2xl md:blur-3xl" />
             
             <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-r from-gray-900/50 via-black/50 to-gray-900/50 backdrop-blur-xl border border-gray-700/30">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 md:gap-3 px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-3 lg:py-4 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 mb-4 sm:mb-6 md:mb-8 lg:mb-10 hover:scale-105 transition-transform duration-300 cursor-pointer group/cta">
-                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400 animate-bounce" />
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 md:gap-3 px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-3 lg:py-4 rounded-full bg-gradient-to-r from-blue-600/20 to-blue-500/20 border border-blue-500/30 mb-4 sm:mb-6 md:mb-8 lg:mb-10 hover:scale-105 transition-transform duration-300 cursor-pointer group/cta">
+                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-blue-400 animate-bounce" />
                 <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                   Ready to get started?
                 </span>
@@ -451,7 +451,7 @@ const KeyFeatures = () => {
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center px-2 sm:px-4 md:px-6 lg:px-8 max-w-2xl mx-auto">
                 <Link href="/register" className="w-full sm:w-auto">
-                  <Button className="relative w-full sm:w-auto bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl md:rounded-2xl text-xs sm:text-sm md:text-base lg:text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl group/btn overflow-hidden">
+                  <Button className="relative w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 text-white px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl md:rounded-2xl text-xs sm:text-sm md:text-base lg:text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl group/btn overflow-hidden">
                     {/* Button shine effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-pulse transition-opacity duration-500" />
                     <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3">
@@ -464,7 +464,7 @@ const KeyFeatures = () => {
                 <Link href="/chat" className="w-full sm:w-auto">
                   <Button  className="relative w-full sm:w-auto border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl md:rounded-2xl text-xs sm:text-sm md:text-base lg:text-lg font-bold transition-all duration-300 hover:scale-105 backdrop-blur-sm group/btn2 overflow-hidden">
                     {/* Button glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover/btn2:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-400/10 opacity-0 group-hover/btn2:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3">
                       <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover/btn2:animate-pulse" />
                       <span className="whitespace-nowrap text-xs sm:text-sm md:text-base lg:text-lg">Try Live Chat</span>

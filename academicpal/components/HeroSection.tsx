@@ -125,12 +125,11 @@ export default function HeroSection() {
               className="space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-6"
             >
               <motion.h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight">
-                <div className="flex flex-col xs:flex-row xs:flex-wrap xs:gap-x-2 sm:gap-x-3 md:gap-x-4">
+                <div className="flex flex-row flex-wrap gap-x-2 sm:gap-x-3 md:gap-x-4">
                   <span className="text-white">
                     Academic
                   </span>
-                  <span className="text-blue-500">
-                    Unleashed
+                  <span className="text-blue-500">Unleashed
                   </span>
                 </div>
               </motion.h1>
