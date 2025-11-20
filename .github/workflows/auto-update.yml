@@ -2,12 +2,15 @@ name: Auto Format Code
 
 on:
   schedule:
-    - cron: "0 0 * * 1" # runs every Monday
+    - cron: "0 0 * * 1"
   workflow_dispatch:
 
 jobs:
   format:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repo
@@ -31,4 +34,5 @@ jobs:
           title: "Automated Code Formatting"
           body: |
             This PR was created automatically by GitHub Actions Bot.
-          path: ./academicpal
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: academicpal/**
