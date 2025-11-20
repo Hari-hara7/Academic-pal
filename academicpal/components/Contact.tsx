@@ -10,7 +10,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Loader2, User, Mail, BookOpen, Calendar, UserCircle, Pencil } from "lucide-react";
 
 // Feedback type

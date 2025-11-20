@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '@/lib/firebase';
 import { FaGoogle, FaCommentAlt, FaQuestionCircle } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 interface AuthProps {
   setUser: (user: any) => void;
