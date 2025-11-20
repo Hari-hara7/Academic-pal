@@ -31,9 +31,9 @@ const features = [
     title: 'Comprehensive Notes',
     description: 'Access crisp, well-organized notes for all subjects. Designed for clarity and speed.',
     icon: NotebookText,
-    iconColor: 'text-purple-400',
-    bgGradient: 'from-purple-500/10 to-violet-500/10',
-    borderColor: 'border-purple-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: 'https://academicpal.vercel.app/notes.html',
     buttonText: 'Access Notes',
     category: 'Study',
@@ -43,9 +43,9 @@ const features = [
     title: 'Past Question Papers',
     description: 'Prepare with confidence using past papers and understand exam patterns.',
     icon: FileText,
-    iconColor: 'text-orange-400',
-    bgGradient: 'from-orange-500/10 to-red-500/10',
-    borderColor: 'border-orange-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: 'https://academicpal.vercel.app/Pyq.html',
     buttonText: 'View Papers',
     category: 'Exam Prep',
@@ -55,9 +55,9 @@ const features = [
     title: 'Access & Contribute Materials',
     description: 'Upload your resources and gain access to shared study content.',
     icon: UploadCloud,
-    iconColor: 'text-red-400',
-    bgGradient: 'from-red-500/10 to-pink-500/10',
-    borderColor: 'border-red-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/upload',
     buttonText: 'Upload or Explore',
     category: 'Resources',
@@ -67,9 +67,9 @@ const features = [
     title: 'Create & Explore Mindtrees',
     description: 'Visualize your learning with interactive mind maps for complex topics.',
     icon: BrainCircuit,
-    iconColor: 'text-indigo-400',
-    bgGradient: 'from-indigo-500/10 to-purple-500/10',
-    borderColor: 'border-indigo-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Start Mapping',
     category: 'Visual Learning',
@@ -79,9 +79,9 @@ const features = [
     title: 'Peer-to-Peer Tutoring',
     description: 'Become a tutor or find one to guide you through tough subjects.',
     icon: GraduationCap,
-    iconColor: 'text-green-400',
-    bgGradient: 'from-green-500/10 to-emerald-500/10',
-    borderColor: 'border-green-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Find or Become Tutor',
     category: 'Community',
@@ -92,7 +92,7 @@ const features = [
     description: 'Post questions and get answers from fellow students and mentors.',
     icon: MessageSquareMore,
     iconColor: 'text-blue-400',
-    bgGradient: 'from-blue-500/10 to-cyan-500/10',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
     borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Join Discussion',
@@ -103,9 +103,9 @@ const features = [
     title: 'Blogs',
     description: 'Read and write blogs on study strategies and academic tips.',
     icon: FileText,
-    iconColor: 'text-pink-400',
-    bgGradient: 'from-pink-500/10 to-rose-500/10',
-    borderColor: 'border-pink-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Explore Blogs',
     category: 'Content',
@@ -115,9 +115,9 @@ const features = [
     title: 'Tech Roadmaps',
     description: 'Structured roadmaps for frontend, backend, DevOps, AI, and more.',
     icon: Map,
-    iconColor: 'text-yellow-400',
-    bgGradient: 'from-yellow-500/10 to-amber-500/10',
-    borderColor: 'border-yellow-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/roadmaps',
     buttonText: 'Explore Roadmaps',
     category: 'Learning Paths',
@@ -127,9 +127,9 @@ const features = [
     title: 'Real-Time Chat',
     description: 'Engage with peers instantly and get help right when you need it.',
     icon: MessageCircle,
-    iconColor: 'text-cyan-400',
-    bgGradient: 'from-cyan-500/10 to-blue-500/10',
-    borderColor: 'border-cyan-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/chat',
     buttonText: 'Chat Now',
     category: 'Communication',
@@ -139,9 +139,9 @@ const features = [
     title: 'AcademicPal AI - Smart Search',
     description: 'AI-powered search for notes, references, and materials in seconds.',
     icon: Search,
-    iconColor: 'text-emerald-400',
-    bgGradient: 'from-emerald-500/10 to-green-500/10',
-    borderColor: 'border-emerald-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: 'https://academicpal-ml-chatbot-g6gn.vercel.app/',
     buttonText: 'Try AI Search',
     category: 'AI Tools',
@@ -151,9 +151,9 @@ const features = [
     title: 'Flashcards',
     description: 'Memorize key concepts with interactive flashcards.',
     icon: Brain,
-    iconColor: 'text-purple-400',
-    bgGradient: 'from-purple-500/10 to-indigo-500/10',
-    borderColor: 'border-purple-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Start Reviewing',
     category: 'Study Tools',
@@ -164,7 +164,7 @@ const features = [
     description: 'Plan your study schedule with customizable timetables.',
     icon: CalendarCheck,
     iconColor: 'text-blue-400',
-    bgGradient: 'from-blue-500/10 to-indigo-500/10',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
     borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Plan Now',
@@ -175,9 +175,9 @@ const features = [
     title: 'Performance Analytics',
     description: 'Track study hours and visualize progress with detailed charts.',
     icon: BarChart4,
-    iconColor: 'text-green-400',
-    bgGradient: 'from-green-500/10 to-teal-500/10',
-    borderColor: 'border-green-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'View Analytics',
     category: 'Analytics',
@@ -187,9 +187,9 @@ const features = [
     title: 'Study Reminders',
     description: 'Personalized study notifications sent to your browser.',
     icon: AlarmClock,
-    iconColor: 'text-amber-400',
-    bgGradient: 'from-amber-500/10 to-yellow-500/10',
-    borderColor: 'border-amber-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Set Reminders',
     category: 'Productivity',
@@ -199,9 +199,9 @@ const features = [
     title: 'Study Groups',
     description: 'Join or create study groups with like-minded peers.',
     icon: Users2,
-    iconColor: 'text-pink-400',
-    bgGradient: 'from-pink-500/10 to-rose-500/10',
-    borderColor: 'border-pink-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Join Groups',
     category: 'Community',
@@ -211,9 +211,9 @@ const features = [
     title: 'Timetable Generator',
     description: 'Create academic timetables based on your preferences.',
     icon: CalendarDays,
-    iconColor: 'text-violet-400',
-    bgGradient: 'from-violet-500/10 to-purple-500/10',
-    borderColor: 'border-violet-500/30',
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-500/10',
+    borderColor: 'border-blue-500/30',
     link: '/register',
     buttonText: 'Generate Timetable',
     category: 'Organization',
@@ -277,19 +277,19 @@ const KeyFeatures = () => {
       <section className="relative py-20 px-4 bg-gradient-to-br from-black via-gray-950 to-black text-white overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl float-animation" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-600/3 to-blue-600/3 rounded-full blur-3xl float-animation" style={{animationDelay: '3s'}} />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl float-animation" style={{animationDelay: '3s'}} />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Enhanced Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 mb-6 float-animation">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 mb-6 float-animation">
               <Sparkles className="w-5 h-5 text-blue-400" />
               <span className="text-sm font-medium text-blue-300">Powerful Features</span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent mb-6 tracking-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
               Key Features
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -331,7 +331,7 @@ const KeyFeatures = () => {
                   {/* Popular badge */}
                   {feature.isPopular && (
                     <div className="absolute top-4 right-4 z-20">
-                      <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-semibold shadow-lg">
+                      <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-blue-500 text-white text-xs font-semibold shadow-lg">
                         <Star className="w-3 h-3" />
                         Popular
                       </div>
@@ -390,8 +390,8 @@ const KeyFeatures = () => {
 
           {/* Bottom CTA Section */}
           <div className="mt-20 text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 mb-8 hover:scale-105 transition-transform duration-300 cursor-pointer">
-              <Zap className="w-5 h-5 text-yellow-400" />
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-500/20 border border-blue-500/30 mb-8 hover:scale-105 transition-transform duration-300 cursor-pointer">
+              <Zap className="w-5 h-5 text-blue-400" />
               <span className="text-lg font-semibold">Ready to get started?</span>
             </div>
             <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
@@ -399,7 +399,7 @@ const KeyFeatures = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/register">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                   <Star className="w-5 h-5 mr-2" />
                   Get Started Free
                 </Button>

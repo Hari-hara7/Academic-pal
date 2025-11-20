@@ -288,7 +288,7 @@ const Settings = () => {
             <h2 className="text-xl font-semibold text-white">Not Authenticated</h2>
             <p className="text-gray-400 text-center">Please log in to access settings.</p>
             <Link href="/login">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button className="bg-blue-500 hover:bg-blue-600">
                 Go to Login
               </Button>
             </Link>
@@ -299,27 +299,27 @@ const Settings = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Enhanced Header */}
-      <div className="relative bg-black border-b border-gray-700 shadow-2xl">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+      <div className="relative bg-black border-b border-white/20 shadow-2xl">
+        <div className="absolute inset-0 bg-blue-500/5" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <Link href="/dashboardd">
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 transition-all duration-300 backdrop-blur-sm border border-gray-700 hover:border-gray-600 rounded-lg shadow-md hover:shadow-lg hover:scale-105 h-10 w-10 sm:h-12 sm:w-12"
+                className="text-gray-300 hover:text-white hover:bg-blue-500/20 transition-all duration-300 backdrop-blur-sm border border-gray-700 hover:border-gray-600 rounded-lg shadow-md hover:shadow-lg hover:scale-105 h-10 w-10 sm:h-12 sm:w-12"
               >
                 <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </Link>
             <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-              <div className="p-2 sm:p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg flex-shrink-0">
+              <div className="p-2 sm:p-3 rounded-xl bg-blue-500 shadow-lg flex-shrink-0">
                 <UserIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
               <div className="min-w-0 flex-1">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
                   Account Settings
                 </h1>
                 <p className="text-gray-400 mt-1 text-sm sm:text-base hidden sm:block">Manage your account preferences and security</p>
@@ -337,28 +337,28 @@ const Settings = () => {
             <TabsList className="grid grid-cols-4 bg-black backdrop-blur-md border border-gray-700 rounded-xl p-1 shadow-2xl">
               <TabsTrigger 
                 value="profile" 
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-700 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-blue-700/20"
+                className="data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-blue-500/20"
               >
                 <UserIcon className="h-4 w-4 mr-2 text-white" />
                 <span className="hidden sm:inline text-white">Profile</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="security" 
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-600 data-[state=active]:to-red-700 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-red-600/20 hover:to-red-700/20"
+                className="data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-blue-500/20"
               >
                 <Lock className="h-4 w-4 mr-2 text-white" />
                 <span className="hidden sm:inline text-white">Security</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="notifications" 
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-600 data-[state=active]:to-green-700 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-green-600/20 hover:to-green-700/20"
+                className="data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-blue-500/20"
               >
                 <Bell className="h-4 w-4 mr-2 text-white" />
                 <span className="hidden sm:inline text-white">Notifications</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="preferences" 
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-purple-700 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-purple-700/20"
+                className="data-[state=active]:bg-blue-500 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg transition-all duration-300 hover:bg-blue-500/20"
               >
                 <Palette className="h-4 w-4 mr-2 text-white" />
                 <span className="hidden sm:inline text-white">Preferences</span>
@@ -374,15 +374,15 @@ const Settings = () => {
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="relative group">
-                      <Avatar className="h-24 w-24 ring-4 ring-gradient-to-r from-blue-500 to-purple-500 shadow-lg">
+                      <Avatar className="h-24 w-24 ring-4 ring-blue-500 shadow-lg">
                         <AvatarImage src={user.photoURL || ''} alt={user.displayName || 'User'} />
-                        <AvatarFallback className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-2xl font-bold">
+                        <AvatarFallback className="bg-blue-500 text-white text-2xl font-bold">
                           {user.displayName?.[0] || user.email?.[0] || 'U'}
                         </AvatarFallback>
                       </Avatar>
                       <Button 
                         size="icon" 
-                        className="absolute -bottom-2 -right-2 h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-2 border-gray-900 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl text-white"
+                        className="absolute -bottom-2 -right-2 h-10 w-10 rounded-full bg-blue-500 hover:bg-blue-600 border-2 border-gray-900 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl text-white"
                       >
                         <Camera className="h-4 w-4" />
                       </Button>
@@ -390,7 +390,7 @@ const Settings = () => {
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold text-white">{user.displayName || 'User'}</h3>
                       <p className="text-gray-400 text-sm">{user.email}</p>
-                      <Badge className="bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 shadow-lg">
+                      <Badge className="bg-blue-500 text-white border-0 shadow-lg">
                         <CheckCircle className="h-3 w-3 mr-1" />
                         Verified Account
                       </Badge>
@@ -403,7 +403,7 @@ const Settings = () => {
               <Card className="lg:col-span-2 bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600">
+                    <div className="p-2 rounded-lg bg-blue-500">
                       <UserIcon className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -450,7 +450,7 @@ const Settings = () => {
                   <Button 
                     onClick={handleUpdateProfile}
                     disabled={updating}
-                    className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
+                    className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white border-0 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
                   >
                     <Save className="h-4 w-4 mr-2" />
                     {updating ? (
@@ -472,7 +472,7 @@ const Settings = () => {
             <Card className="bg-bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-red-600 to-orange-600">
+                  <div className="p-2 rounded-lg bg-blue-500">
                     <Lock className="h-5 w-5 text-white" />
                   </div>
                   <div>
@@ -486,14 +486,14 @@ const Settings = () => {
               <CardContent className="space-y-6">
                 {/* Security Status */}
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="p-4 rounded-lg bg-green-900/20 border border-green-700">
+                  <div className="p-4 rounded-lg bg-blue-500/20 border border-blue-500/30">
                     <div className="flex items-center gap-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="text-green-400 font-medium">Account Secured</span>
+                      <CheckCircle className="h-5 w-5 text-blue-400" />
+                      <span className="text-blue-400 font-medium">Account Secured</span>
                     </div>
                     <p className="text-sm text-gray-400">Your account is protected with strong authentication</p>
                   </div>
-                  <div className="p-4 rounded-lg bg-blue-900/20 border border-blue-700">
+                  <div className="p-4 rounded-lg bg-blue-500/20 border border-blue-500/30">
                     <div className="flex items-center gap-2 mb-2">
                       <Shield className="h-5 w-5 text-blue-400" />
                       <span className="text-blue-400 font-medium">Two-Factor Ready</span>
@@ -520,7 +520,7 @@ const Settings = () => {
                           type={showNewPassword ? 'text' : 'password'}
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
-                          className="bg-gray-800/50 border-gray-600 text-white focus:border-red-500 focus:ring-red-500/20 pr-10 transition-all duration-200"
+                          className="bg-gray-800/50 border-gray-600 text-white focus:border-blue-500 focus:ring-blue-500/20 pr-10 transition-all duration-200"
                           placeholder="Enter new password"
                         />
                         <Button
@@ -542,7 +542,7 @@ const Settings = () => {
                         type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="bg-gray-800/50 border-gray-600 text-white focus:border-red-500 focus:ring-red-500/20 transition-all duration-200"
+                        className="bg-gray-800/50 border-gray-600 text-white focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-200"
                         placeholder="Confirm new password"
                       />
                     </div>
@@ -580,7 +580,7 @@ const Settings = () => {
                   <Button 
                     onClick={handleUpdatePassword}
                     disabled={updating || !newPassword || !confirmPassword || newPassword.length < 6}
-                    className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white border-0 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
+                    className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white border-0 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:hover:scale-100"
                   >
                     <Lock className="h-4 w-4 mr-2" />
                     {updating ? (
@@ -602,7 +602,7 @@ const Settings = () => {
             <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600">
+                  <div className="p-2 rounded-lg bg-blue-500">
                     <Bell className="h-5 w-5 text-white" />
                   </div>
                   <div>
@@ -629,7 +629,7 @@ const Settings = () => {
                     <Switch 
                       checked={emailNotifications}
                       onCheckedChange={(value) => handleNotificationChange('email', value)}
-                      className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-blue-600 data-[state=checked]:to-blue-700 shadow-lg"
+                      className="data-[state=checked]:bg-blue-500 shadow-lg"
                     />
                   </div>
                 </div>
@@ -638,8 +638,8 @@ const Settings = () => {
                 <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-green-600/20">
-                        <Smartphone className="h-5 w-5 text-green-400" />
+                      <div className="p-2 rounded-lg bg-blue-500/20">
+                        <Smartphone className="h-5 w-5 text-blue-400" />
                       </div>
                       <div>
                         <Label className="text-white font-medium">Push Notifications</Label>
@@ -649,7 +649,7 @@ const Settings = () => {
                     <Switch 
                       checked={pushNotifications}
                       onCheckedChange={(value) => handleNotificationChange('push', value)}
-                      className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-green-600 data-[state=checked]:to-green-700 shadow-lg"
+                      className="data-[state=checked]:bg-blue-500 shadow-lg"
                     />
                   </div>
                 </div>
@@ -661,10 +661,10 @@ const Settings = () => {
                     <div className="p-3 rounded-lg bg-gray-800/30 border border-gray-700">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-400" />
+                          <CheckCircle className="h-4 w-4 text-blue-400" />
                           <span className="text-white text-sm">Account Updates</span>
                         </div>
-                        <Switch defaultChecked className="data-[state=checked]:bg-green-600" />
+                        <Switch defaultChecked className="data-[state=checked]:bg-blue-500" />
                       </div>
                     </div>
                     <div className="p-3 rounded-lg bg-gray-800/30 border border-gray-700">
@@ -673,25 +673,25 @@ const Settings = () => {
                           <Bell className="h-4 w-4 text-blue-400" />
                           <span className="text-white text-sm">Feature Updates</span>
                         </div>
-                        <Switch defaultChecked className="data-[state=checked]:bg-blue-600" />
+                        <Switch defaultChecked className="data-[state=checked]:bg-blue-500" />
                       </div>
                     </div>
                     <div className="p-3 rounded-lg bg-gray-800/30 border border-gray-700">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <Shield className="h-4 w-4 text-orange-400" />
+                          <Shield className="h-4 w-4 text-blue-400" />
                           <span className="text-white text-sm">Security Alerts</span>
                         </div>
-                        <Switch defaultChecked className="data-[state=checked]:bg-orange-600" />
+                        <Switch defaultChecked className="data-[state=checked]:bg-blue-500" />
                       </div>
                     </div>
                     <div className="p-3 rounded-lg bg-gray-800/30 border border-gray-700">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <Globe className="h-4 w-4 text-purple-400" />
+                          <Globe className="h-4 w-4 text-blue-400" />
                           <span className="text-white text-sm">Marketing</span>
                         </div>
-                        <Switch className="data-[state=checked]:bg-purple-600" />
+                        <Switch className="data-[state=checked]:bg-blue-500" />
                       </div>
                     </div>
                   </div>
@@ -707,7 +707,7 @@ const Settings = () => {
               <Card className="bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600">
+                    <div className="p-2 rounded-lg bg-blue-500">
                       <Palette className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -723,8 +723,8 @@ const Settings = () => {
                   <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-indigo-600/20">
-                          {darkMode ? <Moon className="h-5 w-5 text-indigo-400" /> : <Sun className="h-5 w-5 text-yellow-400" />}
+                        <div className="p-2 rounded-lg bg-blue-500/20">
+                          {darkMode ? <Moon className="h-5 w-5 text-blue-400" /> : <Sun className="h-5 w-5 text-blue-400" />}
                         </div>
                         <div>
                           <Label className="text-white font-medium">Dark Mode</Label>
@@ -739,7 +739,7 @@ const Settings = () => {
                           setDarkMode(value);
                           toast.success(value ? 'Dark mode enabled' : 'Light mode enabled');
                         }}
-                        className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-indigo-600 data-[state=checked]:to-indigo-700 shadow-lg"
+                        className="data-[state=checked]:bg-blue-500 shadow-lg"
                       />
                     </div>
                   </div>
@@ -748,8 +748,8 @@ const Settings = () => {
                   <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-emerald-600/20">
-                          <Zap className="h-5 w-5 text-emerald-400" />
+                        <div className="p-2 rounded-lg bg-blue-500/20">
+                          <Zap className="h-5 w-5 text-blue-400" />
                         </div>
                         <div>
                           <Label className="text-white font-medium">Auto Save</Label>
@@ -757,7 +757,7 @@ const Settings = () => {
                             {autoSave ? 'Settings are automatically saved' : 'Manual save required'}
                           </p>
                           {autoSave && (
-                            <p className="text-xs text-emerald-400 mt-1 flex items-center gap-1">
+                            <p className="text-xs text-blue-400 mt-1 flex items-center gap-1">
                               <CheckCircle className="h-3 w-3" />
                               Last saved: {new Date().toLocaleTimeString()}
                             </p>
@@ -781,7 +781,7 @@ const Settings = () => {
                             localStorage.setItem('academicpal-settings', JSON.stringify(settings));
                           }
                         }}
-                        className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-emerald-600 data-[state=checked]:to-emerald-700 shadow-lg"
+                        className="data-[state=checked]:bg-blue-500 shadow-lg"
                       />
                     </div>
                   </div>
@@ -810,7 +810,7 @@ const Settings = () => {
               <Card className="bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-orange-600 to-red-600">
+                    <div className="p-2 rounded-lg bg-blue-500">
                       <HardDrive className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -830,7 +830,7 @@ const Settings = () => {
                         <span className="text-sm text-gray-400">2.4 GB / 10 GB</span>
                       </div>
                       <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full" style={{width: '24%'}}></div>
+                        <div className="bg-blue-500 h-2 rounded-full" style={{width: '24%'}}></div>
                       </div>
                       <p className="text-xs text-gray-400">7.6 GB remaining</p>
                     </div>
@@ -846,7 +846,7 @@ const Settings = () => {
                       {!autoSave && (
                         <Button 
                           variant="outline" 
-                          className="w-full justify-start bg-gradient-to-r from-blue-900/20 to-blue-800/20 border-blue-500/50 text-blue-300 hover:bg-gradient-to-r hover:from-blue-800/40 hover:to-blue-700/40 hover:text-blue-200 hover:border-blue-400 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+                          className="w-full justify-start bg-blue-500/20 border-blue-500/50 text-blue-300 hover:bg-blue-500/40 hover:text-blue-200 hover:border-blue-400 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
                           onClick={handleManualSave}
                         >
                           <Save className="h-4 w-4 mr-2" />
@@ -855,16 +855,16 @@ const Settings = () => {
                       )}
                       <Button 
                         variant="outline" 
-                        className="w-full justify-start bg-gradient-to-r from-green-900/20 to-emerald-800/20 border-green-500/50 text-green-300 hover:bg-gradient-to-r hover:from-green-800/40 hover:to-emerald-700/40 hover:text-green-200 hover:border-green-400 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg group"
+                        className="w-full justify-start bg-blue-500/20 border-blue-500/50 text-blue-300 hover:bg-blue-500/40 hover:text-blue-200 hover:border-blue-400 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg group"
                         onClick={handleExportData}
                       >
                         <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
                         Export My Data
-                        <span className="ml-auto text-xs bg-green-600/30 text-green-200 px-2 py-1 rounded border border-green-500/30">JSON</span>
+                        <span className="ml-auto text-xs bg-blue-500/30 text-blue-200 px-2 py-1 rounded border border-blue-500/30">JSON</span>
                       </Button>
                       <Button 
                         variant="outline" 
-                        className="w-full justify-start bg-gradient-to-r from-red-900/20 to-orange-800/20 border-red-500/50 text-red-300 hover:bg-gradient-to-r hover:from-red-800/40 hover:to-orange-700/40 hover:text-red-200 hover:border-red-400 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+                        className="w-full justify-start bg-red-500/20 border-red-500/50 text-red-300 hover:bg-red-500/40 hover:text-red-200 hover:border-red-400 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
                         onClick={handleDeleteAccount}
                       >
                         <Trash2 className="h-4 w-4 mr-2" />

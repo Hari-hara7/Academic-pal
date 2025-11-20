@@ -27,14 +27,14 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 px-6 bg-gray-50 max-w-6xl mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-12 font-bold font-poppins">How It Works</h2>
+    <section className="py-20 px-6 bg-black max-w-6xl mx-auto text-center">
+      <h2 className="text-4xl font-bold mb-12 font-bold font-poppins text-white">How It Works</h2>
       <div className="grid md:grid-cols-4 gap-10">
         {steps.map(({ step, title, description }) => (
-          <div key={step} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
-            <div className="text-indigo-600 font-bold text-4xl mb-4">{step}</div>
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
-            <p className="text-gray-600">{description}</p>
+          <div key={step} className="bg-black border border-white/20 p-6 rounded-xl shadow-md hover:shadow-xl hover:border-blue-500 transition">
+            <div className="text-blue-500 font-bold text-4xl mb-4">{step}</div>
+            <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+            <p className="text-gray-400">{description}</p>
           </div>
         ))}
       </div>

@@ -11,17 +11,17 @@ const resources = [
 
 const PopularResources = () => {
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold mb-12 text-center">Popular Resources</h2>
+    <section className="py-20 px-6 max-w-6xl mx-auto bg-black">
+      <h2 className="text-4xl font-bold mb-12 text-center text-white">Popular Resources</h2>
       <div className="grid md:grid-cols-4 gap-8">
         {resources.map(({ title, description, link }) => (
           <a
             key={title}
             href={link}
-            className="block bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
+            className="block bg-black border border-white/20 rounded-xl shadow-md p-6 hover:shadow-xl hover:border-blue-500 transition"
           >
-            <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-            <p className="text-gray-600">{description}</p>
+            <h3 className="text-2xl font-semibold mb-2 text-white">{title}</h3>
+            <p className="text-gray-400">{description}</p>
           </a>
         ))}
       </div>

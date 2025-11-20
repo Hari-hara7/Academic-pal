@@ -35,15 +35,15 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
   };
   return (
     <motion.div
-      className="p-6 border border-cyan-300/40 rounded-xl shadow-2xl bg-cyan-500/20 backdrop-blur-2xl hover:scale-105 transition-transform duration-300 ease-in-out w-full max-w-md mx-auto"
+      className="p-6 border border-white/20 rounded-xl shadow-2xl bg-black backdrop-blur-2xl hover:scale-105 hover:border-blue-500 transition-all duration-300 ease-in-out w-full max-w-md mx-auto"
       whileHover={{ scale: 1.05 }}
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
         {(resource.resourceType === 'link' || (!resource.resourceType && (resource.shareableLink || resource.resourceUrl))) ? (
-          <FaLink className="text-cyan-400 text-4xl" />
+          <FaLink className="text-blue-400 text-4xl" />
         ) : (
-          <FaFileAlt className="text-yellow-500 text-4xl" />
+          <FaFileAlt className="text-blue-400 text-4xl" />
         )}
         <h2 className="font-extrabold text-xl text-white leading-tight">
           {resource.resourceName}
@@ -53,21 +53,21 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
       {/* Details */}
       <div className="space-y-2 text-gray-300">
         <p className="flex items-center gap-2">
-          <FaExternalLinkAlt className="text-cyan-400" />
+          <FaExternalLinkAlt className="text-blue-400" />
           <span>Type: {resource.resourceType || 'link'}</span>
         </p>
         <p className="flex items-center gap-2">
-          <FaUser className="text-yellow-400" />
+          <FaUser className="text-blue-400" />
           <span>Uploaded by: {resource.userEmail}</span>
         </p>
         <p className="flex items-center gap-2">
-          <FaGraduationCap className="text-purple-400" />
+          <FaGraduationCap className="text-blue-400" />
           <span>
             Year: {resource.year}, Semester: {resource.semester}
           </span>
         </p>
         <p className="flex items-center gap-2">
-          <FaBook className="text-green-400" />
+          <FaBook className="text-blue-400" />
           <span>
             Branch: {resource.branch}, Subject: {resource.subject}
           </span>
@@ -81,7 +81,7 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
             href={resource.shareableLink || resource.resourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/30 backdrop-blur-xl text-white font-semibold transition-all border border-cyan-300/50 shadow-lg hover:bg-cyan-500/50 hover:shadow-xl"
+            className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-500/30 backdrop-blur-xl text-white font-semibold transition-all border border-blue-400/50 shadow-lg hover:bg-blue-500/50 hover:shadow-xl"
           >
             <FaExternalLinkAlt /> Open Resource
           </a>

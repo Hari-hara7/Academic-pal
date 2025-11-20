@@ -106,7 +106,7 @@ const Profile = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
       </div>
     );
@@ -114,14 +114,14 @@ const Profile = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <Card className="w-96 bg-gray-900 border-gray-800">
           <CardContent className="flex flex-col items-center gap-4 pt-6">
             <UserIcon className="h-16 w-16 text-gray-400" />
             <h2 className="text-xl font-semibold text-white">Not Authenticated</h2>
             <p className="text-gray-400 text-center">Please log in to view your profile.</p>
             <Link href="/login">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button className="bg-blue-500 hover:bg-blue-600">
                 Go to Login
               </Button>
             </Link>
@@ -134,8 +134,8 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Enhanced Header */}
-      <div className="relative bg-black border-b border-gray-700 shadow-2xl">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+      <div className="relative bg-black border-b border-white/20 shadow-2xl">
+        <div className="absolute inset-0 bg-blue-500/5" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             <Link href="/dashboardd">
@@ -148,7 +148,7 @@ const Profile = () => {
               </Button>
             </Link>
             <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-              <div className="p-2 sm:p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg flex-shrink-0">
+              <div className="p-2 sm:p-3 rounded-xl bg-blue-500 shadow-lg flex-shrink-0">
                 <UserIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
               <div className="min-w-0 flex-1">
@@ -171,15 +171,15 @@ const Profile = () => {
               <div className="flex flex-col items-center text-center space-y-6">
                 {/* Avatar Section */}
                 <div className="relative group">
-                  <Avatar className="h-32 w-32 ring-4 ring-gradient-to-r from-blue-500 to-purple-500 shadow-lg">
+                  <Avatar className="h-32 w-32 ring-4 ring-blue-500 shadow-lg">
                     <AvatarImage src={user.photoURL || ''} alt={user.displayName || 'User'} />
-                    <AvatarFallback className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-4xl font-bold">
+                    <AvatarFallback className="bg-blue-500 text-white text-4xl font-bold">
                       {user.displayName?.[0] || user.email?.[0] || 'U'}
                     </AvatarFallback>
                   </Avatar>
                   <Button 
                     size="icon" 
-                    className="absolute -bottom-3 -right-3 h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-2 border-gray-900 shadow-lg transition-all duration-200 hover:scale-105"
+                    className="absolute -bottom-3 -right-3 h-12 w-12 rounded-full bg-blue-500 hover:bg-blue-600 border-2 border-gray-900 shadow-lg transition-all duration-200 hover:scale-105"
                   >
                     <Camera className="h-5 w-5" />
                   </Button>
@@ -192,12 +192,12 @@ const Profile = () => {
                   
                   {/* Status Badges */}
                   <div className="flex flex-wrap justify-center gap-2">
-                    <Badge className="bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 shadow-lg">
+                    <Badge className="bg-blue-500 text-white border-0 shadow-lg">
                       <Verified className="h-3 w-3 mr-1" />
                       Verified
                     </Badge>
                     {user.emailVerified && (
-                      <Badge className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white border-0 shadow-lg">
+                      <Badge className="bg-blue-500 text-white border-0 shadow-lg">
                         <Mail className="h-3 w-3 mr-1" />
                         Email Verified
                       </Badge>
@@ -215,7 +215,7 @@ const Profile = () => {
                 {/* Edit Profile Button */}
                 <Button 
                   onClick={() => setIsEditing(!isEditing)}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 hover:scale-105 shadow-lg"
+                  className="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-200 hover:scale-105 shadow-lg"
                 >
                   <Edit3 className="h-4 w-4 mr-2" />
                   {isEditing ? 'Cancel Editing' : 'Edit Profile'}
@@ -230,7 +230,7 @@ const Profile = () => {
             <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600">
+                  <div className="p-2 rounded-lg bg-blue-500">
                     <UserIcon className="h-5 w-5 text-white" />
                   </div>
                   <div>
@@ -254,7 +254,7 @@ const Profile = () => {
 
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
-                        <Clock className="h-4 w-4 text-green-400" />
+                        <Clock className="h-4 w-4 text-blue-400" />
                         <span className="text-sm font-medium text-white">Last Sign In</span>
                       </div>
                       <p className="text-gray-300">{formatDate(user.metadata?.lastSignInTime)}</p>
@@ -264,18 +264,18 @@ const Profile = () => {
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
-                        <Shield className="h-4 w-4 text-orange-400" />
+                        <Shield className="h-4 w-4 text-blue-400" />
                         <span className="text-sm font-medium text-white">Account Status</span>
                       </div>
-                      <p className="text-green-400 font-medium">Active & Verified</p>
+                      <p className="text-blue-400 font-medium">Active & Verified</p>
                     </div>
 
                     <div className="p-4 rounded-lg bg-black border border-gray-700">
                       <div className="flex items-center gap-3 mb-2">
-                        <Mail className="h-4 w-4 text-purple-400" />
+                        <Mail className="h-4 w-4 text-blue-400" />
                         <span className="text-sm font-medium text-white">Email Status</span>
                       </div>
-                      <p className={user.emailVerified ? "text-green-400 font-medium" : "text-yellow-400 font-medium"}>
+                      <p className={user.emailVerified ? "text-blue-400 font-medium" : "text-blue-400 font-medium"}>
                         {user.emailVerified ? 'Verified' : 'Pending Verification'}
                       </p>
                     </div>
@@ -289,7 +289,7 @@ const Profile = () => {
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600">
+                    <div className="p-2 rounded-lg bg-blue-500">
                       <Edit3 className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -310,7 +310,7 @@ const Profile = () => {
                       value={displayName}
                       onChange={(e) => setDisplayName(e.target.value)}
                       disabled={!isEditing}
-                      className="bg-gray-800/50 border-gray-600 text-white focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-200 disabled:opacity-60"
+                      className="bg-gray-800/50 border-gray-600 text-white focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-200 disabled:opacity-60"
                       placeholder="Enter your display name"
                     />
                   </div>
@@ -369,7 +369,7 @@ const Profile = () => {
                     onChange={(e) => setBio(e.target.value)}
                     disabled={!isEditing}
                     rows={4}
-                    className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600 rounded-md text-white focus:border-purple-500 focus:ring-purple-500/20 transition-all duration-200 disabled:opacity-60 resize-none"
+                    className="w-full px-3 py-2 bg-gray-800/50 border border-gray-600 rounded-md text-white focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-200 disabled:opacity-60 resize-none"
                     placeholder="Tell us about yourself..."
                   />
                 </div>
@@ -381,7 +381,7 @@ const Profile = () => {
                       <Button 
                         onClick={handleUpdateProfile}
                         disabled={updating}
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 hover:scale-105 shadow-lg"
+                        className="bg-blue-500 hover:bg-blue-600 transition-all duration-200 hover:scale-105 shadow-lg"
                       >
                         <Save className="h-4 w-4 mr-2" />
                         {updating ? (

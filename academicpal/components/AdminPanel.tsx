@@ -74,9 +74,9 @@ export default function AdminPanel({ user }: { user: User }) {
       onSubmit={handleSubmit}
       className="bg-gray-900/70 backdrop-blur-lg p-8 rounded-2xl shadow-2xl max-w-2xl mx-auto mt-8 border border-gray-700"
     >
-      <h2 className="text-3xl font-extrabold text-cyan-400 mb-6 text-center flex items-center justify-center gap-2">
-        <FaCloudUploadAlt className="text-4xl text-cyan-400" />
-        Upload Resource
+      <h2 className="text-3xl font-extrabold text-white mb-6 text-center flex items-center justify-center gap-2">
+        <FaCloudUploadAlt className="text-4xl text-blue-500" />
+        Upload <span className="text-blue-500">Resource</span>
       </h2>
 
       {/* Resource Name */}
@@ -91,7 +91,7 @@ export default function AdminPanel({ user }: { user: User }) {
           value={resourceName}
           onChange={(e) => setResourceName(e.target.value)}
           placeholder="Enter Resource Name"
-          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
@@ -108,7 +108,7 @@ export default function AdminPanel({ user }: { user: User }) {
           value={shareableLink}
           onChange={(e) => setShareableLink(e.target.value)}
           placeholder="Enter Shareable Link"
-          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
@@ -120,7 +120,7 @@ export default function AdminPanel({ user }: { user: User }) {
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+            className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
             required
           >
             <option value="">Select Year</option>
@@ -136,7 +136,7 @@ export default function AdminPanel({ user }: { user: User }) {
           <select
             value={semester}
             onChange={(e) => setSemester(e.target.value)}
-            className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+            className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
             required
           >
             <option value="">Select Semester</option>
@@ -155,7 +155,7 @@ export default function AdminPanel({ user }: { user: User }) {
         <select
           value={branch}
           onChange={(e) => setBranch(e.target.value)}
-          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
           required
         >
           <option value="">Branch</option>
@@ -192,7 +192,7 @@ export default function AdminPanel({ user }: { user: User }) {
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           placeholder="Enter Subject Name"
-          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+          className="w-full p-3 border border-gray-600 bg-gray-800/80 text-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
           required
         />
       </div>
@@ -200,7 +200,7 @@ export default function AdminPanel({ user }: { user: User }) {
       {/* Submit */}
       <button
         type="submit"
-        className="w-full px-6 py-3 bg-cyan-500 text-white font-semibold rounded-xl hover:bg-cyan-400 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+        className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
       >
         <FaCloudUploadAlt className="text-lg" />
         Upload Resource

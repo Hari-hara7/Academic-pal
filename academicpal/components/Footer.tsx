@@ -6,14 +6,14 @@ import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-800 via-black to-gray-900 text-white py-10">
+    <footer className="bg-black text-white py-10 border-t border-white/10">
       <div className="container mx-auto px-6 font-sans">
       
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
          
           <div className="flex flex-col items-center md:items-start">
-            <h1 className="text-4xl  text-yellow-400 font-bold font-poppins">
-              Academic Pal
+            <h1 className="text-4xl  text-white font-bold font-poppins">
+              Academic <span className="text-blue-500">Pal</span>
             </h1>
             <p className="mt-2 text-gray-400 text-center md:text-left font-light">
               Empowering students with curated resources for a brighter future.
@@ -22,9 +22,9 @@ const Footer: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-6 text-sm text-gray-400">
             <div>
-              <h2 className="text-yellow-400 font-semibold mb-2">Resources</h2>
+              <h2 className="text-blue-400 font-semibold mb-2">Resources</h2>
               <ul>
-                <li className="hover:text-yellow-300">
+                <li className="hover:text-blue-400">
                   <a
                     href="https://opensource.org/licenses/MIT"
                     target="_blank"
@@ -33,18 +33,18 @@ const Footer: React.FC = () => {
                     MIT License
                   </a>
                 </li>
-                <li className="hover:text-yellow-300">
+                <li className="hover:text-blue-400">
                   <Link href="/privacy-policy">Privacy Policy</Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="text-yellow-400 font-semibold mb-2">Connect</h2>
+              <h2 className="text-blue-400 font-semibold mb-2">Connect</h2>
               <ul>
-                <li className="hover:text-yellow-300">
+                <li className="hover:text-blue-400">
                   <a href="mailto:nnm23cs256@nmamit.in">Contact Us</a>
                 </li>
-                <li className="hover:text-yellow-300">
+                <li className="hover:text-blue-400">
                   <a
                     href="https://hariharanath.is-cod.in/"
                     target="_blank"
@@ -58,9 +58,9 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-4 text-sm text-gray-400">
-            <h2 className="text-yellow-400 font-semibold mb-2">Partner</h2>
+            <h2 className="text-blue-400 font-semibold mb-2">Partner</h2>
             <ul>
-              <li className="hover:text-yellow-300">
+              <li className="hover:text-blue-400">
                 <a
                   href="https://is-cod.in"
                   target="_blank"
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                   Partner with IS-COD.IN
                 </a>
               </li>
-              <li className="hover:text-yellow-300">
+              <li className="hover:text-blue-400">
                 <a
                   href="https://register.is-cod.in/"
                   target="_blank"
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
               href="https://github.com/Academic-pal"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-yellow-400 transition-all"
+              className="text-gray-300 hover:text-blue-400 transition-all"
               aria-label="GitHub"
             >
               <FaGithub className="w-7 h-7" />
@@ -95,14 +95,14 @@ const Footer: React.FC = () => {
               href="https://www.linkedin.com/company/academic-pal/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-yellow-400 transition-all"
+              className="text-gray-300 hover:text-blue-400 transition-all"
               aria-label="LinkedIn"
             >
               <FaLinkedin className="w-7 h-7" />
             </a>
             <a
               href="mailto:nnm23cs256@nmamit.in"
-              className="text-gray-300 hover:text-yellow-400 transition-all"
+              className="text-gray-300 hover:text-blue-400 transition-all"
               aria-label="Email"
             >
               <FaEnvelope className="w-7 h-7" />
@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <hr className="my-8 border-gray-700" />
+        <hr className="my-8 border-white/10" />
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center">
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
               href="https://hariharanath.is-cod.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-400 hover:text-yellow-300 font-medium"
+              className="text-blue-400 hover:text-blue-500 font-medium"
             >
               Hari Hara Nath
             </a>

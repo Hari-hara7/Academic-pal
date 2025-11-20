@@ -55,8 +55,8 @@ export default function ContactPage() {
   return (
     <section className="relative z-10 bg-black text-white py-20 px-4 md:px-10">
       {/* Background blur circles */}
-      <div className="absolute top-10 left-[-5%] w-[200px] h-[200px] bg-purple-600 opacity-20 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-[-5%] w-[200px] h-[200px] bg-cyan-500 opacity-20 rounded-full blur-3xl" />
+      <div className="absolute top-10 left-[-5%] w-[200px] h-[200px] bg-blue-500 opacity-20 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-[-5%] w-[200px] h-[200px] bg-blue-500 opacity-20 rounded-full blur-3xl" />
 
       {/* Success popup */}
       {showSuccess && <SuccessPopup />}
@@ -103,7 +103,7 @@ export default function ContactPage() {
             value={form.name}
             onChange={handleChange}
             placeholder="Your Name"
-            className="bg-transparent border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white w-full rounded-md px-4 py-2"
+            className="bg-transparent border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 w-full rounded-md px-4 py-2"
           />
           <Input
             name="email"
@@ -111,7 +111,7 @@ export default function ContactPage() {
             value={form.email}
             onChange={handleChange}
             placeholder="Your Email"
-            className="bg-transparent border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white w-full rounded-md px-4 py-2"
+            className="bg-transparent border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 w-full rounded-md px-4 py-2"
           />
           <Textarea
             name="message"
@@ -119,13 +119,13 @@ export default function ContactPage() {
             value={form.message}
             onChange={handleChange}
             placeholder="Your Message"
-            className="bg-transparent border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-white w-full rounded-md px-4 py-2"
+            className="bg-transparent border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 w-full rounded-md px-4 py-2"
           />
 
           <Button
             onClick={submitContactForm}
             disabled={submitting}
-            className="w-full bg-white text-black font-bold py-2 hover:bg-neutral-200 transition-colors rounded-lg flex items-center justify-center"
+            className="w-full bg-blue-500 text-white font-bold py-2 hover:bg-blue-600 transition-colors rounded-lg flex items-center justify-center"
           >
             {submitting ? <Loader2 className="animate-spin h-4 w-4 mr-2" /> : <Send size={16} className="mr-2" />}
             {submitting ? "Sending..." : "Send Message"}
@@ -157,7 +157,7 @@ export default function ContactPage() {
 // Success popup component
 function SuccessPopup() {
   return (
-    <div className="fixed top-6 right-6 bg-white text-black px-6 py-4 rounded-xl shadow-xl z-50 animate-slide-in mt-19">
+    <div className="fixed top-6 right-6 bg-blue-500 text-white px-6 py-4 rounded-xl shadow-xl z-50 animate-slide-in mt-19 border border-white/20">
       <div className="font-semibold">Thank you!</div>
       <div className="text-sm">We will contact you shortly.</div>
     </div>

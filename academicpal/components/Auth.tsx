@@ -47,11 +47,11 @@ const Auth = ({ setUser }: AuthProps) => {
   return (
     <div className="min-h-screen relative flex flex-col justify-between overflow-hidden">
       {/* Animated Gradient Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-900 via-black to-blue-900 animate-gradient-x" />
+      <div className="absolute inset-0 -z-10 bg-black" />
 
       {/* Floating Orbs */}
-      <div className="absolute top-10 left-5 sm:left-20 w-40 sm:w-64 h-40 sm:h-64 bg-purple-600/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-10 right-5 sm:right-20 w-40 sm:w-64 h-40 sm:h-64 bg-blue-600/30 rounded-full blur-3xl animate-pulse delay-500" />
+      <div className="absolute top-10 left-5 sm:left-20 w-40 sm:w-64 h-40 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-10 right-5 sm:right-20 w-40 sm:w-64 h-40 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-500" />
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 py-10 text-center space-y-10">
@@ -64,7 +64,7 @@ const Auth = ({ setUser }: AuthProps) => {
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-3xl px-6 sm:px-10 py-8 sm:py-12 space-y-8">
             {/* Heading */}
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
+              <span className="text-white drop-shadow-lg">
                 {text}
               </span>
             </h1>
@@ -83,9 +83,9 @@ const Auth = ({ setUser }: AuthProps) => {
               whileTap={{ scale: 0.97 }}
               onClick={signIn}
               className="relative w-full flex items-center justify-center gap-3 px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold 
-                         bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg 
+                         bg-blue-500 text-white shadow-lg 
                          border border-white/20 backdrop-blur-sm
-                         transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.7)]"
+                         transition-all duration-300 hover:bg-blue-600 hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
             >
               <FaGoogle className="text-lg sm:text-xl" />
               Continue with Google

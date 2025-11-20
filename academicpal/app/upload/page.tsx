@@ -16,9 +16,9 @@ const UploadPage = () => {
   return (
     <div className="min-h-screen relative flex flex-col overflow-hidden font-sans text-white">
       {/* Background Effects */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black-900 via-black to-blue-900 animate-gradient-x" />
-      <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-purple-600/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-600/30 rounded-full blur-3xl animate-pulse delay-500" />
+      <div className="absolute inset-0 -z-10 bg-black" />
+      <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
 
       {/* Navbar */}
       <header className="flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 bg-black/30 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
@@ -35,7 +35,7 @@ const UploadPage = () => {
               <span className="text-sm sm:text-base text-gray-300">{user.displayName}</span>
               <button
                 onClick={signOutUser}
-                className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-gradient-to-r from-red-500 to-pink-600 hover:opacity-90 transition-all shadow-lg"
+                className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-blue-500 hover:bg-blue-600 transition-all shadow-lg"
               >
                 Sign Out
               </button>
@@ -43,7 +43,7 @@ const UploadPage = () => {
           ) : (
             <button
               onClick={signInWithGoogle}
-              className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90 transition-all shadow-lg flex items-center gap-2"
+              className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-blue-500 hover:bg-blue-600 transition-all shadow-lg flex items-center gap-2"
             >
               <FaGoogle className="text-base" />
               Sign In
@@ -83,7 +83,7 @@ const UploadPage = () => {
                 </div>
                 <button
                   onClick={signOutUser}
-                  className="w-full py-2 bg-gradient-to-r from-red-500 to-pink-600 rounded-lg text-sm hover:opacity-90 transition-all"
+                  className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm transition-all"
                 >
                   Sign Out
                 </button>
@@ -91,7 +91,7 @@ const UploadPage = () => {
             ) : (
               <button
                 onClick={signInWithGoogle}
-                className="w-full py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all"
+                className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm flex items-center justify-center gap-2 transition-all"
               >
                 <FaGoogle />
                 Sign In
@@ -104,7 +104,7 @@ const UploadPage = () => {
       {/* Hero Section */}
       {user && (
         <section className="text-center py-12 sm:py-16 md:py-20 px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
             Welcome, {user.displayName}!
             <motion.span
               className="inline-block ml-2"
@@ -138,12 +138,12 @@ const UploadPage = () => {
                   desc: 'Upload and manage resources easily. Share valuable content securely with Google sign-in.',
                 },
                 {
-                  icon: <FaUpload className="text-green-400 text-3xl sm:text-4xl mr-3" />,
+                  icon: <FaUpload className="text-blue-400 text-3xl sm:text-4xl mr-3" />,
                   title: 'How It Helps Students',
                   desc: 'Shared resources help the student community by making valuable study material accessible.',
                 },
                 {
-                  icon: <FaEye className="text-yellow-400 text-3xl sm:text-4xl mr-3" />,
+                  icon: <FaEye className="text-blue-400 text-3xl sm:text-4xl mr-3" />,
                   title: 'Public Access',
                   desc: 'Make resources public so that everyone has access to crucial educational content.',
                 },

@@ -59,7 +59,7 @@ const InputWithIcon = ({
       value={value}
       onChange={onChange}
       type={type}
-      className="pl-10 bg-black border border-gray-700 text-white focus:border-white rounded-md w-full py-2 px-3 transition-colors"
+      className="pl-10 bg-black border border-white/20 text-white focus:border-blue-500 rounded-md w-full py-2 px-3 transition-colors"
     />
   </div>
 );
@@ -87,7 +87,7 @@ function FeedbackForm({
 
   return (
     <motion.div
-      className="space-y-4 bg-black border border-gray-800 p-6 rounded-xl shadow-md"
+      className="space-y-4 bg-black border border-white/20 p-6 rounded-xl shadow-md"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -137,13 +137,13 @@ function FeedbackForm({
           value={form.message}
           onChange={handleChange}
           rows={4}
-          className="pl-10 bg-black border border-gray-700 text-white focus:border-white rounded-md w-full py-2 px-3 transition-colors resize-none"
+          className="pl-10 bg-black border border-white/20 text-white focus:border-blue-500 rounded-md w-full py-2 px-3 transition-colors resize-none"
         />
       </div>
       <button
         onClick={onSubmit}
         disabled={submitting}
-        className="w-full bg-white text-black font-semibold hover:bg-gray-300 transition-colors py-2 rounded-md flex justify-center items-center"
+        className="w-full bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors py-2 rounded-md flex justify-center items-center"
       >
         {submitting && <Loader2 className="animate-spin h-4 w-4 mr-2" />}
         {submitting ? "Submitting..." : "Submit Feedback"}

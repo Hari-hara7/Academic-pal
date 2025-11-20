@@ -165,9 +165,9 @@ const Login = () => {
             className="max-w-lg xl:max-w-xl 2xl:max-w-2xl space-y-6 xl:space-y-8"
           >
             <motion.div variants={itemVariants} className="space-y-4 xl:space-y-6">
-              <h2 className="text-3xl xl:text-4xl 2xl:text-5xl font-black leading-tight tracking-tight">
+              <h2 className="text-3xl xl:text-4xl 2xl:text-5xl font-black leading-tight tracking-tight text-white">
                 Welcome back to your
-                <span className="block mt-2 text-white">Academic Journey</span>
+                <span className="block mt-2 text-blue-500">Academic Journey</span>
               </h2>
               <p className="text-lg xl:text-xl 2xl:text-2xl text-white/70 leading-relaxed font-medium">
                 Continue your path to academic excellence with AI-powered tools and personalized learning experiences.
@@ -185,9 +185,9 @@ const Login = () => {
                   variants={itemVariants}
                   whileHover={{ x: 8, scale: 1.02 }}
                   transition={{ duration: 0.2 }}
-                  className="flex items-center gap-4 xl:gap-5 p-4 xl:p-5 rounded-xl xl:rounded-2xl bg-gradient-to-r from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-300 group cursor-pointer"
+                  className="flex items-center gap-4 xl:gap-5 p-4 xl:p-5 rounded-xl xl:rounded-2xl bg-gradient-to-r from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="p-2.5 xl:p-3 bg-gradient-to-r from-white/10 to-white/5 rounded-lg xl:rounded-xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-2.5 xl:p-3 bg-blue-500/20 rounded-lg xl:rounded-xl group-hover:scale-110 transition-transform duration-300">
                     <feature.icon className="w-5 h-5 xl:w-6 xl:h-6 text-white/80" />
                   </div>
                   <span className="text-white/80 group-hover:text-white font-medium xl:text-lg transition-colors duration-300">
@@ -206,12 +206,12 @@ const Login = () => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="text-center p-3 xl:p-4 rounded-lg bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm group cursor-pointer"
+                  className="text-center p-3 xl:p-4 rounded-lg bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:border-blue-500/30 group cursor-pointer"
                 >
                   <motion.div
                     animate={{ scale: [1, 1.05, 1], opacity: [0.85, 1, 0.85] }}
                     transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                    className="text-2xl xl:text-3xl font-black text-white group-hover:text-white"
+                    className="text-2xl xl:text-3xl font-black text-white group-hover:text-blue-400"
                   >
                     {stat.value}
                   </motion.div>
@@ -235,7 +235,7 @@ const Login = () => {
             <Card className="bg-black/70 backdrop-blur-sm border border-white/15 shadow-2xl shadow-white/5">
               <CardHeader className="space-y-4 pb-6">
                 <motion.div variants={itemVariants} className="text-center space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Sign In</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Sign <span className="text-blue-500">In</span></h2>
                   <p className="text-white/60">Welcome back! Please sign in to continue</p>
                 </motion.div>
               </CardHeader>
@@ -288,7 +288,7 @@ const Login = () => {
                       placeholder="usn@nmamit.in"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-white/40 transition-all"
                       required
                     />
                   </div>
@@ -304,7 +304,7 @@ const Login = () => {
                         placeholder="Enter your password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 pr-12 transition-all"
+                        className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-white/40 pr-12 transition-all"
                         required
                       />
                       <button
@@ -361,7 +361,7 @@ const Login = () => {
                 <motion.div variants={itemVariants} className="w-full text-center space-y-3">
                   <button
                     onClick={handleForgotPassword}
-                    className="text-sm text-white/70 hover:text-white underline-offset-4 hover:underline transition-colors"
+                    className="text-sm text-white/70 hover:text-blue-400 underline-offset-4 hover:underline transition-colors"
                     disabled={isLoading}
                   >
                     Forgot your password?
@@ -371,7 +371,7 @@ const Login = () => {
                     Don&apos;t have an account?{' '}
                     <Link
                       href="/signup"
-                      className="text-white hover:underline underline-offset-4 font-medium transition-colors"
+                      className="text-blue-400 hover:text-blue-300 hover:underline underline-offset-4 font-medium transition-colors"
                     >
                       Sign up here
                     </Link>

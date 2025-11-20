@@ -158,7 +158,7 @@ const SignUp = () => {
             <motion.div variants={itemVariants} className="space-y-4">
               <h2 className="text-4xl xl:text-5xl font-black leading-tight tracking-tight text-white">
                 Start your journey to
-                <span className="block mt-2 text-white/80">Academic Excellence</span>
+                <span className="block mt-2 text-blue-500">Academic Excellence</span>
               </h2>
               <p className="text-lg xl:text-xl text-white/70 leading-relaxed font-medium">
                 Join thousands of students transforming their academic journey with AI-powered study tools and personalized learning paths.
@@ -177,10 +177,10 @@ const SignUp = () => {
                   variants={itemVariants}
                   whileHover={{ x: 8, scale: 1.02 }}
                   transition={{ duration: 0.2 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-300 group cursor-pointer"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/5 to-white/0 border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="p-2.5 bg-gradient-to-r from-white/10 to-white/5 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-5 h-5 text-white/80" />
+                  <div className="p-2.5 bg-blue-500/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-5 h-5 text-blue-400" />
                   </div>
                   <span className="text-white/80 group-hover:text-white font-medium transition-colors duration-300">
                     {feature.text}
@@ -202,7 +202,7 @@ const SignUp = () => {
               <CardHeader className="space-y-4 pb-6">
                 <motion.div variants={itemVariants} className="flex lg:hidden items-center justify-center gap-3 mb-4"></motion.div>
                 <motion.div variants={itemVariants} className="text-center space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Create Account</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white">Create <span className="text-blue-500">Account</span></h2>
                   <p className="text-white/60">Join the academic revolution today</p>
                 </motion.div>
               </CardHeader>
@@ -252,7 +252,7 @@ const SignUp = () => {
                       placeholder="Enter your full name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-white/40 transition-all"
                       required
                       disabled={isLoading}
                     />
@@ -268,7 +268,7 @@ const SignUp = () => {
                       placeholder="Enter your USN"
                       value={usn}
                       onChange={(e) => setUsn(e.target.value)}
-                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-white/40 transition-all"
                       required
                       disabled={isLoading}
                     />
@@ -284,7 +284,7 @@ const SignUp = () => {
                       placeholder="usn@nmamit.in"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 transition-all"
+                      className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-white/40 transition-all"
                       required
                       disabled={isLoading}
                     />
@@ -301,7 +301,7 @@ const SignUp = () => {
                         placeholder="Create a strong password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-white/40 focus:ring-white/20 text-white placeholder-white/40 pr-12 transition-all"
+                        className="h-12 rounded-xl bg-black/40 border-white/20 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-white/40 pr-12 transition-all"
                         required
                         disabled={isLoading}
                       />
@@ -327,11 +327,11 @@ const SignUp = () => {
                     />
                     <label htmlFor="terms" className="text-sm text-white/70 leading-relaxed">
                       I agree to the{' '}
-                      <Link href="/terms-and-conditions" className="text-white hover:text-white/80 underline underline-offset-2 transition-colors">
+                      <Link href="/terms-and-conditions" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">
                         Terms & Conditions
                       </Link>{' '}
                       and{' '}
-                      <Link href="/privacy-policy" className="text-white hover:text-white/80 underline underline-offset-2 transition-colors">
+                      <Link href="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">
                         Privacy Policy
                       </Link>
                     </label>
@@ -371,7 +371,7 @@ const SignUp = () => {
                 <motion.div variants={itemVariants} className="w-full text-center space-y-3">
                   <p className="text-sm text-white/60">
                     Already have an account?{' '}
-                    <Link href="/" className="text-white hover:underline underline-offset-4 font-medium transition-colors">
+                    <Link href="/" className="text-blue-400 hover:text-blue-300 hover:underline underline-offset-4 font-medium transition-colors">
                       Sign in here
                     </Link>
                   </p>

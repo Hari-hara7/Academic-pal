@@ -109,8 +109,8 @@ const Home = ({ user }: HomeProps) => {
     <div className="container mx-auto px-4 py-6">
       <div className="flex flex-col sm:flex-row items-center justify-between mb-6">
         <div className="text-center sm:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-cyan-400">
-            📚 Explore Resources
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
+            📚 Explore <span className="text-blue-500">Resources</span>
           </h1>
           {!loading && (
             <p className="text-gray-400 mt-2">
@@ -121,7 +121,7 @@ const Home = ({ user }: HomeProps) => {
         <button
           onClick={fetchResources}
           disabled={loading}
-          className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 border border-cyan-400/50 rounded-lg hover:bg-cyan-500/30 transition-colors disabled:opacity-50"
+          className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 border border-blue-400/50 rounded-lg hover:bg-blue-500/30 transition-colors disabled:opacity-50"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           {loading ? 'Loading...' : 'Refresh'}
@@ -193,7 +193,7 @@ const Home = ({ user }: HomeProps) => {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             placeholder="Search Subject"
-            className="w-full md:w-auto pl-10 pr-4 py-2 border rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-cyan-400"
+            className="w-full md:w-auto pl-10 pr-4 py-2 border rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>
@@ -202,7 +202,7 @@ const Home = ({ user }: HomeProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading ? (
           <div className="col-span-3 text-center py-12">
-            <RefreshCw className="w-8 h-8 mx-auto text-cyan-400 animate-spin mb-4" />
+            <RefreshCw className="w-8 h-8 mx-auto text-blue-400 animate-spin mb-4" />
             <p className="text-gray-400 text-lg font-semibold">Loading resources...</p>
           </div>
         ) : filteredResources.length > 0 ? (

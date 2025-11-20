@@ -68,7 +68,7 @@ export default function SupportAndHelp() {
       <Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={18} />
       <Input
         {...rest}
-        className="pl-10 bg-black border-gray-700 text-white focus:border-white transition-colors"
+        className="pl-10 bg-black border-white/20 text-white focus:border-blue-500 transition-colors"
       />
     </div>
   );
@@ -92,8 +92,8 @@ export default function SupportAndHelp() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <LifeBuoy size={18} className="text-yellow-400" /> 
-        Need assistance? We’re here to help! Submit your support request below.
+        <LifeBuoy size={18} className="text-blue-400" /> 
+        Need assistance? We're here to help! Submit your support request below.
       </motion.p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -105,7 +105,7 @@ export default function SupportAndHelp() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="bg-black border border-gray-800 shadow-md rounded-xl">
+          <Card className="bg-black border border-white/20 shadow-md rounded-xl">
             <CardContent className="p-4 sm:p-6 space-y-4">
               <InputWithIcon
                 icon={User}
@@ -137,13 +137,13 @@ export default function SupportAndHelp() {
                   value={form.description}
                   onChange={handleChange}
                   rows={4}
-                  className="pl-10 bg-black border-gray-700 text-white focus:border-white transition-colors resize-none"
+                  className="pl-10 bg-black border-white/20 text-white focus:border-blue-500 transition-colors resize-none"
                 />
               </div>
               <Button
                 onClick={submitSupportRequest}
                 disabled={submitting}
-                className="w-full bg-white text-black font-semibold hover:bg-gray-300 transition-colors"
+                className="w-full bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors"
               >
                 {submitting && <Loader2 className="animate-spin h-4 w-4 mr-2" />}
                 {submitting ? "Submitting..." : "Submit Request"}
@@ -154,7 +154,7 @@ export default function SupportAndHelp() {
 
         {/* Crazy Side Display */}
         <motion.div
-          className="bg-black border border-gray-800 flex flex-col gap-4 justify-center items-center text-center p-6 rounded-xl"
+          className="bg-black border border-white/20 flex flex-col gap-4 justify-center items-center text-center p-6 rounded-xl"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -163,9 +163,9 @@ export default function SupportAndHelp() {
           <motion.div
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="p-4 rounded-full border border-white"
+            className="p-4 rounded-full border border-blue-500"
           >
-            <Zap className="text-white" size={40} />
+            <Zap className="text-blue-500" size={40} />
           </motion.div>
           <p className="text-lg font-semibold text-white">Lightning-Fast Support</p>
           <p className="text-gray-400 max-w-xs sm:max-w-sm text-sm sm:text-base">

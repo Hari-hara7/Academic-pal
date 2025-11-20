@@ -14,21 +14,21 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-indigo-600 text-white text-center rounded-xl max-w-3xl mx-auto">
-      <h2 className="text-3xl font-bold mb-4">Subscribe to our Newsletter</h2>
+    <section className="py-20 px-6 bg-black border border-white/20 text-white text-center rounded-xl max-w-3xl mx-auto">
+      <h2 className="text-3xl font-bold mb-4">Subscribe to our <span className="text-blue-500">Newsletter</span></h2>
       {!submitted ? (
         <form onSubmit={handleSubmit} className="flex max-w-md mx-auto">
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-grow rounded-l-lg px-4 py-3 text-indigo-900 focus:outline-none"
+            className="flex-grow rounded-l-lg px-4 py-3 text-white bg-black border border-white/30 focus:outline-none focus:border-blue-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <button
             type="submit"
-            className="bg-white text-indigo-600 font-bold px-6 rounded-r-lg hover:bg-gray-100 transition"
+            className="bg-blue-500 text-white font-bold px-6 rounded-r-lg hover:bg-blue-600 transition"
           >
             Subscribe
           </button>

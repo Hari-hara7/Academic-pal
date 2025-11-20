@@ -46,7 +46,7 @@ const testimonials = [
 
 function StarRating({ count }: { count: number }) {
   return (
-    <div className="flex space-x-1 text-yellow-400">
+    <div className="flex space-x-1 text-blue-400">
       {[...Array(5)].map((_, i) => (
         <Star
           key={i}
@@ -80,13 +80,13 @@ export default function Testimonials() {
             whileHover={{ scale: 1.04 }}
             className="flex justify-center"
           >
-            <Card className="relative w-full max-w-xs sm:max-w-sm overflow-hidden bg-neutral-900 shadow-lg rounded-2xl cursor-pointer border border-transparent hover:border-blue-500 transition-all duration-300">
+            <Card className="relative w-full max-w-xs sm:max-w-sm overflow-hidden bg-black shadow-lg rounded-2xl cursor-pointer border border-white/20 hover:border-blue-500 transition-all duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-white text-sm sm:text-base">{name}</CardTitle>
                 <StarRating count={rating} />
               </CardHeader>
               <CardContent className="text-gray-300 italic text-xs sm:text-sm leading-relaxed">
-                “{quote}”
+                "{quote}"
               </CardContent>
               <BorderBeam duration={8} size={120} />
             </Card>

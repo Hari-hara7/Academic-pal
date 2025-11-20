@@ -36,9 +36,9 @@ export default function HeroSection() {
     >
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-transparent to-purple-950/10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(147,51,234,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-blue-500/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]" />
         
         {/* Animated orbs */}
         <motion.div 
@@ -66,7 +66,7 @@ export default function HeroSection() {
             ease: "easeInOut",
             delay: 5
           }}
-          className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 lg:w-96 h-40 sm:h-56 md:h-72 lg:h-96 bg-purple-500/4 rounded-full blur-3xl" 
+          className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-72 lg:w-96 h-40 sm:h-56 md:h-72 lg:h-96 bg-blue-500/4 rounded-full blur-3xl" 
         />
         <motion.div 
           animate={{ 
@@ -80,7 +80,7 @@ export default function HeroSection() {
             ease: "easeInOut",
             delay: 10
           }}
-          className="absolute top-1/2 right-1/3 w-24 sm:w-36 md:w-48 lg:w-64 h-24 sm:h-36 md:h-48 lg:h-64 bg-emerald-500/3 rounded-full blur-2xl" 
+          className="absolute top-1/2 right-1/3 w-24 sm:w-36 md:w-48 lg:w-64 h-24 sm:h-36 md:h-48 lg:h-64 bg-blue-500/3 rounded-full blur-2xl" 
         />
       </div>
 
@@ -103,16 +103,16 @@ export default function HeroSection() {
               <motion.div
                 variants={itemVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3 px-2.5 xs:px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 xs:py-2 sm:py-2.5 md:py-3 bg-gradient-to-r from-blue-950/40 to-purple-950/30 border border-blue-500/30 rounded-full backdrop-blur-sm group hover:border-blue-400/50 transition-all duration-300"
+                className="inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3 px-2.5 xs:px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 xs:py-2 sm:py-2.5 md:py-3 bg-white/5 border border-blue-500/30 rounded-full backdrop-blur-sm group hover:border-blue-500/50 transition-all duration-300"
               >
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className="p-0.5 xs:p-1 sm:p-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                  className="p-0.5 xs:p-1 sm:p-1.5 bg-blue-500 rounded-full"
                 >
                   <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-4 sm:h-4 text-white" />
                 </motion.div>
-                <span className="text-xs xs:text-xs sm:text-sm md:text-base font-medium text-blue-200 group-hover:text-blue-100 transition-colors">
+                <span className="text-xs xs:text-xs sm:text-sm md:text-base font-medium text-white group-hover:text-blue-400 transition-colors">
                   Trusted by 4,000+ students 
                 </span>
               </motion.div>
@@ -126,21 +126,12 @@ export default function HeroSection() {
             >
               <motion.h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight">
                 <div className="flex flex-col xs:flex-row xs:flex-wrap xs:gap-x-2 sm:gap-x-3 md:gap-x-4">
-                  <motion.div
-                    animate={{ 
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                    }}
-                    transition={{ 
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-300% bg-clip-text text-transparent"
-                    style={{ backgroundSize: "300% 100%" }}
-                  >
-                 Academic Unleashed
-                  </motion.div>
-           
+                  <span className="text-white">
+                    Academic
+                  </span>
+                  <span className="text-blue-500">
+                    Unleashed
+                  </span>
                 </div>
               </motion.h1>
               
@@ -160,21 +151,21 @@ export default function HeroSection() {
               className="grid grid-cols-2 sm:grid-cols-3 gap-2 xs:gap-3 sm:gap-4 md:gap-6"
             >
               {[
-                { icon: BookOpen, label: "Smart Study Plans", color: "blue" },
-                { icon: Users, label: "Study Groups", color: "purple" },
-                { icon: Zap, label: "AI Assistance", color: "emerald" },
-                { icon: TrendingUp, label: "Progress Tracking", color: "blue" },
-                { icon: Shield, label: "Secure Platform", color: "purple" },
-                { icon: Star, label: "Top Rated", color: "emerald" }
+                { icon: BookOpen, label: "Smart Study Plans" },
+                { icon: Users, label: "Study Groups" },
+                { icon: Zap, label: "AI Assistance" },
+                { icon: TrendingUp, label: "Progress Tracking" },
+                { icon: Shield, label: "Secure Platform" },
+                { icon: Star, label: "Top Rated" }
               ].map((feature, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 rounded-lg xs:rounded-xl sm:rounded-2xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-700/50 backdrop-blur-sm hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group cursor-pointer"
+                  className="p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 rounded-lg xs:rounded-xl sm:rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-sm hover:border-blue-500/50 hover:bg-white/[0.05] hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group cursor-pointer"
                 >
-                  <feature.icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-blue-400 mb-1.5 xs:mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+                  <feature.icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white/70 group-hover:text-blue-500 mb-1.5 xs:mb-2 sm:mb-3 group-hover:scale-110 transition-all duration-300" />
                   <p className="text-xs xs:text-xs sm:text-sm md:text-base font-medium text-gray-300 group-hover:text-white transition-colors">
                     {feature.label}
                   </p>
@@ -192,7 +183,7 @@ export default function HeroSection() {
                 <Link href="/upload">
                   <Button 
                     size="lg" 
-                    className="w-full sm:w-auto h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-10 text-base sm:text-lg md:text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-0 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 group"
+                    className="w-full sm:w-auto h-12 sm:h-14 md:h-16 px-6 sm:px-8 md:px-10 text-base sm:text-lg md:text-xl font-semibold bg-blue-500 hover:bg-blue-600 border-0 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 group"
                   >
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
@@ -294,7 +285,7 @@ export default function HeroSection() {
                 ease: "easeInOut",
                 delay: 1
               }}
-              className="absolute -bottom-6 sm:-bottom-8 md:-bottom-10 -right-6 sm:-right-8 md:-right-10 w-16 sm:w-20 md:w-24 lg:w-28 h-16 sm:h-20 md:h-24 lg:h-28 bg-purple-500/15 rounded-full blur-2xl" 
+              className="absolute -bottom-6 sm:-bottom-8 md:-bottom-10 -right-6 sm:-right-8 md:-right-10 w-16 sm:w-20 md:w-24 lg:w-28 h-16 sm:h-20 md:h-24 lg:h-28 bg-blue-500/15 rounded-full blur-2xl" 
             />
             <motion.div 
               animate={{ 
@@ -307,7 +298,7 @@ export default function HeroSection() {
                 ease: "easeInOut",
                 delay: 2
               }}
-              className="absolute top-1/2 -right-3 sm:-right-4 md:-right-6 w-8 sm:w-10 md:w-12 lg:w-16 h-8 sm:h-10 md:h-12 lg:h-16 bg-emerald-500/12 rounded-full blur-lg" 
+              className="absolute top-1/2 -right-3 sm:-right-4 md:-right-6 w-8 sm:w-10 md:w-12 lg:w-16 h-8 sm:h-10 md:h-12 lg:h-16 bg-blue-500/12 rounded-full blur-lg" 
             />
 
             {/* Enhanced image container */}
@@ -323,9 +314,9 @@ export default function HeroSection() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute inset-0 bg-gradient-to-r from-blue-600/15 via-purple-500/10 to-emerald-400/15 rounded-2xl sm:rounded-3xl blur-2xl" 
+                className="absolute inset-0 bg-blue-500/15 rounded-2xl sm:rounded-3xl blur-2xl" 
               />
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-500/15 to-emerald-400/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50" />
+              <div className="absolute -inset-1 bg-blue-500/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50" />
               
               {/* Main image card */}
               <motion.div 
@@ -349,7 +340,7 @@ export default function HeroSection() {
                   />
                   
                   {/* Interactive overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl" />
                 </div>
                 
                 {/* Enhanced floating UI indicators */}
@@ -376,7 +367,7 @@ export default function HeroSection() {
                     ease: "easeInOut",
                     delay: 0.5
                   }}
-                  className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-3 sm:left-4 md:left-6 w-1.5 sm:w-2 md:w-3 h-1.5 sm:h-2 md:h-3 bg-purple-400 rounded-full shadow-md shadow-purple-400/50" 
+                  className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-3 sm:left-4 md:left-6 w-1.5 sm:w-2 md:w-3 h-1.5 sm:h-2 md:h-3 bg-blue-400 rounded-full shadow-md shadow-blue-400/50" 
                 />
                 <motion.div 
                   animate={{ 
@@ -389,7 +380,7 @@ export default function HeroSection() {
                     ease: "easeInOut",
                     delay: 1
                   }}
-                  className="absolute top-1/2 left-2 sm:left-3 md:left-4 w-1 sm:w-1.5 md:w-2 h-1 sm:h-1.5 md:h-2 bg-emerald-400 rounded-full shadow-sm shadow-emerald-400/50" 
+                  className="absolute top-1/2 left-2 sm:left-3 md:left-4 w-1 sm:w-1.5 md:w-2 h-1 sm:h-1.5 md:h-2 bg-blue-500 rounded-full shadow-sm shadow-blue-500/50" 
                 />
                 <motion.div 
                   animate={{ 
@@ -402,7 +393,7 @@ export default function HeroSection() {
                     ease: "easeInOut",
                     delay: 1.5
                   }}
-                  className="absolute top-1/4 right-1/4 w-0.5 sm:w-1 md:w-1.5 h-0.5 sm:h-1 md:h-1.5 bg-yellow-400 rounded-full shadow-sm shadow-yellow-400/50" 
+                  className="absolute top-1/4 right-1/4 w-0.5 sm:w-1 md:w-1.5 h-0.5 sm:h-1 md:h-1.5 bg-white rounded-full shadow-sm shadow-white/50" 
                 />
               </motion.div>
             </div>
@@ -418,23 +409,23 @@ export default function HeroSection() {
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 sm:gap-3 md:gap-4 px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4 bg-gradient-to-r from-blue-950/30 to-purple-950/20 border border-blue-500/30 rounded-full backdrop-blur-sm hover:border-blue-400/50 transition-all duration-300 group cursor-pointer"
+            className="inline-flex items-center gap-2 sm:gap-3 md:gap-4 px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4 bg-white/5 border border-blue-500/30 rounded-full backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 group cursor-pointer"
           >
             <div className="flex -space-x-1 sm:-space-x-1.5">
               {[
-                "from-blue-400 to-blue-600",
-                "from-purple-400 to-purple-600", 
-                "from-emerald-400 to-emerald-600"
-              ].map((gradient, index) => (
+                "bg-blue-400",
+                "bg-blue-500", 
+                "bg-blue-600"
+              ].map((color, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.1 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r ${gradient} rounded-full border-2 border-black`}
+                  className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${color} rounded-full border-2 border-black`}
                 />
               ))}
             </div>
-            <span className="text-xs sm:text-sm md:text-base lg:text-lg font-medium text-blue-200 group-hover:text-blue-100 transition-colors">
+            <span className="text-xs sm:text-sm md:text-base lg:text-lg font-medium text-white group-hover:text-blue-400 transition-colors">
               Start your academic transformation today
             </span>
           </motion.div>
