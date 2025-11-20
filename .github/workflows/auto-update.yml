@@ -1,0 +1,53 @@
+name: Auto Update Dependencies
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs every Monday at midnight UTC
+  workflow_dispatch: # Allows manual trigger from Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update dependencies
+        run: npm update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore: automated dependency update"
+          branch: "auto-update-deps"
+          title: "🤖 Automated Dependency Update"
+          body: |
+            ## 🤖 Automated Dependency Update
+            
+            This PR was automatically created by GitHub Actions bot.
+            
+            ### What's updated?
+            - Dependencies have been updated to their latest compatible versions
+            - Run `npm outdated` to see the specific changes
+            
+            ### Next steps:
+            1. Review the changes
+            2. Test the application locally
+            3. Merge if all tests pass ✅
+            
+            ---
+            *This PR is automatically created every Monday or can be manually triggered.*
+          labels: |
+            dependencies
+            automated
+          delete-branch: true
