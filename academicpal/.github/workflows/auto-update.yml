@@ -17,9 +17,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./academicpal
 
       - name: Run Prettier
         run: npx prettier . --write
+        working-directory: ./academicpal
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -29,3 +31,4 @@ jobs:
           title: "Automated Code Formatting"
           body: |
             This PR was created automatically by GitHub Actions Bot.
+          path: ./academicpal
