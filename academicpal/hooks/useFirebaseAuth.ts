@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { authA, providerA } from "../services/firebaseConfig";  // Adjust path as needed
+import { authA, providerA } from "../services/firebaseConfig";  
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 const useFirebaseAuth = () => {
