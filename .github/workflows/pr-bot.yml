@@ -6,6 +6,8 @@ on:
 
 jobs:
   comment:
+    permissions:
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: Post a comment on PR
