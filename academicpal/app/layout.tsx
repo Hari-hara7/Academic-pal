@@ -42,7 +42,7 @@ const lato = Lato({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
   
 
   const showHeader = pathname === "/" || pathname === "/signup";
@@ -155,6 +155,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       keywords: "Academic Pal, engineering notes, study materials, B.Tech resources, question papers",
     };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://academicpal.in/#website",
+        "url": "https://academicpal.in/",
+        "name": "Academic Pal",
+        "description": "Academic Pal provides comprehensive study materials including notes, question papers, and more for engineering students.",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://academicpal.in/#organization",
+        "name": "Academic Pal",
+        "url": "https://academicpal.in/",
+        "logo": "https://academicpal.in/academicpal.jpg"
+      }
+    ]
+  };
+
   return (
     <html
       lang="en"
@@ -164,6 +185,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>{currentSEO.title}</title>
         <meta name="description" content={currentSEO.description} />
         <meta name="keywords" content={currentSEO.keywords} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`https://academicpal.in${pathname}`} />
+        <link rel="alternate" hrefLang="en" href={`https://academicpal.in${pathname}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/academicpal.jpg" />
         <link rel="manifest" href="/manifest.json" />
@@ -172,11 +196,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:description" content={currentSEO.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://academicpal.in${pathname}`} />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content={`https://academicpal.in/og-image.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={currentSEO.title} />
         <meta name="twitter:description" content={currentSEO.description} />
-        <meta name="twitter:image" content="/og-image.png" />
+        <meta name="twitter:image" content={`https://academicpal.in/og-image.png`} />
+        {/* JSON-LD structured data for Website and Organization */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Head>
 
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-2HKC8Z98W1" />

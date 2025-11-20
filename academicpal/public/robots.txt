@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://academicpal.in/sitemap.xml
+Host: https://academicpal.in
