@@ -10,7 +10,7 @@ import {
   query,
 } from 'firebase/firestore';
 import { FaRegSmile, FaPaperclip } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import io from 'socket.io-client';
 

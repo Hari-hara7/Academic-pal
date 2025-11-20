@@ -16,7 +16,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator';
 import { FaGithub, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Sparkles, ArrowRight, Shield, BookOpen, Users, Star } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';

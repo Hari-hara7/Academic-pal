@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaGoogle, FaUpload, FaLock, FaEye, FaHandshake } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
