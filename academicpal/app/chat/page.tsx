@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Auth from '@/components/Auth';
-import Chat from '@/components/Chat';
+import { useState } from "react";
+import Auth from "@/components/Auth";
+import Chat from "@/components/Chat";
 
 const Home = () => {
   const [user, setUser] = useState<any>(null);

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { StudyReminder } from '@/types/studyReminder';
-import { format } from 'date-fns';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
-import { PlusCircle, Pencil, Trash2 } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { StudyReminder } from "@/types/studyReminder";
+import { format } from "date-fns";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { PlusCircle, Pencil, Trash2 } from "lucide-react";
 
 export default function StudyRemindersPage() {
   const [reminders, setReminders] = useState<StudyReminder[]>([]);
@@ -14,14 +14,14 @@ export default function StudyRemindersPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (Notification.permission !== 'granted') {
+    if (Notification.permission !== "granted") {
       Notification.requestPermission();
     }
   }, []);
 
   useEffect(() => {
     const fetchReminders = async () => {
-      const res = await fetch('/api/study-reminders/get');
+      const res = await fetch("/api/study-reminders/get");
       const data = await res.json();
       if (data.success) {
         setReminders(data.reminders);
@@ -39,9 +39,9 @@ export default function StudyRemindersPage() {
           Math.abs(remindTime.getTime() - now.getTime()) <= 1000 * 60 &&
           !notifiedIds.includes(reminder._id)
         ) {
-          if (Notification.permission === 'granted') {
+          if (Notification.permission === "granted") {
             new Notification(`⏰ Reminder: ${reminder.title}`, {
-              body: reminder.description || '',
+              body: reminder.description || "",
             });
             setNotifiedIds((prev) => [...prev, reminder._id]);
           }
@@ -53,11 +53,11 @@ export default function StudyRemindersPage() {
   }, [reminders, notifiedIds]);
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this reminder?')) return;
+    if (!confirm("Are you sure you want to delete this reminder?")) return;
 
-    const res = await fetch('/api/study-reminders/delete', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/study-reminders/delete", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
 
@@ -66,7 +66,7 @@ export default function StudyRemindersPage() {
     if (data.success) {
       setReminders(reminders.filter((r) => r._id !== id));
     } else {
-      alert('Failed to delete reminder.');
+      alert("Failed to delete reminder.");
     }
   };
 
@@ -76,11 +76,11 @@ export default function StudyRemindersPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8 mt-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">
-             Study Reminders
+            Study Reminders
           </h2>
           <Button
             className="bg-white text-black font-semibold hover:bg-gray-200 flex items-center gap-2"
-            onClick={() => router.push('/dashboard/study-reminders/create')}
+            onClick={() => router.push("/dashboard/study-reminders/create")}
           >
             <PlusCircle className="w-5 h-5" />
             <span className="hidden sm:inline">Add Reminder</span>
@@ -103,7 +103,7 @@ export default function StudyRemindersPage() {
                     {reminder.title}
                   </h3>
                   <p className="text-gray-400 text-sm">
-                    {format(new Date(reminder.remindAt), 'PPpp')}
+                    {format(new Date(reminder.remindAt), "PPpp")}
                   </p>
                   {reminder.description && (
                     <p className="text-gray-300 text-sm sm:text-base">
@@ -115,7 +115,9 @@ export default function StudyRemindersPage() {
                       variant="ghost"
                       className="border border-white/40 hover:bg-white text-white flex items-center gap-2 justify-center"
                       onClick={() =>
-                        router.push(`/dashboard/study-reminders/edit/${reminder._id}`)
+                        router.push(
+                          `/dashboard/study-reminders/edit/${reminder._id}`,
+                        )
                       }
                     >
                       <Pencil className="w-4 h-4" />
@@ -124,8 +126,10 @@ export default function StudyRemindersPage() {
                     <Button
                       variant="ghost"
                       className="border border-red-500/30 hover:bg-red-500 text-red-400 flex items-center gap-2 justify-center"
-                       onClick={() =>
-                        router.push(`/dashboard/study-reminders/delete/${reminder._id}`)
+                      onClick={() =>
+                        router.push(
+                          `/dashboard/study-reminders/delete/${reminder._id}`,
+                        )
                       }
                     >
                       <Trash2 className="w-4 h-4" />

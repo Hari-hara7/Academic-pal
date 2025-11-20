@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge';
-import { PlusCircle, Pencil, Trash2 } from 'lucide-react';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { PlusCircle, Pencil, Trash2 } from "lucide-react";
+import Link from "next/link";
 
 interface Task {
   _id: string;
@@ -27,13 +27,13 @@ export default function StudyPlannerPage() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await fetch('/api/study-planner/get');
+        const res = await fetch("/api/study-planner/get");
         const data = await res.json();
         if (data.success) {
           setTasks(data.tasks);
         }
       } catch (err) {
-        console.error('Failed to load tasks:', err);
+        console.error("Failed to load tasks:", err);
       } finally {
         setLoading(false);
       }
@@ -48,7 +48,7 @@ export default function StudyPlannerPage() {
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">📚 Study Planner</h1>
           <Button
-            onClick={() => router.push('/dashboard/study-planner/create')}
+            onClick={() => router.push("/dashboard/study-planner/create")}
             className="bg-white text-black hover:bg-gray-200 flex items-center gap-2"
           >
             <PlusCircle className="w-4 h-4" />
@@ -68,7 +68,9 @@ export default function StudyPlannerPage() {
             >
               <CardHeader>
                 <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-semibold text-white">{task.title}</h2>
+                  <h2 className="text-xl font-semibold text-white">
+                    {task.title}
+                  </h2>
                   <Badge className="bg-white/10 text-white border border-white/40">
                     {task.status}
                   </Badge>
@@ -79,15 +81,21 @@ export default function StudyPlannerPage() {
                 <p className="text-white/70">{task.description}</p>
                 <div className="text-sm text-white/60 flex justify-between">
                   <span>📘 Subject: {task.subject}</span>
-                  <span>📅 Due: {new Date(task.dueDate).toLocaleDateString()}</span>
+                  <span>
+                    📅 Due: {new Date(task.dueDate).toLocaleDateString()}
+                  </span>
                 </div>
-                <div className="text-sm text-white/60">🔥 Priority: {task.priority}</div>
+                <div className="text-sm text-white/60">
+                  🔥 Priority: {task.priority}
+                </div>
                 <div className="flex gap-3 pt-2">
                   <Button
                     size="sm"
                     variant="ghost"
                     className="border border-white/40 hover:bg-white text-white flex items-center gap-2"
-                    onClick={() => router.push(`/dashboard/study-planner/edit/${task._id}`)}
+                    onClick={() =>
+                      router.push(`/dashboard/study-planner/edit/${task._id}`)
+                    }
                   >
                     <Pencil className="w-4 h-4" />
                     Edit
@@ -96,7 +104,9 @@ export default function StudyPlannerPage() {
                     size="sm"
                     variant="ghost"
                     className="border border-red-500/30 hover:bg-red-500 text-red-400 flex items-center gap-2"
-                    onClick={() => router.push(`/dashboard/study-planner/delete/${task._id}`)}
+                    onClick={() =>
+                      router.push(`/dashboard/study-planner/delete/${task._id}`)
+                    }
                   >
                     <Trash2 className="w-4 h-4" />
                     Delete

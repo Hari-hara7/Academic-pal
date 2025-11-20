@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { usePathname } from "next/navigation";
 import Head from "next/head";
@@ -14,36 +14,39 @@ import { Toaster } from "sonner";
 import { Poppins, Inter, Montserrat, Lato } from "next/font/google";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['500'],
-  variable: '--font-montserrat',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 const lato = Lato({
-  subsets: ['latin'],
-  weight: ['300'],
-  variable: '--font-lato',
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["300"],
+  variable: "--font-lato",
+  display: "swap",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname() || '/';
-  
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname() || "/";
 
   const showHeader = pathname === "/" || pathname === "/signup";
 
@@ -80,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "/dashboard/tutoring/become",
       "/dashboard/tutoring/find-tutor",
       "/dashboard/tutoring/my-sessions",
-    ].includes(pathname) ||///dashboard/tutoring/schedule/
+    ].includes(pathname) || ///dashboard/tutoring/schedule/
     pathname.startsWith("/dashboard/timetable/edit/") ||
     pathname.startsWith("/dashboard/tutoring/schedule/") ||
     pathname.startsWith("/dashboard/timetable/delete/") ||
@@ -90,70 +93,93 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     pathname.startsWith("/dashboard/study-reminders/edit/") ||
     pathname.startsWith("/dashboard/blogs/") ||
     pathname.startsWith("/dashboard/study-groups/") ||
-   pathname.startsWith("/dashboard/mind-map/edit/") ||
-      pathname.startsWith("/dashboard/mind-map/edit/") ||
-     pathname.startsWith("/dashboard/forum/") ||///dashboard/forum/
+    pathname.startsWith("/dashboard/mind-map/edit/") ||
+    pathname.startsWith("/dashboard/mind-map/edit/") ||
+    pathname.startsWith("/dashboard/forum/") || ///dashboard/forum/
     pathname.startsWith("/dashboard/performance-analytics/edit/");
 
-  const seoData: Record<string, { title: string; description: string; keywords: string }> = {
+  const seoData: Record<
+    string,
+    { title: string; description: string; keywords: string }
+  > = {
     "/": {
-      title: "Academic Pal - Comprehensive B.Tech Notes, Papers & Study Resources",
-      description: "Academic Pal offers detailed notes, past question papers, important questions, and extensive study materials for B.Tech students. Your ultimate academic companion!",
-      keywords: "Academic Pal, B.Tech notes, question papers, study resources, NMAMIT, engineering notes, exam preparation",
+      title:
+        "Academic Pal - Comprehensive B.Tech Notes, Papers & Study Resources",
+      description:
+        "Academic Pal offers detailed notes, past question papers, important questions, and extensive study materials for B.Tech students. Your ultimate academic companion!",
+      keywords:
+        "Academic Pal, B.Tech notes, question papers, study resources, NMAMIT, engineering notes, exam preparation",
     },
     "/about": {
       title: "About Academic Pal - Your Trusted Academic Companion",
-      description: "Learn more about Academic Pal, a platform dedicated to helping engineering students excel with top-quality study materials and resources.",
-      keywords: "About Academic Pal, academic resources, study help, B.Tech notes",
+      description:
+        "Learn more about Academic Pal, a platform dedicated to helping engineering students excel with top-quality study materials and resources.",
+      keywords:
+        "About Academic Pal, academic resources, study help, B.Tech notes",
     },
     "/contact": {
       title: "Contact Academic Pal - Get in Touch",
-      description: "Contact Academic Pal for support, suggestions, or collaborations. We’re here to help engineering students succeed.",
+      description:
+        "Contact Academic Pal for support, suggestions, or collaborations. We’re here to help engineering students succeed.",
       keywords: "Academic Pal contact, support, collaboration, feedback",
     },
     "/notes": {
       title: "Academic Pal Notes - Detailed & Organized B.Tech Study Notes",
-      description: "Browse and download detailed B.Tech notes categorized by semester and branch. Make your study efficient with Academic Pal's quality notes.",
-      keywords: "B.Tech notes, engineering notes, semester notes, study notes, Academic Pal",
+      description:
+        "Browse and download detailed B.Tech notes categorized by semester and branch. Make your study efficient with Academic Pal's quality notes.",
+      keywords:
+        "B.Tech notes, engineering notes, semester notes, study notes, Academic Pal",
     },
     "/login": {
       title: "Login to Academic Pal - Access Your Study Dashboard",
-      description: "Secure login to Academic Pal to access personalized study materials, notes, question papers, and performance tracking.",
-      keywords: "Academic Pal login, student dashboard, study access, secure login",
+      description:
+        "Secure login to Academic Pal to access personalized study materials, notes, question papers, and performance tracking.",
+      keywords:
+        "Academic Pal login, student dashboard, study access, secure login",
     },
     "/register": {
       title: "Register at Academic Pal - Join Our Academic Community",
-      description: "Sign up for Academic Pal to unlock comprehensive B.Tech notes, question papers, study groups, and personalized learning tools.",
-      keywords: "Academic Pal registration, sign up, student community, study platform",
+      description:
+        "Sign up for Academic Pal to unlock comprehensive B.Tech notes, question papers, study groups, and personalized learning tools.",
+      keywords:
+        "Academic Pal registration, sign up, student community, study platform",
     },
     "/dashboard": {
       title: "Academic Pal Dashboard - Manage Your Study Plans & Progress",
-      description: "Your personalized dashboard to manage notes, timetables, study groups, flashcards, and analytics with Academic Pal.",
-      keywords: "Academic Pal dashboard, study planner, flashcards, study analytics",
+      description:
+        "Your personalized dashboard to manage notes, timetables, study groups, flashcards, and analytics with Academic Pal.",
+      keywords:
+        "Academic Pal dashboard, study planner, flashcards, study analytics",
     },
     "/blogs": {
       title: "Academic Pal Blog - Study Tips, Exam Strategies & Tech Updates",
-      description: "Read the latest posts on effective study techniques, exam preparation, and technology trends for engineering students.",
-      keywords: "Academic Pal blog, study tips, exam strategies, engineering blog",
+      description:
+        "Read the latest posts on effective study techniques, exam preparation, and technology trends for engineering students.",
+      keywords:
+        "Academic Pal blog, study tips, exam strategies, engineering blog",
     },
     "/about-us": {
       title: "About Us - Meet the Team Behind Academic Pal",
-      description: "Get to know the creators of Academic Pal, our mission, vision, and commitment to supporting engineering students.",
-      keywords: "Academic Pal team, about us, mission, vision, academic support",
+      description:
+        "Get to know the creators of Academic Pal, our mission, vision, and commitment to supporting engineering students.",
+      keywords:
+        "Academic Pal team, about us, mission, vision, academic support",
     },
     "/privacy-policy": {
       title: "Privacy Policy - Academic Pal",
-      description: "Learn about Academic Pal's commitment to protecting your data and privacy while using our platform.",
+      description:
+        "Learn about Academic Pal's commitment to protecting your data and privacy while using our platform.",
       keywords: "Academic Pal privacy policy, data protection, user privacy",
     },
   };
 
-  const currentSEO =
-    seoData[pathname] || {
-      title: "Academic Pal - Your Ultimate Engineering Study Platform",
-      description: "Academic Pal provides comprehensive study materials including notes, question papers, and more for engineering students.",
-      keywords: "Academic Pal, engineering notes, study materials, B.Tech resources, question papers",
-    };
+  const currentSEO = seoData[pathname] || {
+    title: "Academic Pal - Your Ultimate Engineering Study Platform",
+    description:
+      "Academic Pal provides comprehensive study materials including notes, question papers, and more for engineering students.",
+    keywords:
+      "Academic Pal, engineering notes, study materials, B.Tech resources, question papers",
+  };
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -161,19 +187,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         "@type": "WebSite",
         "@id": "https://academicpal.in/#website",
-        "url": "https://academicpal.in/",
-        "name": "Academic Pal",
-        "description": "Academic Pal provides comprehensive study materials including notes, question papers, and more for engineering students.",
-        "inLanguage": "en-US"
+        url: "https://academicpal.in/",
+        name: "Academic Pal",
+        description:
+          "Academic Pal provides comprehensive study materials including notes, question papers, and more for engineering students.",
+        inLanguage: "en-US",
       },
       {
         "@type": "Organization",
         "@id": "https://academicpal.in/#organization",
-        "name": "Academic Pal",
-        "url": "https://academicpal.in/",
-        "logo": "https://academicpal.in/academicpal.jpg"
-      }
-    ]
+        name: "Academic Pal",
+        url: "https://academicpal.in/",
+        logo: "https://academicpal.in/academicpal.jpg",
+      },
+    ],
   };
 
   return (
@@ -187,7 +214,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="keywords" content={currentSEO.keywords} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://academicpal.in${pathname}`} />
-        <link rel="alternate" hrefLang="en" href={`https://academicpal.in${pathname}`} />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={`https://academicpal.in${pathname}`}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/academicpal.jpg" />
         <link rel="manifest" href="/manifest.json" />
@@ -196,16 +227,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:description" content={currentSEO.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://academicpal.in${pathname}`} />
-        <meta property="og:image" content={`https://academicpal.in/og-image.png`} />
+        <meta
+          property="og:image"
+          content={`https://academicpal.in/og-image.png`}
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={currentSEO.title} />
         <meta name="twitter:description" content={currentSEO.description} />
-        <meta name="twitter:image" content={`https://academicpal.in/og-image.png`} />
+        <meta
+          name="twitter:image"
+          content={`https://academicpal.in/og-image.png`}
+        />
         {/* JSON-LD structured data for Website and Organization */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </Head>
 
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-2HKC8Z98W1" />
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-2HKC8Z98W1"
+      />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -220,53 +263,59 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {showHomeHeader && <HomeHeader showUid={true} />}
         <main className="flex-grow">{children}</main>
         {pathname === "/home" && <BottomNav />}
-        {!["/", "/signup", "/home","/dashboard","/dashboard/study-planner",
-      "/dashboard/timetable",
-      "/dashboard/timetable/create",
-      "/dashboard/study-groups",
-      "/dashboard/flashcards",
-      "/dashboard/flashcards/create",
-      "/dashboard/study-reminders",
-      "/dashboard/study-groups/create",
-      "/dashboard/performance-analytics",
-      "/dashboard/study-reminders/create",
-      "/dashboard/blogs",
-      "/dashboard/blogs/create",
-      "/dashboard/tutoring",
-      "/dashboard/mind-map",
-      "/dashboard/tutoring/become",
-      "/dashboard/forum",//dashboard/tutoring/become
-      "/dashboard/tutoring/find-tutor",//dashboard/tutoring/schedule/
-       
-      "/dashboard/performance-analytics/create",   pathname.startsWith("/dashboard/timetable/edit/") ||
-    pathname.startsWith("/dashboard/timetable/delete/") ||
-    pathname.startsWith("/dashboard/mind-map/view/") ||
-    pathname.startsWith("/dashboard/mind-map/edit/") ||
-    pathname.startsWith("/dashboard/mind-map/delete/") ||
-    pathname.startsWith("/dashboard/tutoring/schedule/") ||
-    pathname.startsWith("/dashboard/forum/") ||
-    pathname.startsWith("/dashboard/flashcards/edit/") ||
-    pathname.startsWith("/dashboard/study-planner/edit/") ||
-    pathname.startsWith("/dashboard/study-planner/delete/") ||
-    pathname.startsWith("/dashboard/study-reminders/edit/") ||
-    pathname.startsWith("/dashboard/blogs/") ||
-    pathname.startsWith("/dashboard/study-groups/") ||
-    pathname.startsWith("/dashboard/performance-analytics/edit/")].includes(pathname) && <HomeFooter />}
+        {![
+          "/",
+          "/signup",
+          "/home",
+          "/dashboard",
+          "/dashboard/study-planner",
+          "/dashboard/timetable",
+          "/dashboard/timetable/create",
+          "/dashboard/study-groups",
+          "/dashboard/flashcards",
+          "/dashboard/flashcards/create",
+          "/dashboard/study-reminders",
+          "/dashboard/study-groups/create",
+          "/dashboard/performance-analytics",
+          "/dashboard/study-reminders/create",
+          "/dashboard/blogs",
+          "/dashboard/blogs/create",
+          "/dashboard/tutoring",
+          "/dashboard/mind-map",
+          "/dashboard/tutoring/become",
+          "/dashboard/forum", //dashboard/tutoring/become
+          "/dashboard/tutoring/find-tutor", //dashboard/tutoring/schedule/
+
+          "/dashboard/performance-analytics/create",
+          pathname.startsWith("/dashboard/timetable/edit/") ||
+            pathname.startsWith("/dashboard/timetable/delete/") ||
+            pathname.startsWith("/dashboard/mind-map/view/") ||
+            pathname.startsWith("/dashboard/mind-map/edit/") ||
+            pathname.startsWith("/dashboard/mind-map/delete/") ||
+            pathname.startsWith("/dashboard/tutoring/schedule/") ||
+            pathname.startsWith("/dashboard/forum/") ||
+            pathname.startsWith("/dashboard/flashcards/edit/") ||
+            pathname.startsWith("/dashboard/study-planner/edit/") ||
+            pathname.startsWith("/dashboard/study-planner/delete/") ||
+            pathname.startsWith("/dashboard/study-reminders/edit/") ||
+            pathname.startsWith("/dashboard/blogs/") ||
+            pathname.startsWith("/dashboard/study-groups/") ||
+            pathname.startsWith("/dashboard/performance-analytics/edit/"),
+        ].includes(pathname) && <HomeFooter />}
         {(pathname === "/" || pathname === "/signup") && <Loginfooter />}
 
-
-          <Toaster 
-            position="top-right"
-            theme="dark"
-            duration={4000}
-            toastOptions={{
-              style: {
-                background: '#000000',
-                color: '#fff',
-                border: '1px solid #ffffffff',
-              },
-            }}
-          />
+        <Toaster
+          position="top-right"
+          theme="dark"
+          duration={4000}
+          toastOptions={{
+            style: {
+              background: "#000000",
+              color: "#fff",
+              border: "1px solid #ffffffff",
+            },
+          }}
+        />
       </body>
     </html>
   );

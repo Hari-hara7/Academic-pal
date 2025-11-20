@@ -28,7 +28,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query: input }),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -46,17 +46,17 @@ const ChatInput: React.FC<ChatInputProps> = ({
 
       if (data.success && data.subject && data.cycle && data.notes_link) {
         onResponseReceived(
-          `🔍 Found notes for ${data.subject} (${data.cycle}): ${data.notes_link}`
+          `🔍 Found notes for ${data.subject} (${data.cycle}): ${data.notes_link}`,
         );
       } else {
         onResponseReceived(
-          "❌ No matching notes found. Try different keywords."
+          "❌ No matching notes found. Try different keywords.",
         );
       }
     } catch (error) {
       console.error("Error fetching notes:", error);
       onResponseReceived(
-        "⚠️ Error connecting to the server. Please try again later."
+        "⚠️ Error connecting to the server. Please try again later.",
       );
     } finally {
       setIsLoading(false);

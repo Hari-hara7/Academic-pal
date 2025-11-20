@@ -1,31 +1,34 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, Save } from 'lucide-react';
-import Link from 'next/link';
-import { Toaster, toast } from 'sonner';
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ArrowLeft, Save } from "lucide-react";
+import Link from "next/link";
+import { Toaster, toast } from "sonner";
 
 export default function EditFlashcardPage() {
   const { id } = useParams();
   const router = useRouter();
-  const [flashcard, setFlashcard] = useState<{ question: string; answer: string } | null>(null);
+  const [flashcard, setFlashcard] = useState<{
+    question: string;
+    answer: string;
+  } | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchFlashcard() {
       try {
-        const res = await fetch('/api/flashcards/get');
+        const res = await fetch("/api/flashcards/get");
         const data = await res.json();
         const found = data.find((f: any) => f._id === id);
         if (found) setFlashcard(found);
-        else toast.error('Flashcard not found!');
+        else toast.error("Flashcard not found!");
       } catch (error) {
-        toast.error('Failed to fetch flashcard');
+        toast.error("Failed to fetch flashcard");
       }
     }
     fetchFlashcard();
@@ -33,15 +36,15 @@ export default function EditFlashcardPage() {
 
   const handleSubmit = async () => {
     if (!flashcard?.question || !flashcard?.answer) {
-      toast.error('Both question and answer are required');
+      toast.error("Both question and answer are required");
       return;
     }
 
     setLoading(true);
     try {
-      const res = await fetch('/api/flashcards/update', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/flashcards/update", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id,
           question: flashcard.question,
@@ -50,13 +53,13 @@ export default function EditFlashcardPage() {
       });
 
       if (res.ok) {
-        toast.success('Flashcard updated!');
-        setTimeout(() => router.push('/dashboard/flashcards'), 1000);
+        toast.success("Flashcard updated!");
+        setTimeout(() => router.push("/dashboard/flashcards"), 1000);
       } else {
-        toast.error('Update failed. Try again.');
+        toast.error("Update failed. Try again.");
       }
     } catch (err) {
-      toast.error('Something went wrong!');
+      toast.error("Something went wrong!");
     } finally {
       setLoading(false);
     }
@@ -116,7 +119,7 @@ export default function EditFlashcardPage() {
               disabled={loading}
             >
               <Save className="w-4 h-4" />
-              {loading ? 'Saving...' : 'Save Flashcard'}
+              {loading ? "Saving..." : "Save Flashcard"}
             </Button>
           </CardContent>
         </Card>

@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface IMindMap extends Document {
   userId: string;
@@ -28,8 +28,8 @@ const MindMapSchema = new Schema<IMindMap>(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.models.MindMap ||
-  mongoose.model<IMindMap>('MindMap', MindMapSchema);
+  mongoose.model<IMindMap>("MindMap", MindMapSchema);

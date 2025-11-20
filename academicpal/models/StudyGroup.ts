@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, model } from 'mongoose';
+import mongoose, { Schema, Document, model } from "mongoose";
 
 export interface IStudyGroup extends Document {
   creatorId: string;
@@ -31,4 +31,5 @@ const StudyGroupSchema = new Schema<IStudyGroup>({
 });
 
 export const StudyGroup =
-  mongoose.models.StudyGroup || model<IStudyGroup>('StudyGroup', StudyGroupSchema);
+  mongoose.models.StudyGroup ||
+  model<IStudyGroup>("StudyGroup", StudyGroupSchema);

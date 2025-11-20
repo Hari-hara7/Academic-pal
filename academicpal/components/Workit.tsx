@@ -1,40 +1,40 @@
 "use client";
 
 import { motion } from "motion/react";
-import { 
-  CheckCircle, 
-  Calendar, 
-  Brain, 
-  ListTodo, 
-  BarChart3, 
-  Bell, 
-  BookOpen, 
+import {
+  CheckCircle,
+  Calendar,
+  Brain,
+  ListTodo,
+  BarChart3,
+  Bell,
+  BookOpen,
   Users,
   Sparkles,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import {
-  CodeContainer,
-  StaticStep,
-} from "@/components/eldoraui/staticstepper";
+import { CodeContainer, StaticStep } from "@/components/eldoraui/staticstepper";
 
 const steps = [
   {
     title: "Register on AcademicPal",
-    description: "Sign up to access exclusive tools and features tailored for your academic success.",
+    description:
+      "Sign up to access exclusive tools and features tailored for your academic success.",
     code: "https://academicpal.in/register",
     icon: "✨",
   },
   {
     title: "Login to Your Dashboard",
-    description: "Access your personalized learning space with AI-powered insights.",
+    description:
+      "Access your personalized learning space with AI-powered insights.",
     code: "https://academicpal.in/login",
     icon: "🚀",
   },
   {
     title: "Explore Smart Dashboard",
-    description: "Navigate to your dashboard to unlock powerful academic tools and resources.",
+    description:
+      "Navigate to your dashboard to unlock powerful academic tools and resources.",
     code: "Navigate to Dashboard > Tools",
     icon: "🎯",
   },
@@ -43,12 +43,14 @@ const steps = [
 const features = [
   {
     name: "Auto Timetable",
-    description: "AI-powered schedule optimization for your classes and study sessions",
+    description:
+      "AI-powered schedule optimization for your classes and study sessions",
     icon: Calendar,
   },
   {
     name: "Flashcards",
-    description: "Smart flashcards with spaced repetition for effective learning",
+    description:
+      "Smart flashcards with spaced repetition for effective learning",
     icon: Brain,
   },
   {
@@ -58,7 +60,8 @@ const features = [
   },
   {
     name: "Analytics",
-    description: "Track your progress with detailed insights and visualizations",
+    description:
+      "Track your progress with detailed insights and visualizations",
     icon: BarChart3,
   },
   {
@@ -99,7 +102,9 @@ export default function AccessSpecialFeatures() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-blue-500/30 mb-6">
             <Sparkles className="w-4 h-4 text-blue-500" />
-            <span className="text-sm text-blue-400 font-medium">Powerful Features</span>
+            <span className="text-sm text-blue-400 font-medium">
+              Powerful Features
+            </span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 font-bold tracking-tight text-white">
             Access Special Features &<br />
@@ -198,8 +203,6 @@ export default function AccessSpecialFeatures() {
             })}
           </div>
         </div>
-
-       
       </div>
     </section>
   );

@@ -1,6 +1,13 @@
 import { FC } from "react";
 import Image from "next/image";
-import { Github, Linkedin, Mail, FileText, ShieldCheck, Phone } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  FileText,
+  ShieldCheck,
+  Phone,
+} from "lucide-react";
 
 const LoginFooter: FC = () => {
   return (
@@ -9,14 +16,16 @@ const LoginFooter: FC = () => {
         {/* Logo + Text */}
         <div className="flex items-center justify-center md:justify-start space-x-3 select-none">
           <Image
-            src="/academicpal.jpg"  // Replace with your actual logo file name and extension
+            src="/academicpal.jpg" // Replace with your actual logo file name and extension
             alt="Academic Pal Logo"
             width={60}
             height={60}
             priority
             className="object-contain"
           />
-          <span className="text-2xl  tracking-wide font-bold font-poppins">Academic Pal</span>
+          <span className="text-2xl  tracking-wide font-bold font-poppins">
+            Academic Pal
+          </span>
         </div>
 
         {/* Navigation Links with icons */}
@@ -35,7 +44,6 @@ const LoginFooter: FC = () => {
             <FileText className="w-4 h-4" />
             Terms & Conditions
           </a>
-          
         </nav>
 
         {/* Social Icons */}

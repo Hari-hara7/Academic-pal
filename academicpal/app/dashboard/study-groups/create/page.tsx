@@ -1,60 +1,67 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function CreateStudyGroupPage() {
   const router = useRouter();
   const [form, setForm] = useState({
-    subject: '',
-    groupName: '',
-    description: '',
-    meetingTime: '',
-    location: '',
-    platform: '',
+    subject: "",
+    groupName: "",
+    description: "",
+    meetingTime: "",
+    location: "",
+    platform: "",
     maxMembers: 10,
     isOpen: true,
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
-    if (!form.subject || !form.groupName || !form.meetingTime || !form.location) {
-      setError('Please fill in all required fields.');
+    if (
+      !form.subject ||
+      !form.groupName ||
+      !form.meetingTime ||
+      !form.location
+    ) {
+      setError("Please fill in all required fields.");
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch('/api/study-groups/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/study-groups/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       const data = await res.json();
       if (data.success) {
         router.push(`/dashboard/study-groups/${data.group._id}`);
       } else {
-        setError(data.message || 'Failed to create group');
+        setError(data.message || "Failed to create group");
       }
     } catch {
-      setError('Failed to create group');
+      setError("Failed to create group");
     } finally {
       setLoading(false);
     }
@@ -145,7 +152,7 @@ export default function CreateStudyGroupPage() {
             disabled={loading}
             className="w-full bg-white text-black hover:bg-white/80 transition"
           >
-            {loading ? 'Creating...' : 'Create Group'}
+            {loading ? "Creating..." : "Create Group"}
           </Button>
         </form>
       </div>

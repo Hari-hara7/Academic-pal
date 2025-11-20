@@ -1,15 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import {
-  GraduationCap,
-  Search,
-  CalendarPlus,
-  Users,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+import Link from "next/link";
+import { GraduationCap, Search, CalendarPlus, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function TutoringHomePage() {
   return (
@@ -20,7 +15,10 @@ export default function TutoringHomePage() {
           Peer-to-Peer Tutoring
         </h1>
         <p className="text-gray-300 mb-10 text-sm sm:text-base max-w-2xl">
-          Welcome to <span className="font-semibold text-white">AcademicPal</span>’s tutoring hub — where you can become a tutor, find help, and manage your learning journey.
+          Welcome to{" "}
+          <span className="font-semibold text-white">AcademicPal</span>’s
+          tutoring hub — where you can become a tutor, find help, and manage
+          your learning journey.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -37,7 +35,8 @@ export default function TutoringHomePage() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm flex-grow">
-                Help others in subjects you excel at and earn recognition in the community.
+                Help others in subjects you excel at and earn recognition in the
+                community.
               </p>
               <Button asChild className="w-full mt-auto" variant="secondary">
                 <Link href="/dashboard/tutoring/become">Get Started</Link>
@@ -58,15 +57,14 @@ export default function TutoringHomePage() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm flex-grow">
-                Discover top-rated tutors by subject, skill level, or availability.
+                Discover top-rated tutors by subject, skill level, or
+                availability.
               </p>
               <Button asChild className="w-full mt-auto" variant="secondary">
                 <Link href="/dashboard/tutoring/find-tutor">Browse Tutors</Link>
               </Button>
             </CardContent>
           </Card>
-
-          
 
           {/* My Sessions */}
           <Card className="bg-white/5 border border-white/10 backdrop-blur-lg h-full flex flex-col justify-between">
@@ -81,10 +79,13 @@ export default function TutoringHomePage() {
                 </Badge>
               </div>
               <p className="text-gray-400 text-sm flex-grow">
-                Track your upcoming and completed sessions, both as a tutor and a learner.
+                Track your upcoming and completed sessions, both as a tutor and
+                a learner.
               </p>
               <Button asChild className="w-full mt-auto" variant="secondary">
-                <Link href="/dashboard/tutoring/my-sessions">View Sessions</Link>
+                <Link href="/dashboard/tutoring/my-sessions">
+                  View Sessions
+                </Link>
               </Button>
             </CardContent>
           </Card>

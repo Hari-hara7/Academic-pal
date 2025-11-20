@@ -23,7 +23,7 @@ export default function ContactPage() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -82,11 +82,26 @@ export default function ContactPage() {
           className="bg-black border border-white/20 rounded-3xl p-8 backdrop-blur-md shadow-lg space-y-6"
         >
           <h3 className="text-2xl font-semibold mb-4">Reach Me</h3>
-          <ContactItem icon={<Mail size={18} />} text="Hariharanath247@gmail.com" />
+          <ContactItem
+            icon={<Mail size={18} />}
+            text="Hariharanath247@gmail.com"
+          />
           <ContactItem icon={<Phone size={18} />} text="+91 7989777877" />
-          <ContactLink icon={<Github size={18} />} text="github.com/Hari-hara7" href="https://github.com/Hari-hara7" />
-          <ContactLink icon={<Linkedin size={18} />} text="linkedin.com/in/hari-hara-nath" href="https://linkedin.com/in/hari-hara-nath-a13583282" />
-          <ContactLink icon={<Globe size={18} />} text="hariharanath.is-cod.in" href="https://hariharanath.is-cod.in/" />
+          <ContactLink
+            icon={<Github size={18} />}
+            text="github.com/Hari-hara7"
+            href="https://github.com/Hari-hara7"
+          />
+          <ContactLink
+            icon={<Linkedin size={18} />}
+            text="linkedin.com/in/hari-hara-nath"
+            href="https://linkedin.com/in/hari-hara-nath-a13583282"
+          />
+          <ContactLink
+            icon={<Globe size={18} />}
+            text="hariharanath.is-cod.in"
+            href="https://hariharanath.is-cod.in/"
+          />
         </motion.div>
 
         {/* Contact Form Card */}
@@ -127,7 +142,11 @@ export default function ContactPage() {
             disabled={submitting}
             className="w-full bg-blue-500 text-white font-bold py-2 hover:bg-blue-600 transition-colors rounded-lg flex items-center justify-center"
           >
-            {submitting ? <Loader2 className="animate-spin h-4 w-4 mr-2" /> : <Send size={16} className="mr-2" />}
+            {submitting ? (
+              <Loader2 className="animate-spin h-4 w-4 mr-2" />
+            ) : (
+              <Send size={16} className="mr-2" />
+            )}
             {submitting ? "Sending..." : "Send Message"}
           </Button>
         </motion.div>
@@ -175,7 +194,15 @@ function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 }
 
 // Contact link
-function ContactLink({ icon, text, href }: { icon: React.ReactNode; text: string; href: string }) {
+function ContactLink({
+  icon,
+  text,
+  href,
+}: {
+  icon: React.ReactNode;
+  text: string;
+  href: string;
+}) {
   return (
     <a
       href={href}

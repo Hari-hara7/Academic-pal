@@ -25,7 +25,11 @@ export default function ChatBox() {
     const trimmed = input.trim();
     if (!trimmed) return;
 
-    const userMsg: ChatMessage = { id: uuidv4(), role: "user", content: trimmed };
+    const userMsg: ChatMessage = {
+      id: uuidv4(),
+      role: "user",
+      content: trimmed,
+    };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setLoading(true);
@@ -40,12 +44,20 @@ export default function ChatBox() {
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
-        { id: uuidv4(), role: "assistant", content: data.text || "Error occurred." },
+        {
+          id: uuidv4(),
+          role: "assistant",
+          content: data.text || "Error occurred.",
+        },
       ]);
     } catch {
       setMessages((prev) => [
         ...prev,
-        { id: uuidv4(), role: "assistant", content: "Network error. Try again." },
+        {
+          id: uuidv4(),
+          role: "assistant",
+          content: "Network error. Try again.",
+        },
       ]);
     } finally {
       setLoading(false);
@@ -68,8 +80,12 @@ export default function ChatBox() {
           <Bot size={18} />
         </div>
         <div className="flex flex-col leading-tight">
-          <span className="text-white text-sm font-semibold">AcademicPal Assistant</span>
-          <span className="text-xs text-neutral-400">Ask anything academically</span>
+          <span className="text-white text-sm font-semibold">
+            AcademicPal Assistant
+          </span>
+          <span className="text-xs text-neutral-400">
+            Ask anything academically
+          </span>
         </div>
       </div>
 
@@ -141,7 +157,11 @@ export default function ChatBox() {
             className="h-10 w-10 rounded-full p-0 bg-sky-500 hover:bg-sky-600 text-white disabled:opacity-60 disabled:cursor-not-allowed"
             aria-label="Send message"
           >
-            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+            {loading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Send className="h-4 w-4" />
+            )}
           </Button>
         </div>
       </div>

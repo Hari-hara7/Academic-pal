@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { MindMap } from '@/types/mindMap';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Brain } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { MindMap } from "@/types/mindMap";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Brain } from "lucide-react";
 
 export default function ViewMindMapPage() {
   const { id } = useParams();
@@ -15,7 +15,7 @@ export default function ViewMindMapPage() {
 
   useEffect(() => {
     async function fetchMap() {
-      const res = await fetch('/api/mind-map/get');
+      const res = await fetch("/api/mind-map/get");
       const data = await res.json();
       if (data.success) {
         const mindMap = data.mindMaps.find((m: MindMap) => m._id === id);

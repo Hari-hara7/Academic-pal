@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { ForumPost, ForumReply } from '@/types/forum';
-import { initSocket } from '@/lib/socket';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
-import { Send, MessageCircleReply } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { ForumPost, ForumReply } from "@/types/forum";
+import { initSocket } from "@/lib/socket";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Send, MessageCircleReply } from "lucide-react";
 
 export default function ThreadPage() {
   const { id } = useParams();
   const [thread, setThread] = useState<ForumPost | null>(null);
-  const [newReply, setNewReply] = useState('');
+  const [newReply, setNewReply] = useState("");
 
   useEffect(() => {
     const fetchThread = async () => {
@@ -24,12 +24,12 @@ export default function ThreadPage() {
     fetchThread();
 
     const socket = initSocket();
-    socket.emit('join-thread', id);
+    socket.emit("join-thread", id);
 
-    socket.on('new-reply', (data: { threadId: string; reply: ForumReply }) => {
+    socket.on("new-reply", (data: { threadId: string; reply: ForumReply }) => {
       if (data.threadId === id) {
         setThread((prev) =>
-          prev ? { ...prev, replies: [...prev.replies, data.reply] } : prev
+          prev ? { ...prev, replies: [...prev.replies, data.reply] } : prev,
         );
       }
     });
@@ -41,13 +41,13 @@ export default function ThreadPage() {
 
   const handleReply = async () => {
     if (!newReply.trim()) return;
-    const res = await fetch('/api/forum/reply', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/forum/reply", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ threadId: id, message: newReply }),
     });
 
-    if (res.ok) setNewReply('');
+    if (res.ok) setNewReply("");
   };
 
   if (!thread)
@@ -87,7 +87,9 @@ export default function ThreadPage() {
             className="bg-white/5 border border-white/10 backdrop-blur transition hover:border-white/30 rounded-lg"
           >
             <CardContent className="p-4 space-y-1">
-              <p className="text-sm text-white font-semibold">{reply.username}</p>
+              <p className="text-sm text-white font-semibold">
+                {reply.username}
+              </p>
               <p className="text-white/80">{reply.message}</p>
             </CardContent>
           </Card>

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { FaPlus, FaTrash, FaSave, FaLightbulb } from 'react-icons/fa';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import { FaPlus, FaTrash, FaSave, FaLightbulb } from "react-icons/fa";
 
 interface Subtopic {
   title: string;
@@ -15,28 +15,28 @@ interface Subtopic {
 
 export default function CreateMindMapPage() {
   const router = useRouter();
-  const [topic, setTopic] = useState('');
+  const [topic, setTopic] = useState("");
   const [subtopics, setSubtopics] = useState<Subtopic[]>([
-    { title: '', keywords: [''] },
+    { title: "", keywords: [""] },
   ]);
 
   const handleSubtopicChange = (
     index: number,
-    field: 'title' | 'keywords',
+    field: "title" | "keywords",
     value: string,
-    keywordIndex?: number
+    keywordIndex?: number,
   ) => {
     const updated = [...subtopics];
-    if (field === 'title') {
+    if (field === "title") {
       updated[index].title = value;
-    } else if (field === 'keywords' && typeof keywordIndex === 'number') {
+    } else if (field === "keywords" && typeof keywordIndex === "number") {
       updated[index].keywords[keywordIndex] = value;
     }
     setSubtopics(updated);
   };
 
   const addSubtopic = () => {
-    setSubtopics([...subtopics, { title: '', keywords: [''] }]);
+    setSubtopics([...subtopics, { title: "", keywords: [""] }]);
   };
 
   const removeSubtopic = (index: number) => {
@@ -45,7 +45,7 @@ export default function CreateMindMapPage() {
 
   const addKeyword = (subtopicIndex: number) => {
     const updated = [...subtopics];
-    updated[subtopicIndex].keywords.push('');
+    updated[subtopicIndex].keywords.push("");
     setSubtopics(updated);
   };
 
@@ -58,17 +58,17 @@ export default function CreateMindMapPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/mind-map/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/mind-map/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ topic, subtopics }),
     });
 
     const data = await res.json();
     if (data.success) {
-      router.push('/dashboard/mind-map');
+      router.push("/dashboard/mind-map");
     } else {
-      alert('Failed to create mind map');
+      alert("Failed to create mind map");
     }
   };
 
@@ -117,7 +117,7 @@ export default function CreateMindMapPage() {
                   className="bg-transparent border border-white/20 text-white placeholder:text-white/40"
                   value={subtopic.title}
                   onChange={(e) =>
-                    handleSubtopicChange(index, 'title', e.target.value)
+                    handleSubtopicChange(index, "title", e.target.value)
                   }
                   placeholder="e.g., Introduction"
                   required
@@ -133,9 +133,9 @@ export default function CreateMindMapPage() {
                         onChange={(e) =>
                           handleSubtopicChange(
                             index,
-                            'keywords',
+                            "keywords",
                             e.target.value,
-                            kwIndex
+                            kwIndex,
                           )
                         }
                         placeholder="e.g., basics"
@@ -175,7 +175,10 @@ export default function CreateMindMapPage() {
             <FaPlus className="mr-2" /> Add Subtopic
           </Button>
 
-          <Button type="submit" className="bg-white text-black hover:bg-white-700">
+          <Button
+            type="submit"
+            className="bg-white text-black hover:bg-white-700"
+          >
             <FaSave className="mr-2" /> Save Mind Map
           </Button>
         </form>

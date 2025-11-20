@@ -11,7 +11,9 @@ const configA = {
   appId: "1:362157551314:web:e18eecd05078522f7fc70b",
 };
 
-const appA = getApps().find(app => app.name === "appA") || initializeApp(configA, "appA");
+const appA =
+  getApps().find((app) => app.name === "appA") ||
+  initializeApp(configA, "appA");
 
 export const authA = getAuth(appA);
 export const providerA = new GoogleAuthProvider();

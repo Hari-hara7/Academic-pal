@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Toaster, toast } from 'sonner';
+import { useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Toaster, toast } from "sonner";
 
 export default function DeleteReminderPage() {
   const router = useRouter();
@@ -12,9 +12,9 @@ export default function DeleteReminderPage() {
 
   const handleDelete = async () => {
     setLoading(true);
-    const res = await fetch('/api/study-reminders/delete', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/study-reminders/delete", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
 
@@ -22,12 +22,12 @@ export default function DeleteReminderPage() {
     setLoading(false);
 
     if (data.success) {
-      toast.success('Reminder deleted successfully');
+      toast.success("Reminder deleted successfully");
       setTimeout(() => {
-        router.push('/dashboard/study-reminders');
+        router.push("/dashboard/study-reminders");
       }, 1200);
     } else {
-      toast.error('Failed to delete reminder');
+      toast.error("Failed to delete reminder");
     }
   };
 
@@ -50,11 +50,11 @@ export default function DeleteReminderPage() {
             disabled={loading}
             className="w-full sm:w-auto"
           >
-            {loading ? 'Deleting...' : 'Yes, Delete'}
+            {loading ? "Deleting..." : "Yes, Delete"}
           </Button>
           <Button
             variant="secondary"
-            onClick={() => router.push('/dashboard/study-reminders')}
+            onClick={() => router.push("/dashboard/study-reminders")}
             className="w-full sm:w-auto"
           >
             Cancel

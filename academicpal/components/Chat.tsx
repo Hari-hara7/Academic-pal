@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { db } from '@/lib/firebase';
+import { useEffect, useState } from "react";
+import { db } from "@/lib/firebase";
 import {
   collection,
   addDoc,
   onSnapshot,
   orderBy,
   query,
-} from 'firebase/firestore';
-import { FaRegSmile, FaPaperclip } from 'react-icons/fa';
-import { motion } from 'motion/react';
-import Image from 'next/image';
-import io from 'socket.io-client';
+} from "firebase/firestore";
+import { FaRegSmile, FaPaperclip } from "react-icons/fa";
+import { motion } from "motion/react";
+import Image from "next/image";
+import io from "socket.io-client";
 
-const socket = io('http://localhost:4000');
+const socket = io("http://localhost:4000");
 
 interface Message {
   user: string;
@@ -33,13 +33,13 @@ interface ChatProps {
 }
 
 const Chat = ({ user }: ChatProps) => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [file, setFile] = useState<File | null>(null);
   const [isBotTyping, setIsBotTyping] = useState(false);
 
   useEffect(() => {
-    const q = query(collection(db, 'messages'), orderBy('timestamp'));
+    const q = query(collection(db, "messages"), orderBy("timestamp"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const newMessages: Message[] = [];
       querySnapshot.forEach((doc) => {
@@ -56,36 +56,36 @@ const Chat = ({ user }: ChatProps) => {
       const messageData: Message = {
         user: user.displayName,
         text: message,
-        avatar: user.photoURL || '/default-avatar.png',
+        avatar: user.photoURL || "/default-avatar.png",
         timestamp: new Date().toISOString(),
         isBot: false,
         file: file ? await uploadFile(file) : null,
       };
 
-      await addDoc(collection(db, 'messages'), messageData);
-      socket.emit('send_message', messageData);
+      await addDoc(collection(db, "messages"), messageData);
+      socket.emit("send_message", messageData);
 
-      setMessage('');
+      setMessage("");
       setFile(null);
     }
   };
 
   const uploadFile = async (file: File): Promise<string> => {
-    return 'https://path.to.uploaded/file';
+    return "https://path.to.uploaded/file";
   };
 
   const sendBotReply = (msg: string) => {
     setIsBotTyping(true);
     setTimeout(() => {
       const botMessage: Message = {
-        user: 'Academic Pal Bot',
+        user: "Academic Pal Bot",
         text: `You asked about: "${msg}" - Here is the information...`,
-        avatar: 'https://path.to/bot/avatar',
+        avatar: "https://path.to/bot/avatar",
         timestamp: new Date().toISOString(),
         isBot: true,
       };
-      addDoc(collection(db, 'messages'), botMessage);
-      socket.emit('send_message', botMessage);
+      addDoc(collection(db, "messages"), botMessage);
+      socket.emit("send_message", botMessage);
       setIsBotTyping(false);
     }, 1500);
   };
@@ -93,8 +93,8 @@ const Chat = ({ user }: ChatProps) => {
   const handleSubmit = () => {
     sendMessage();
     if (
-      message.toLowerCase().includes('syllabus') ||
-      message.toLowerCase().includes('notes')
+      message.toLowerCase().includes("syllabus") ||
+      message.toLowerCase().includes("notes")
     ) {
       sendBotReply(message);
     }
@@ -117,8 +117,8 @@ const Chat = ({ user }: ChatProps) => {
             transition={{ duration: 0.3 }}
             className={`max-w-md p-4 rounded-xl border border-white/10 backdrop-blur-md ${
               msg.user === user.displayName
-                ? 'ml-auto bg-blue-600'
-                : 'mr-auto bg-white/5'
+                ? "ml-auto bg-blue-600"
+                : "mr-auto bg-white/5"
             }`}
           >
             <div className="flex items-start space-x-3">
@@ -131,7 +131,7 @@ const Chat = ({ user }: ChatProps) => {
               />
               <div className="flex flex-col text-sm">
                 <div className="font-semibold">
-                  {msg.user}{' '}
+                  {msg.user}{" "}
                   <span className="text-xs text-gray-400 ml-1">
                     {new Date(msg.timestamp).toLocaleTimeString()}
                   </span>
@@ -179,7 +179,7 @@ const Chat = ({ user }: ChatProps) => {
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               placeholder="Type your message..."
               className="w-full p-4 rounded-xl bg-white/5 text-white placeholder-gray-400 outline-none border border-white/10"
             />
@@ -187,7 +187,7 @@ const Chat = ({ user }: ChatProps) => {
               <FaRegSmile className="text-white/60 hover:text-blue-500 cursor-pointer" />
               <FaPaperclip
                 className="text-white/60 hover:text-blue-500 cursor-pointer"
-                onClick={() => document.getElementById('fileInput')?.click()}
+                onClick={() => document.getElementById("fileInput")?.click()}
               />
               <input
                 id="fileInput"

@@ -1,57 +1,57 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
-import { GraduationCap, User, BookOpenCheck, Clock } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { GraduationCap, User, BookOpenCheck, Clock } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const BTECH_SUBJECTS = {
-  '1st Year': [
-    'Engineering Mathematics-I',
-    'Engineering Physics',
-    'Basic Electrical',
-    'C Programming',
-    'Environmental Science',
+  "1st Year": [
+    "Engineering Mathematics-I",
+    "Engineering Physics",
+    "Basic Electrical",
+    "C Programming",
+    "Environmental Science",
   ],
-  '2nd Year': [
-    'Data Structures',
-    'Object-Oriented Programming',
-    'Digital Logic Design',
-    'Discrete Mathematics',
-    'Database Systems',
+  "2nd Year": [
+    "Data Structures",
+    "Object-Oriented Programming",
+    "Digital Logic Design",
+    "Discrete Mathematics",
+    "Database Systems",
   ],
-  '3rd Year': [
-    'Operating Systems',
-    'Computer Networks',
-    'Web Technologies',
-    'Software Engineering',
-    'Machine Learning',
+  "3rd Year": [
+    "Operating Systems",
+    "Computer Networks",
+    "Web Technologies",
+    "Software Engineering",
+    "Machine Learning",
   ],
-  '4th Year': [
-    'Cloud Computing',
-    'Cyber Security',
-    'Blockchain Technology',
-    'Big Data Analytics',
-    'Project Management',
+  "4th Year": [
+    "Cloud Computing",
+    "Cyber Security",
+    "Blockchain Technology",
+    "Big Data Analytics",
+    "Project Management",
   ],
 };
 
-const AVAILABILITY_OPTIONS = ['Mornings', 'Afternoons', 'Evenings', 'Weekends'];
-const TEACHING_MODES = ['Chat', 'Voice', 'Video', 'Notes Sharing'];
+const AVAILABILITY_OPTIONS = ["Mornings", "Afternoons", "Evenings", "Weekends"];
+const TEACHING_MODES = ["Chat", "Voice", "Video", "Notes Sharing"];
 
 export default function BecomeTutorPage() {
   const router = useRouter();
 
-  const [name, setName] = useState('');
-  const [branch, setBranch] = useState('');
-  const [year, setYear] = useState('');
+  const [name, setName] = useState("");
+  const [branch, setBranch] = useState("");
+  const [year, setYear] = useState("");
   const [subjects, setSubjects] = useState<string[]>([]);
   const [availability, setAvailability] = useState<string[]>([]);
   const [teachingModes, setTeachingModes] = useState<string[]>([]);
@@ -60,7 +60,7 @@ export default function BecomeTutorPage() {
   const toggleOption = (
     option: string,
     list: string[],
-    setList: (list: string[]) => void
+    setList: (list: string[]) => void,
   ) => {
     if (list.includes(option)) {
       setList(list.filter((item) => item !== option));
@@ -73,9 +73,9 @@ export default function BecomeTutorPage() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch('/api/tutoring/tutors/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/tutoring/tutors/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name,
         branch,
@@ -90,10 +90,10 @@ export default function BecomeTutorPage() {
     setLoading(false);
 
     if (data.success) {
-      toast.success('🎉 You are now a registered tutor!');
-      router.push('/dashboard/tutoring/find-tutor');
+      toast.success("🎉 You are now a registered tutor!");
+      router.push("/dashboard/tutoring/find-tutor");
     } else {
-      toast.error('❌ Failed to register. Please try again.');
+      toast.error("❌ Failed to register. Please try again.");
     }
   };
 
@@ -105,7 +105,8 @@ export default function BecomeTutorPage() {
           Become a Tutor
         </h1>
         <p className="text-gray-400 mb-10 max-w-xl">
-          Share your skills and help your peers thrive. Register now to become a tutor.
+          Share your skills and help your peers thrive. Register now to become a
+          tutor.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
@@ -156,30 +157,42 @@ export default function BecomeTutorPage() {
                   <BookOpenCheck className="w-5 h-5" />
                   Subjects
                 </Label>
-                <Badge variant="outline" className="text-xs text-white border-white/30 bg-white/10">
+                <Badge
+                  variant="outline"
+                  className="text-xs text-white border-white/30 bg-white/10"
+                >
                   B.Tech Subjects
                 </Badge>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-6">
-                {Object.entries(BTECH_SUBJECTS).map(([yearLabel, subjectsArray]) => (
-                  <div key={yearLabel}>
-                    <h4 className="text-sm font-semibold mb-2 text-white/80">{yearLabel}</h4>
-                    <div className="space-y-2">
-                      {subjectsArray.map((subject) => (
-                        <div key={subject} className="flex items-center gap-2">
-                          <Checkbox
-                            checked={subjects.includes(subject)}
-                            onCheckedChange={() =>
-                              toggleOption(subject, subjects, setSubjects)
-                            }
-                          />
-                          <span className="text-sm text-white">{subject}</span>
-                        </div>
-                      ))}
+                {Object.entries(BTECH_SUBJECTS).map(
+                  ([yearLabel, subjectsArray]) => (
+                    <div key={yearLabel}>
+                      <h4 className="text-sm font-semibold mb-2 text-white/80">
+                        {yearLabel}
+                      </h4>
+                      <div className="space-y-2">
+                        {subjectsArray.map((subject) => (
+                          <div
+                            key={subject}
+                            className="flex items-center gap-2"
+                          >
+                            <Checkbox
+                              checked={subjects.includes(subject)}
+                              onCheckedChange={() =>
+                                toggleOption(subject, subjects, setSubjects)
+                              }
+                            />
+                            <span className="text-sm text-white">
+                              {subject}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </CardContent>
           </Card>
@@ -192,7 +205,10 @@ export default function BecomeTutorPage() {
                   <Clock className="w-5 h-5" />
                   Availability
                 </Label>
-                <Badge variant="outline" className="text-xs text-white border-white/30 bg-white/10">
+                <Badge
+                  variant="outline"
+                  className="text-xs text-white border-white/30 bg-white/10"
+                >
                   Flexible Time
                 </Badge>
               </div>
@@ -220,7 +236,10 @@ export default function BecomeTutorPage() {
                   <User className="w-5 h-5" />
                   Teaching Modes
                 </Label>
-                <Badge variant="outline" className="text-xs text-white border-white/30 bg-white/10">
+                <Badge
+                  variant="outline"
+                  className="text-xs text-white border-white/30 bg-white/10"
+                >
                   Multiple Formats
                 </Badge>
               </div>
@@ -247,7 +266,7 @@ export default function BecomeTutorPage() {
               disabled={loading}
               className="bg-white text-black hover:bg-gray-200"
             >
-              {loading ? 'Registering...' : 'Register as Tutor'}
+              {loading ? "Registering..." : "Register as Tutor"}
             </Button>
           </div>
         </form>

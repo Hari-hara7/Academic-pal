@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
-import { dbA } from '@/services/firebaseConfig';
-import ResourceCard from '@/components/ResourceCard';
-import { Filter, Book, GraduationCap, Calendar, RefreshCw } from 'lucide-react';
-import { toast } from 'sonner';
-import { Resource } from '@/types/resource';
+import { useEffect, useState } from "react";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { dbA } from "@/services/firebaseConfig";
+import ResourceCard from "@/components/ResourceCard";
+import { Filter, Book, GraduationCap, Calendar, RefreshCw } from "lucide-react";
+import { toast } from "sonner";
+import { Resource } from "@/types/resource";
 
 interface User {
   uid?: string;
@@ -22,16 +22,16 @@ interface HomeProps {
 const Home = ({ user }: HomeProps) => {
   const [resources, setResources] = useState<Resource[]>([]);
   const [filteredResources, setFilteredResources] = useState<Resource[]>([]);
-  const [year, setYear] = useState('');
-  const [semester, setSemester] = useState('');
-  const [branch, setBranch] = useState('');
-  const [subject, setSubject] = useState('');
+  const [year, setYear] = useState("");
+  const [semester, setSemester] = useState("");
+  const [branch, setBranch] = useState("");
+  const [subject, setSubject] = useState("");
   const [loading, setLoading] = useState(true);
 
   const fetchResources = async () => {
     try {
       setLoading(true);
-      const querySnapshot = await getDocs(collection(dbA, 'resources'));
+      const querySnapshot = await getDocs(collection(dbA, "resources"));
       const data = querySnapshot.docs.map((doc) => {
         const docData = doc.data();
         return {
@@ -39,18 +39,21 @@ const Home = ({ user }: HomeProps) => {
           ...docData,
           // Ensure backward compatibility for existing data
           shareableLink: docData.shareableLink || docData.resourceUrl,
-          semester: typeof docData.semester === 'string' ? parseInt(docData.semester) : docData.semester,
+          semester:
+            typeof docData.semester === "string"
+              ? parseInt(docData.semester)
+              : docData.semester,
         };
       }) as Resource[];
-      console.log('Fetched resources:', data);
+      console.log("Fetched resources:", data);
       setResources(data);
       setFilteredResources(data);
       if (data.length === 0) {
-        toast.info('No resources found in the database.');
+        toast.info("No resources found in the database.");
       }
     } catch (error) {
-      console.error('Error fetching resources:', error);
-      toast.error('Failed to load resources. Please try again.');
+      console.error("Error fetching resources:", error);
+      toast.error("Failed to load resources. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -58,28 +61,28 @@ const Home = ({ user }: HomeProps) => {
 
   const handleDeleteResource = async (resourceId: string) => {
     if (!user) {
-      toast.error('Please sign in to delete resources.');
+      toast.error("Please sign in to delete resources.");
       return;
     }
 
     // Only allow the specific user with this UID to delete resources
-    const AUTHORIZED_USER_UID = '8wBHYgtKpPQ37go66ivmLtXVF7b2';
-    
+    const AUTHORIZED_USER_UID = "8wBHYgtKpPQ37go66ivmLtXVF7b2";
+
     if (user.uid !== AUTHORIZED_USER_UID) {
-      toast.error('You are not authorized to delete resources.');
+      toast.error("You are not authorized to delete resources.");
       return;
     }
 
-    if (window.confirm('Are you sure you want to delete this resource?')) {
+    if (window.confirm("Are you sure you want to delete this resource?")) {
       try {
-        await deleteDoc(doc(dbA, 'resources', resourceId));
-        toast.success('Resource deleted successfully!');
-        console.log('Resource deleted successfully');
+        await deleteDoc(doc(dbA, "resources", resourceId));
+        toast.success("Resource deleted successfully!");
+        console.log("Resource deleted successfully");
         // Refresh the resources list
         fetchResources();
       } catch (error) {
-        console.error('Error deleting resource:', error);
-        toast.error('Failed to delete resource. Please try again.');
+        console.error("Error deleting resource:", error);
+        toast.error("Failed to delete resource. Please try again.");
       }
     }
   };
@@ -92,14 +95,19 @@ const Home = ({ user }: HomeProps) => {
     let filtered = resources;
 
     if (year) filtered = filtered.filter((res) => res.year === year);
-    if (semester) filtered = filtered.filter((res) => res.semester.toString() === semester);
+    if (semester)
+      filtered = filtered.filter((res) => res.semester.toString() === semester);
     if (branch) {
       const b = branch.trim().toLowerCase();
-      filtered = filtered.filter((res) => res.branch?.trim().toLowerCase() === b);
+      filtered = filtered.filter(
+        (res) => res.branch?.trim().toLowerCase() === b,
+      );
     }
     if (subject) {
       const s = subject.trim().toLowerCase();
-      filtered = filtered.filter((res) => res.subject?.trim().toLowerCase().includes(s));
+      filtered = filtered.filter((res) =>
+        res.subject?.trim().toLowerCase().includes(s),
+      );
     }
 
     setFilteredResources(filtered);
@@ -123,8 +131,8 @@ const Home = ({ user }: HomeProps) => {
           disabled={loading}
           className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 border border-blue-400/50 rounded-lg hover:bg-blue-500/30 transition-colors disabled:opacity-50"
         >
-          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-          {loading ? 'Loading...' : 'Refresh'}
+          <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+          {loading ? "Loading..." : "Refresh"}
         </button>
       </div>
 
@@ -155,7 +163,10 @@ const Home = ({ user }: HomeProps) => {
           >
             <option value="">Semester</option>
             {Array.from({ length: 8 }, (_, i) => (
-              <option key={i} value={`${i + 1}`}>{`${i + 1}th Semester`}</option>
+              <option
+                key={i}
+                value={`${i + 1}`}
+              >{`${i + 1}th Semester`}</option>
             ))}
           </select>
         </div>
@@ -203,13 +214,15 @@ const Home = ({ user }: HomeProps) => {
         {loading ? (
           <div className="col-span-3 text-center py-12">
             <RefreshCw className="w-8 h-8 mx-auto text-blue-400 animate-spin mb-4" />
-            <p className="text-gray-400 text-lg font-semibold">Loading resources...</p>
+            <p className="text-gray-400 text-lg font-semibold">
+              Loading resources...
+            </p>
           </div>
         ) : filteredResources.length > 0 ? (
           filteredResources.map((resource) => (
-            <ResourceCard 
-              key={resource.id} 
-              resource={resource} 
+            <ResourceCard
+              key={resource.id}
+              resource={resource}
               user={user}
               onDelete={handleDeleteResource}
             />
@@ -217,7 +230,8 @@ const Home = ({ user }: HomeProps) => {
         ) : (
           <div className="col-span-3 text-center py-12">
             <p className="text-gray-400 text-lg font-semibold">
-              ❌ No resources found. Try adjusting the filters or uploading some resources.
+              ❌ No resources found. Try adjusting the filters or uploading some
+              resources.
             </p>
           </div>
         )}

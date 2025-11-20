@@ -1,18 +1,36 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 const resources = [
-  { title: 'Frontend Development', description: 'React, Next.js, Tailwind CSS', link: '/frontend' },
-  { title: 'Backend Development', description: 'Node.js, Express, Databases', link: '/backend' },
-  { title: 'Full Stack Roadmap', description: 'End-to-end web development', link: '/fullstack' },
-  { title: 'Android Development', description: 'Kotlin, Jetpack Compose', link: '/android' },
+  {
+    title: "Frontend Development",
+    description: "React, Next.js, Tailwind CSS",
+    link: "/frontend",
+  },
+  {
+    title: "Backend Development",
+    description: "Node.js, Express, Databases",
+    link: "/backend",
+  },
+  {
+    title: "Full Stack Roadmap",
+    description: "End-to-end web development",
+    link: "/fullstack",
+  },
+  {
+    title: "Android Development",
+    description: "Kotlin, Jetpack Compose",
+    link: "/android",
+  },
 ];
 
 const PopularResources = () => {
   return (
     <section className="py-20 px-6 max-w-6xl mx-auto bg-black">
-      <h2 className="text-4xl font-bold mb-12 text-center text-white">Popular Resources</h2>
+      <h2 className="text-4xl font-bold mb-12 text-center text-white">
+        Popular Resources
+      </h2>
       <div className="grid md:grid-cols-4 gap-8">
         {resources.map(({ title, description, link }) => (
           <a

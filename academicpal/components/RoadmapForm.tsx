@@ -46,7 +46,9 @@ export default function RoadmapForm() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Label htmlFor="pin" className="text-white">Admin PIN</Label>
+          <Label htmlFor="pin" className="text-white">
+            Admin PIN
+          </Label>
           <Input
             id="pin"
             type="password"
@@ -82,7 +84,9 @@ export default function RoadmapForm() {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="title" className="text-white">Title</Label>
+          <Label htmlFor="title" className="text-white">
+            Title
+          </Label>
           <Input
             id="title"
             placeholder="Frontend Roadmap"
@@ -92,7 +96,9 @@ export default function RoadmapForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="desc" className="text-white">Description</Label>
+          <Label htmlFor="desc" className="text-white">
+            Description
+          </Label>
           <Textarea
             id="desc"
             placeholder="Short description (optional)"
@@ -103,7 +109,9 @@ export default function RoadmapForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="link" className="text-white">Drive Link</Label>
+          <Label htmlFor="link" className="text-white">
+            Drive Link
+          </Label>
           <Input
             id="link"
             placeholder="https://drive.google.com/..."

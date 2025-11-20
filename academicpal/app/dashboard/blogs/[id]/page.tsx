@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { ThumbsUp, ThumbsDown } from 'lucide-react';
-import { Blog } from '@/types/blog';
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { Blog } from "@/types/blog";
 
 export default function BlogDetailsPage() {
   const router = useRouter();
@@ -13,9 +13,9 @@ export default function BlogDetailsPage() {
   const blogId = params.id;
 
   const [blog, setBlog] = useState<Blog | null>(null);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -24,25 +24,25 @@ export default function BlogDetailsPage() {
       if (data.success) {
         setBlog(data.blog);
       } else {
-        setError('Failed to load blog');
+        setError("Failed to load blog");
       }
     };
     fetchBlog();
   }, [blogId]);
 
-  const handleVote = async (type: 'upvote' | 'downvote') => {
+  const handleVote = async (type: "upvote" | "downvote") => {
     if (!blog) return;
     setLoading(true);
     const res = await fetch(`/api/blogs/vote`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ blogId: blog._id, voteType: type }),
     });
     const data = await res.json();
     if (data.success) {
       setBlog(data.blog);
     } else {
-      setError(data.message || 'Failed to vote');
+      setError(data.message || "Failed to vote");
     }
     setLoading(false);
   };
@@ -51,16 +51,16 @@ export default function BlogDetailsPage() {
     if (!comment.trim()) return;
     setLoading(true);
     const res = await fetch(`/api/blogs/comment`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ blogId: blog?._id, comment }),
     });
     const data = await res.json();
     if (data.success) {
       setBlog(data.blog);
-      setComment('');
+      setComment("");
     } else {
-      setError(data.message || 'Failed to add comment');
+      setError(data.message || "Failed to add comment");
     }
     setLoading(false);
   };
@@ -86,7 +86,7 @@ export default function BlogDetailsPage() {
       <div className="max-w-3xl w-full bg-black/80 border border-white/40 rounded-lg p-8 shadow-lg text-white">
         <h1 className="text-3xl font-bold mb-2">{blog.title}</h1>
         <p className="text-sm text-white/70 mb-6">
-          by {blog.authorName || 'Unknown'} on{' '}
+          by {blog.authorName || "Unknown"} on{" "}
           {new Date(blog.createdAt).toLocaleDateString()}
         </p>
 
@@ -95,7 +95,7 @@ export default function BlogDetailsPage() {
         <div className="flex items-center gap-4 mb-8">
           <Button
             variant="outline"
-            onClick={() => handleVote('upvote')}
+            onClick={() => handleVote("upvote")}
             disabled={loading}
             className="flex items-center gap-2 border-white/50 text-black hover:border-white hover:bg-white"
           >
@@ -103,7 +103,7 @@ export default function BlogDetailsPage() {
           </Button>
           <Button
             variant="outline"
-            onClick={() => handleVote('downvote')}
+            onClick={() => handleVote("downvote")}
             disabled={loading}
             className="flex items-center gap-2 border-white/50 text-black hover:border-white hover:bg-white"
           >
@@ -117,7 +117,10 @@ export default function BlogDetailsPage() {
             <p className="text-white/70 italic">No comments yet.</p>
           )}
           {blog.comments.map((c) => (
-            <div key={c._id} className="border-b border-white/20 pb-2 last:border-b-0">
+            <div
+              key={c._id}
+              className="border-b border-white/20 pb-2 last:border-b-0"
+            >
               <p className="font-semibold">{c.username}</p>
               <p>{c.text}</p>
               <p className="text-xs text-white/50">

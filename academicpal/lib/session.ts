@@ -1,4 +1,3 @@
-
 export function getSessionId(): string {
   const key = "session_id";
   let sessionId = localStorage.getItem(key);

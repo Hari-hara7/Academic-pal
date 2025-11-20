@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { toast } from 'sonner';
-import { TimetableType } from '@/types/timetable';
-import { Trash2, X } from 'lucide-react';
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "sonner";
+import { TimetableType } from "@/types/timetable";
+import { Trash2, X } from "lucide-react";
 
 export default function DeleteTimetablePage() {
   const { id } = useParams();
@@ -15,7 +15,7 @@ export default function DeleteTimetablePage() {
 
   useEffect(() => {
     async function load() {
-      const res = await fetch('/api/timetable/get');
+      const res = await fetch("/api/timetable/get");
       const all = await res.json();
       const current = all.find((t: TimetableType) => t._id === id);
       setTimetable(current);
@@ -24,17 +24,17 @@ export default function DeleteTimetablePage() {
   }, [id]);
 
   const handleDelete = async () => {
-    const res = await fetch('/api/timetable/delete', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/timetable/delete", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
 
     if (res.ok) {
-      toast.success('Timetable deleted successfully!');
-      router.push('/dashboard/timetable');
+      toast.success("Timetable deleted successfully!");
+      router.push("/dashboard/timetable");
     } else {
-      toast.error('Failed to delete the timetable.');
+      toast.error("Failed to delete the timetable.");
     }
   };
 

@@ -10,10 +10,10 @@ export interface SessionType {
   };
   subject: string;
   scheduledAt: string;
-  mode: 'chat' | 'video' | 'notes';
+  mode: "chat" | "video" | "notes";
   meetingLink?: string;
   notes?: string;
-  status: 'pending' | 'accepted' | 'completed';
+  status: "pending" | "accepted" | "completed";
   feedback?: {
     rating: number;
     review: string;

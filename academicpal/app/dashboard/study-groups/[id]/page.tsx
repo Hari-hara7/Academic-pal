@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { StudyGroup } from '@/types/studyGroup';
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { StudyGroup } from "@/types/studyGroup";
 import {
   Loader2,
   Users,
@@ -14,7 +14,7 @@ import {
   CheckCircle,
   AlertTriangle,
   BookOpen,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function StudyGroupDetailsPage() {
   const router = useRouter();
@@ -23,23 +23,23 @@ export default function StudyGroupDetailsPage() {
 
   const [group, setGroup] = useState<StudyGroup | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [actionLoading, setActionLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const fetchGroup = async () => {
     setLoading(true);
-    setError('');
+    setError("");
     try {
       const res = await fetch(`/api/study-groups/getById?id=${groupId}`);
       const data = await res.json();
       if (data.success) {
         setGroup(data.group);
       } else {
-        setError(data.message || 'Group not found');
+        setError(data.message || "Group not found");
       }
     } catch {
-      setError('Failed to fetch group details');
+      setError("Failed to fetch group details");
     } finally {
       setLoading(false);
     }
@@ -54,30 +54,30 @@ export default function StudyGroupDetailsPage() {
   const handleJoin = async () => {
     if (!group) return;
     setActionLoading(true);
-    setMessage('');
+    setMessage("");
     try {
-      const res = await fetch('/api/study-groups/join', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/study-groups/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ groupId }),
       });
       const data = await res.json();
       if (data.success) {
-        setMessage(data.message || 'Request successful');
+        setMessage(data.message || "Request successful");
         fetchGroup();
       } else {
-        setMessage(data.message || 'Failed to join group');
+        setMessage(data.message || "Failed to join group");
       }
     } catch {
-      setMessage('Failed to send join request');
+      setMessage("Failed to send join request");
     } finally {
       setActionLoading(false);
     }
   };
 
   // Replace with actual user id logic
-  const isMember = group?.members.includes('currentUserId');
-  const hasRequested = group?.joinRequests.includes('currentUserId');
+  const isMember = group?.members.includes("currentUserId");
+  const hasRequested = group?.joinRequests.includes("currentUserId");
 
   if (loading) {
     return (
@@ -91,7 +91,9 @@ export default function StudyGroupDetailsPage() {
   if (error) {
     return (
       <div className="flex items-center justify-center p-6 min-h-screen bg-black">
-        <p className="text-red-500 text-center text-base sm:text-lg max-w-md">{error}</p>
+        <p className="text-red-500 text-center text-base sm:text-lg max-w-md">
+          {error}
+        </p>
       </div>
     );
   }
@@ -99,7 +101,9 @@ export default function StudyGroupDetailsPage() {
   if (!group) {
     return (
       <div className="flex items-center justify-center p-6 min-h-screen bg-black">
-        <p className="text-white/60 text-center text-base sm:text-lg max-w-md">Group not found.</p>
+        <p className="text-white/60 text-center text-base sm:text-lg max-w-md">
+          Group not found.
+        </p>
       </div>
     );
   }
@@ -114,11 +118,13 @@ export default function StudyGroupDetailsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/80">
           <p className="flex items-center gap-2 text-sm sm:text-base">
             <Users size={18} className="text-white/60" />
-            <span className="font-medium">Members:</span> {group.members.length} / {group.maxMembers}
+            <span className="font-medium">Members:</span> {group.members.length}{" "}
+            / {group.maxMembers}
           </p>
           <p className="flex items-center gap-2 text-sm sm:text-base">
             <Calendar size={18} className="text-white/60" />
-            <span className="font-medium">Meeting Time:</span> {group.meetingTime}
+            <span className="font-medium">Meeting Time:</span>{" "}
+            {group.meetingTime}
           </p>
           <p className="flex items-center gap-2 text-sm sm:text-base">
             <MapPin size={18} className="text-white/60" />
@@ -136,11 +142,13 @@ export default function StudyGroupDetailsPage() {
           </p>
           <p className="flex items-center gap-2 text-sm sm:text-base col-span-full whitespace-pre-wrap">
             <Info size={18} className="text-white/60" />
-            <span className="font-medium">Description:</span> {group.description}
+            <span className="font-medium">Description:</span>{" "}
+            {group.description}
           </p>
           <p className="flex items-center gap-2 text-sm sm:text-base col-span-full">
             <Info size={18} className="text-white/60" />
-            <span className="font-medium">Group Status:</span> {group.isOpen ? 'Open' : 'Closed'}
+            <span className="font-medium">Group Status:</span>{" "}
+            {group.isOpen ? "Open" : "Closed"}
           </p>
         </div>
 
@@ -158,7 +166,7 @@ export default function StudyGroupDetailsPage() {
               className="bg-transparent border border-white/30 text-white hover:border-white hover:bg-white/10 transition-colors flex items-center gap-2 w-full py-3 rounded-lg text-base sm:text-lg justify-center"
             >
               {group.isOpen ? <Users size={20} /> : <AlertTriangle size={20} />}
-              {group.isOpen ? 'Join Group' : 'Request to Join'}
+              {group.isOpen ? "Join Group" : "Request to Join"}
             </Button>
           )}
 
@@ -170,7 +178,8 @@ export default function StudyGroupDetailsPage() {
 
           {hasRequested && !isMember && (
             <p className="mt-4 flex items-center gap-2 text-yellow-400 font-semibold justify-center text-center">
-              <AlertTriangle size={20} /> Join request sent. Waiting for approval.
+              <AlertTriangle size={20} /> Join request sent. Waiting for
+              approval.
             </p>
           )}
         </div>

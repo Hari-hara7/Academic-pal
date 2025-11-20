@@ -39,12 +39,12 @@ export default function BottomNav() {
             "relative flex flex-col items-center justify-center min-h-[56px] py-2.5 select-none",
             "text-neutral-400 hover:text-neutral-200 transition-colors duration-150",
             "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D9BF0]/50 focus-visible:ring-offset-0",
-            isActive && "text-[#1D9BF0]"
+            isActive && "text-[#1D9BF0]",
           );
 
           const iconClass = cn(
             "transition-transform duration-150",
-            isActive ? "scale-110" : "scale-100"
+            isActive ? "scale-110" : "scale-100",
           );
 
           const content = (
@@ -54,7 +54,7 @@ export default function BottomNav() {
                 aria-hidden
                 className={cn(
                   "pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-[#1D9BF0] transition-opacity duration-150",
-                  isActive ? "opacity-100" : "opacity-0"
+                  isActive ? "opacity-100" : "opacity-0",
                 )}
               />
               <Icon size={26} className={iconClass} />

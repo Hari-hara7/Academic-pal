@@ -1,35 +1,35 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { PlusCircle } from 'lucide-react';
-import { Toaster, toast } from 'sonner';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { PlusCircle } from "lucide-react";
+import { Toaster, toast } from "sonner";
 
 export default function CreateReminderPage() {
   const router = useRouter();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [remindAt, setRemindAt] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [remindAt, setRemindAt] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/study-reminders/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/study-reminders/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, description, remindAt }),
     });
 
     const data = await res.json();
     if (data.success) {
-      toast.success('Reminder created successfully!');
-      router.push('/dashboard/study-reminders');
+      toast.success("Reminder created successfully!");
+      router.push("/dashboard/study-reminders");
     } else {
-      toast.error('Failed to create reminder.');
+      toast.error("Failed to create reminder.");
     }
   };
 
@@ -55,7 +55,9 @@ export default function CreateReminderPage() {
           </div>
 
           <div className="flex flex-col">
-            <Label className="text-white mb-1 sm:mb-2">Description (optional)</Label>
+            <Label className="text-white mb-1 sm:mb-2">
+              Description (optional)
+            </Label>
             <Textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}

@@ -7,7 +7,7 @@ export async function POST(req: Request) {
 
     const lastUserMessage = messages[messages.length - 1]?.content;
 
-const prompt = `
+    const prompt = `
 You are **AcademicPal AI Assistant**, an advanced academic companion designed for B.Tech students across all engineering branches.
 
 Your mission:
@@ -25,7 +25,6 @@ User: ${lastUserMessage}
 
 Respond as AcademicPal AI Assistant:
 `;
-
 
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();

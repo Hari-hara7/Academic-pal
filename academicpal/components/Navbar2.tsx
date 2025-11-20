@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaGoogle, FaTimes, FaBars } from 'react-icons/fa';
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { FaGoogle, FaTimes, FaBars } from "react-icons/fa";
+import useFirebaseAuth from "@/hooks/useFirebaseAuth";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +50,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`fixed top-0 left-0 w-64 h-full bg-black text-white p-6 transition-transform transform ${
-          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } lg:hidden`}
       >
         <div className="flex justify-between items-center mb-8">
@@ -97,7 +97,10 @@ const Navbar = () => {
 
       {/* Desktop Links */}
       <div className="hidden lg:flex justify-center space-x-6 mt-6">
-        <Link href="/resources" className="text-xl text-white hover:text-gray-400">
+        <Link
+          href="/resources"
+          className="text-xl text-white hover:text-gray-400"
+        >
           Resources
         </Link>
         <Link href="/upload" className="text-xl text-white hover:text-gray-400">

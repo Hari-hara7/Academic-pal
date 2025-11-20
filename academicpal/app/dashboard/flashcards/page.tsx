@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { Pencil, Trash2, Plus } from 'lucide-react';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Pencil, Trash2, Plus } from "lucide-react";
 
 interface Flashcard {
   _id: string;
@@ -20,9 +20,9 @@ export default function FlashcardsPage() {
   useEffect(() => {
     async function loadFlashcards() {
       try {
-        const res = await fetch('/api/flashcards/get');
+        const res = await fetch("/api/flashcards/get");
         const data = await res.json();
-        console.log('Fetched flashcards data:', data);
+        console.log("Fetched flashcards data:", data);
 
         if (Array.isArray(data)) {
           setFlashcards(data);
@@ -32,7 +32,7 @@ export default function FlashcardsPage() {
           setFlashcards([]);
         }
       } catch (error) {
-        console.error('Error fetching flashcards:', error);
+        console.error("Error fetching flashcards:", error);
         setFlashcards([]);
       } finally {
         setLoading(false);
@@ -52,7 +52,7 @@ export default function FlashcardsPage() {
 
   return (
     <div className="min-h-screen bg-black px-4 py-10 text-white font-sans">
-    <div className="max-w-[1600px] w-full mx-auto flex flex-col gap-8">
+      <div className="max-w-[1600px] w-full mx-auto flex flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left tracking-tight">
@@ -70,7 +70,9 @@ export default function FlashcardsPage() {
 
         {/* Flashcards Grid */}
         {flashcards.length === 0 ? (
-          <p className="text-gray-400 text-center text-lg">No flashcards found. Create some!</p>
+          <p className="text-gray-400 text-center text-lg">
+            No flashcards found. Create some!
+          </p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-2 gap-6">
             {flashcards.map((f) => (
@@ -87,12 +89,16 @@ export default function FlashcardsPage() {
                   <Separator className="bg-white/20 my-3" />
                   <CardContent className="p-0 text-white/80 text-sm sm:text-base break-words">
                     <p>
-                      <span className="text-white font-medium">A:</span> {f.answer}
+                      <span className="text-white font-medium">A:</span>{" "}
+                      {f.answer}
                     </p>
                   </CardContent>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 pt-4">
-                  <Link href={`/dashboard/flashcards/edit/${f._id}`} className="w-full sm:w-auto">
+                  <Link
+                    href={`/dashboard/flashcards/edit/${f._id}`}
+                    className="w-full sm:w-auto"
+                  >
                     <Button
                       size="sm"
                       variant="ghost"
@@ -102,7 +108,10 @@ export default function FlashcardsPage() {
                       Edit
                     </Button>
                   </Link>
-                  <Link href={`/dashboard/flashcards/delete/${f._id}`} className="w-full sm:w-auto">
+                  <Link
+                    href={`/dashboard/flashcards/delete/${f._id}`}
+                    className="w-full sm:w-auto"
+                  >
                     <Button
                       size="sm"
                       variant="ghost"

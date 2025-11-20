@@ -11,7 +11,15 @@ import {
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { motion } from "motion/react";
-import { Loader2, User, Mail, BookOpen, Calendar, UserCircle, Pencil } from "lucide-react";
+import {
+  Loader2,
+  User,
+  Mail,
+  BookOpen,
+  Calendar,
+  UserCircle,
+  Pencil,
+} from "lucide-react";
 
 // Feedback type
 interface Feedback {
@@ -52,7 +60,10 @@ const InputWithIcon = ({
   type?: string;
 }) => (
   <div className="relative">
-    <Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={18} />
+    <Icon
+      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+      size={18}
+    />
     <input
       placeholder={placeholder}
       name={name}
@@ -77,7 +88,9 @@ function FeedbackForm({
   submitting: boolean;
 }) {
   // Use functional state update to avoid focus loss
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setForm((prev) => ({
       ...prev,
@@ -257,7 +270,12 @@ export default function FeedbackSection() {
       </motion.h2>
 
       <div className="grid gap-8 md:grid-cols-2">
-        <FeedbackForm onSubmit={submitFeedback} form={form} setForm={setForm} submitting={submitting} />
+        <FeedbackForm
+          onSubmit={submitFeedback}
+          form={form}
+          setForm={setForm}
+          submitting={submitting}
+        />
         <FeedbackList feedbacks={feedbacks} />
       </div>
     </section>

@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface StudySessionDocument extends Document {
   userId: string;
@@ -17,4 +17,4 @@ const StudySessionSchema = new Schema<StudySessionDocument>({
 });
 
 export default mongoose.models.StudySession ||
-  mongoose.model<StudySessionDocument>('StudySession', StudySessionSchema);
+  mongoose.model<StudySessionDocument>("StudySession", StudySessionSchema);

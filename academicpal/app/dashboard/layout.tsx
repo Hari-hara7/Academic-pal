@@ -1,37 +1,88 @@
-'use client';
+"use client";
 
-import { ReactNode, useState } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { ReactNode, useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
-  Menu, Home, Calendar, LogOut, BookOpen, ClipboardList,
-  BellRing, BarChart2, GraduationCap
-} from 'lucide-react';
-import { FaProjectDiagram, FaPenNib, FaUsers, FaComments } from 'react-icons/fa';
-import { Toaster } from 'sonner';
-import { Input } from '@/components/ui/input'; //  Import Input
+  Menu,
+  Home,
+  Calendar,
+  LogOut,
+  BookOpen,
+  ClipboardList,
+  BellRing,
+  BarChart2,
+  GraduationCap,
+} from "lucide-react";
+import {
+  FaProjectDiagram,
+  FaPenNib,
+  FaUsers,
+  FaComments,
+} from "react-icons/fa";
+import { Toaster } from "sonner";
+import { Input } from "@/components/ui/input"; //  Import Input
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // Search term state
+  const [searchTerm, setSearchTerm] = useState(""); // Search term state
 
   const navItems = [
-    { href: '/dashboard', icon: <Home className="h-4 w-4" />, label: 'Home' },
-    { href: '/dashboard/timetable', icon: <Calendar className="h-4 w-4" />, label: 'Timetable' },
-    { href: '/dashboard/flashcards', icon: <BookOpen className="h-4 w-4" />, label: 'Flashcards' },
-    { href: '/dashboard/study-planner', icon: <ClipboardList className="h-4 w-4" />, label: 'Study Planner' },
-    { href: '/dashboard/performance-analytics', icon: <BarChart2 className="h-4 w-4" />, label: 'Analytics' },
-    { href: '/dashboard/study-reminders', icon: <BellRing className="h-4 w-4" />, label: 'Reminders' },
-    { href: '/dashboard/blogs', icon: <FaPenNib className="h-4 w-4" />, label: 'Blogs' },
-    { href: '/dashboard/study-groups', icon: <FaUsers className="h-4 w-4" />, label: 'Groups' },
-    { href: '/dashboard/mind-map', icon: <FaProjectDiagram className="h-4 w-4" />, label: 'Mind-map' },
-    { href: '/dashboard/forum', icon: <FaComments className="h-4 w-4" />, label: 'Forum' },
-    { href: '/dashboard/tutoring', icon: <GraduationCap className="h-4 w-4" />, label: 'Tutoring' },
+    { href: "/dashboard", icon: <Home className="h-4 w-4" />, label: "Home" },
+    {
+      href: "/dashboard/timetable",
+      icon: <Calendar className="h-4 w-4" />,
+      label: "Timetable",
+    },
+    {
+      href: "/dashboard/flashcards",
+      icon: <BookOpen className="h-4 w-4" />,
+      label: "Flashcards",
+    },
+    {
+      href: "/dashboard/study-planner",
+      icon: <ClipboardList className="h-4 w-4" />,
+      label: "Study Planner",
+    },
+    {
+      href: "/dashboard/performance-analytics",
+      icon: <BarChart2 className="h-4 w-4" />,
+      label: "Analytics",
+    },
+    {
+      href: "/dashboard/study-reminders",
+      icon: <BellRing className="h-4 w-4" />,
+      label: "Reminders",
+    },
+    {
+      href: "/dashboard/blogs",
+      icon: <FaPenNib className="h-4 w-4" />,
+      label: "Blogs",
+    },
+    {
+      href: "/dashboard/study-groups",
+      icon: <FaUsers className="h-4 w-4" />,
+      label: "Groups",
+    },
+    {
+      href: "/dashboard/mind-map",
+      icon: <FaProjectDiagram className="h-4 w-4" />,
+      label: "Mind-map",
+    },
+    {
+      href: "/dashboard/forum",
+      icon: <FaComments className="h-4 w-4" />,
+      label: "Forum",
+    },
+    {
+      href: "/dashboard/tutoring",
+      icon: <GraduationCap className="h-4 w-4" />,
+      label: "Tutoring",
+    },
   ];
 
-   
-  const filteredItems = navItems.filter(item =>
-    item.label.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredItems = navItems.filter((item) =>
+    item.label.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -50,17 +101,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </Button>
       </div>
 
-    
       <aside
         className={`fixed top-0 left-0 z-40 h-screen w-64 bg-black border-r border-white/20 transition-transform duration-300 ease-in-out p-6 lg:translate-x-0 ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <h1 className="text-3xl font-bold mb-8 tracking-tight mt-16 font-poppins">
           Academic <span className="text-blue-400">Pal</span>
         </h1>
 
-      
         <Input
           placeholder="Search components..."
           className="mb-4 bg-transparent text-white border-white placeholder-white focus-visible:ring-blue-400"
