@@ -399,13 +399,10 @@ const KeyFeatures = () => {
                     {/* Enhanced Button */}
                     <Link href={feature.link} target={feature.link.startsWith("http") ? "_blank" : "_self"} className="mt-auto">
                       <Button 
-                        variant="outline" 
-                        className="relative w-full bg-gradient-to-r from-gray-900/60 via-black/60 to-gray-900/60 border-gray-600/50 text-white hover:bg-gradient-to-r hover:from-gray-800/80 hover:via-gray-900/80 hover:to-gray-800/80 hover:border-gray-500/70 transition-all duration-300 group/btn overflow-hidden backdrop-blur-sm py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm"
-                      >
-                        {/* Button shimmer effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-pulse transition-opacity duration-500" />
-                        
-                        <span className="flex items-center justify-center gap-1.5 sm:gap-2 relative z-10">
+                    variant="outline" 
+                    className="relative w-full bg-gradient-to-r from-gray-900/60 via-black/60 to-gray-900/60 border-gray-600/50 text-white hover:bg-gradient-to-r hover:from-gray-800/80 hover:via-gray-900/80 hover:to-gray-800/80 hover:border-gray-500/70 transition-all duration-300 group/btn overflow-hidden backdrop-blur-sm py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-pulse transition-opacity duration-500" />                        <span className="flex items-center justify-center gap-1.5 sm:gap-2 relative z-10">
                           <IconComponent className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${feature.iconColor} group-hover/btn:scale-110 transition-transform duration-200`} />
                           <span className="truncate">{feature.buttonText}</span>
                           <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform duration-200 flex-shrink-0" />
@@ -421,14 +418,10 @@ const KeyFeatures = () => {
                 </Card>
               );
             })}
-          </div>
+        </div>
 
-          {/* Enhanced Bottom CTA Section */}
-          <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 text-center relative px-2 sm:px-4 md:px-6 lg:px-8">
-            {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-blue-500/5 to-blue-400/5 rounded-xl sm:rounded-2xl md:rounded-3xl blur-xl sm:blur-2xl md:blur-3xl" />
-            
-            <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-r from-gray-900/50 via-black/50 to-gray-900/50 backdrop-blur-xl border border-gray-700/30">
+        <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 text-center relative px-2 sm:px-4 md:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-blue-500/5 to-blue-400/5 rounded-xl sm:rounded-2xl md:rounded-3xl blur-xl sm:blur-2xl md:blur-3xl" />            <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl bg-gradient-to-r from-gray-900/50 via-black/50 to-gray-900/50 backdrop-blur-xl border border-gray-700/30">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 md:gap-3 px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-3 lg:py-4 rounded-full bg-gradient-to-r from-blue-600/20 to-blue-500/20 border border-blue-500/30 mb-4 sm:mb-6 md:mb-8 lg:mb-10 hover:scale-105 transition-transform duration-300 cursor-pointer group/cta">
                 <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-blue-400 animate-bounce" />
                 <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
@@ -470,10 +463,9 @@ const KeyFeatures = () => {
                       <span className="whitespace-nowrap text-xs sm:text-sm md:text-base lg:text-lg">Try Live Chat</span>
                     </span>
                   </Button>
-                </Link>
+                </div>
               </div>
               
-              {/* Feature highlights */}
               <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10 lg:mt-12 pt-4 sm:pt-6 md:pt-7 lg:pt-8 border-t border-gray-700/50 px-2 sm:px-4 md:px-6 lg:px-8">
                 <div className="flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 text-gray-400">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />

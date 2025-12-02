@@ -3,13 +3,13 @@
 import React from "react";
 
 interface ChatMessageProps {
-  message: string | undefined;  // allow undefined just in case
+  message: string | undefined;  
   isUser: boolean;
 }
 
 const ChatMessage: React.FC<ChatMessageProps> = ({ message, isUser }) => {
   const formatMessage = (text: string | undefined) => {
-    if (!text) return "";  // avoid calling includes on undefined
+    if (!text) return "";
 
     if (text.includes("🔍 Found notes for") && text.includes("http")) {
       const parts = text.split(": ");

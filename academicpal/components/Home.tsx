@@ -42,7 +42,6 @@ const Home = ({ user }: HomeProps) => {
           semester: typeof docData.semester === 'string' ? parseInt(docData.semester) : docData.semester,
         };
       }) as Resource[];
-      console.log('Fetched resources:', data);
       setResources(data);
       setFilteredResources(data);
       if (data.length === 0) {
@@ -62,7 +61,6 @@ const Home = ({ user }: HomeProps) => {
       return;
     }
 
-    // Only allow the specific user with this UID to delete resources
     const AUTHORIZED_USER_UID = '8wBHYgtKpPQ37go66ivmLtXVF7b2';
     
     if (user.uid !== AUTHORIZED_USER_UID) {
@@ -74,8 +72,6 @@ const Home = ({ user }: HomeProps) => {
       try {
         await deleteDoc(doc(dbA, 'resources', resourceId));
         toast.success('Resource deleted successfully!');
-        console.log('Resource deleted successfully');
-        // Refresh the resources list
         fetchResources();
       } catch (error) {
         console.error('Error deleting resource:', error);
@@ -198,7 +194,6 @@ const Home = ({ user }: HomeProps) => {
         </div>
       </div>
 
-      {/* Resource Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading ? (
           <div className="col-span-3 text-center py-12">

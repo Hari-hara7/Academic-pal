@@ -45,22 +45,18 @@ const Settings = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
 
-  // Form states
   const [displayName, setDisplayName] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Settings states
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [pushNotifications, setPushNotifications] = useState(true);
   const [darkMode, setDarkMode] = useState(true);
   const [autoSave, setAutoSave] = useState(true);
 
-  // Auto-save functionality
   useEffect(() => {
     if (autoSave && user) {
-      // Save settings to localStorage when they change
       const settings = {
         emailNotifications,
         pushNotifications,
@@ -71,14 +67,12 @@ const Settings = () => {
       
       localStorage.setItem('academicpal-settings', JSON.stringify(settings));
       
-      // Optional: Show a subtle indication that settings were auto-saved
       const timeoutId = setTimeout(() => {
         if (autoSave) {
-          // Only show this occasionally to avoid spam
           const lastAutoSaveNotification = localStorage.getItem('lastAutoSaveNotification');
           const now = new Date().getTime();
           const shouldNotify = !lastAutoSaveNotification || 
-            (now - parseInt(lastAutoSaveNotification)) > 300000; // 5 minutes
+            (now - parseInt(lastAutoSaveNotification)) > 300000;
           
           if (shouldNotify) {
             toast.success('Settings auto-saved', { duration: 1000 });
@@ -91,7 +85,6 @@ const Settings = () => {
     }
   }, [emailNotifications, pushNotifications, darkMode, autoSave, user]);
 
-  // Load saved settings on component mount
   useEffect(() => {
     const savedSettings = localStorage.getItem('academicpal-settings');
     if (savedSettings) {
@@ -166,13 +159,10 @@ const Settings = () => {
 
   const handleExportData = async () => {
     try {
-      // Show loading toast
       const exportPromise = new Promise(async (resolve, reject) => {
         try {
-          // Simulate data collection and processing
           await new Promise(resolve => setTimeout(resolve, 1000));
           
-          // Collect user data
           const userData = {
             profile: {
               displayName: user?.displayName || '',
@@ -205,22 +195,18 @@ const Settings = () => {
             }
           };
 
-          // Create and download the file
           const dataStr = JSON.stringify(userData, null, 2);
           const dataBlob = new Blob([dataStr], { type: 'application/json' });
           
-          // Create download link
           const url = window.URL.createObjectURL(dataBlob);
           const link = document.createElement('a');
           link.href = url;
           link.download = `academicpal-data-${new Date().toISOString().split('T')[0]}.json`;
           
-          // Trigger download
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
           
-          // Clean up
           window.URL.revokeObjectURL(url);
           
           resolve('Data exported successfully!');
@@ -229,7 +215,6 @@ const Settings = () => {
         }
       });
 
-      // Show promise-based toast
       toast.promise(exportPromise, {
         loading: 'Preparing your data export...',
         success: 'Data export complete! File downloaded successfully.',
@@ -300,7 +285,6 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Enhanced Header */}
       <div className="relative bg-black border-b border-white/20 shadow-2xl">
         <div className="absolute inset-0 bg-blue-500/5" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
@@ -332,7 +316,6 @@ const Settings = () => {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <Tabs defaultValue="profile" className="space-y-8">
-          {/* Enhanced Tab Navigation */}
           <div className="flex justify-center">
             <TabsList className="grid grid-cols-4 bg-black backdrop-blur-md border border-gray-700 rounded-xl p-1 shadow-2xl">
               <TabsTrigger 
@@ -366,10 +349,8 @@ const Settings = () => {
             </TabsList>
           </div>
 
-          {/* Enhanced Profile Tab */}
           <TabsContent value="profile" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-3">
-              {/* Profile Summary Card */}
               <Card className="lg:col-span-1 bg-black border-gray-700 shadow-xl">
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center text-center space-y-4">
@@ -399,7 +380,6 @@ const Settings = () => {
                 </CardContent>
               </Card>
 
-              {/* Profile Information Card */}
               <Card className="lg:col-span-2 bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
@@ -467,7 +447,6 @@ const Settings = () => {
             </div>
           </TabsContent>
 
-          {/* Enhanced Security Tab */}
           <TabsContent value="security" className="space-y-6">
             <Card className="bg-bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
@@ -484,7 +463,6 @@ const Settings = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                {/* Security Status */}
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="p-4 rounded-lg bg-blue-500/20 border border-blue-500/30">
                     <div className="flex items-center gap-2 mb-2">
@@ -504,7 +482,6 @@ const Settings = () => {
 
                 <Separator className="bg-gray-700" />
 
-                {/* Password Change Form */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                     <Lock className="h-5 w-5" />
@@ -548,7 +525,6 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {/* Password Strength Indicator */}
                   {newPassword && (
                     <div className="space-y-2">
                       <Label className="text-sm text-gray-400">Password Strength</Label>
@@ -597,7 +573,6 @@ const Settings = () => {
             </Card>
           </TabsContent>
 
-          {/* Enhanced Notifications Tab */}
           <TabsContent value="notifications" className="space-y-6">
             <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
@@ -614,7 +589,6 @@ const Settings = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                {/* Email Notifications */}
                 <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -634,7 +608,6 @@ const Settings = () => {
                   </div>
                 </div>
 
-                {/* Push Notifications */}
                 <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -654,7 +627,6 @@ const Settings = () => {
                   </div>
                 </div>
 
-                {/* Notification Categories */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-white">Notification Categories</h3>
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -700,10 +672,8 @@ const Settings = () => {
             </Card>
           </TabsContent>
 
-          {/* Enhanced Preferences Tab - Fixed and Improved */}
           <TabsContent value="preferences" className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-2">
-              {/* Appearance Settings */}
               <Card className="bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
@@ -719,7 +689,6 @@ const Settings = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {/* Theme Setting */}
                   <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -744,7 +713,6 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {/* Auto Save Setting */}
                   <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -770,7 +738,6 @@ const Settings = () => {
                           setAutoSave(value);
                           toast.success(value ? 'Auto-save enabled' : 'Auto-save disabled');
                           if (value) {
-                            // Immediately save current settings when auto-save is enabled
                             const settings = {
                               emailNotifications,
                               pushNotifications,
@@ -786,7 +753,6 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {/* Language Setting */}
                   <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -806,7 +772,6 @@ const Settings = () => {
                 </CardContent>
               </Card>
 
-              {/* Data & Storage */}
               <Card className="bg-black border-gray-700 shadow-xl">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3">
@@ -822,7 +787,6 @@ const Settings = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {/* Storage Usage */}
                   <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -836,7 +800,6 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {/* Data Management Actions */}
                   <div className="space-y-3">
                     <h4 className="text-white font-medium flex items-center gap-2">
                       <HardDrive className="h-4 w-4" />
@@ -872,7 +835,6 @@ const Settings = () => {
                       </Button>
                     </div>
                     
-                    {/* Data Export Info */}
                     <div className="p-3 rounded-lg bg-gray-800/30 border border-gray-700">
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
@@ -889,7 +851,6 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {/* Privacy Settings */}
                   <div className="space-y-3">
                     <h4 className="text-white font-medium flex items-center gap-2">
                       <Shield className="h-4 w-4" />

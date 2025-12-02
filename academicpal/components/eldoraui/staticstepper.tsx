@@ -14,7 +14,6 @@ export const StaticStep = ({
 }) => {
   return (
     <div className="flex gap-6">
-      {/* Step Indicator */}
       <div className="flex flex-col items-center">
         <p className="flex size-8 sm:size-10 flex-none select-none items-center justify-center rounded-full border border-white/30 bg-black text-sm font-semibold text-white">
           {step}
@@ -22,7 +21,6 @@ export const StaticStep = ({
         <div className="relative my-2 h-full w-px rounded-full bg-white/20" />
       </div>
 
-      {/* Title and Content */}
       <div className="mb-4 w-full">
         <h6 className="mb-4 ml-1 text-base sm:text-lg font-semibold tracking-tight text-white">
           {title}

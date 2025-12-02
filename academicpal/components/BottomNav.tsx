@@ -49,7 +49,6 @@ export default function BottomNav() {
 
           const content = (
             <>
-              {/* active indicator dot (X-like) */}
               <span
                 aria-hidden
                 className={cn(
@@ -58,7 +57,6 @@ export default function BottomNav() {
                 )}
               />
               <Icon size={26} className={iconClass} />
-              {/* keep label for screen readers only (X hides labels) */}
               <span className="sr-only">{item.label}</span>
             </>
           );

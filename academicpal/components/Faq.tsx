@@ -54,7 +54,6 @@ const faqs = [
 export default function FAQ() {
   return (
     <section className="relative py-16 px-2 sm:px-4 md:px-8 lg:px-10 max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
-    
       <div className="absolute inset-0 -z-10 bg-black opacity-90 blur-sm rounded-3xl" />
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

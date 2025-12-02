@@ -64,7 +64,6 @@ export default function ChatBox() {
 
   return (
     <div className="flex flex-col w-full h-full bg-black">
-      {/* Header */}
       <div className="flex items-center gap-3 px-4 sm:px-6 py-3 border-b border-white/10 bg-gradient-to-r from-black/95 to-neutral-950/95 backdrop-blur-xl">
         <div className="relative">
           <div className="absolute inset-0 bg-blue-500/20 blur-lg rounded-full" />
@@ -81,7 +80,6 @@ export default function ChatBox() {
         </div>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto px-3 sm:px-4 md:px-6 py-4 space-y-4 custom-scrollbar">
         <div className="max-w-4xl mx-auto">
           {messages.length === 0 && (
@@ -133,9 +131,8 @@ export default function ChatBox() {
         </div>
       </div>
 
-      {/* Composer */}
       <div className="bg-gradient-to-t from-black via-neutral-950 to-transparent border-t border-white/10 px-3 sm:px-4 md:px-6 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
-        {/* Input pill */}
+        
         <div className="relative group max-w-4xl mx-auto">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full opacity-0 group-focus-within:opacity-20 blur transition duration-300" />
           <div className="relative flex items-center gap-2 rounded-full border border-neutral-800 group-focus-within:border-blue-500/50 bg-neutral-900/80 backdrop-blur-sm px-3 sm:px-4 py-2 transition-all duration-300 shadow-lg">

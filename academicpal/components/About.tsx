@@ -18,7 +18,6 @@ export default function AboutSection() {
       id="about"
       className={`${poppins.className} relative bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-8 md:px-16 lg:px-32 text-white overflow-hidden`}
     >
-      
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +43,6 @@ export default function AboutSection() {
           <span className="text-white font-semibold">real-time chat</span> — all in one place.
         </p>
 
-       
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 sm:mt-10">
           {[
             {

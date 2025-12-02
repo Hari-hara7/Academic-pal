@@ -29,11 +29,6 @@ const Header: React.FC = () => {
             Academic Pal
           </h1>
         </div>
-
-       
-
-        {/* Mobile Menu */}
-       
       </div>
 
       <Separator className="bg-gray-800" />

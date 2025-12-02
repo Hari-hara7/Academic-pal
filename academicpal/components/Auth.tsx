@@ -120,8 +120,6 @@ const Auth = ({ setUser }: AuthProps) => {
           </div>
         </motion.div>
       </main>
-
-    
     </div>
   );
 };

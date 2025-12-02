@@ -34,13 +34,11 @@ export default function HeroSection() {
     <section
       className={`${inter.className} relative min-h-screen bg-black text-white overflow-hidden`}
     >
-      {/* Enhanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-blue-500/5" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]" />
         
-        {/* Animated orbs */}
         <motion.div 
           animate={{ 
             x: [0, 100, 0],
@@ -84,7 +82,6 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Main Content */}
       <div className="relative container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-6 xs:py-8 sm:py-12 md:py-16 lg:py-12 xl:py-16 2xl:py-20">
         <motion.div
           variants={containerVariants}
@@ -92,13 +89,11 @@ export default function HeroSection() {
           animate="visible"
           className="flex flex-col lg:grid lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center"
         >
-          {/* Content Section - Always First on Mobile */}
           <motion.div 
             variants={itemVariants} 
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full order-1 lg:order-1 space-y-4 xs:space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12"
           >
-            {/* Trust Badge */}
             <div className="flex justify-center sm:justify-start">
               <motion.div
                 variants={itemVariants}
@@ -118,7 +113,6 @@ export default function HeroSection() {
               </motion.div>
             </div>
 
-            {/* Main Heading */}
             <motion.div 
               variants={itemVariants} 
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -143,7 +137,6 @@ export default function HeroSection() {
               </motion.p>
             </motion.div>
 
-            {/* Feature Grid */}
             <motion.div
               variants={itemVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -169,10 +162,9 @@ export default function HeroSection() {
                     {feature.label}
                   </p>
                 </motion.div>
-              ))}
+              ))
             </motion.div>
 
-            {/* Action Buttons */}
             <motion.div
               variants={itemVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -216,7 +208,6 @@ export default function HeroSection() {
               </motion.div>
             </motion.div>
 
-            {/* Stats */}
             <motion.div
               variants={itemVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -254,13 +245,11 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
             
-          {/* Enhanced Right Image Section */}
           <motion.div
             variants={itemVariants}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative flex justify-center lg:justify-end order-1 lg:order-2"
           >
-            {/* Enhanced floating elements */}
             <motion.div 
               animate={{ 
                 y: [0, -10, 0],
@@ -300,9 +289,7 @@ export default function HeroSection() {
               className="absolute top-1/2 -right-3 sm:-right-4 md:-right-6 w-8 sm:w-10 md:w-12 lg:w-16 h-8 sm:h-10 md:h-12 lg:h-16 bg-blue-500/12 rounded-full blur-lg" 
             />
 
-            {/* Enhanced image container */}
             <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
-              {/* Multiple glow layers */}
               <motion.div 
                 animate={{ 
                   scale: [1, 1.05, 1],
@@ -317,7 +304,6 @@ export default function HeroSection() {
               />
               <div className="absolute -inset-1 bg-blue-500/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50" />
               
-              {/* Main image card */}
               <motion.div 
                 whileHover={{ 
                   scale: 1.02,
@@ -338,11 +324,9 @@ export default function HeroSection() {
                     className="object-contain w-full h-auto transition-all duration-500 group-hover:scale-[1.01]"
                   />
                   
-                  {/* Interactive overlay */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl" />
                 </div>
                 
-                {/* Enhanced floating UI indicators */}
                 <motion.div 
                   animate={{ 
                     scale: [1, 1.2, 1],
@@ -400,7 +384,6 @@ export default function HeroSection() {
 
         </motion.div>
 
-        {/* Enhanced Bottom CTA */}
         <motion.div
           variants={itemVariants}
           transition={{ duration: 0.8, ease: "easeOut" }}

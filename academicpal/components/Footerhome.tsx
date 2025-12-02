@@ -110,11 +110,9 @@ const Footer = () => {
             </ul>
           </div>
 
-       
 <div>
   <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Connect</h3>
   
-  {/* Contact Info */}
   <div className="text-sm sm:text-base text-gray-400 space-y-3 mb-4">
     <div className="flex items-start gap-2">
       <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" /> 
@@ -136,7 +134,6 @@ const Footer = () => {
     </div>
   </div>
 
-  
   <div className="flex flex-col gap-3 text-gray-400">
     <a
       href="https://github.com/Academic-pal"

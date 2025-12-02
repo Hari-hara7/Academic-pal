@@ -102,12 +102,10 @@ const Chat = ({ user }: ChatProps) => {
 
   return (
     <div className="flex flex-col h-screen bg-black text-white font-sans">
-      {/* Header */}
       <div className="p-4 border-b border-white/10 backdrop-blur-md">
         <h1 className="text-xl font-bold text-white">Academic Pal Chat</h1>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg, index) => (
           <motion.div
@@ -171,7 +169,6 @@ const Chat = ({ user }: ChatProps) => {
         )}
       </div>
 
-      {/* Input */}
       <div className="p-4 border-t border-white/10 backdrop-blur-md">
         <div className="flex items-center gap-3">
           <div className="relative flex-1">

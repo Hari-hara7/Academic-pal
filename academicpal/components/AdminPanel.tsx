@@ -21,7 +21,6 @@ export default function AdminPanel({ user }: { user: User }) {
   const [branch, setBranch] = useState("");
   const [subject, setSubject] = useState("");
 
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -30,7 +29,6 @@ export default function AdminPanel({ user }: { user: User }) {
       return;
     }
 
-    // Validate URL format
     try {
       new URL(shareableLink);
     } catch {
@@ -51,8 +49,6 @@ export default function AdminPanel({ user }: { user: User }) {
         subject: subject.trim(),
         createdAt: new Date(),
       };
-
-      console.log("Uploading resource:", resourceData);
       
       await addDoc(collection(dbA, "resources"), resourceData);
 
@@ -181,7 +177,6 @@ export default function AdminPanel({ user }: { user: User }) {
         </select>
       </div>
 
-      {/* Subject */}
       <div className="mb-6">
         <label className="text-gray-300 font-medium mb-2 block">
           <FaBook className="inline-block mr-2 text-gray-400" />
@@ -197,7 +192,6 @@ export default function AdminPanel({ user }: { user: User }) {
         />
       </div>
 
-      {/* Submit */}
       <button
         type="submit"
         className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"

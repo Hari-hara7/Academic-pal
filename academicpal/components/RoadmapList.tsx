@@ -70,7 +70,6 @@ export default function RoadmapList() {
 
   const toggleComments = async (roadmapId: string) => {
     if (activeCommentsRoadmapId === roadmapId) {
-      // close if open
       setActiveCommentsRoadmapId(null);
       setComments([]);
     } else {
@@ -176,7 +175,6 @@ export default function RoadmapList() {
               </Button>
             </div>
 
-            {/* Comments section */}
             {activeCommentsRoadmapId === r.id && (
               <div className="bg-gray-900 p-4 rounded-md max-h-72 overflow-y-auto">
                 {comments.length === 0 && (

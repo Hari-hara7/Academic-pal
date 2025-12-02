@@ -124,7 +124,6 @@ const NavBar = () => {
             ))}
           </div>
 
-          {/* Desktop User Section */}
           <div className="hidden lg:flex items-center gap-4">
           
             
@@ -182,10 +181,9 @@ const NavBar = () => {
                   Login
                 </Button>
               </Link>
-            )}
+            ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex items-center gap-3 lg:hidden">
             {!loading && user && (
               <Avatar className="h-8 w-8 ring-2 ring-white/20">
@@ -205,7 +203,6 @@ const NavBar = () => {
 
               <SheetContent side="left" className="bg-black/95 backdrop-blur-md text-white w-80 p-0 border-r border-gray-800">
                 <div className="flex flex-col h-full overflow-hidden">
-                  {/* Mobile Header */}
                   <div className="p-6 border-b border-gray-800">
                     {loading ? (
                       <div className="flex items-center gap-3">
@@ -241,12 +238,10 @@ const NavBar = () => {
                     )}
                   </div>
 
-                  {/* GitHub Star Button - Mobile */}
                   <div className="p-6 border-b border-gray-800">
                     <GitStarButton />
                   </div>
 
-                  {/* Navigation Links */}
                   <div className="flex-1 overflow-y-auto p-6 space-y-2">
                     {navLinks.map((link) => (
                       <Link
@@ -262,7 +257,6 @@ const NavBar = () => {
                     ))}
                   </div>
 
-                  {/* Mobile User Actions */}
                   {user && (
                     <div className="p-6 border-t border-gray-800 space-y-2">
                       <Link href="/profile">
