@@ -62,7 +62,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
   return (
     <main className="min-h-screen bg-black text-gray-100 py-12 px-4 sm:px-6 md:px-12 lg:px-20">
       <section className="max-w-6xl mx-auto space-y-12">
-        {/* Header */}
+        
         <header>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 mt-10 font-bold font-poppins">
             About <span className="text-white">AcademicPal</span>
@@ -75,7 +75,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
           </p>
         </header>
 
-        {/* Features grid */}
+      
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <Feature
             icon={<Users className="w-6 h-6 text-gray-300" />}
@@ -121,7 +121,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
 
         <Separator className="border-gray-700" />
 
-        {/* About the Developer */}
+      
         <section>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4 font-bold font-poppins">About the Developer</h2>
           <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-md">
@@ -138,7 +138,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
 
         <Separator className="border-gray-700" />
 
-        {/* Tech Stack */}
+        
        <section>
       <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
         Tech Stack
@@ -164,7 +164,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
 
     <Separator className="border-gray-700" />
 
-    {/* Machine Learning Tech Stack */}
+    
     <section>
       <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 font-bold font-poppins">
         Machine Learning Tech Stack
@@ -188,7 +188,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
       </Card>
     </section>
 
-        {/* Call to action buttons */}
+    
         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-8">
           <Link href="/home" passHref>
             <Button
