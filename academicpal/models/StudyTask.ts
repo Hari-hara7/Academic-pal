@@ -17,3 +17,4 @@ const StudyTaskSchema = new Schema(
 
 const StudyTask = models.StudyTask || mongoose.model('StudyTask', StudyTaskSchema);
 export default StudyTask;
+

@@ -54,3 +54,4 @@ export default function MessageBubble({ message }: { message: ChatMessage }) {
     </motion.div>
   );
 }
+

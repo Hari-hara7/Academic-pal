@@ -23,3 +23,4 @@ export interface ForumPost {
   createdAt?: string;
   updatedAt?: string;
 }
+

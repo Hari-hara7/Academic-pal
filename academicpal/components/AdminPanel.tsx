@@ -75,7 +75,7 @@ export default function AdminPanel({ user }: { user: User }) {
         Upload <span className="text-blue-500">Resource</span>
       </h2>
 
-      {/* Resource Name */}
+      {}
       <div className="mb-4">
         <label htmlFor="resourceName" className="text-gray-300 font-medium mb-2 block">
           <FaFileAlt className="inline-block mr-2 text-gray-400" />
@@ -92,7 +92,7 @@ export default function AdminPanel({ user }: { user: User }) {
         />
       </div>
 
-      {/* Shareable Link */}
+      {}
       <div className="mb-4">
         <label htmlFor="shareableLink" className="text-gray-300 font-medium mb-2 block">
           <FaLink className="inline-block mr-2 text-gray-400" />
@@ -109,7 +109,7 @@ export default function AdminPanel({ user }: { user: User }) {
         />
       </div>
 
-      {/* Dropdowns */}
+      {}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
           <label className="text-gray-300 font-medium mb-2 block">Year</label>
@@ -145,7 +145,7 @@ export default function AdminPanel({ user }: { user: User }) {
         </div>
       </div>
 
-      {/* Branch */}
+      {}
       <div className="mb-4">
         <label className="text-gray-300 font-medium mb-2 block">Branch</label>
         <select
@@ -202,3 +202,4 @@ export default function AdminPanel({ user }: { user: User }) {
     </form>
   );
 }
+

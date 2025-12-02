@@ -97,7 +97,7 @@ export default function SupportAndHelp() {
       </motion.p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Support Form */}
+        {}
         <motion.div
           className="space-y-4"
           initial={{ opacity: 0, x: -30 }}
@@ -152,7 +152,7 @@ export default function SupportAndHelp() {
           </Card>
         </motion.div>
 
-        {/* Crazy Side Display */}
+        {}
         <motion.div
           className="bg-black border border-white/20 flex flex-col gap-4 justify-center items-center text-center p-6 rounded-xl"
           initial={{ opacity: 0, x: 30 }}
@@ -185,3 +185,4 @@ export default function SupportAndHelp() {
     </section>
   );
 }
+

@@ -91,7 +91,7 @@ const NavBar = () => {
     `}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+          {}
           <Link href="/home" className="flex items-center gap-3 group">
             <div className="relative">
               <Image 
@@ -108,7 +108,7 @@ const NavBar = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {}
           <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
@@ -298,3 +298,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

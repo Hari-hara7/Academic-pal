@@ -46,14 +46,14 @@ const Auth = ({ setUser }: AuthProps) => {
 
   return (
     <div className="min-h-screen relative flex flex-col justify-between overflow-hidden">
-      {/* Animated Gradient Background */}
+      {}
       <div className="absolute inset-0 -z-10 bg-black" />
 
-      {/* Floating Orbs */}
+      {}
       <div className="absolute top-10 left-5 sm:left-20 w-40 sm:w-64 h-40 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-10 right-5 sm:right-20 w-40 sm:w-64 h-40 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-500" />
 
-      {/* Main Content */}
+      {}
       <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 py-10 text-center space-y-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const Auth = ({ setUser }: AuthProps) => {
           className="w-full max-w-md sm:max-w-lg md:max-w-2xl"
         >
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl rounded-3xl px-6 sm:px-10 py-8 sm:py-12 space-y-8">
-            {/* Heading */}
+            {}
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold">
               <span className="text-white drop-shadow-lg">
                 {text}
@@ -77,7 +77,7 @@ const Auth = ({ setUser }: AuthProps) => {
               with ease.
             </p>
 
-            {/* Google Button */}
+            {}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
@@ -91,7 +91,7 @@ const Auth = ({ setUser }: AuthProps) => {
               Continue with Google
             </motion.button>
 
-            {/* Feature Buttons */}
+            {}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -125,3 +125,4 @@ const Auth = ({ setUser }: AuthProps) => {
 };
 
 export default Auth;
+

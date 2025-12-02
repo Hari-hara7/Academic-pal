@@ -12,3 +12,4 @@ const SessionSchema = new Schema({
 }, { timestamps: true });
 
 export default models.Session || model('Session', SessionSchema);
+

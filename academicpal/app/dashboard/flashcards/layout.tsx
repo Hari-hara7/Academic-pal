@@ -11,3 +11,4 @@ export default function FlashcardsLayout({ children }: { children: React.ReactNo
     </div>
   );
 }
+

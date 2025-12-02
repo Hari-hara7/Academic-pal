@@ -7,3 +7,4 @@ export const model = genAI.getGenerativeModel({
 });
 
 export default model;
+

@@ -57,3 +57,4 @@ export default function AIAssistantPage() {
     </motion.div>
   );
 }
+

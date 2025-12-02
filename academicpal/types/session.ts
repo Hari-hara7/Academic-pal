@@ -21,3 +21,4 @@ export interface SessionType {
   createdAt?: string;
   updatedAt?: string;
 }
+

@@ -36,3 +36,4 @@ Respond as AcademicPal AI Assistant:
     return NextResponse.json({ error: "AI Assistant failed" }, { status: 500 });
   }
 }
+

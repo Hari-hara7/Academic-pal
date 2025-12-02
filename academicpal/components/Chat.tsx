@@ -209,3 +209,4 @@ const Chat = ({ user }: ChatProps) => {
 };
 
 export default Chat;
+

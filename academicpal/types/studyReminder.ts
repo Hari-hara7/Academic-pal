@@ -7,3 +7,4 @@ export interface StudyReminder {
   createdAt: string;
   updatedAt: string;
 }
+

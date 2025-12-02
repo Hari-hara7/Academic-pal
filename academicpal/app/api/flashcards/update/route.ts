@@ -25,3 +25,4 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ message: 'Unauthorized or error' }, { status: 401 });
   }
 }
+

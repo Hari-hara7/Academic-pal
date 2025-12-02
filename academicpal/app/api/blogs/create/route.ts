@@ -35,3 +35,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: false, message: err.message || 'Error creating blog' }, { status: 500 });
   }
 }
+

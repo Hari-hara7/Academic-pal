@@ -1,4 +1,4 @@
-// lib/firebase.ts
+
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -46,3 +46,4 @@ export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 };
+

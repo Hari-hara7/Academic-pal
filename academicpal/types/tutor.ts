@@ -12,3 +12,4 @@ export interface Tutor {
   createdAt?: string;
   updatedAt?: string;
 }
+

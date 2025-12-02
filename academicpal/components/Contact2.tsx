@@ -54,14 +54,14 @@ export default function ContactPage() {
 
   return (
     <section className="relative z-10 bg-black text-white py-20 px-4 md:px-10">
-      {/* Background blur circles */}
+      {}
       <div className="absolute top-10 left-[-5%] w-[200px] h-[200px] bg-blue-500 opacity-20 rounded-full blur-3xl" />
       <div className="absolute bottom-10 right-[-5%] w-[200px] h-[200px] bg-blue-500 opacity-20 rounded-full blur-3xl" />
 
-      {/* Success popup */}
+      {}
       {showSuccess && <SuccessPopup />}
 
-      {/* Title */}
+      {}
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-center mb-14 tracking-tight font-bold font-poppins"
         initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export default function ContactPage() {
       </motion.h2>
 
       <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-        {/* Contact Info Card */}
+        {}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ export default function ContactPage() {
           <ContactLink icon={<Globe size={18} />} text="hariharanath.is-cod.in" href="https://hariharanath.is-cod.in/" />
         </motion.div>
 
-        {/* Contact Form Card */}
+        {}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -133,7 +133,7 @@ export default function ContactPage() {
         </motion.div>
       </div>
 
-      {/* Inline animation keyframes */}
+      {}
       <style jsx global>{`
         @keyframes slideIn {
           from {
@@ -154,7 +154,6 @@ export default function ContactPage() {
   );
 }
 
-// Success popup component
 function SuccessPopup() {
   return (
     <div className="fixed top-6 right-6 bg-blue-500 text-white px-6 py-4 rounded-xl shadow-xl z-50 animate-slide-in mt-19 border border-white/20">
@@ -164,7 +163,6 @@ function SuccessPopup() {
   );
 }
 
-// Contact detail text
 function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors duration-300">
@@ -174,7 +172,6 @@ function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   );
 }
 
-// Contact link
 function ContactLink({ icon, text, href }: { icon: React.ReactNode; text: string; href: string }) {
   return (
     <a
@@ -188,3 +185,4 @@ function ContactLink({ icon, text, href }: { icon: React.ReactNode; text: string
     </a>
   );
 }
+

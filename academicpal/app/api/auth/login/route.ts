@@ -24,3 +24,4 @@ export async function POST(req: Request) {
   res.cookies.set('token', token, { httpOnly: true });
   return res;
 }
+

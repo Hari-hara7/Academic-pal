@@ -24,3 +24,4 @@ export async function GET(request: Request) {
     return NextResponse.json({ success: false, message: 'Error fetching group', error: error.message }, { status: 500 });
   }
 }
+

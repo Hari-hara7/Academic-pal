@@ -13,3 +13,4 @@ export interface StudyGroup {
   joinRequests: string[];
   createdAt: string; // ISO string
 }
+

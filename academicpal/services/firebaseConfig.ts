@@ -16,3 +16,4 @@ const appA = getApps().find(app => app.name === "appA") || initializeApp(configA
 export const authA = getAuth(appA);
 export const providerA = new GoogleAuthProvider();
 export const dbA = getFirestore(appA);
+

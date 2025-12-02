@@ -13,7 +13,6 @@ import { db } from "@/lib/firebase";
 import { motion } from "motion/react";
 import { Loader2, User, Mail, BookOpen, Calendar, UserCircle, Pencil } from "lucide-react";
 
-// Feedback type
 interface Feedback {
   id: string;
   name: string;
@@ -25,7 +24,6 @@ interface Feedback {
   createdAt: any;
 }
 
-// Feedback Form State Type
 interface FeedbackFormState {
   name: string;
   usn: string;
@@ -35,7 +33,6 @@ interface FeedbackFormState {
   message: string;
 }
 
-// InputWithIcon component
 const InputWithIcon = ({
   icon: Icon,
   placeholder,
@@ -64,7 +61,6 @@ const InputWithIcon = ({
   </div>
 );
 
-// Feedback Form Component
 function FeedbackForm({
   onSubmit,
   form,
@@ -76,7 +72,7 @@ function FeedbackForm({
   setForm: React.Dispatch<React.SetStateAction<FeedbackFormState>>;
   submitting: boolean;
 }) {
-  // Use functional state update to avoid focus loss
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -152,7 +148,6 @@ function FeedbackForm({
   );
 }
 
-// Feedback List Component
 function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
   return (
     <motion.div
@@ -192,7 +187,6 @@ function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
   );
 }
 
-// Main Feedback Section Component
 export default function FeedbackSection() {
   const [form, setForm] = useState<FeedbackFormState>({
     name: "",
@@ -263,3 +257,4 @@ export default function FeedbackSection() {
     </section>
   );
 }
+

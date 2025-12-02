@@ -1,4 +1,4 @@
-// models/Timetable.ts
+
 import mongoose, { Schema } from 'mongoose';
 
 const TimetableSchema = new Schema({
@@ -14,3 +14,4 @@ const TimetableSchema = new Schema({
 }, { timestamps: true });
 
 export const Timetable = mongoose.models.Timetable || mongoose.model('Timetable', TimetableSchema);
+

@@ -40,3 +40,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Failed to schedule session' }, { status: 500 });
   }
 }
+

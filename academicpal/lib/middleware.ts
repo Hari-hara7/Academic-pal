@@ -1,4 +1,4 @@
-// lib/middleware.ts
+
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyToken } from './auth';
 
@@ -17,7 +17,7 @@ export function middleware(req: NextRequest) {
   }
 }
 
-// Only apply to /dashboard routes
 export const config = {
   matcher: ['/dashboard/:path*'],
 };
+

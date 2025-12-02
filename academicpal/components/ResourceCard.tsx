@@ -26,7 +26,7 @@ interface Props {
 }
 
 const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
-  // Only allow the specific authorized user to delete resources
+
   const AUTHORIZED_USER_UID = '8wBHYgtKpPQ37go66ivmLtXVF7b2';
   const canDelete = user && user.uid === AUTHORIZED_USER_UID;
 
@@ -38,7 +38,7 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
       className="p-6 border border-white/20 rounded-xl shadow-2xl bg-black backdrop-blur-2xl hover:scale-105 hover:border-blue-500 transition-all duration-300 ease-in-out w-full max-w-md mx-auto"
       whileHover={{ scale: 1.05 }}
     >
-      {/* Header */}
+      {}
       <div className="flex items-center gap-3 mb-4">
         {(resource.resourceType === 'link' || (!resource.resourceType && (resource.shareableLink || resource.resourceUrl))) ? (
           <FaLink className="text-blue-400 text-4xl" />
@@ -50,7 +50,7 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
         </h2>
       </div>
 
-      {/* Details */}
+      {}
       <div className="space-y-2 text-gray-300">
         <p className="flex items-center gap-2">
           <FaExternalLinkAlt className="text-blue-400" />
@@ -74,7 +74,7 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
         </p>
       </div>
 
-      {/* Action Buttons */}
+      {}
       <div className="mt-4 space-y-2">
         {(resource.shareableLink || resource.resourceUrl) && (
           <a
@@ -101,3 +101,4 @@ const ResourceCard: React.FC<Props> = ({ resource, user, onDelete }) => {
 };
 
 export default ResourceCard;
+

@@ -35,7 +35,6 @@ const Profile = () => {
   const [updating, setUpdating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  // Form states
   const [displayName, setDisplayName] = useState('');
   const [bio, setBio] = useState('');
   const [location, setLocation] = useState('');
@@ -47,7 +46,7 @@ const Profile = () => {
       setUser(currentUser);
       if (currentUser) {
         setDisplayName(currentUser.displayName || '');
-        // Load additional profile data from localStorage if available
+
         const savedProfile = localStorage.getItem(`profile-${currentUser.uid}`);
         if (savedProfile) {
           try {
@@ -71,12 +70,11 @@ const Profile = () => {
     
     setUpdating(true);
     try {
-      // Update Firebase profile
+
       await updateProfile(user, {
         displayName: displayName,
       });
 
-      // Save additional profile data to localStorage
       const profileData = {
         bio,
         location,
@@ -133,7 +131,7 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Enhanced Header */}
+      {}
       <div className="relative bg-black border-b border-white/20 shadow-2xl">
         <div className="absolute inset-0 bg-blue-500/5" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
@@ -165,11 +163,11 @@ const Profile = () => {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
-          {/* Profile Card */}
+          {}
           <Card className="lg:col-span-1 bg-black border-gray-700 shadow-xl">
             <CardContent className="p-6">
               <div className="flex flex-col items-center text-center space-y-6">
-                {/* Avatar Section */}
+                {}
                 <div className="relative group">
                   <Avatar className="h-32 w-32 ring-4 ring-blue-500 shadow-lg">
                     <AvatarImage src={user.photoURL || ''} alt={user.displayName || 'User'} />
@@ -185,12 +183,12 @@ const Profile = () => {
                   </Button>
                 </div>
 
-                {/* User Info */}
+                {}
                 <div className="space-y-3 w-full">
                   <h2 className="text-2xl font-bold text-white">{user.displayName || 'User'}</h2>
                   <p className="text-gray-400">{user.email}</p>
                   
-                  {/* Status Badges */}
+                  {}
                   <div className="flex flex-wrap justify-center gap-2">
                     <Badge className="bg-blue-500 text-white border-0 shadow-lg">
                       <Verified className="h-3 w-3 mr-1" />
@@ -204,7 +202,7 @@ const Profile = () => {
                     )}
                   </div>
 
-                  {/* Bio */}
+                  {}
                   {bio && (
                     <div className="p-4 rounded-lg bg-gray-800/50 border border-gray-700">
                       <p className="text-sm text-gray-300 italic">&ldquo;{bio}&rdquo;</p>
@@ -212,7 +210,7 @@ const Profile = () => {
                   )}
                 </div>
 
-                {/* Edit Profile Button */}
+                {}
                 <Button 
                   onClick={() => setIsEditing(!isEditing)}
                   className="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-200 hover:scale-105 shadow-lg"
@@ -224,9 +222,9 @@ const Profile = () => {
             </CardContent>
           </Card>
 
-          {/* Profile Information */}
+          {}
           <div className="lg:col-span-2 space-y-6">
-            {/* Account Information */}
+            {}
             <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3">
@@ -284,7 +282,7 @@ const Profile = () => {
               </CardContent>
             </Card>
 
-            {/* Editable Profile Information */}
+            {}
             <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
@@ -413,3 +411,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

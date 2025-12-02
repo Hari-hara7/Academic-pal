@@ -18,3 +18,4 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: 'Failed to fetch posts' }, { status: 500 });
   }
 }
+

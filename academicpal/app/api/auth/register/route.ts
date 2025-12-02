@@ -28,3 +28,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: (error as Error).message || 'Server error' }, { status: 500 });
   }
 }
+

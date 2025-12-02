@@ -9,7 +9,7 @@ const NewsletterSignup = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    // Integrate with email marketing service here
+
     setSubmitted(true);
   };
 
@@ -41,3 +41,4 @@ const NewsletterSignup = () => {
 };
 
 export default NewsletterSignup;
+

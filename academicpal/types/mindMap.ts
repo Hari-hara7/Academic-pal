@@ -9,3 +9,4 @@ export interface MindMap {
   createdAt: string;
   updatedAt: string;
 }
+

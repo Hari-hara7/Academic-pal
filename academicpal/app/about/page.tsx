@@ -260,3 +260,4 @@ function TechIcon({ tech }: { tech: string }) {
       return null
   }
 }
+

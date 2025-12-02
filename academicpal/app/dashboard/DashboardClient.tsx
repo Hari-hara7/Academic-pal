@@ -137,3 +137,4 @@ export default function DashboardClient({ email }: { email: string }) {
     </section>
   );
 }
+

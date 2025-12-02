@@ -47,7 +47,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {}
       <div
         className={`fixed top-0 left-0 w-64 h-full bg-black text-white p-6 transition-transform transform ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
@@ -95,7 +95,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Desktop Links */}
+      {}
       <div className="hidden lg:flex justify-center space-x-6 mt-6">
         <Link href="/resources" className="text-xl text-white hover:text-gray-400">
           Resources
@@ -109,3 +109,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

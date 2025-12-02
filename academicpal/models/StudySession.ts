@@ -18,3 +18,4 @@ const StudySessionSchema = new Schema<StudySessionDocument>({
 
 export default mongoose.models.StudySession ||
   mongoose.model<StudySessionDocument>('StudySession', StudySessionSchema);
+

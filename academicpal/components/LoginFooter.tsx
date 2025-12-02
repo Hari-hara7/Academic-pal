@@ -6,7 +6,7 @@ const LoginFooter: FC = () => {
   return (
     <footer className="bg-black text-white border-t border-white/20 ">
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-6">
-        {/* Logo + Text */}
+        {}
         <div className="flex items-center justify-center md:justify-start space-x-3 select-none">
           <Image
             src="/academicpal.jpg"  // Replace with your actual logo file name and extension
@@ -19,7 +19,7 @@ const LoginFooter: FC = () => {
           <span className="text-2xl  tracking-wide font-bold font-poppins">Academic Pal</span>
         </div>
 
-        {/* Navigation Links with icons */}
+        {}
         <nav className="flex flex-wrap justify-center md:justify-start gap-6 text-sm md:text-base">
           <a
             href="/privacy-policy"
@@ -38,7 +38,7 @@ const LoginFooter: FC = () => {
           
         </nav>
 
-        {/* Social Icons */}
+        {}
         <div className="flex justify-center md:justify-end gap-6">
           {[
             {
@@ -71,10 +71,10 @@ const LoginFooter: FC = () => {
         </div>
       </div>
 
-      {/* Separator Line */}
+      {}
       <div className="border-t border-white/20 mt-8"></div>
 
-      {/* Copyright */}
+      {}
       <div className="text-center text-xs sm:text-sm text-white/50 py-4 select-none">
         © {new Date().getFullYear()} Academic Pal. All rights reserved.
       </div>
@@ -83,3 +83,4 @@ const LoginFooter: FC = () => {
 };
 
 export default LoginFooter;
+

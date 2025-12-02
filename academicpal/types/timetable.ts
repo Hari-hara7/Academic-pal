@@ -1,4 +1,4 @@
-// types/timetable.ts
+
 export type Subject = {
   name: string;
   time: string;
@@ -15,3 +15,4 @@ export type TimetableType = {
   title: string;
   days: DaySchedule[];
 };
+

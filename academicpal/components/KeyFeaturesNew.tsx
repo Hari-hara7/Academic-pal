@@ -275,7 +275,7 @@ const KeyFeatures = () => {
       `}</style>
       
       <section className="relative py-20 px-4 bg-gradient-to-br from-black via-gray-950 to-black text-white overflow-hidden">
-        {/* Animated background elements */}
+        {}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
@@ -283,7 +283,7 @@ const KeyFeatures = () => {
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Enhanced Header */}
+          {}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 mb-6 float-animation">
               <Sparkles className="w-5 h-5 text-blue-400" />
@@ -297,7 +297,7 @@ const KeyFeatures = () => {
             </p>
           </div>
 
-          {/* Features Grid */}
+          {}
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
@@ -321,14 +321,14 @@ const KeyFeatures = () => {
                     animationDelay: `${index * 100}ms`,
                   }}
                 >
-                  {/* Animated border glow */}
+                  {}
                   <div className={`
                     absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
                     bg-gradient-to-r ${feature.borderColor?.replace('border-', 'from-')?.replace('/30', '/20') || 'from-gray-500/20'} to-transparent
                     blur-sm transition-opacity duration-500
                   `} />
                   
-                  {/* Popular badge */}
+                  {}
                   {feature.isPopular && (
                     <div className="absolute top-4 right-4 z-20">
                       <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-blue-500 text-white text-xs font-semibold shadow-lg">
@@ -338,9 +338,9 @@ const KeyFeatures = () => {
                     </div>
                   )}
                   
-                  {/* Content */}
+                  {}
                   <CardContent className="p-6 relative z-10 h-full flex flex-col">
-                    {/* Icon and Category */}
+                    {}
                     <div className="flex items-center justify-between mb-4">
                       <div className={`
                         p-3 rounded-xl bg-black/20 ${feature.iconColor} 
@@ -355,17 +355,17 @@ const KeyFeatures = () => {
                       </div>
                     </div>
                     
-                    {/* Title */}
+                    {}
                     <CardTitle className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors duration-300 mb-3 leading-tight">
                       {feature.title}
                     </CardTitle>
                     
-                    {/* Description */}
+                    {}
                     <p className="text-sm text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 flex-1 mb-4">
                       {feature.description}
                     </p>
                     
-                    {/* Button */}
+                    {}
                     <Link href={feature.link} target={feature.link.startsWith("http") ? "_blank" : "_self"} className="mt-auto">
                       <Button 
                         variant="outline" 
@@ -380,7 +380,7 @@ const KeyFeatures = () => {
                     </Link>
                   </CardContent>
 
-                  {/* Animated background particles */}
+                  {}
                   <div className="absolute top-4 right-8 w-2 h-2 bg-white/20 rounded-full animate-ping opacity-0 group-hover:opacity-100" />
                   <div className="absolute bottom-8 left-8 w-1 h-1 bg-white/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100" style={{animationDelay: '0.5s'}} />
                 </Card>
@@ -388,7 +388,7 @@ const KeyFeatures = () => {
             })}
           </div>
 
-          {/* Bottom CTA Section */}
+          {}
           <div className="mt-20 text-center">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-500/20 border border-blue-500/30 mb-8 hover:scale-105 transition-transform duration-300 cursor-pointer">
               <Zap className="w-5 h-5 text-blue-400" />
@@ -419,3 +419,4 @@ const KeyFeatures = () => {
 };
 
 export default KeyFeatures;
+

@@ -58,11 +58,11 @@ const ReviewCard = ({
     <figure
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 shadow-sm backdrop-blur",
-        // Border: White with transparency
+
         "border-white/20",
-        // Background: subtle transparent white
+
         "bg-white/5 hover:bg-white/10",
-        // Text: pure white
+
         "text-white"
       )}
     >
@@ -101,3 +101,4 @@ export function MarqueeDemo() {
     </div>
   );
 }
+

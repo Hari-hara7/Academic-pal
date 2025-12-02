@@ -81,7 +81,7 @@ const features = [
 export default function AccessSpecialFeatures() {
   return (
     <section className="relative bg-black text-white py-20 px-4 sm:px-6 overflow-hidden">
-      {/* Animated Background Elements */}
+      {}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
@@ -89,7 +89,7 @@ export default function AccessSpecialFeatures() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header Section */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export default function AccessSpecialFeatures() {
           </p>
         </motion.div>
 
-        {/* Static Steps Section */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export default function AccessSpecialFeatures() {
           </div>
         </motion.div>
 
-        {/* Feature Cards Section */}
+        {}
         <div className="mb-12">
           <motion.h3
             initial={{ opacity: 0 }}
@@ -167,22 +167,22 @@ export default function AccessSpecialFeatures() {
                   className="group relative"
                 >
                   <div className="relative flex flex-col h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm hover:bg-white/[0.05] hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-                    {/* Icon */}
+                    {}
                     <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-white/5 border border-white/10 mb-4 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 transition-all duration-300">
                       <Icon className="w-7 h-7 text-white/70 group-hover:text-blue-500 transition-colors duration-300" />
                     </div>
 
-                    {/* Title */}
+                    {}
                     <h4 className="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition-colors duration-300">
                       {feature.name}
                     </h4>
 
-                    {/* Description */}
+                    {}
                     <p className="text-gray-400 text-sm flex-grow leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300">
                       {feature.description}
                     </p>
 
-                    {/* Footer with check icon */}
+                    {}
                     <div className="flex items-center justify-between pt-4 border-t border-white/5 group-hover:border-blue-500/20 transition-colors duration-300">
                       <span className="text-xs text-gray-500 group-hover:text-blue-400 transition-colors duration-300">
                         Available now
@@ -190,7 +190,7 @@ export default function AccessSpecialFeatures() {
                       <CheckCircle className="w-5 h-5 text-blue-500/40 group-hover:text-blue-500 transition-colors duration-300" />
                     </div>
 
-                    {/* Corner accent */}
+                    {}
                     <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-500/0 via-blue-500/0 to-blue-500/5 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </motion.div>
@@ -204,3 +204,4 @@ export default function AccessSpecialFeatures() {
     </section>
   );
 }
+

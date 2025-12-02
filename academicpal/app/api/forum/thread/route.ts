@@ -27,3 +27,4 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: 'Error fetching thread' }, { status: 500 });
   }
 }
+

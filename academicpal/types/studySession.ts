@@ -5,3 +5,4 @@ export interface StudySession {
   date: string; // ISO format
   performance?: number;
 }
+

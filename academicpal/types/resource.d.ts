@@ -11,3 +11,4 @@ export interface Resource {
   subject: string;
   createdAt?: Date;
 }
+

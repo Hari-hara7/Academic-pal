@@ -53,3 +53,4 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message, isUser }) => {
 };
 
 export default ChatMessage;
+

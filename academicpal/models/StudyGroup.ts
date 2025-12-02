@@ -32,3 +32,4 @@ const StudyGroupSchema = new Schema<IStudyGroup>({
 
 export const StudyGroup =
   mongoose.models.StudyGroup || model<IStudyGroup>('StudyGroup', StudyGroupSchema);
+

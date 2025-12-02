@@ -289,7 +289,7 @@ const KeyFeatures = () => {
       `}</style>
       
       <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 bg-gradient-to-br from-black via-gray-950 to-black text-white overflow-hidden">
-        {/* Animated background elements */}
+        {}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-blue-600/5 to-blue-500/5 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" />
           <div className="absolute bottom-1/4 right-1/4 w-32 sm:w-48 md:w-64 lg:w-80 xl:w-96 h-32 sm:h-48 md:h-64 lg:h-80 xl:h-96 bg-gradient-to-r from-blue-500/5 to-blue-400/5 rounded-full blur-xl sm:blur-2xl md:blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
@@ -297,7 +297,7 @@ const KeyFeatures = () => {
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Enhanced Header */}
+          {}
           <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
             <div className="relative inline-flex items-center gap-1.5 sm:gap-2 md:gap-3 px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-400/20 border border-blue-500/30 mb-4 sm:mb-6 md:mb-7 lg:mb-8 hover:scale-105 transition-all duration-300 cursor-pointer group/badge">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-400 animate-pulse" />
@@ -323,7 +323,7 @@ const KeyFeatures = () => {
             </div>
           </div>
 
-          {/* Features Grid */}
+          {}
           <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
@@ -346,14 +346,14 @@ const KeyFeatures = () => {
                     animationDelay: `${index * 100}ms`,
                   }}
                 >
-                  {/* Animated border glow */}
+                  {}
                   <div className={`
                     absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100
                     bg-gradient-to-r ${feature.borderColor?.replace('border-', 'from-')?.replace('/30', '/20') || 'from-gray-500/20'} to-transparent
                     blur-sm transition-opacity duration-500
                   `} />
                   
-                  {/* Enhanced Popular badge */}
+                  {}
                   {feature.isPopular && (
                     <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20">
                       <div className="relative">
@@ -366,9 +366,9 @@ const KeyFeatures = () => {
                     </div>
                   )}
                   
-                  {/* Content */}
+                  {}
                   <CardContent className="p-4 sm:p-5 md:p-6 relative z-10 h-full flex flex-col">
-                    {/* Enhanced Icon and Category */}
+                    {}
                     <div className="flex items-center justify-between mb-3 sm:mb-4">
                       <div className={`
                         relative p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-black/30 to-gray-900/50 ${feature.iconColor} 
@@ -386,17 +386,17 @@ const KeyFeatures = () => {
                       </div>
                     </div>
                     
-                    {/* Enhanced Title */}
+                    {}
                     <CardTitle className="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:to-purple-300 transition-all duration-300 mb-2 sm:mb-3 leading-tight">
                       {feature.title}
                     </CardTitle>
                     
-                    {/* Enhanced Description */}
+                    {}
                     <p className="text-xs sm:text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300 flex-1 mb-4 sm:mb-5 md:mb-6 font-medium">
                       {feature.description}
                     </p>
                     
-                    {/* Enhanced Button */}
+                    {}
                     <Link href={feature.link} target={feature.link.startsWith("http") ? "_blank" : "_self"} className="mt-auto">
                       <Button 
                     variant="outline" 
@@ -411,7 +411,7 @@ const KeyFeatures = () => {
                     </Link>
                   </CardContent>
 
-                  {/* Enhanced animated background particles */}
+                  {}
                   <div className="absolute top-4 right-8 sm:top-6 sm:right-10 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400/60 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-8 left-8 sm:bottom-10 sm:left-10 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-purple-400/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{animationDelay: '0.5s'}} />
                   <div className="absolute top-1/2 right-4 sm:right-6 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-cyan-400/60 rounded-full animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{animationDelay: '1s'}} />
@@ -445,7 +445,7 @@ const KeyFeatures = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center px-2 sm:px-4 md:px-6 lg:px-8 max-w-2xl mx-auto">
                 <Link href="/register" className="w-full sm:w-auto">
                   <Button className="relative w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 text-white px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl md:rounded-2xl text-xs sm:text-sm md:text-base lg:text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl group/btn overflow-hidden">
-                    {/* Button shine effect */}
+                    {}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-pulse transition-opacity duration-500" />
                     <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3">
                       <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 animate-spin" style={{animationDuration: '3s'}} />
@@ -456,7 +456,7 @@ const KeyFeatures = () => {
                 
                 <Link href="/chat" className="w-full sm:w-auto">
                   <Button  className="relative w-full sm:w-auto border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl md:rounded-2xl text-xs sm:text-sm md:text-base lg:text-lg font-bold transition-all duration-300 hover:scale-105 backdrop-blur-sm group/btn2 overflow-hidden">
-                    {/* Button glow effect */}
+                    {}
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-400/10 opacity-0 group-hover/btn2:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3">
                       <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover/btn2:animate-pulse" />
@@ -489,3 +489,4 @@ const KeyFeatures = () => {
 };
 
 export default KeyFeatures;
+

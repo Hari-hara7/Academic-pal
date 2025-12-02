@@ -33,3 +33,4 @@ const useFirebaseAuth = () => {
 };
 
 export default useFirebaseAuth;
+

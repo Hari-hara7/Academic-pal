@@ -33,3 +33,4 @@ const MindMapSchema = new Schema<IMindMap>(
 
 export default mongoose.models.MindMap ||
   mongoose.model<IMindMap>('MindMap', MindMapSchema);
+

@@ -32,3 +32,4 @@ const StudyReminderSchema = new Schema<IStudyReminder>(
 
 export default mongoose.models.StudyReminder ||
   mongoose.model<IStudyReminder>('StudyReminder', StudyReminderSchema);
+

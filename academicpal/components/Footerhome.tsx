@@ -23,9 +23,9 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-16 px-6 lg:px-12 xl:px-24">
       <div className="max-w-[1600px] mx-auto">
-        {/* Responsive Grid */}
+        {}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
-          {/* Logo + Highlights */}
+          {}
           <div className="col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <Image
@@ -55,7 +55,7 @@ const Footer = () => {
               </li>
             </ul>
 
-            {/* GitHub Star Button */}
+            {}
             <div className="mt-6">
               <GitStarButton />
             </div>
@@ -170,3 +170,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

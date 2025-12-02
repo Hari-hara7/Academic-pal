@@ -19,3 +19,4 @@ export default function DashboardHomePage() {
 
   return <DashboardClient email={email} />;
 }
+

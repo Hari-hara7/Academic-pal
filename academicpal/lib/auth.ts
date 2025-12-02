@@ -1,4 +1,4 @@
-// lib/auth.ts
+
 import jwt from 'jsonwebtoken';
 import { UserType } from '@/types/user';
 
@@ -13,3 +13,4 @@ export function signToken(user: UserType) {
 export function verifyToken(token: string) {
   return jwt.verify(token, JWT_SECRET);
 }
+

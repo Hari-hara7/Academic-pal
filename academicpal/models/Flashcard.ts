@@ -15,3 +15,4 @@ const FlashcardSchema = new Schema<FlashcardDoc>({
 });
 
 export const Flashcard = mongoose.models.Flashcard || mongoose.model<FlashcardDoc>('Flashcard', FlashcardSchema);
+

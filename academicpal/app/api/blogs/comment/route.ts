@@ -33,3 +33,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Error adding comment' }, { status: 500 });
   }
 }
+

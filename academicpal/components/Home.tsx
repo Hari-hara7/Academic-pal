@@ -37,7 +37,7 @@ const Home = ({ user }: HomeProps) => {
         return {
           id: doc.id,
           ...docData,
-          // Ensure backward compatibility for existing data
+
           shareableLink: docData.shareableLink || docData.resourceUrl,
           semester: typeof docData.semester === 'string' ? parseInt(docData.semester) : docData.semester,
         };
@@ -125,7 +125,7 @@ const Home = ({ user }: HomeProps) => {
       </div>
 
       <div className="flex flex-wrap md:flex-row flex-col gap-4 justify-center bg-opacity-80 bg-gray-900 p-6 rounded-xl shadow-lg backdrop-blur-md border border-gray-700 mb-10 overflow-x-auto whitespace-nowrap">
-        {/* Year */}
+        {}
         <div className="relative flex items-center w-full md:w-auto">
           <GraduationCap className="absolute left-3 text-gray-400" size={20} />
           <select
@@ -141,7 +141,7 @@ const Home = ({ user }: HomeProps) => {
           </select>
         </div>
 
-        {/* Semester */}
+        {}
         <div className="relative flex items-center w-full md:w-auto">
           <Calendar className="absolute left-3 text-gray-400" size={20} />
           <select
@@ -156,7 +156,7 @@ const Home = ({ user }: HomeProps) => {
           </select>
         </div>
 
-        {/* Branch */}
+        {}
         <div className="relative flex items-center w-full md:w-auto">
           <Filter className="absolute left-3 text-gray-400" size={20} />
           <select
@@ -181,7 +181,7 @@ const Home = ({ user }: HomeProps) => {
           </select>
         </div>
 
-        {/* Subject */}
+        {}
         <div className="relative flex items-center w-full md:w-auto">
           <Book className="absolute left-3 text-gray-400" size={20} />
           <input
@@ -222,3 +222,4 @@ const Home = ({ user }: HomeProps) => {
 };
 
 export default Home;
+

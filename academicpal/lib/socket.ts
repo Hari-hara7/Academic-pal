@@ -13,3 +13,4 @@ export function getSocket(): Socket {
   if (!socket) throw new Error('Socket not initialized');
   return socket;
 }
+
