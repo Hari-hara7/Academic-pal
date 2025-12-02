@@ -15,20 +15,20 @@ const UploadPage = () => {
 
   return (
     <div className="min-h-screen relative flex flex-col overflow-hidden font-sans text-white">
-      {/* Background Effects */}
+      
       <div className="absolute inset-0 -z-10 bg-black" />
       <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
 
-      {/* Navbar */}
+      
       <header className="flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 bg-black/30 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
-        {/* Logo */}
+        
         <div className="flex items-center gap-3">
           <Image src="/academicpal.jpg" alt="Logo" width={40} height={40} className="rounded-full shadow-md" />
           <h1 className="text-lg sm:text-xl font-bold">Academic Pal</h1>
         </div>
 
-        {/* Desktop Nav */}
+        
         <div className="hidden sm:flex items-center gap-4">
           {user ? (
             <>
@@ -51,7 +51,7 @@ const UploadPage = () => {
           )}
         </div>
 
-        {/* Mobile Nav Toggle */}
+      
         <div className="sm:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -61,7 +61,7 @@ const UploadPage = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+      
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -101,7 +101,7 @@ const UploadPage = () => {
         )}
       </header>
 
-      {/* Hero Section */}
+    
       {user && (
         <section className="text-center py-12 sm:py-16 md:py-20 px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
@@ -120,10 +120,10 @@ const UploadPage = () => {
         </section>
       )}
 
-      {/* Admin Panel */}
+      
       {user?.email?.endsWith('@nmamit.in') && <AdminPanel user={user} />}
 
-      {/* Features Section */}
+      
       <main className="mt-8 px-4 sm:px-6 md:px-10 flex-1">
         {!user && (
           <section className="py-12 sm:py-16">
@@ -166,7 +166,7 @@ const UploadPage = () => {
         <Home user={user} />
       </main>
 
-      {/* Footer */}
+  
      
     </div>
   );
