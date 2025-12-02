@@ -8,7 +8,7 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { toast } from 'sonner'; // ✅ Import toast from sonner
+import { toast } from 'sonner'; 
 
 export default function LoginPage() {
   const router = useRouter();
