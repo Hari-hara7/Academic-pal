@@ -29,7 +29,7 @@ export default function EditReminderPage() {
           if (reminder) {
             setTitle(reminder.title);
             setDescription(reminder.description || '');
-            setRemindAt(reminder.remindAt.slice(0, 16)); // datetime-local format
+            setRemindAt(reminder.remindAt.slice(0, 16));
           } else {
             toast.error('Reminder not found');
             router.push('/dashboard/study-reminders');

@@ -306,16 +306,14 @@ const Dashboard = () => {
       `}</style>
       
       <main className="min-h-screen bg-black text-white relative overflow-hidden">
-        {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation" style={{animationDelay: '1.5s'}} />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl float-animation" style={{animationDelay: '3s'}} />
-        </div>        {/* Hero Section */}
+        </div>
         <div className="relative overflow-hidden z-10">
         <div className="absolute inset-0 bg-black" />
         <div className="relative px-4 sm:px-6 py-6 sm:py-8 md:px-8 lg:px-20 md:py-16">
-          {/* Welcome Header */}
           <div className="text-center mb-6 sm:mb-8 md:mb-12">
             <div className="inline-flex items-center gap-2 md:gap-3 px-3 sm:px-4 md:px-6 py-2 mt-12 md:py-3 rounded-full bg-blue-500/20 border border-blue-500/30 mb-3 sm:mb-4 md:mb-6 float-animation">
               <UserCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-400" />
@@ -329,17 +327,15 @@ const Dashboard = () => {
             </p>
           </div>
 
-          {/* GitHub Star Button */}
           <div className="flex justify-center mb-6 sm:mb-8 md:mb-12">
             <GitStarButton />
           </div>
         </div>
       </div>
 
-      <div className="px-4 sm:px-6 bg-black md:px-8 lg:px-20 pb-6 sm:pb-8 md:pb-12">{/* User Profile Section */}
+      <div className="px-4 sm:px-6 bg-black md:px-8 lg:px-20 pb-6 sm:pb-8 md:pb-12">
         <div className="grid grid-cols-1 bg-black lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-12">
-          {/* Profile Card */}
-          <Card className="lg:col-span-1 bg-black border-gray-700 shadow-2xl"> 
+          <Card className="lg:col-span-1 bg-black border-gray-700 shadow-2xl">
             <CardHeader className="text-center pb-3 md:pb-4">
               <div className="relative inline-block mb-3 md:mb-4">
                 <Image
@@ -374,7 +370,6 @@ const Dashboard = () => {
                 </div>
               </div>
               
-              {/* Quick Actions */}
               <div className="space-y-2">
                 <h4 className="text-xs md:text-sm font-semibold text-gray-300 uppercase tracking-wide">Quick Actions</h4>
                 <div className="grid grid-cols-2 gap-1.5 md:gap-2">
@@ -413,7 +408,6 @@ const Dashboard = () => {
             </CardFooter>
           </Card>
 
-          {/* Quick Stats */}
           <div className="lg:col-span-2 space-y-4 md:space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <h3 className="text-xl md:text-2xl font-bold text-white">Platform Overview</h3>
@@ -513,7 +507,6 @@ const Dashboard = () => {
               </Card>
             </div>
 
-            {/* Recent Activity */}
             <Card className="bg-black border-gray-700 shadow-xl">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
@@ -568,7 +561,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Motivational Banner */}
         <div className="mb-12">
           <Card className="bg-black border-white/20 shadow-2xl overflow-hidden">
             <div className="absolute inset-0 bg-blue-500/5" />
@@ -599,7 +591,7 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Features Section */}
+        {}
         <div className="mb-8 sm:mb-12">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-3 sm:gap-0">
             <h3 className="text-2xl sm:text-3xl font-bold text-white">Explore Features</h3>
@@ -631,7 +623,6 @@ const Dashboard = () => {
                   animation: 'fadeInUp 0.6s ease-out forwards',
                 }}
               >
-                {/* Animated border glow */}
                 <div className={`
                   absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100
                   bg-gradient-to-r ${borderColor.replace('border-', 'from-').replace('/30', '/40')} to-transparent
@@ -683,7 +674,6 @@ const Dashboard = () => {
                   </Link>
                 </CardFooter>
 
-                {/* Animated background particles */}
                 <div className="absolute top-4 right-4 w-2 h-2 bg-white/20 rounded-full animate-ping opacity-0 group-hover:opacity-100" />
                 <div className="absolute bottom-6 left-6 w-1 h-1 bg-white/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100" style={{animationDelay: '0.5s'}} />
               </Card>
@@ -691,7 +681,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Motivational Banner */}
         <div className="mb-8 sm:mb-12">
           <Card className="bg-black border-white/20 relative overflow-hidden">
             <div className="absolute inset-0 bg-blue-500/5" />
@@ -729,7 +718,6 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Footer */}
         <div className="text-center pt-8 sm:pt-12 border-t border-gray-800">
           <div className="space-y-4">
             <p className="text-gray-500 text-sm sm:text-base max-w-md mx-auto px-4">

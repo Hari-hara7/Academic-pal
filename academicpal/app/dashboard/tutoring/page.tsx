@@ -24,7 +24,7 @@ export default function TutoringHomePage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Become a Tutor */}
+          {}
           <Card className="bg-white/5 border border-white/10 backdrop-blur-lg h-full flex flex-col justify-between">
             <CardContent className="flex flex-col gap-4 h-full">
               <div className="flex items-center justify-between">
@@ -45,7 +45,7 @@ export default function TutoringHomePage() {
             </CardContent>
           </Card>
 
-          {/* Find a Tutor */}
+          {}
           <Card className="bg-white/5 border border-white/10 backdrop-blur-lg h-full flex flex-col justify-between">
             <CardContent className="flex flex-col gap-4 h-full">
               <div className="flex items-center justify-between">
@@ -68,7 +68,7 @@ export default function TutoringHomePage() {
 
           
 
-          {/* My Sessions */}
+          {}
           <Card className="bg-white/5 border border-white/10 backdrop-blur-lg h-full flex flex-col justify-between">
             <CardContent className="flex flex-col gap-4 h-full">
               <div className="flex items-center justify-between">

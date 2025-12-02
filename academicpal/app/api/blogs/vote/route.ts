@@ -1,4 +1,4 @@
-// app/api/blogs/vote/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { Blog } from '@/models/Blog';

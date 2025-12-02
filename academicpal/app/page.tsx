@@ -136,13 +136,11 @@ const Login = () => {
 
   return (
     <div className={`${inter.className} min-h-screen bg-black text-white overflow-hidden relative`}>
-      {/* Minimal white glow background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.04),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.035),transparent_55%)]" />
 
-        {/* Subtle animated orbs (white, low opacity) */}
         <motion.div
           animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -156,7 +154,6 @@ const Login = () => {
       </div>
 
       <div className="relative flex min-h-screen">
-        {/* Left side */}
         <div className="hidden lg:flex lg:w-1/2 xl:w-3/5 items-center justify-center p-6 lg:p-8 xl:p-12">
           <motion.div
             variants={containerVariants}
@@ -224,7 +221,6 @@ const Login = () => {
           </motion.div>
         </div>
 
-        {/* Right side - Auth card */}
         <div className="w-full lg:w-1/2 xl:w-2/5 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           <motion.div
             variants={containerVariants}
@@ -241,7 +237,6 @@ const Login = () => {
               </CardHeader>
 
               <CardContent className="space-y-6">
-                {/* Social */}
                 <motion.div variants={itemVariants} className="space-y-3">
                   <Button
                     variant="outline"
@@ -266,7 +261,6 @@ const Login = () => {
                   </Button>
                 </motion.div>
 
-                {/* Divider */}
                 <motion.div variants={itemVariants} className="relative">
                   <div className="absolute inset-0 flex items-center">
                     <Separator className="w-full bg-white/15" />
@@ -276,7 +270,6 @@ const Login = () => {
                   </div>
                 </motion.div>
 
-                {/* Form */}
                 <motion.form variants={itemVariants} onSubmit={handleLogin} className="space-y-5">
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-sm font-medium text-white/80">

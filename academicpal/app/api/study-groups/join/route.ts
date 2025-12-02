@@ -2,11 +2,10 @@ import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { StudyGroup } from '@/models/StudyGroup';
 
-// Helper to get user ID from auth (mock here, replace with real auth)
 function getUserIdFromRequest(req: Request): string | null {
-  // TODO: Replace this with your real auth logic to get current user ID
-  // For example, parse JWT token or session
-  return 'currentUserId'; // Placeholder
+
+
+  return 'currentUserId'; 
 }
 
 export async function POST(req: Request) {
@@ -29,18 +28,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, message: 'Group not found' }, { status: 404 });
     }
 
-    // Check if user is already a member
     if (group.members.includes(userId)) {
       return NextResponse.json({ success: false, message: 'Already a member of the group' });
     }
 
-    // Check if user already requested join
     if (group.joinRequests.includes(userId)) {
       return NextResponse.json({ success: false, message: 'Join request already sent' });
     }
 
     if (group.isOpen) {
-      // Open group - add user directly to members if space available
+
       if (group.members.length >= group.maxMembers) {
         return NextResponse.json({ success: false, message: 'Group is full' });
       }
@@ -49,7 +46,7 @@ export async function POST(req: Request) {
 
       return NextResponse.json({ success: true, message: 'Joined group successfully' });
     } else {
-      // Closed group - add to joinRequests
+
       group.joinRequests.push(userId);
       await group.save();
 

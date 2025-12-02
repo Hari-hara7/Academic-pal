@@ -21,12 +21,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Session not found or unauthorized' }, { status: 403 });
     }
 
-    // Save feedback to session
     session.feedback = { rating, review };
     session.status = 'completed';
     await session.save();
 
-    // Update tutor's average rating
     const sessions = await Session.find({
       tutorId: session.tutorId,
       'feedback.rating': { $exists: true },

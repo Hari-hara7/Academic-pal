@@ -8,14 +8,12 @@ export async function GET(request: Request) {
 
     const { searchParams } = new URL(request.url);
 
-    // Filters from query params
     const subject = searchParams.get('subject') || '';
     const location = searchParams.get('location') || '';
-    const isOpen = searchParams.get('isOpen'); // can be 'true' or 'false'
-    const minSize = searchParams.get('minSize'); // min members
-    const maxSize = searchParams.get('maxSize'); // max members
+    const isOpen = searchParams.get('isOpen'); 
+    const minSize = searchParams.get('minSize');
+    const maxSize = searchParams.get('maxSize');
 
-    // Build query object
     const query: Record<string, any> = {};
 
     if (subject) {

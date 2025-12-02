@@ -50,7 +50,6 @@ export default function DashboardClient({ email }: { email: string }) {
     <section className="min-h-screen px-4 py-10 md:px-8 bg-black text-white">
       <div className="max-w-5xl mx-auto space-y-10">
 
-        {/* Welcome Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight flex items-center gap-2">
@@ -70,7 +69,6 @@ export default function DashboardClient({ email }: { email: string }) {
           </Avatar>
         </div>
 
-        {/* Avatar Options */}
         <div className="flex gap-4 flex-wrap">
           <Button className='bg-black' onClick={handleGenerateNewAvatar}>
             🎲 change Avatar
@@ -79,7 +77,6 @@ export default function DashboardClient({ email }: { email: string }) {
          
         </div>
 
-        {/* Neon Card with Custom Logo */}
         <NeonGradientCard>
           <div className="p-4 sm:p-6 rounded-xl bg-[#0b0b0b] text-white shadow-xl">
             <div className="flex items-center gap-3 mb-4">
@@ -117,7 +114,6 @@ export default function DashboardClient({ email }: { email: string }) {
           </div>
         </NeonGradientCard>
 
-        {/* Dashboard Features Section */}
         <div className="grid gap-4 sm:grid-cols-2">
           {features.map((feature) => (
             <Link

@@ -1,4 +1,4 @@
-// app/api/auth/register/route.ts
+
 import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { User } from '@/models/User';
@@ -14,16 +14,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: 'Missing fields' }, { status: 400 });
     }
 
-    // Check if user exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return NextResponse.json({ message: 'Email already registered' }, { status: 409 });
     }
 
-    // Hash password
     const hashedPassword = await hashPassword(password);
 
-    // Create user
     await User.create({ name, email, password: hashedPassword });
 
     return NextResponse.json({ message: 'User registered successfully' }, { status: 201 });

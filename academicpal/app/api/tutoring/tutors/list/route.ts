@@ -7,11 +7,10 @@ export async function GET(req: NextRequest) {
 
   try {
     const url = new URL(req.url);
-    const subject = url.searchParams.get('subject');      // optional filter
-    const year = url.searchParams.get('year');            // optional filter
-    const availability = url.searchParams.get('availability');  // optional filter
+    const subject = url.searchParams.get('subject');
+    const year = url.searchParams.get('year');
+    const availability = url.searchParams.get('availability');
 
-    // Build query object dynamically
     const query: any = {};
 
     if (subject) {

@@ -20,7 +20,6 @@ export default function StudyGroupsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Filters
   const [subject, setSubject] = useState('');
   const [location, setLocation] = useState('');
   const [isOpen, setIsOpen] = useState<'all' | 'open' | 'closed'>('all');
@@ -71,7 +70,7 @@ export default function StudyGroupsPage() {
         </Link>
       </div>
 
-      {/* Filters */}
+      {}
       <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8">
         <Input
           placeholder="Subject / Course"

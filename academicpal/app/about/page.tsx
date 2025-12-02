@@ -52,7 +52,7 @@ const mlTechIcons: { [key: string]: JSX.Element } = {
   Flask: <SiFlask className="w-5 h-5" />,
   Pandas: <SiPandas className="w-5 h-5" />,
   "Scikit-Learn": <SiScikitlearn className="w-5 h-5" />,
-  NLTK: <FiMessageSquare className="w-5 h-5" />, // fallback generic icon
+  NLTK: <FiMessageSquare className="w-5 h-5" />,
   NumPy: <SiNumpy className="w-5 h-5" />,
 };
 

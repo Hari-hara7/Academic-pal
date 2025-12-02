@@ -109,7 +109,7 @@ export default function BecomeTutorPage() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Basic Info */}
+          {}
           <Card className="bg-white/5 backdrop-blur-md border border-white/10">
             <CardContent className="p-6 space-y-4">
               <div>
@@ -148,7 +148,7 @@ export default function BecomeTutorPage() {
             </CardContent>
           </Card>
 
-          {/* Subjects */}
+          {}
           <Card className="bg-white/5 backdrop-blur-md border border-white/10">
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center justify-between">
@@ -184,7 +184,7 @@ export default function BecomeTutorPage() {
             </CardContent>
           </Card>
 
-          {/* Availability */}
+          {}
           <Card className="bg-white/5 backdrop-blur-md border border-white/10">
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center justify-between">
@@ -212,7 +212,7 @@ export default function BecomeTutorPage() {
             </CardContent>
           </Card>
 
-          {/* Teaching Modes */}
+          {}
           <Card className="bg-white/5 backdrop-blur-md border border-white/10">
             <CardContent className="p-6 space-y-4">
               <div className="flex items-center justify-between">
@@ -240,7 +240,7 @@ export default function BecomeTutorPage() {
             </CardContent>
           </Card>
 
-          {/* Submit */}
+          {}
           <div className="text-right">
             <Button
               type="submit"

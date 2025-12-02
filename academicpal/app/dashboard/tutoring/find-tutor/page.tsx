@@ -83,7 +83,7 @@ export default function FindTutorPage() {
           </p>
         </div>
 
-        {/* Filters */}
+        {}
         <Card className="bg-black border border-white/20">
           <CardContent className="p-6 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
@@ -148,7 +148,7 @@ export default function FindTutorPage() {
           </CardContent>
         </Card>
 
-        {/* Tutors List */}
+        {}
         {tutors.length === 0 ? (
           <div className="text-center text-gray-500 text-sm">No tutors found. Try adjusting your filters.</div>
         ) : (

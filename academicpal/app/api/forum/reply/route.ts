@@ -37,7 +37,6 @@ export async function POST(req: NextRequest) {
       { new: true }
     );
 
-    // Emit new reply to all clients in this thread room
     const io = getSocketServer();
     io.to(threadId).emit('new-reply', { threadId, reply });
 

@@ -22,7 +22,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
     }
 
-    // Upsert: update if tutor exists, else create new
     const tutor = await Tutor.findOneAndUpdate(
       { userId },
       { name, branch, year, subjects, availability, teachingModes },

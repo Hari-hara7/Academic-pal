@@ -2,16 +2,15 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 export async function GET(req: Request) {
-  // get sessionId from query (if provided)
+
   const { searchParams } = new URL(req.url)
   const sessionId = searchParams.get('sessionId')
 
-  // fetch all roadmaps ordered by createdAt descending
   const roadmaps = await prisma.roadmap.findMany({
     orderBy: { createdAt: 'desc' },
     include: {
       comments: {
-        select: { id: true }, // only id to count comments
+        select: { id: true },
       },
       bookmarks: sessionId
         ? {
@@ -28,7 +27,6 @@ export async function GET(req: Request) {
     },
   })
 
-  // transform data to include counts and boolean flags
   const result = roadmaps.map((roadmap) => {
     const bookmarkCount = roadmap.bookmarks.length ?? 0
     const upvoteCount = roadmap.upvotes.length ?? 0

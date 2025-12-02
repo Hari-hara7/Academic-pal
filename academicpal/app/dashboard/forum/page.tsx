@@ -26,7 +26,6 @@ export default function ForumPage() {
 
   return (
     <div className="min-h-screen bg-black text-white px-4 py-8 sm:px-8 max-w-5xl mx-auto">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div className="flex items-center gap-3">
           <MessageCircle className="h-6 w-6 text-white/80" />
@@ -44,7 +43,6 @@ export default function ForumPage() {
         </Button>
       </div>
 
-      {/* Threads */}
       {threads.length === 0 ? (
         <p className="text-white/60 text-center">No threads found.</p>
       ) : (

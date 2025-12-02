@@ -12,7 +12,6 @@ export default function PerformanceAnalytics() {
   const [data, setData] = useState<StudySession[]>([]);
   const router = useRouter();
 
-  // Fetch data
   const fetchData = async () => {
     const res = await fetch('/api/performance-analytics/get');
     const json = await res.json();
@@ -23,7 +22,6 @@ export default function PerformanceAnalytics() {
     fetchData();
   }, []);
 
-  // Delete handler
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this session?')) return;
 
@@ -35,7 +33,7 @@ export default function PerformanceAnalytics() {
     const json = await res.json();
     if (json.success) {
       alert('Deleted successfully');
-      fetchData(); // refresh list
+      fetchData();
     } else {
       alert('Delete failed');
     }
@@ -102,7 +100,7 @@ export default function PerformanceAnalytics() {
         </>
       )}
 
-      {/* List study sessions with Update/Delete */}
+      {}
       <div>
         <h2 className="text-lg font-semibold mb-2">All Study Sessions</h2>
         {data.length === 0 && <p>No study sessions found.</p>}

@@ -59,7 +59,6 @@ export default function ThreadPage() {
 
   return (
     <div className="min-h-screen bg-black text-white px-4 py-8 max-w-3xl mx-auto">
-      {/* Thread title */}
       <div className="mb-6 space-y-2">
         <h1 className="text-2xl sm:text-3xl font-bold flex items-center gap-2">
           <MessageCircleReply className="h-5 w-5" />
@@ -79,7 +78,6 @@ export default function ThreadPage() {
         </div>
       </div>
 
-      {/* Replies */}
       <div className="space-y-4 mb-8">
         {thread.replies.map((reply, i) => (
           <Card
@@ -94,7 +92,6 @@ export default function ThreadPage() {
         ))}
       </div>
 
-      {/* Reply input */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
         <Input
           value={newReply}

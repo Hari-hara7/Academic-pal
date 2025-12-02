@@ -73,7 +73,7 @@ export default function StudyRemindersPage() {
   return (
     <div className="min-h-screen bg-black p-4 sm:p-6 flex flex-col items-center">
       <div className="w-full max-w-3xl">
-        {/* Header */}
+        {}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8 mt-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">
              Study Reminders

@@ -19,7 +19,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ message: 'Thread not found' }, { status: 404 });
     }
 
-    // Optional: increment view count
     await ForumPost.findByIdAndUpdate(id, { $inc: { views: 1 } });
 
     return NextResponse.json({ success: true, post });

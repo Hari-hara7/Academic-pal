@@ -37,7 +37,7 @@ export default function TimetableListPage() {
   return (
     <div className="min-h-screen bg-black text-white px-4 py-10 font-inter">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+        {}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Your Timetables</h1>
           <Link href="/dashboard/timetable/create" className="w-full sm:w-auto">
@@ -48,7 +48,7 @@ export default function TimetableListPage() {
           </Link>
         </div>
 
-        {/* Timetable Cards */}
+        {}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {timetables.length > 0 ? (
             timetables.map((tt) => (

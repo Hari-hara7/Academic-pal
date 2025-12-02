@@ -20,11 +20,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
     }
 
-    // Validate tutor exists
     const tutor = await Tutor.findById(tutorId);
     if (!tutor) return NextResponse.json({ message: 'Tutor not found' }, { status: 404 });
 
-    // Create session (initial status: pending)
     const session = await Session.create({
       tutorId,
       learnerId,

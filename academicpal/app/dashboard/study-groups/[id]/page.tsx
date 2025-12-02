@@ -75,7 +75,6 @@ export default function StudyGroupDetailsPage() {
     }
   };
 
-  // Replace with actual user id logic
   const isMember = group?.members.includes('currentUserId');
   const hasRequested = group?.joinRequests.includes('currentUserId');
 

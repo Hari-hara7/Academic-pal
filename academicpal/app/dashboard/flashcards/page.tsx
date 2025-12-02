@@ -53,7 +53,7 @@ export default function FlashcardsPage() {
   return (
     <div className="min-h-screen bg-black px-4 py-10 text-white font-sans">
     <div className="max-w-[1600px] w-full mx-auto flex flex-col gap-8">
-        {/* Header */}
+        {}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left tracking-tight">
             Your Flashcards
@@ -68,7 +68,7 @@ export default function FlashcardsPage() {
 
         <Separator className="bg-white/30" />
 
-        {/* Flashcards Grid */}
+        {}
         {flashcards.length === 0 ? (
           <p className="text-gray-400 text-center text-lg">No flashcards found. Create some!</p>
         ) : (

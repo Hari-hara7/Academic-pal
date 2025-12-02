@@ -1,4 +1,4 @@
-// No 'use client' here
+
 
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth';
@@ -14,9 +14,8 @@ export default function DashboardHomePage() {
       const decoded = verifyToken(token) as any;
       email = decoded.email;
     }
-  } catch {
-    // fallback to guest
-  }
+  } catch {}
+
 
   return <DashboardClient email={email} />;
 }

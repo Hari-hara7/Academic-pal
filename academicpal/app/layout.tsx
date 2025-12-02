@@ -80,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "/dashboard/tutoring/become",
       "/dashboard/tutoring/find-tutor",
       "/dashboard/tutoring/my-sessions",
-    ].includes(pathname) ||///dashboard/tutoring/schedule/
+    ].includes(pathname) ||
     pathname.startsWith("/dashboard/timetable/edit/") ||
     pathname.startsWith("/dashboard/tutoring/schedule/") ||
     pathname.startsWith("/dashboard/timetable/delete/") ||
@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     pathname.startsWith("/dashboard/study-groups/") ||
    pathname.startsWith("/dashboard/mind-map/edit/") ||
       pathname.startsWith("/dashboard/mind-map/edit/") ||
-     pathname.startsWith("/dashboard/forum/") ||///dashboard/forum/
+     pathname.startsWith("/dashboard/forum/") ||
     pathname.startsWith("/dashboard/performance-analytics/edit/");
 
   const seoData: Record<string, { title: string; description: string; keywords: string }> = {
@@ -201,7 +201,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:title" content={currentSEO.title} />
         <meta name="twitter:description" content={currentSEO.description} />
         <meta name="twitter:image" content={`https://academicpal.in/og-image.png`} />
-        {/* JSON-LD structured data for Website and Organization */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Head>
 
@@ -235,8 +234,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "/dashboard/tutoring",
       "/dashboard/mind-map",
       "/dashboard/tutoring/become",
-      "/dashboard/forum",//dashboard/tutoring/become
-      "/dashboard/tutoring/find-tutor",//dashboard/tutoring/schedule/
+      "/dashboard/forum",
+      "/dashboard/tutoring/find-tutor",
        
       "/dashboard/performance-analytics/create",   pathname.startsWith("/dashboard/timetable/edit/") ||
     pathname.startsWith("/dashboard/timetable/delete/") ||

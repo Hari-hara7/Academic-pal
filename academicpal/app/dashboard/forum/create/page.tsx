@@ -57,7 +57,7 @@ export default function CreateForumThreadPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <Card className="bg-black border border-white/20 backdrop-blur-md rounded-xl">
           <CardContent className="p-6 space-y-5">
-            {/* Title */}
+            {}
             <div className="space-y-2">
               <Label className="text-white flex items-center gap-1">
                 <FileText className="h-4 w-4" />
@@ -72,7 +72,7 @@ export default function CreateForumThreadPage() {
               />
             </div>
 
-            {/* Body */}
+            {}
             <div className="space-y-2">
               <Label className="text-white flex items-center gap-1">
                 <AlignLeft className="h-4 w-4" />
@@ -88,7 +88,7 @@ export default function CreateForumThreadPage() {
               />
             </div>
 
-            {/* Tags */}
+            {}
             <div className="space-y-2">
               <Label className="text-white flex items-center gap-1">
                 <Tag className="h-4 w-4" />
@@ -102,7 +102,7 @@ export default function CreateForumThreadPage() {
               />
             </div>
 
-            {/* Submit Button */}
+            {}
             <Button
               type="submit"
               disabled={loading}

@@ -28,7 +28,7 @@ export default function BlogListPage() {
 
   return (
     <div className="max-w-5xl mx-auto p-6 sm:p-10">
-    {/* Header */}
+    {}
 <div className="flex flex-row sm:flex-row justify-between items-center mb-8 gap-4">
   <h1 className="text-3xl font-extrabold tracking-tight text-white whitespace-nowrap">
     Blogs
@@ -47,7 +47,7 @@ export default function BlogListPage() {
 
       
 
-      {/* Blog list */}
+      {}
       <div className="space-y-6">
         {blogs.length === 0 && (
           <p className="text-center text-gray-300 text-lg">No blogs yet.</p>

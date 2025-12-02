@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const posts = await ForumPost.find({}, {
-      replies: 0, // omit replies to improve performance
+      replies: 0,
     })
       .sort({ lastRepliedAt: -1, createdAt: -1 })
       .lean();

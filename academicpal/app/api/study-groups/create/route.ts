@@ -18,7 +18,6 @@ export async function POST(request: Request) {
       isOpen,
     } = body;
 
-    // Basic validation
     if (
       !subject ||
       !groupName ||
@@ -33,8 +32,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Replace with actual user ID from auth/session
-    const creatorId = 'sampleUserId123'; // This should come from user session/auth
+    const creatorId = 'sampleUserId123'; 
 
     const newGroup = new StudyGroup({
       creatorId,
@@ -46,7 +44,7 @@ export async function POST(request: Request) {
       platform: platform || '',
       maxMembers,
       isOpen,
-      members: [creatorId], // creator is first member
+      members: [creatorId], 
       joinRequests: [],
     });
 

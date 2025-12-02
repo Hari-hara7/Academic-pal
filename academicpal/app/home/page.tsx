@@ -9,10 +9,10 @@ import Faq from '@/components/Faq';
 import Contact from '@/components/Contact';
 import Help from '@/components/Support';
 import Contact2 from '@/components/Contact2';
-import BottomNav from "@/components/BottomNav";//GlowingEffect
-import { Glow } from '@/components/Glow';//GoogleGeminiEffectDemo
-import { GoogleGeminiEffectDemo } from '@/components/GoogleGeminiEffectDemo';//TimelineDemo
-import { TimelineDemo } from '@/components/TimelineDemo';//MarqueeDemo
+import BottomNav from "@/components/BottomNav";
+import { Glow } from '@/components/Glow';
+import { GoogleGeminiEffectDemo } from '@/components/GoogleGeminiEffectDemo';
+import { TimelineDemo } from '@/components/TimelineDemo';
 import { MarqueeDemo  } from '@/components/MarqueeDemo';
 
 export default function Home() {

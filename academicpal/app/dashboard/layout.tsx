@@ -9,11 +9,11 @@ import {
 } from 'lucide-react';
 import { FaProjectDiagram, FaPenNib, FaUsers, FaComments } from 'react-icons/fa';
 import { Toaster } from 'sonner';
-import { Input } from '@/components/ui/input'; //  Import Input
+import { Input } from '@/components/ui/input';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // Search term state
+  const [searchTerm, setSearchTerm] = useState('');
 
   const navItems = [
     { href: '/dashboard', icon: <Home className="h-4 w-4" />, label: 'Home' },
@@ -38,7 +38,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen bg-black text-white relative overflow-hidden">
       <Toaster position="top-center" richColors />
 
-      {/* Mobile Menu Button */}
       <div className="lg:hidden fixed top-5 left-5 z-50 mt-8">
         <Button
           variant="outline"

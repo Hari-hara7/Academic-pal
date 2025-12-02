@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import { toast } from 'sonner'; // ✅ import sonner toast
+import { toast } from 'sonner';
 
 export default function RegisterPage() {
   const router = useRouter();
