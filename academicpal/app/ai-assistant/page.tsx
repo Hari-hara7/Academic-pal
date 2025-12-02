@@ -12,10 +12,10 @@ export default function AIAssistantPage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="h-screen w-screen bg-gradient-to-b from-black via-black to-blue-950/20 flex flex-col relative overflow-hidden"
     >
-      {/* Ambient glow effect */}
+  
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
       
-      {/* Header with logo */}
+  
       <motion.header 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -45,7 +45,7 @@ export default function AIAssistantPage() {
         </div>
       </motion.header>
 
-      {/* Chatbox full screen */}
+      
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
