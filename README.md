@@ -1,23 +1,23 @@
-<div align="center">
+<div align="center"> <img src="academicpallogo.png" alt="AcademicPal Logo" width="80" height="80"/> 
+  <h1> Academic Pal</h1> <p><em>Your AI-Powered Academic Companion for Smarter Learning</em></p> </div>
+  <div align="center">
+    
+    
+[![Website](https://img.shields.io/badge/🌐_Visit-Website-000000?style=for-the-badge&logoColor=white&labelColor=000000&color=000000)](https://www.academicpal.in)
+[![License: MIT](https://img.shields.io/github/license/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](https://github.com/Hari-hara7/Academic-pal/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](https://github.com/Hari-hara7/Academic-pal/network/members)
 
-###  Project Links  
-[![Website](https://img.shields.io/badge/🌐_Visit_Website-000000?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=000000&color=1E90FF)](https://www.academicpal.in)
+[![Issues](https://img.shields.io/github/issues/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](https://github.com/Hari-hara7/Academic-pal/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](https://github.com/Hari-hara7/Academic-pal/pulls)
+[![Last Commit](https://img.shields.io/github/last-commit/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](https://github.com/Hari-hara7/Academic-pal/commits)
+[![Contributors](https://img.shields.io/github/contributors/Hari-hara7/Academic-pal?style=for-the-badge&color=000000&labelColor=000000&logoColor=white)](https://github.com/Hari-hara7/Academic-pal/graphs/contributors)
 
-###  Repo Stats  
-[![License: MIT](https://img.shields.io/badge/License-MIT-000000?style=for-the-badge&logo=github&logoColor=white&color=1E90FF)](LICENSE)
-[![GitHub Stars](https://img.shields.io/badge/Stars-000000?style=for-the-badge&logo=github&logoColor=white&color=1E90FF)](https://github.com/Hari-hara7/Academic-pal/stargazers)
-[![GitHub Forks](https://img.shields.io/badge/Forks-000000?style=for-the-badge&logo=github&logoColor=white&color=1E90FF)](https://github.com/Hari-hara7/Academic-pal/network/members)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-000000?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-[![Issues](https://img.shields.io/badge/Issues-000000?style=for-the-badge&logo=github&logoColor=white&color=1E90FF)](https://github.com/Hari-hara7/Academic-pal/issues)
-[![Pull Requests](https://img.shields.io/badge/PRs-000000?style=for-the-badge&logo=github&logoColor=white&color=1E90FF)](https://github.com/Hari-hara7/Academic-pal/pulls)
-[![Last Commit](https://img.shields.io/badge/Last_Commit-000000?style=for-the-badge&logo=git&logoColor=white&color=1E90FF)](https://github.com/Hari-hara7/Academic-pal/commits)
-[![Contributors](https://img.shields.io/badge/Contributors-000000?style=for-the-badge&logo=github&logoColor=white&color=1E90FF)](https://github.com/Hari-hara7/Academic-pal/graphs/contributors)
-
-###  Tech Stack  
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white&color=1E90FF)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=white&color=1E90FF)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react&logoColor=white&color=1E90FF)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-000000?style=for-the-badge&logo=tailwindcss&logoColor=white&color=1E90FF)](https://tailwindcss.com/)
 
 </div>
 
