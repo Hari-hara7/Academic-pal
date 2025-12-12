@@ -1,4 +1,4 @@
-<div align="center"> <img src="academicpallogo.png" alt="AcademicPal Logo" width="100" height="80"/> 
+<div align="center"> <img src="academicpallogo.png" alt="AcademicPal Logo" width="120" height="80"/> 
   <h1> Academic Pal</h1> <p><em>Your AI-Powered Academic Companion for Smarter Learning</em></p> </div>
   <div align="center">
     
