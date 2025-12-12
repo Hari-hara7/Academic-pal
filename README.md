@@ -1,6 +1,6 @@
 <div align="center">
   <img src="academicpallogo.png" alt="AcademicPal Logo" width="80" height="80"/>
-  <h1>🎓 AcademicPal</h1>
+  <h1> Academic Pal</h1>
   <p><em>Your AI-Powered Academic Companion for Smarter Learning</em></p>
 </div>
 
