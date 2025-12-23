@@ -272,7 +272,7 @@ const Settings = () => {
             <UserIcon className="h-16 w-16 text-gray-400" />
             <h2 className="text-xl font-semibold text-white">Not Authenticated</h2>
             <p className="text-gray-400 text-center">Please log in to access settings.</p>
-            <Link href="/login">
+            <Link href="/">
               <Button className="bg-blue-500 hover:bg-blue-600">
                 Go to Login
               </Button>
