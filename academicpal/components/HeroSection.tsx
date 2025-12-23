@@ -162,7 +162,7 @@ export default function HeroSection() {
                     {feature.label}
                   </p>
                 </motion.div>
-              ))
+              ))}
             </motion.div>
 
             <motion.div

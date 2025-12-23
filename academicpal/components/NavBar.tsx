@@ -181,7 +181,7 @@ const NavBar = () => {
                   Login
                 </Button>
               </Link>
-            ))}
+            )}
           </div>
 
           <div className="flex items-center gap-3 lg:hidden">

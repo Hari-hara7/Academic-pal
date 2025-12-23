@@ -463,7 +463,7 @@ const KeyFeatures = () => {
                       <span className="whitespace-nowrap text-xs sm:text-sm md:text-base lg:text-lg">Try Live Chat</span>
                     </span>
                   </Button>
-                </div>
+                </Link>
               </div>
               
               <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10 lg:mt-12 pt-4 sm:pt-6 md:pt-7 lg:pt-8 border-t border-gray-700/50 px-2 sm:px-4 md:px-6 lg:px-8">
@@ -489,4 +489,3 @@ const KeyFeatures = () => {
 };
 
 export default KeyFeatures;
-
