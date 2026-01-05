@@ -44,7 +44,7 @@
     "firebase": "^11.0.2",
     "html2pdf.js": "^0.10.3",
     "jsonwebtoken": "^9.0.2",
-    "jspdf": "^3.0.3",
+    "jspdf": "^4.0.0",
     "lucide-react": "^0.511.0",
     "mongoose": "^8.15.1",
     "motion": "^12.23.24",
