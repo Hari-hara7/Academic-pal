@@ -336,7 +336,7 @@ npm run lint      # Run ESLint
 
 ---
 
-## 🚢 Deployment
+##  Deployment
 
 ### Vercel (Recommended)
 
@@ -370,7 +370,7 @@ docker run -p 3000:3000 academicpal
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
 
