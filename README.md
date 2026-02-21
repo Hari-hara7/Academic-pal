@@ -22,7 +22,7 @@
 
 ---
 
-## 📖 Overview
+##  Overview
 
 **AcademicPal** is a comprehensive full-stack web application designed to empower B.Tech students with AI-powered study tools, real-time collaboration, and community-driven academic resources. Built with modern technologies and a student-first approach.
 
@@ -36,9 +36,9 @@
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🤖 AI-Powered Tools
+###  AI-Powered Tools
 
 | Feature | Description |
 |---------|-------------|
@@ -46,7 +46,7 @@
 | **Smart Search** | AI-enhanced search across all resources with semantic understanding |
 | **Study Planner** | Intelligent schedule generation based on your goals and deadlines |
 
-### 📚 Academic Resources
+###  Academic Resources
 
 | Feature | Description |
 |---------|-------------|
@@ -57,7 +57,7 @@
 | **Tech Roadmaps** | Curated learning paths for various technologies |
 | **Blogs** | Read and write study tips, experiences, and guides |
 
-### 👥 Collaboration
+###  Collaboration
 
 | Feature | Description |
 |---------|-------------|
@@ -66,7 +66,7 @@
 | **Discussion Forums** | Q&A threads with upvoting and threaded replies |
 | **Peer Tutoring** | Connect with tutors, schedule sessions, and leave feedback |
 
-### 📊 Productivity
+###  Productivity
 
 | Feature | Description |
 |---------|-------------|
@@ -75,7 +75,7 @@
 | **Study Reminders** | Smart notifications to keep you on track |
 | **Upload & Share** | Contribute and explore peer materials |
 
-### 🔐 Authentication & Security
+###  Authentication & Security
 
 | Feature | Description |
 |---------|-------------|
@@ -85,7 +85,7 @@
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 <div align="center">
   <img src="academicpal/public/academicpal architecture.jpg" alt="AcademicPal System Architecture" width="100%"/>
@@ -94,7 +94,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 ```
@@ -135,7 +135,7 @@ GitHub Actions   →  CI/CD pipelines
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 academicpal/
@@ -192,7 +192,7 @@ academicpal/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -248,7 +248,7 @@ JWT_SECRET="your_jwt_secret"
 
 ---
 
-## 📡 API Reference
+##  API Reference
 
 ### Authentication
 | Method | Endpoint | Description |
@@ -323,7 +323,7 @@ JWT_SECRET="your_jwt_secret"
 
 ---
 
-## 🛠️ Development
+##  Development
 
 ### Scripts
 
@@ -360,7 +360,7 @@ docker run -p 3000:3000 academicpal
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. **Fork** the repository
 2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
@@ -376,7 +376,7 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 <div align="center">
 
@@ -392,7 +392,7 @@ Full Stack Developer
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Next.js](https://nextjs.org/) - React framework
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
