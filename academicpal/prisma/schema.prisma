@@ -1,3 +1,6 @@
+// AcademicPal - Prisma Database Schema
+// PostgreSQL database with models for roadmaps, bookmarks, upvotes, and comments
+
 generator client {
   provider = "prisma-client-js"
 }

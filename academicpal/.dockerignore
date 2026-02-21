@@ -1,5 +1,12 @@
+# AcademicPal - Docker ignore configuration
+# Excludes unnecessary files from Docker build context
+
 node_modules
 .next
 .git
 Dockerfile
 docker-compose.yml
+.env*
+*.md
+.vscode
+.github

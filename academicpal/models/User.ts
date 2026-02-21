@@ -1,4 +1,7 @@
-
+/**
+ * AcademicPal - User Model
+ * Mongoose schema for user accounts with name, email, and password
+ */
 import mongoose, { Schema } from 'mongoose';
 
 const UserSchema = new Schema({

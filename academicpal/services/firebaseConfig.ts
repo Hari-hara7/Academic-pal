@@ -1,3 +1,7 @@
+/**
+ * AcademicPal - Firebase Configuration
+ * Initializes Firebase app instance for authentication and Firestore
+ */
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";

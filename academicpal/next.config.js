@@ -1,6 +1,10 @@
+/**
+ * AcademicPal - Next.js Configuration
+ * Next.js 16 with Turbopack, PWA support, and remote image patterns
+ */
 const withPWA = require('next-pwa')({
   dest: 'public',
-  disable: process.env.NODE_ENV === 'development', // disable PWA in dev mode
+  disable: process.env.NODE_ENV === 'development',
   register: true,
   skipWaiting: true,
 });

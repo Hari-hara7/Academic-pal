@@ -1,3 +1,7 @@
+/**
+ * AcademicPal - ESLint Configuration
+ * Uses Next.js core-web-vitals and TypeScript recommended rules
+ */
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
