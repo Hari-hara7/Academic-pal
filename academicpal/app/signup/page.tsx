@@ -1,14 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  GithubAuthProvider,
-} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
+import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -47,6 +43,7 @@ const itemVariants = {
 
 const SignUp = () => {
   const router = useRouter();
+  const { user, loading, signInWithGoogle, signInWithGitHub } = useAuth();
   const [name, setName] = useState('');
   const [usn, setUsn] = useState('');
   const [email, setEmail] = useState('');
@@ -56,13 +53,18 @@ const SignUp = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Redirect if already logged in
+  useEffect(() => {
+    if (!loading && user) {
+      router.push('/home');
+    }
+  }, [user, loading, router]);
+
   const handleGoogleSignUp = async () => {
     setIsLoading(true);
     try {
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      await signInWithGoogle();
       toast.success('🎉 Signed up with Google successfully!');
-      router.push('/home');
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred';
       setError(errorMessage);
@@ -75,10 +77,8 @@ const SignUp = () => {
   const handleGithubSignUp = async () => {
     setIsLoading(true);
     try {
-      const provider = new GithubAuthProvider();
-      await signInWithPopup(auth, provider);
+      await signInWithGitHub();
       toast.success('🎉 Signed up with GitHub successfully!');
-      router.push('/home');
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred';
       setError(errorMessage);
@@ -87,6 +87,15 @@ const SignUp = () => {
       setIsLoading(false);
     }
   };
+
+  // Show loading while checking auth state
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   const isValidEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@nmamit\.in$/.test(email);
 

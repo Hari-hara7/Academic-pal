@@ -1,14 +1,18 @@
 'use client';
 
-import { useState } from 'react';
-import Auth from '@/components/Auth';
+import { useAuth } from '@/context/AuthContext';
 import Chat from '@/components/Chat';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
-const Home = () => {
-  const [user, setUser] = useState<any>(null);
+const ChatPage = () => {
+  const { user } = useAuth();
 
-  return <div>{user ? <Chat user={user} /> : <Auth setUser={setUser} />}</div>;
+  return (
+    <ProtectedRoute>
+      <div>{user && <Chat user={user} />}</div>
+    </ProtectedRoute>
+  );
 };
 
-export default Home;
+export default ChatPage;
 

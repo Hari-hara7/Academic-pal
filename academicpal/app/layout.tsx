@@ -10,6 +10,7 @@ import BottomNav from "../components/BottomNav";
 import Loginfooter from "../components/LoginFooter";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { AuthProvider } from "@/context/AuthContext";
 
 import { Poppins, Inter, Montserrat, Lato } from "next/font/google";
 
@@ -215,9 +216,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </Script>
 
       <body className="min-h-screen bg-gray-900 text-white flex flex-col font-inter">
-        {showHeader && <Header />}
-        {showHomeHeader && <HomeHeader showUid={true} />}
-        <main className="flex-grow">{children}</main>
+        <AuthProvider>
+          {showHeader && <Header />}
+          {showHomeHeader && <HomeHeader showUid={true} />}
+          <main className="flex-grow">{children}</main>
         {pathname === "/home" && <BottomNav />}
         {!["/", "/signup", "/home","/dashboard","/dashboard/study-planner",
       "/dashboard/timetable",
@@ -266,6 +268,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
             }}
           />
+        </AuthProvider>
       </body>
     </html>
   );

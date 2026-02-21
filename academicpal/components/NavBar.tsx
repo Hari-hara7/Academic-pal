@@ -3,8 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { useAuth } from '@/context/AuthContext';
 
 import {
   Sheet,
@@ -43,17 +42,8 @@ import {
 } from 'lucide-react';
 
 const NavBar = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +55,7 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      await auth.signOut();
+      await logout();
     } catch (error) {
       console.error('Error signing out:', error);
     }

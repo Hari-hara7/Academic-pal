@@ -1,22 +1,18 @@
+'use client';
 
-
-import { cookies } from 'next/headers';
-import { verifyToken } from '@/lib/auth';
+import { useAuth } from '@/context/AuthContext';
 import DashboardClient from './DashboardClient';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function DashboardHomePage() {
-  const cookieStore = cookies();
-  const token = cookieStore.get('token')?.value;
+  const { user } = useAuth();
 
-  let email = 'Guest';
-  try {
-    if (token) {
-      const decoded = verifyToken(token) as any;
-      email = decoded.email;
-    }
-  } catch {}
+  const email = user?.email || 'Guest';
 
-
-  return <DashboardClient email={email} />;
+  return (
+    <ProtectedRoute>
+      <DashboardClient email={email} />
+    </ProtectedRoute>
+  );
 }
 

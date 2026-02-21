@@ -24,19 +24,19 @@ const steps = [
     title: "Register on AcademicPal",
     description: "Sign up to access exclusive tools and features tailored for your academic success.",
     code: "https://academicpal.in/register",
-    icon: "✨",
+    icon: "",
   },
   {
     title: "Login to Your Dashboard",
     description: "Access your personalized learning space with AI-powered insights.",
     code: "https://academicpal.in/login",
-    icon: "🚀",
+    icon: "",
   },
   {
     title: "Explore Smart Dashboard",
     description: "Navigate to your dashboard to unlock powerful academic tools and resources.",
     code: "Navigate to Dashboard > Tools",
-    icon: "🎯",
+    icon: "",
   },
 ];
 

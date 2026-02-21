@@ -1,3 +1,5 @@
+'use client';
+
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
 import KeyFeatures from '@/components/KeyFeatures';
@@ -14,28 +16,31 @@ import { Glow } from '@/components/Glow';
 import { GoogleGeminiEffectDemo } from '@/components/GoogleGeminiEffectDemo';
 import { TimelineDemo } from '@/components/TimelineDemo';
 import { MarqueeDemo  } from '@/components/MarqueeDemo';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function Home() {
   return (
-    <div className="bg-black text-white min-h-screen font-sans overflow-x-hidden"> 
-      <NavBar />
-      <main className="pt-20 "> 
-        <HeroSection />
-        <KeyFeatures />
-        <About />
-        <Glow />
-        <GoogleGeminiEffectDemo />
-        <TimelineDemo />
-       <Workit />
-       <MarqueeDemo />
-        <Faq />
-        <Contact />
-        <BottomNav />
-        <Help />
-        <Contact2 />
-      </main>
-      <Footer />
-    </div>
+    <ProtectedRoute>
+      <div className="bg-black text-white min-h-screen font-sans overflow-x-hidden"> 
+        <NavBar />
+        <main className="pt-20 "> 
+          <HeroSection />
+          <KeyFeatures />
+          <About />
+          <Glow />
+          <GoogleGeminiEffectDemo />
+          <TimelineDemo />
+        <Workit />
+        <MarqueeDemo />
+          <Faq />
+          <Contact />
+          <BottomNav />
+          <Help />
+          <Contact2 />
+        </main>
+        <Footer />
+      </div>
+    </ProtectedRoute>
   );
 }
 

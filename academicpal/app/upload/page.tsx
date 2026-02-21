@@ -5,15 +5,17 @@ import { FaGoogle, FaUpload, FaLock, FaEye, FaHandshake } from 'react-icons/fa';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
-import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useAuth } from '@/context/AuthContext';
 import Home from '@/components/Home';
 import AdminPanel from '@/components/AdminPanel';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const UploadPage = () => {
-  const { user, signInWithGoogle, signOutUser } = useFirebaseAuth();
+  const { user, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
+    <ProtectedRoute>
     <div className="min-h-screen relative flex flex-col overflow-hidden font-sans text-white">
       
       <div className="absolute inset-0 -z-10 bg-black" />
@@ -30,24 +32,16 @@ const UploadPage = () => {
 
         
         <div className="hidden sm:flex items-center gap-4">
-          {user ? (
+          {user && (
             <>
               <span className="text-sm sm:text-base text-gray-300">{user.displayName}</span>
               <button
-                onClick={signOutUser}
+                onClick={logout}
                 className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-blue-500 hover:bg-blue-600 transition-all shadow-lg"
               >
                 Sign Out
               </button>
             </>
-          ) : (
-            <button
-              onClick={signInWithGoogle}
-              className="px-5 py-2 rounded-full text-sm sm:text-base font-medium bg-blue-500 hover:bg-blue-600 transition-all shadow-lg flex items-center gap-2"
-            >
-              <FaGoogle className="text-base" />
-              Sign In
-            </button>
           )}
         </div>
 
@@ -62,41 +56,29 @@ const UploadPage = () => {
         </div>
 
       
-        {mobileMenuOpen && (
+        {mobileMenuOpen && user && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
             className="absolute top-16 right-4 bg-black/95 backdrop-blur-lg text-white w-56 rounded-xl shadow-lg p-4 sm:hidden z-50"
           >
-            {user ? (
-              <>
-                <div className="flex items-center gap-3 mb-4">
-                  <Image
-                    src={user.photoURL}
-                    alt="Profile"
-                    width={32}
-                    height={32}
-                    className="rounded-full border border-gray-400"
-                  />
-                  <span className="text-sm">{user.displayName}</span>
-                </div>
-                <button
-                  onClick={signOutUser}
-                  className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm transition-all"
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={signInWithGoogle}
-                className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm flex items-center justify-center gap-2 transition-all"
-              >
-                <FaGoogle />
-                Sign In
-              </button>
-            )}
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src={user.photoURL || '/academicpal.jpg'}
+                alt="Profile"
+                width={32}
+                height={32}
+                className="rounded-full border border-gray-400"
+              />
+              <span className="text-sm">{user.displayName}</span>
+            </div>
+            <button
+              onClick={logout}
+              className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm transition-all"
+            >
+              Sign Out
+            </button>
           </motion.div>
         )}
       </header>
@@ -169,6 +151,7 @@ const UploadPage = () => {
   
      
     </div>
+    </ProtectedRoute>
   );
 };
 
