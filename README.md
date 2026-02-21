@@ -28,7 +28,7 @@
 
 <div align="center">
 
-| 🎯 Smart Learning | 🤝 Collaboration | 📊 Analytics | 🔒 Secure Auth |
+|  Smart Learning | Collaboration |  Analytics |  Secure Auth |
 |:---:|:---:|:---:|:---:|
 | AI-powered search | Real-time chat | Performance tracking | Firebase + OAuth |
 
