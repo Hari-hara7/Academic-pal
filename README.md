@@ -85,7 +85,16 @@
 
 ---
 
-## 🏗️ Tech Stack
+## 🏗️ System Architecture
+
+<div align="center">
+  <img src="academicpal/public/academicpal architecture.jpg" alt="AcademicPal System Architecture" width="100%"/>
+  <p><em>High-level architecture of AcademicPal</em></p>
+</div>
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
 ```
@@ -107,8 +116,8 @@ Socket.io           →  Real-time communication
 
 ### Database & Storage
 ```
-MongoDB      →  Primary database (via Prisma)
-Supabase     →  File storage & additional services
+MongoDB      →  Primary database 
+Supabase     →  File storage & additional services(via Prisma)
 Firebase     →  Auth & real-time features
 ```
 
