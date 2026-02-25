@@ -37,13 +37,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-black text-white font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-white max-w-4xl">
-          Academic Pal Journey Timeline
+      <div className="max-w-7xl mx-auto py-12 sm:py-16 md:py-20 px-4 md:px-8 lg:px-10">
+        <span className="inline-block px-4 py-1.5 mb-4 sm:mb-6 text-xs sm:text-sm font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full">
+          Our Journey
+        </span>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white tracking-tight max-w-4xl">
+          Academic Pal{" "}
+          <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            Timeline
+          </span>
         </h2>
-        <p className="text-neutral-400 text-sm md:text-base max-w-sm">
-          Discover the evolution of Academic Pal — how we started, what we’ve
-          built, and where we’re heading to empower students better every day.
+        <p className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed">
+          Discover the evolution of Academic Pal  how we started, what we&apos;ve
+          built, and where we&apos;re heading to empower students better every day.
         </p>
       </div>
 
@@ -88,4 +94,3 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     </div>
   );
 };
-
