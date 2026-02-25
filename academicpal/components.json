@@ -1,6 +1,10 @@
 /**
- * © 2026 AcademicPal. All rights reserved.
- * Unauthorized copying, modification, or distribution is prohibited.
+ * AcademicPal
+ * Copyright (c) 2026 AcademicPal.
+ * All rights reserved.
+ *
+ * This source code is proprietary and confidential.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
  */
 {
   "$schema": "https://ui.shadcn.com/schema.json",
