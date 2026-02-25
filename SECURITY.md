@@ -1,21 +1,60 @@
-# Security Policy
+# ========================================
+# AcademicPal – Security Policy
+# ========================================
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+The following versions of AcademicPal are currently supported with security updates:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version | Supported |
+| ------- | --------- |
+| 1.x.x   | ✅        |
+| < 1.0   | ❌        |
+
+Only the latest major version receives security patches and updates.
+
+---
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+The AcademicPal team takes security vulnerabilities seriously.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+If you discover a security vulnerability, please report it responsibly:
+
+📧 Email: security@academicpal.com  
+🔒 Subject: [Security Vulnerability] Brief description
+
+Please include:
+
+- Description of the vulnerability
+- Steps to reproduce
+- Potential impact
+- Screenshots or proof-of-concept (if applicable)
+
+---
+
+## What to Expect
+
+- ✅ Acknowledgement within **48 hours**
+- 🔎 Investigation and assessment
+- 🛠 Fix development (if confirmed)
+- 📢 Coordinated disclosure once resolved
+
+We kindly ask that you **do not publicly disclose vulnerabilities**
+until they have been investigated and resolved.
+
+---
+
+## Scope
+
+This policy applies to:
+
+- Source code in this repository
+- Official deployments of AcademicPal
+- Docker configurations and infrastructure
+
+Third-party dependencies should be reported directly to their maintainers unless the issue is caused by our integration.
+
+---
+
+Thank you for helping keep AcademicPal secure.
