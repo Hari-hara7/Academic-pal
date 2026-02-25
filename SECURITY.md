@@ -21,7 +21,7 @@ The AcademicPal team takes security vulnerabilities seriously.
 
 If you discover a security vulnerability, please report it responsibly:
 
-📧 Email: security@academicpal.com  
+📧 Email: hariharanath247@gmail.com  
 🔒 Subject: [Security Vulnerability] Brief description
 
 Please include:
