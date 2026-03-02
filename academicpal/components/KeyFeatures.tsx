@@ -77,6 +77,18 @@ const features = [
 }
 ,
   {
+    title: 'Real-Time Chat',
+    description: 'Engage with peers instantly and get help right when you need it.',
+    icon: MessageCircle,
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/10 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
+    link: '/chat',
+    buttonText: 'Chat Now',
+    category: 'Communication',
+    isPopular: true,
+  },
+  {
     title: 'Create & Explore Mindtrees',
     description: 'Visualize your learning with interactive mind maps for complex topics.',
     icon: BrainCircuit,
@@ -124,18 +136,7 @@ const features = [
     category: 'Content',
     isPopular: false,
   },
-  {
-    title: 'Real-Time Chat',
-    description: 'Engage with peers instantly and get help right when you need it.',
-    icon: MessageCircle,
-    iconColor: 'text-blue-400',
-    bgGradient: 'from-blue-500/10 to-blue-400/10',
-    borderColor: 'border-blue-500/30',
-    link: '/chat',
-    buttonText: 'Chat Now',
-    category: 'Communication',
-    isPopular: true,
-  },
+
   {
     title: 'AcademicPal AI - Smart Search',
     description: 'AI-powered search for notes, references, and materials in seconds.',
