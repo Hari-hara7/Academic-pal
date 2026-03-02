@@ -137,53 +137,456 @@ GitHub Actions   →  CI/CD pipelines
 
 ```
 academicpal/
-├── app/                          # Next.js App Router
-│   ├── home/                     # Main dashboard
-│   ├── chat/                     # Real-time chat
-│   ├── ai-assistant/             # AI chatbot
-│   ├── upload/                   # Resource upload
-│   ├── profile/                  # User profile
-│   ├── settings/                 # User settings
-│   ├── dashboard/                # User dashboard
-│   │   ├── flashcards/           # Flashcard CRUD
-│   │   ├── study-planner/        # Study planning
-│   │   ├── timetable/            # Schedule management
-│   │   ├── blogs/                # Blog system
-│   │   ├── forum/                # Discussion forums
-│   │   ├── mind-map/             # Mind map creator
-│   │   ├── study-groups/         # Group collaboration
-│   │   ├── study-reminders/      # Reminder system
-│   │   ├── tutoring/             # Peer tutoring
-│   │   └── performance-analytics/
+├── .dockerignore
+├── .env
+├── .env.example
+├── .gitignore
+├── components.json
+├── Dockerfile
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.js
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── README.md
+├── release.config.js
+├── tsconfig.json
+│
+├── app/                                    # Next.js App Router
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
 │   │
-│   └── api/                      # API Routes
-│       ├── auth/                 # Authentication endpoints
-│       ├── ai/                   # AI chat endpoint
-│       ├── blogs/                # Blog CRUD
-│       ├── flashcards/           # Flashcard CRUD
-│       ├── forum/                # Forum endpoints
-│       ├── mind-map/             # Mind map CRUD
-│       ├── study-groups/         # Group management
-│       ├── study-planner/        # Planner CRUD
-│       ├── study-reminders/      # Reminder CRUD
-│       ├── timetable/            # Timetable CRUD
-│       ├── tutoring/             # Tutoring system
-│       └── performance-analytics/
+│   ├── about/
+│   │   └── page.tsx
+│   ├── ai-assistant/
+│   │   └── page.tsx
+│   ├── chat/
+│   │   └── page.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── dashboardd/
+│   │   └── page.tsx
+│   ├── home/
+│   │   └── page.tsx
+│   ├── login/
+│   │   └── page.tsx
+│   ├── privacy-policy/
+│   │   └── page.tsx
+│   ├── profile/
+│   │   └── page.tsx
+│   ├── register/
+│   │   └── page.tsx
+│   ├── roadmaps/
+│   │   └── page.tsx
+│   ├── settings/
+│   │   └── page.tsx
+│   ├── signup/
+│   │   └── page.tsx
+│   ├── terms-and-conditions/
+│   │   └── page.tsx
+│   ├── upload/
+│   │   └── page.tsx
+│   │
+│   ├── dashboard/                          # User Dashboard
+│   │   ├── DashboardClient.tsx
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   │
+│   │   ├── blogs/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── flashcards/
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── delete/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── edit/
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   │
+│   │   ├── forum/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── mind-map/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── delete/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── edit/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── view/
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   │
+│   │   ├── performance-analytics/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── delete/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── edit/
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   │
+│   │   ├── study-groups/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── study-planner/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── delete/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── edit/
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   │
+│   │   ├── study-reminders/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── delete/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── edit/
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   │
+│   │   ├── timetable/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── delete/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── edit/
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   │
+│   │   └── tutoring/
+│   │       ├── page.tsx
+│   │       ├── become/
+│   │       │   └── page.tsx
+│   │       ├── feedback/
+│   │       │   └── [sessionId]/
+│   │       │       └── page.tsx
+│   │       ├── find-tutor/
+│   │       │   └── page.tsx
+│   │       ├── my-sessions/
+│   │       │   └── page.tsx
+│   │       └── schedule/
+│   │           └── [tutorId]/
+│   │               └── page.tsx
+│   │
+│   └── api/                                # API Routes
+│       ├── ai/
+│       │   └── chat/
+│       │       └── route.ts
+│       │
+│       ├── auth/
+│       │   ├── login/
+│       │   │   └── route.ts
+│       │   ├── logout/
+│       │   │   └── route.ts
+│       │   └── register/
+│       │       └── route.ts
+│       │
+│       ├── blogs/
+│       │   ├── comment/
+│       │   │   └── route.ts
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── [id]/
+│       │   │       └── route.ts
+│       │   ├── get-all/
+│       │   │   └── route.ts
+│       │   ├── get-one/
+│       │   │   └── [id]/
+│       │   │       └── route.ts
+│       │   └── vote/
+│       │       └── route.ts
+│       │
+│       ├── flashcards/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── delete/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   └── update/
+│       │       └── route.ts
+│       │
+│       ├── forum/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   ├── reply/
+│       │   │   └── route.ts
+│       │   └── thread/
+│       │       └── route.ts
+│       │
+│       ├── mind-map/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── delete/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   └── update/
+│       │       └── route.ts
+│       │
+│       ├── performance-analytics/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── delete/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   └── update/
+│       │       └── route.ts
+│       │
+│       ├── study-groups/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   ├── getById/
+│       │   │   └── route.ts
+│       │   └── join/
+│       │       └── route.ts
+│       │
+│       ├── study-planner/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── delete/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   └── update/
+│       │       └── route.ts
+│       │
+│       ├── study-reminders/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── delete/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   └── update/
+│       │       └── route.ts
+│       │
+│       ├── timetable/
+│       │   ├── create/
+│       │   │   └── route.ts
+│       │   ├── delete/
+│       │   │   └── route.ts
+│       │   ├── get/
+│       │   │   └── route.ts
+│       │   └── update/
+│       │       └── route.ts
+│       │
+│       └── tutoring/
+│           ├── sessions/
+│           │   ├── create/
+│           │   │   └── route.ts
+│           │   ├── feedback/
+│           │   │   └── route.ts
+│           │   └── my/
+│           │       └── route.ts
+│           └── tutors/
+│               ├── create/
+│               │   └── route.ts
+│               ├── list/
+│               │   └── route.ts
+│               └── register/
+│                   └── route.ts
 │
-├── components/                   # React components
-│   ├── ui/                       # ShadCN UI components
-│   ├── magicui/                  # Custom UI effects
-│   └── eldoraui/                 # Additional UI components
+├── components/                             # React Components
+│   ├── About.tsx
+│   ├── AdminPanel.tsx
+│   ├── Auth.tsx
+│   ├── BottomNav.tsx
+│   ├── Chat.tsx
+│   ├── ChatbotDemo.tsx
+│   ├── ChatBox.tsx
+│   ├── ChatInput.tsx
+│   ├── ChatMessage.tsx
+│   ├── Contact.tsx
+│   ├── Contact2.tsx
+│   ├── Faq.tsx
+│   ├── Footer.tsx
+│   ├── Footerhome.tsx
+│   ├── Glow.tsx
+│   ├── GoogleGeminiEffectDemo.tsx
+│   ├── Header.tsx
+│   ├── HeroSection.tsx
+│   ├── Home.tsx
+│   ├── HowItWorks.tsx
+│   ├── KeyFeatures.tsx
+│   ├── KeyFeaturesNew.tsx
+│   ├── LatestBlog.tsx
+│   ├── LoginFooter.tsx
+│   ├── MarqueeDemo.tsx
+│   ├── MessageBubble.tsx
+│   ├── NavBar.tsx
+│   ├── Navbar2.tsx
+│   ├── NewsletterSignup.tsx
+│   ├── PopularResources.tsx
+│   ├── Profile.tsx
+│   ├── ProtectedRoute.tsx
+│   ├── ResourceCard.tsx
+│   ├── Settings.tsx
+│   ├── SignInPage.tsx
+│   ├── Support.tsx
+│   ├── Testimonal.tsx
+│   ├── TimelineDemo.tsx
+│   ├── Workit.tsx
+│   │
+│   ├── eldoraui/
+│   │   ├── gitstarbutton.tsx
+│   │   └── staticstepper.tsx
+│   │
+│   ├── magicui/
+│   │   ├── animated-shiny-text.tsx
+│   │   ├── border-beam.tsx
+│   │   ├── magic-card.tsx
+│   │   ├── marquee.tsx
+│   │   ├── meteors.tsx
+│   │   ├── neon-gradient-card.tsx
+│   │   ├── shine-border.tsx
+│   │   └── sparkles-text.tsx
+│   │
+│   └── ui/
+│       ├── 3d-marquee.tsx
+│       ├── accordion.tsx
+│       ├── avatar.tsx
+│       ├── badge.tsx
+│       ├── bento-grid.tsx
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── checkbox.tsx
+│       ├── dialog.tsx
+│       ├── dropdown-menu.tsx
+│       ├── glowing-effect.tsx
+│       ├── google-gemini-effect.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── progress.tsx
+│       ├── select.tsx
+│       ├── separator.tsx
+│       ├── sheet.tsx
+│       ├── skeleton.tsx
+│       ├── switch.tsx
+│       ├── tabs.tsx
+│       ├── textarea.tsx
+│       └── timeline.tsx
 │
-├── context/                      # React Context providers
-│   └── AuthContext.tsx           # Global auth state
+├── context/
+│   └── AuthContext.tsx
 │
-├── hooks/                        # Custom React hooks
-├── lib/                          # Utility functions
-├── models/                       # Data models
-├── public/                       # Static assets
-├── services/                     # External service configs
-└── types/                        # TypeScript definitions
+├── hooks/
+│   └── useFirebaseAuth.ts
+│
+├── lib/
+│   ├── auth.ts
+│   ├── db.ts
+│   ├── firebase.ts
+│   ├── geminiClient.ts
+│   ├── hash.ts
+│   ├── middleware.ts
+│   ├── socket.ts
+│   ├── socketServer.ts
+│   ├── time.ts
+│   └── utils.ts
+│
+├── models/
+│   ├── Blog.ts
+│   ├── Flashcard.ts
+│   ├── ForumPost.ts
+│   ├── MindMap.ts
+│   ├── Session.ts
+│   ├── StudyGroup.ts
+│   ├── StudyReminder.ts
+│   ├── StudySession.ts
+│   ├── StudyTask.ts
+│   ├── Timetable.ts
+│   ├── Tutor.ts
+│   └── User.ts
+│
+├── public/
+│   ├── 1.1k.jpg
+│   ├── 2k.jpg
+│   ├── 4k.png
+│   ├── academicpal architecture.jpg
+│   ├── academicpal.jpg
+│   ├── ads.jpg
+│   ├── adso.jpg
+│   ├── ai.jpeg
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── hand-drawn-nerd-cartoon-illustration.png
+│   ├── image1.png
+│   ├── logo_academic_pal-removebg-preview.png
+│   ├── manifest.json
+│   ├── next.svg
+│   ├── notes.jpeg
+│   ├── pyqs.jpeg
+│   ├── roadmap.webp
+│   ├── robots.txt
+│   ├── rtc.jpeg
+│   ├── Screenshot 2025-06-26 133640.png
+│   ├── sitemap.xml
+│   ├── sw.js
+│   ├── upload.jpeg
+│   ├── vercel.svg
+│   ├── window.svg
+│   ├── workbox-4754cb34.js
+│   └── icons/
+│       └── icon-192x192.png
+│
+├── services/
+│   └── firebaseConfig.ts
+│
+└── types/
+    ├── blog.ts
+    ├── chat.ts
+    ├── forum.ts
+    ├── mindMap.ts
+    ├── resource.d.ts
+    ├── session.ts
+    ├── studyGroup.ts
+    ├── studyReminder.ts
+    ├── studySession.ts
+    ├── studyTask.ts
+    ├── timetable.ts
+    ├── tutor.ts
+    └── user.ts
 ```
 
 ---
