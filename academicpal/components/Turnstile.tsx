@@ -47,16 +47,16 @@ export default function Turnstile({
 }: TurnstileProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const [scriptLoaded, setScriptLoaded] = useState(false);
-  const [status, setStatus] = useState<'loading' | 'ready' | 'verified' | 'error'>('loading');
-  const mountedRef = useRef(true);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'verified' | 'error'>('idle');
   const renderAttemptedRef = useRef(false);
 
-  // Reset on unmount
+  // Set mounted on client
   useEffect(() => {
-    mountedRef.current = true;
+    setMounted(true);
+    setStatus('loading');
     return () => {
-      mountedRef.current = false;
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);
@@ -69,10 +69,10 @@ export default function Turnstile({
 
   // Render widget when script is loaded
   useEffect(() => {
-    if (!scriptLoaded || !containerRef.current || renderAttemptedRef.current) return;
+    if (!mounted || !scriptLoaded || !containerRef.current || renderAttemptedRef.current) return;
 
     const renderWidget = () => {
-      if (!mountedRef.current || !containerRef.current || !window.turnstile) return;
+      if (!containerRef.current || !window.turnstile) return;
       
       renderAttemptedRef.current = true;
       
@@ -94,22 +94,16 @@ export default function Turnstile({
         widgetIdRef.current = window.turnstile.render(containerRef.current, {
           sitekey: siteKey,
           callback: (token: string) => {
-            if (mountedRef.current) {
-              setStatus('verified');
-              onVerify(token);
-            }
+            setStatus('verified');
+            onVerify(token);
           },
           'error-callback': () => {
-            if (mountedRef.current) {
-              setStatus('error');
-              onError?.();
-            }
+            setStatus('error');
+            onError?.();
           },
           'expired-callback': () => {
-            if (mountedRef.current) {
-              setStatus('loading');
-              onExpire?.();
-            }
+            setStatus('loading');
+            onExpire?.();
           },
           theme,
           size,
@@ -125,7 +119,7 @@ export default function Turnstile({
     // Small delay to ensure DOM is ready
     const timer = setTimeout(renderWidget, 100);
     return () => clearTimeout(timer);
-  }, [scriptLoaded, siteKey, theme, size, onVerify, onError, onExpire]);
+  }, [mounted, scriptLoaded, siteKey, theme, size, onVerify, onError, onExpire]);
 
   const handleRetry = () => {
     setStatus('loading');
@@ -146,31 +140,27 @@ export default function Turnstile({
     }
   };
 
+  // Always render the same structure for SSR/hydration compatibility
+  // Only show dynamic content after mount
   return (
     <div className={className}>
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          if (mountedRef.current) {
-            setScriptLoaded(true);
-          }
-        }}
-        onError={() => {
-          if (mountedRef.current) {
-            setStatus('error');
-          }
-        }}
-      />
+      {mounted && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={() => setScriptLoaded(true)}
+          onError={() => setStatus('error')}
+        />
+      )}
       
-      {/* Turnstile container */}
+      {/* Turnstile container - always rendered for consistent hydration */}
       <div 
         ref={containerRef} 
         className="flex justify-center min-h-[65px]"
       />
       
-      {/* Status indicators */}
-      {status === 'loading' && !scriptLoaded && (
+      {/* Status indicators - only shown after mount to prevent hydration mismatch */}
+      {mounted && status === 'loading' && !scriptLoaded && (
         <div className="flex items-center justify-center gap-2 text-gray-400 text-sm mt-2">
           <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
@@ -180,7 +170,7 @@ export default function Turnstile({
         </div>
       )}
       
-      {status === 'verified' && (
+      {mounted && status === 'verified' && (
         <div className="flex items-center justify-center gap-2 text-green-400 text-sm mt-2">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -189,7 +179,7 @@ export default function Turnstile({
         </div>
       )}
       
-      {status === 'error' && (
+      {mounted && status === 'error' && (
         <div className="flex flex-col items-center gap-2 mt-2">
           <span className="text-red-400 text-sm">Verification failed</span>
           <button
