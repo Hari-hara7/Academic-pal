@@ -7,11 +7,21 @@ export async function GET(req: NextRequest) {
 
   try {
     const url = new URL(req.url);
+    const tutorId = url.searchParams.get('tutorId');
     const subject = url.searchParams.get('subject');
     const year = url.searchParams.get('year');
     const availability = url.searchParams.get('availability');
 
-    const query: any = {};
+    // If tutorId is provided, fetch single tutor
+    if (tutorId) {
+      const tutor = await Tutor.findById(tutorId).lean();
+      if (!tutor) {
+        return NextResponse.json({ success: false, message: 'Tutor not found' }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, tutors: [tutor] });
+    }
+
+    const query: Record<string, unknown> = {};
 
     if (subject) {
       query.subjects = subject;

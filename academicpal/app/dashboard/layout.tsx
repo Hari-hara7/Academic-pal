@@ -1,19 +1,95 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import {
   Menu, Home, Calendar, LogOut, BookOpen, ClipboardList,
   BellRing, BarChart2, GraduationCap
 } from 'lucide-react';
 import { FaProjectDiagram, FaPenNib, FaUsers, FaComments } from 'react-icons/fa';
-import { Toaster } from 'sonner';
+import { Toaster, toast } from 'sonner';
 import { Input } from '@/components/ui/input';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const router = useRouter();
+  const notifiedIdsRef = useRef<Set<string>>(new Set());
+
+  // Request notification permission on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'Notification' in window) {
+      if (Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
+    }
+  }, []);
+
+  // Check for due reminders
+  const checkReminders = useCallback(async () => {
+    try {
+      const res = await fetch('/api/study-reminders/get');
+      const data = await res.json();
+      
+      if (data.success && data.reminders) {
+        const now = new Date().getTime();
+        
+        data.reminders.forEach((reminder: { _id: string; title: string; description?: string; remindAt: string }) => {
+          const remindTime = new Date(reminder.remindAt).getTime();
+          const timeDiff = remindTime - now;
+          
+          // Check if reminder is due (within 1 minute window) and not already notified
+          if (timeDiff >= -60000 && timeDiff <= 60000 && !notifiedIdsRef.current.has(reminder._id)) {
+            notifiedIdsRef.current.add(reminder._id);
+            
+            // Show toast notification in-app
+            toast.info(`⏰ Reminder: ${reminder.title}`, {
+              description: reminder.description || 'Time for your scheduled task!',
+              duration: 10000,
+            });
+            
+            // Show browser notification if permitted
+            if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') {
+              new Notification(`⏰ Reminder: ${reminder.title}`, {
+                body: reminder.description || 'Time for your scheduled task!',
+                icon: '/icons/icon-192x192.png',
+                tag: reminder._id,
+              });
+            }
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error checking reminders:', error);
+    }
+  }, []);
+
+  // Poll for reminders every 30 seconds
+  useEffect(() => {
+    checkReminders(); // Check immediately on mount
+    const interval = setInterval(checkReminders, 30000);
+    return () => clearInterval(interval);
+  }, [checkReminders]);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await signOut(auth);
+      // Clear any stored data
+      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      localStorage.removeItem('user');
+      sessionStorage.clear();
+      router.push('/signup');
+    } catch (error) {
+      console.error('Logout error:', error);
+      setIsLoggingOut(false);
+    }
+  };
 
   const navItems = [
     { href: '/dashboard', icon: <Home className="h-4 w-4" />, label: 'Home' },
@@ -80,17 +156,18 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             </Link>
           ))}
 
-          <form method="POST" action="/api/auth/logout" className="pt-6">
+          <div className="pt-6">
             <Button
-              type="submit"
+              type="button"
               variant="outline"
               className="w-full flex items-center gap-2 bg-white text-black hover:bg-gray-200"
-              onClick={() => setIsSidebarOpen(false)}
+              onClick={handleLogout}
+              disabled={isLoggingOut}
             >
               <LogOut className="h-4 w-4" />
-              Logout
+              {isLoggingOut ? 'Logging out...' : 'Logout'}
             </Button>
-          </form>
+          </div>
         </nav>
       </aside>
 
