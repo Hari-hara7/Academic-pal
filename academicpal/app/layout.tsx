@@ -188,10 +188,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://academicpal.in${pathname}`} />
         <link rel="alternate" hrefLang="en" href={`https://academicpal.in${pathname}`} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="icon" href="/academicpal.jpg" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#3b82f6" />
+        
+        {/* PWA meta tags */}
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="AcademicPal" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="AcademicPal" />
+        <meta name="msapplication-TileColor" content="#3b82f6" />
+        <meta name="msapplication-TileImage" content="/icons/icon-192x192.png" />
+        
         <meta property="og:title" content={currentSEO.title} />
         <meta property="og:description" content={currentSEO.description} />
         <meta property="og:type" content="website" />
