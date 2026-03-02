@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Script from 'next/script';
 
 interface TurnstileProps {
   siteKey: string;
@@ -14,25 +15,24 @@ interface TurnstileProps {
 
 declare global {
   interface Window {
-    turnstile: {
+    turnstile?: {
       render: (
-        container: HTMLElement,
+        container: HTMLElement | string,
         options: {
           sitekey: string;
           callback: (token: string) => void;
           'error-callback'?: () => void;
           'expired-callback'?: () => void;
-          'timeout-callback'?: () => void;
           theme?: 'light' | 'dark' | 'auto';
           size?: 'normal' | 'compact' | 'invisible';
-          retry?: 'auto' | 'never';
-          'retry-interval'?: number;
+          action?: string;
+          appearance?: 'always' | 'execute' | 'interaction-only';
         }
       ) => string;
-      reset: (widgetId: string) => void;
+      reset: (widgetId?: string) => void;
       remove: (widgetId: string) => void;
+      getResponse: (widgetId?: string) => string | undefined;
     };
-    onloadTurnstileCallback?: () => void;
   }
 }
 
@@ -47,141 +47,160 @@ export default function Turnstile({
 }: TurnstileProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const [status, setStatus] = useState<'loading' | 'ready' | 'verified' | 'error'>('loading');
+  const mountedRef = useRef(true);
+  const renderAttemptedRef = useRef(false);
 
-  // Check if using test keys (bypass for localhost testing)
-  const isTestKey = siteKey.startsWith('1x0000') || siteKey.startsWith('2x0000') || siteKey.startsWith('3x0000');
-
-  const handleVerify = useCallback((token: string) => {
-    setIsLoading(false);
-    setHasError(false);
-    onVerify(token);
-  }, [onVerify]);
-
-  const handleError = useCallback(() => {
-    setIsLoading(false);
-    setHasError(true);
-    onError?.();
-  }, [onError]);
-
-  const handleExpire = useCallback(() => {
-    setIsLoading(true);
-    onExpire?.();
-  }, [onExpire]);
-
-  const handleTimeout = useCallback(() => {
-    setIsLoading(false);
-    setHasError(true);
-    console.warn('Turnstile verification timed out, retrying...');
-  }, []);
-
+  // Reset on unmount
   useEffect(() => {
-    // For test keys on localhost, auto-verify after a short delay
-    if (isTestKey && typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-      const timer = setTimeout(() => {
-        handleVerify('test-token-localhost');
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-
-    // Load Turnstile script if not already loaded
-    const scriptId = 'cf-turnstile-script';
-    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
-    
-    if (!script) {
-      script = document.createElement('script');
-      script.id = scriptId;
-      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    }
-
-    const renderWidget = () => {
-      if (containerRef.current && window.turnstile && !widgetIdRef.current) {
-        // Clear existing content
-        containerRef.current.innerHTML = '';
-        
-        widgetIdRef.current = window.turnstile.render(containerRef.current, {
-          sitekey: siteKey,
-          callback: handleVerify,
-          'error-callback': handleError,
-          'expired-callback': handleExpire,
-          'timeout-callback': handleTimeout,
-          theme,
-          size,
-          retry: 'auto',
-          'retry-interval': 5000,
-        });
-        setIsLoading(true);
-      }
-    };
-
-    // Check if Turnstile is already loaded
-    if (window.turnstile) {
-      renderWidget();
-    } else {
-      script.addEventListener('load', renderWidget);
-    }
-
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);
-        } catch (e) {
-          // Widget might already be removed
+        } catch {
+          // Ignore removal errors
+        }
+      }
+    };
+  }, []);
+
+  // Render widget when script is loaded
+  useEffect(() => {
+    if (!scriptLoaded || !containerRef.current || renderAttemptedRef.current) return;
+
+    const renderWidget = () => {
+      if (!mountedRef.current || !containerRef.current || !window.turnstile) return;
+      
+      renderAttemptedRef.current = true;
+      
+      // Clear any existing widget first
+      if (widgetIdRef.current) {
+        try {
+          window.turnstile.remove(widgetIdRef.current);
+        } catch {
+          // Ignore
         }
         widgetIdRef.current = null;
       }
+      
+      // Clear container
+      containerRef.current.innerHTML = '';
+      
+      try {
+        setStatus('ready');
+        widgetIdRef.current = window.turnstile.render(containerRef.current, {
+          sitekey: siteKey,
+          callback: (token: string) => {
+            if (mountedRef.current) {
+              setStatus('verified');
+              onVerify(token);
+            }
+          },
+          'error-callback': () => {
+            if (mountedRef.current) {
+              setStatus('error');
+              onError?.();
+            }
+          },
+          'expired-callback': () => {
+            if (mountedRef.current) {
+              setStatus('loading');
+              onExpire?.();
+            }
+          },
+          theme,
+          size,
+          appearance: 'always',
+        });
+      } catch (err) {
+        console.error('Turnstile render error:', err);
+        setStatus('error');
+        onError?.();
+      }
     };
-  }, [siteKey, handleVerify, handleError, handleExpire, handleTimeout, theme, size, isTestKey]);
 
-  const retry = () => {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(renderWidget, 100);
+    return () => clearTimeout(timer);
+  }, [scriptLoaded, siteKey, theme, size, onVerify, onError, onExpire]);
+
+  const handleRetry = () => {
+    setStatus('loading');
+    renderAttemptedRef.current = false;
     if (widgetIdRef.current && window.turnstile) {
-      setIsLoading(true);
-      setHasError(false);
-      window.turnstile.reset(widgetIdRef.current);
+      try {
+        window.turnstile.reset(widgetIdRef.current);
+        setStatus('ready');
+      } catch {
+        // Force re-render
+        if (containerRef.current) {
+          containerRef.current.innerHTML = '';
+          widgetIdRef.current = null;
+          setScriptLoaded(false);
+          setTimeout(() => setScriptLoaded(true), 100);
+        }
+      }
     }
   };
 
-  // Show test mode indicator on localhost
-  if (isTestKey && typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-    return (
-      <div className={`${className} text-center`}>
-        <div className="inline-flex items-center gap-2 px-3 py-2 bg-green-500/20 border border-green-500/30 rounded-lg">
-          <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-          <span className="text-green-400 text-sm">Test Mode - Auto Verified</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={className}>
-      <div ref={containerRef} />
-      {hasError && (
-        <button
-          type="button"
-          onClick={retry}
-          className="mt-2 text-sm text-blue-400 hover:text-blue-300 underline"
-        >
-          Verification failed. Click to retry
-        </button>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          if (mountedRef.current) {
+            setScriptLoaded(true);
+          }
+        }}
+        onError={() => {
+          if (mountedRef.current) {
+            setStatus('error');
+          }
+        }}
+      />
+      
+      {/* Turnstile container */}
+      <div 
+        ref={containerRef} 
+        className="flex justify-center min-h-[65px]"
+      />
+      
+      {/* Status indicators */}
+      {status === 'loading' && !scriptLoaded && (
+        <div className="flex items-center justify-center gap-2 text-gray-400 text-sm mt-2">
+          <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+          </svg>
+          <span>Loading security check...</span>
+        </div>
+      )}
+      
+      {status === 'verified' && (
+        <div className="flex items-center justify-center gap-2 text-green-400 text-sm mt-2">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Verified</span>
+        </div>
+      )}
+      
+      {status === 'error' && (
+        <div className="flex flex-col items-center gap-2 mt-2">
+          <span className="text-red-400 text-sm">Verification failed</span>
+          <button
+            type="button"
+            onClick={handleRetry}
+            className="text-sm text-blue-400 hover:text-blue-300 underline"
+          >
+            Click to retry
+          </button>
+        </div>
       )}
     </div>
   );
-}
-
-// Hook for easy usage
-export function useTurnstile() {
-  const resetTurnstile = useCallback((widgetId: string) => {
-    if (window.turnstile) {
-      window.turnstile.reset(widgetId);
-    }
-  }, []);
-
-  return { resetTurnstile };
 }
