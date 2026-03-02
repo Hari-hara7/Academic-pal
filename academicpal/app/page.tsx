@@ -22,6 +22,7 @@ import { Sparkles, ArrowRight, Shield, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { Inter } from 'next/font/google';
+import Turnstile from '@/components/Turnstile';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ const Login = () => {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   const isValidEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@nmamit\.in$/.test(email);
 
@@ -108,6 +110,13 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    if (!turnstileToken) {
+      setError('Please complete the verification');
+      toast.error('Please complete the verification');
+      setIsLoading(false);
+      return;
+    }
 
     if (!isValidEmail(email)) {
       setError('Please enter a valid NMAMIT email.');
@@ -330,10 +339,19 @@ const Login = () => {
                     </motion.div>
                   )}
 
+                  <div className="flex justify-center">
+                    <Turnstile
+                      siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                      onVerify={(token) => setTurnstileToken(token)}
+                      onExpire={() => setTurnstileToken('')}
+                      theme="dark"
+                    />
+                  </div>
+
                   <Button
                     type="submit"
                     className="w-full h-12 rounded-xl bg-white text-black hover:bg-neutral-100 active:bg-neutral-200 border border-white/20 font-semibold shadow-sm hover:shadow transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={isLoading}
+                    disabled={isLoading || !turnstileToken}
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-3">

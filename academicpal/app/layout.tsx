@@ -217,7 +217,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-gray-900 text-white flex flex-col font-inter">
         <AuthProvider>
           {showHeader && <Header />}
-          {showHomeHeader && <HomeHeader showUid={true} />}
+          {showHomeHeader && <HomeHeader />}
           <main className="flex-grow">{children}</main>
         {pathname === "/home" && <BottomNav />}
         {!["/", "/signup", "/home","/dashboard","/dashboard/study-planner",

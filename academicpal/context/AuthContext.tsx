@@ -15,6 +15,7 @@ import { useRouter, usePathname } from 'next/navigation';
 interface AuthContextType {
   user: User | null;
   loading: boolean;
+  isAdmin: boolean;
   signInWithGoogle: () => Promise<void>;
   signInWithGitHub: () => Promise<void>;
   logout: () => Promise<void>;
@@ -51,6 +52,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Admin emails list - add admin email addresses here
+  const adminEmails = [
+    'hariharanath247@gmail.com',
+    'admin@academicpal.in',
+  ];
+
+  const isAdmin = user?.email ? adminEmails.includes(user.email) : false;
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
@@ -61,6 +70,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         (route) => pathname === route || pathname?.startsWith(route + '/')
       );
       const isPublicRoute = publicRoutes.includes(pathname || '');
+      void isPublicRoute; // Suppress unused variable warning
 
       if (!currentUser && isProtectedRoute) {
         // User is not logged in and trying to access protected route
@@ -112,6 +122,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         loading,
+        isAdmin,
         signInWithGoogle,
         signInWithGitHub,
         logout,

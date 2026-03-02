@@ -8,20 +8,28 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
+import Turnstile from '@/components/Turnstile';
 
 export default function RegisterPage() {
   const router = useRouter();
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError('');
 
+    if (!turnstileToken) {
+      setError('Please complete the verification');
+      toast.error('Please complete the verification');
+      return;
+    }
+
     const res = await fetch('/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ ...form, turnstileToken }),
     });
 
     if (res.ok) {
@@ -75,9 +83,20 @@ export default function RegisterPage() {
               required
             />
             {error && <p className="text-red-400 text-sm">{error}</p>}
+            
+            <div className="flex justify-center">
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                onVerify={(token) => setTurnstileToken(token)}
+                onExpire={() => setTurnstileToken('')}
+                theme="dark"
+              />
+            </div>
+            
             <Button
               type="submit"
               className="w-full bg-white text-black hover:bg-white/80 transition-colors"
+              disabled={!turnstileToken}
             >
               Register
             </Button>

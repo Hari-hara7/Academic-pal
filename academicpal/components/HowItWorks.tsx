@@ -28,7 +28,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section className="py-20 px-6 bg-black max-w-6xl mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-12 font-bold font-poppins text-white">How It Works</h2>
+      <h2 className="text-4xl font-bold mb-12 font-poppins text-white">How It Works</h2>
       <div className="grid md:grid-cols-4 gap-10">
         {steps.map(({ step, title, description }) => (
           <div key={step} className="bg-black border border-white/20 p-6 rounded-xl shadow-md hover:shadow-xl hover:border-blue-500 transition">

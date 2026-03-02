@@ -4,9 +4,17 @@ import { connectDB } from '@/lib/db';
 import { User } from '@/models/User';
 import { comparePassword } from '@/lib/hash';
 import { signToken } from '@/lib/auth';
+import { verifyTurnstileToken } from '@/lib/turnstile';
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json();
+  const { email, password, turnstileToken } = await req.json();
+  
+  // Verify Turnstile token
+  const isValidToken = await verifyTurnstileToken(turnstileToken);
+  if (!isValidToken) {
+    return NextResponse.json({ message: 'Verification failed. Please try again.' }, { status: 400 });
+  }
+  
   await connectDB();
 
   const user = await User.findOne({ email });
