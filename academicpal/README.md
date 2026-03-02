@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
 - **Firebase Auth** for authentication
-- **Prisma** for database ORM
+- **MongoDB** with Mongoose ODM
 - **ShadCN UI** for components
 
 ## Project Structure
@@ -27,7 +27,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 - `context/` — React Context providers (Auth)
 - `lib/` — Utility functions & configurations
 - `models/` — Mongoose data models
-- `prisma/` — Database schema & migrations
 - `types/` — TypeScript type definitions
 - `services/` — External service configurations
 - `public/` — Static assets & PWA files

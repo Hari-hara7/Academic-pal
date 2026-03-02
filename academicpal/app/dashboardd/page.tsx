@@ -74,18 +74,6 @@ const FEATURES = [
     isNew: false,
   },
   {
-    title: 'Tech Roadmaps',
-    description: 'Explore structured roadmaps for various technologies. Stay on track with curated paths for frontend, backend, DevOps, AI, and more.',
-    icon: Map,
-    iconColor: 'text-blue-400',
-    bgColor: "from-blue-500/20 to-blue-500/20",
-    borderColor: "border-blue-500/30",
-    link: '/roadmaps',
-    buttonText: 'Explore Roadmaps',
-    category: "Learning",
-    isNew: true,
-  },
-  {
     title: "Past Question Papers",
     description: "Prepare with confidence using past papers and understand exam patterns.",
     icon: FileText,
@@ -385,12 +373,6 @@ const Dashboard = () => {
                       <span className="hidden sm:inline">Upload</span>
                     </Button>
                   </Link>
-                  <Link href="/roadmaps">
-                    <Button variant="outline" size="sm" className="w-full text-xs border-gray-600 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all duration-300 py-2">
-                      <Map className="w-3 h-3 mr-1" />
-                      <span className="hidden sm:inline">Roadmaps</span>
-                    </Button>
-                  </Link>
                   <Button variant="outline" size="sm" className="w-full text-xs border-gray-600 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all duration-300 py-2">
                     <Coffee className="w-3 h-3 mr-1" />
                     <span className="hidden sm:inline">Break</span>
@@ -543,16 +525,6 @@ const Dashboard = () => {
                     <div className="flex-1">
                       <p className="text-sm font-medium text-white">Real-time Peer Chat</p>
                       <p className="text-xs text-gray-400">Connect with fellow students • Available now</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-blue-500/20 border border-blue-500/30">
-                    <div className="p-2 rounded-full bg-blue-500/20">
-                      <Map className="w-4 h-4 text-blue-400" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-white">Tech Roadmaps</p>
-                      <p className="text-xs text-gray-400">Structured learning paths for various technologies • Explore now</p>
                     </div>
                   </div>
                 </div>

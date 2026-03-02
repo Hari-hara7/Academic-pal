@@ -72,7 +72,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "/dashboard/performance-analytics/create",
       "/about",
       "/dashboardd",
-      "/roadmaps",
       "/dashboard/mind-map",
       "/dashboard/mind-map/create",
       "/dashboard/forum/create",

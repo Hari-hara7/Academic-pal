@@ -16,7 +16,7 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
   [![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
   [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com/)
-  [![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)](https://prisma.io/)
+  [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com/)
 
 </div>
 
@@ -54,7 +54,6 @@
 | **Question Papers** | Previous years' papers with pattern analysis |
 | **Flashcards** | Create, edit, and review flashcards for active recall learning |
 | **Mind Maps** | Visual learning with interactive mind map creator |
-| **Tech Roadmaps** | Curated learning paths for various technologies |
 | **Blogs** | Read and write study tips, experiences, and guides |
 
 ###  Collaboration
@@ -109,7 +108,7 @@ Lucide React      →  Modern icon system
 ### Backend
 ```
 Next.js API Routes  →  Serverless API endpoints
-Prisma ORM          →  Type-safe database queries
+Mongoose            →  MongoDB ODM
 Firebase Auth       →  Authentication & user management
 Socket.io           →  Real-time communication
 ```
@@ -117,7 +116,6 @@ Socket.io           →  Real-time communication
 ### Database & Storage
 ```
 MongoDB      →  Primary database 
-Supabase     →  File storage & additional services(via Prisma)
 Firebase     →  Auth & real-time features
 ```
 
@@ -144,7 +142,6 @@ academicpal/
 │   ├── chat/                     # Real-time chat
 │   ├── ai-assistant/             # AI chatbot
 │   ├── upload/                   # Resource upload
-│   ├── roadmaps/                 # Tech roadmaps
 │   ├── profile/                  # User profile
 │   ├── settings/                 # User settings
 │   ├── dashboard/                # User dashboard
@@ -184,7 +181,6 @@ academicpal/
 ├── hooks/                        # Custom React hooks
 ├── lib/                          # Utility functions
 ├── models/                       # Data models
-├── prisma/                       # Database schema
 ├── public/                       # Static assets
 ├── services/                     # External service configs
 └── types/                        # TypeScript definitions
@@ -214,10 +210,6 @@ npm install
 cp .env.example .env
 # Edit .env with your configuration
 
-# Run database migrations
-npx prisma generate
-npx prisma db push
-
 # Start development server
 npm run dev
 ```
@@ -228,16 +220,12 @@ Create a `.env` file with the following:
 
 ```env
 # Database
-DATABASE_URL="your_mongodb_connection_string"
+MONGODB_URI="your_mongodb_connection_string"
 
 # Firebase
 NEXT_PUBLIC_FIREBASE_API_KEY="your_api_key"
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your_auth_domain"
 NEXT_PUBLIC_FIREBASE_PROJECT_ID="your_project_id"
-
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL="your_supabase_url"
-NEXT_PUBLIC_SUPABASE_ANON_KEY="your_anon_key"
 
 # AI
 GEMINI_API_KEY="your_gemini_api_key"
@@ -312,14 +300,6 @@ JWT_SECRET="your_jwt_secret"
 |--------|----------|-------------|
 | `GET/POST` | `/api/tutoring/tutors` | Manage tutors |
 | `GET/POST` | `/api/tutoring/sessions` | Manage tutoring sessions |
-
-### Other
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/feedback` | Submit feedback |
-| `POST` | `/api/upvote` | Upvote a resource |
-| `POST` | `/api/comment` | Add a comment |
-| `GET` | `/api/roadmaps` | Get tech roadmaps |
 
 ---
 

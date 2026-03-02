@@ -42,7 +42,6 @@ const protectedRoutes = [
   '/upload',
   '/profile',
   '/settings',
-  '/roadmaps',
   '/ai-assistant',
 ];
 
@@ -53,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       setLoading(false);
 

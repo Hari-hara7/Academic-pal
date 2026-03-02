@@ -10,8 +10,8 @@ const steps = [
   },
   {
     step: 2,
-    title: 'Follow Roadmaps',
-    description: 'Get detailed learning roadmaps curated by experts.',
+    title: 'Access Resources',
+    description: 'Get detailed study materials curated by experts.',
   },
   {
     step: 3,
