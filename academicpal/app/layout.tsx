@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname } from "next/navigation";
-import Head from "next/head";
 import Script from "next/script";
 import Header from "../components/Header";
 import HomeHeader from "../components/NavBar";
@@ -181,7 +180,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${poppins.variable} ${inter.variable} ${montserrat.variable} ${lato.variable}`}
     >
-      <Head>
+      <head>
         <title>{currentSEO.title}</title>
         <meta name="description" content={currentSEO.description} />
         <meta name="keywords" content={currentSEO.keywords} />
@@ -213,7 +212,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:description" content={currentSEO.description} />
         <meta name="twitter:image" content={`https://academicpal.in/og-image.png`} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      </Head>
+      </head>
 
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-2HKC8Z98W1" />
       <Script id="google-analytics">
