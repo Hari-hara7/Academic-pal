@@ -7,12 +7,12 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const configA = {
-  apiKey: "AIzaSyD4eZrk-tHYG2pVQq1Eak06xf5D9SPwIYE",
-  authDomain: "academic-pal-8ae38.firebaseapp.com",
-  projectId: "academic-pal-8ae38",
-  storageBucket: "academic-pal-8ae38.firebasestorage.app",
-  messagingSenderId: "362157551314",
-  appId: "1:362157551314:web:e18eecd05078522f7fc70b",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_A_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_A_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_A_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_A_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_A_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_A_APP_ID,
 };
 
 const appA = getApps().find(app => app.name === "appA") || initializeApp(configA, "appA");
