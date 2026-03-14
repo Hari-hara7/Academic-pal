@@ -22,6 +22,149 @@
 
 ---
 
+## 🏗️ System & Deployment Architecture
+
+> Visualizing how AcademicPal's components interact and are deployed. Dark-themed for clarity and modern aesthetics.
+
+```mermaid
+%%{init: {"theme": "dark", "themeVariables": {"background": "#111111", "primaryColor": "#1e1e1e", "primaryTextColor": "#ffffff", "primaryBorderColor": "#ffffff", "lineColor": "#ffffff", "secondaryColor": "#1a1a1a", "tertiaryColor": "#0d0d0d", "clusterBkg": "#1a1a1a", "titleColor": "#ffffff", "edgeLabelBackground": "#111111"}}}%%
+graph TB
+    subgraph Client["🖥️ Client"]
+        Browser["User Browser"]
+    end
+
+    subgraph FE["⚛️ Frontend — Next.js 16 + TypeScript"]
+        UI["React UI Components\nTailwind CSS · ShadCN · Framer Motion"]
+        AuthClient["Firebase Auth Client\nGoogle / GitHub OAuth"]
+        SocketClient["Socket.io Client\nReal-time Chat"]
+    end
+
+    subgraph BE["🔧 Backend — Next.js API Routes (Serverless)"]
+        APIRoutes["API Routes /api/*\nREST Endpoints"]
+        SocketServer["Socket.io Server\nReal-time Events"]
+    end
+
+    subgraph AI["🤖 AI & ML"]
+        GeminiAPI["Google Gemini API\nAI Chatbot & Content"]
+        MLHandler["ML Model Handler\nPython Environment"]
+    end
+
+    subgraph DB["🗄️ Data Layer"]
+        MongoDB[("MongoDB\nUsers · Blogs · Forums\nFlashcards · Plans")]
+        FirestoreDB[("Firebase Firestore\nReal-time & Auth Data")]
+    end
+
+    subgraph Deploy["🚀 Deployment & DevOps"]
+        Vercel["Vercel\nProduction Hosting + CDN"]
+        Docker["Docker\nContainerization"]
+        CI["GitHub Actions\nCI/CD Pipeline"]
+    end
+
+    Browser -->|HTTPS| UI
+    UI --> AuthClient
+    UI --> SocketClient
+    UI -->|API calls| APIRoutes
+    AuthClient <-->|OAuth| FirestoreDB
+    SocketClient <-->|WebSocket| SocketServer
+    APIRoutes -->|Mongoose ODM| MongoDB
+    APIRoutes -->|AI Requests| GeminiAPI
+    APIRoutes -->|ML Inference| MLHandler
+    MLHandler --> MongoDB
+    SocketServer --> FirestoreDB
+    CI -->|Build & Test| Docker
+    CI -->|Auto Deploy| Vercel
+    Docker -->|Container| Vercel
+```
+
+### 📑 Architecture Components
+
+| Component | Technology | Description |
+|-----------|-----------|-------------|
+| **User Interface** | Next.js 16, React, TypeScript | Renders all pages, handles routing, animations with Framer Motion, and accessible UI via ShadCN |
+| **Authentication** | Firebase Auth (Google & GitHub OAuth) | Secure multi-provider login, persistent sessions, and protected route access control |
+| **API Layer** | Next.js Serverless API Routes | Handles all server-side logic — CRUD operations, AI requests, analytics, and real-time coordination |
+| **Real-time Engine** | Socket.io (Client + Server) | Powers live group chat, peer notifications, and collaborative study features |
+| **AI Assistant** | Google Gemini API | Provides the AI chatbot, smart search, study content generation, and doubt solving |
+| **ML Model Handler** | Python Environment | Runs ML models for academic recommendations, performance predictions, and intelligent suggestions |
+| **Primary Database** | MongoDB + Mongoose ODM | Stores users, flashcards, blogs, forums, study plans, timetables, tutoring, and mind maps |
+| **Real-time Storage** | Firebase Firestore | Manages authentication state, real-time data sync, and live collaboration |
+| **Hosting** | Vercel | Production deployment with auto-scaling, serverless functions, edge network, and global CDN |
+| **Containerization** | Docker | Packages the application for reproducible environments across development, staging, and production |
+| **CI/CD** | GitHub Actions | Automates testing, linting, Docker builds, and deployments on every push to `main` |
+
+---
+
+## 📦 How to Deploy
+
+### Option 1: Vercel (Recommended — Zero Config)
+
+```bash
+# 1. Install Vercel CLI
+npm i -g vercel
+
+# 2. Navigate to the app directory
+cd academicpal
+
+# 3. Deploy to production
+vercel --prod
+```
+
+> Set your environment variables in the Vercel dashboard under **Project → Settings → Environment Variables**.
+
+### Option 2: Docker
+
+```bash
+# 1. Build the Docker image
+docker build -t academicpal .
+
+# 2. Run the container (pass env vars)
+docker run -p 3000:3000 \
+  -e MONGODB_URI="your_mongodb_uri" \
+  -e NEXT_PUBLIC_FIREBASE_API_KEY="your_key" \
+  -e GEMINI_API_KEY="your_gemini_key" \
+  academicpal
+```
+
+### Option 3: Manual (Node.js)
+
+```bash
+# 1. Install dependencies
+cd academicpal && npm install
+
+# 2. Configure environment
+cp .env.example .env
+# Fill in all required values in .env
+
+# 3. Build for production
+npm run build
+
+# 4. Start the server
+npm run start
+```
+
+### Required Environment Variables
+
+```env
+# Database
+MONGODB_URI=your_mongodb_connection_string
+
+# Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# AI
+GEMINI_API_KEY=your_gemini_api_key
+
+# Auth
+JWT_SECRET=your_jwt_secret
+```
+
+---
+
 ##  Overview
 
 **AcademicPal** is a comprehensive full-stack web application designed to empower B.Tech students with AI-powered study tools, real-time collaboration, and community-driven academic resources. Built with modern technologies and a student-first approach.
@@ -81,15 +224,6 @@
 | **Multi-Provider Auth** | Google & GitHub OAuth via Firebase |
 | **Protected Routes** | Secure access control for authenticated pages |
 | **Session Management** | Persistent login across browser sessions |
-
----
-
-##  System Architecture
-
-<div align="center">
-  <img src="academicpal/public/academicpal architecture.jpg" alt="AcademicPal System Architecture" width="100%"/>
-  <p><em>High-level architecture of AcademicPal</em></p>
-</div>
 
 ---
 
