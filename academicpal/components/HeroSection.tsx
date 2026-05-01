@@ -32,7 +32,7 @@ const itemVariants = {
 export default function HeroSection() {
   return (
     <section
-      className={`${inter.className} relative min-h-screen bg-black text-white overflow-hidden`}
+      className={`${inter.className} relative min-h-screen lg:min-h-[85vh] bg-black text-white overflow-hidden`}
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-blue-500/5" />
@@ -118,7 +118,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-6"
             >
-              <motion.h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight">
+              <motion.h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight tracking-tight">
                 <div className="flex flex-row flex-wrap gap-x-2 sm:gap-x-3 md:gap-x-4">
                   <span className="text-white">
                     Academic
@@ -289,7 +289,7 @@ export default function HeroSection() {
               className="absolute top-1/2 -right-3 sm:-right-4 md:-right-6 w-8 sm:w-10 md:w-12 lg:w-16 h-8 sm:h-10 md:h-12 lg:h-16 bg-blue-500/12 rounded-full blur-lg" 
             />
 
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-3xl xl:max-w-4xl 2xl:max-w-[60rem]">
               <motion.div 
                 animate={{ 
                   scale: [1, 1.05, 1],

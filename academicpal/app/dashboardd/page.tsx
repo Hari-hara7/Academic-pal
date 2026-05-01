@@ -104,7 +104,7 @@ const FEATURES = [
     iconColor: "text-blue-400",
     bgColor: "from-blue-500/20 to-blue-500/20",
     borderColor: "border-blue-500/30",
-    link: "https://academicpal-ml-chatbot-g6gn.vercel.app/",
+    link: "/notes-finder",
     buttonText: "Start Searching",
     category: "AI Tools",
     isNew: true,

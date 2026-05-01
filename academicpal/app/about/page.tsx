@@ -71,7 +71,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
         
         <header>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 mt-10 font-bold font-poppins">
-            About <span className="text-white">AcademicPal</span>
+            About <span className="text-blue-500">AcademicPal</span>
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl leading-relaxed">
             AcademicPal is a powerful academic companion used by{" "}
@@ -84,53 +84,53 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
       
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <Feature
-            icon={<Users className="w-6 h-6 text-gray-300" />}
+            icon={<Users className="w-6 h-6 text-blue-400" />}
             title="4K+ Active Users"
             description="Trusted by thousands of NMAMIT students every semester."
           />
           <Feature
-            icon={<Brain className="w-6 h-6 text-gray-300" />}
+            icon={<Brain className="w-6 h-6 text-blue-400" />}
             title="AI-powered Search"
             description="Find relevant notes and questions in seconds."
           />
           <Feature
-            icon={<Send className="w-6 h-6 text-gray-300" />}
+            icon={<Send className="w-6 h-6 text-blue-400" />}
             title="Real-Time Community"
             description="Chat, share, and collaborate with your peers live."
           />
           <Feature
-            icon={<BookOpen className="w-6 h-6 text-gray-300" />}
+            icon={<BookOpen className="w-6 h-6 text-blue-400" />}
             title="Comprehensive Notes"
             description="Access crisp, well-organized notes for all subjects."
           />
           <Feature
-            icon={<FileText className="w-6 h-6 text-gray-300" />}
+            icon={<FileText className="w-6 h-6 text-blue-400" />}
             title="Past Question Papers"
             description="Prepare with confidence using past exam patterns."
           />
           <Feature
-            icon={<Timer className="w-6 h-6 text-gray-300" />}
+            icon={<Timer className="w-6 h-6 text-blue-400" />}
             title="Study Reminders"
             description="Stay on track with personalized notifications."
           />
           <Feature
-            icon={<CalendarCheck className="w-6 h-6 text-gray-300" />}
+            icon={<CalendarCheck className="w-6 h-6 text-blue-400" />}
             title="Timetable Generator"
             description="Create and customize academic timetables easily."
           />
           <Feature
-            icon={<BarChart3 className="w-6 h-6 text-gray-300" />}
+            icon={<BarChart3 className="w-6 h-6 text-blue-400" />}
             title="Performance Analytics"
             description="Track study hours, identify weak areas, and improve."
           />
         </div>
 
-        <Separator className="border-gray-700" />
+        <Separator className="bg-white/10" />
 
       
         <section>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4 font-bold font-poppins">About the Developer</h2>
-          <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-md">
+          <Card className="bg-white/5 border border-blue-500/20 backdrop-blur-sm rounded-lg shadow-md">
             <CardContent className="p-5 sm:p-6">
               <h3 className="text-xl sm:text-2xl font-bold mb-1 text-gray-100 font-bold font-poppins">
                 Hariharanath
@@ -142,11 +142,11 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
           </Card>
         </section>
 
-        <Separator className="border-gray-700" />
+        <Separator className="bg-white/10" />
 
         
        <section>
-      <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6 font-bold font-poppins">
         Tech Stack
       </h2>
       <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -159,7 +159,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
         ].map((tech) => (
           <Badge
             key={tech}
-            className="flex items-center gap-2 border border-gray-600 bg-white/5 text-gray-300 px-3 py-1 rounded"
+            className="flex items-center gap-2 border border-blue-500/30 bg-white/5 text-white/80 px-3 py-1 rounded"
           >
             <TechIcon tech={tech} />
             {tech}
@@ -168,7 +168,7 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
       </div>
     </section>
 
-    <Separator className="border-gray-700" />
+    <Separator className="bg-white/10" />
 
     
     <section>
@@ -179,17 +179,17 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
         {["Flask", "Pandas", "Scikit-Learn", "NLTK", "NumPy"].map((tech) => (
           <Badge
             key={tech}
-            className="flex items-center gap-2 border border-gray-600 bg-white/5 text-gray-300 px-3 py-1 rounded"
+            className="flex items-center gap-2 border border-blue-500/30 bg-white/5 text-white/80 px-3 py-1 rounded"
           >
             <MLTechIcon tech={tech} />
             {tech}
           </Badge>
         ))}
       </div>
-      <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-md p-4">
+      <Card className="bg-white/5 border border-blue-500/20 backdrop-blur-sm rounded-lg shadow-md p-4">
         <p className="text-gray-300 text-sm sm:text-base ">
           Chatbot with AI NLP developed by{" "}
-          <span className="font-semibold text-white font-bold font-poppins">Teja</span>.
+          <span className="font-semibold text-blue-400 font-bold font-poppins">Teja</span>.
         </p>
       </Card>
     </section>
@@ -199,13 +199,13 @@ const MLTechIcon = ({ tech }: { tech: string }) => mlTechIcons[tech] || null;
           <Link href="/home" passHref>
             <Button
               variant="outline"
-              className="bg-gray-200 text-black hover:bg-gray-300 transition w-full sm:w-auto"
+              className="w-full sm:w-auto border-blue-500/40 text-blue-300 hover:bg-blue-500/10 hover:text-blue-200 transition"
             >
               Go to Homepage
             </Button>
           </Link>
           <Link href="/register" passHref>
-            <Button className="bg-gray-200 text-black hover:bg-gray-300 transition w-full sm:w-auto">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white transition w-full sm:w-auto">
               Try AcademicPal Now
             </Button>
           </Link>
@@ -225,9 +225,9 @@ function Feature({
   description: string
 }) {
   return (
-    <Card className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-default">
+    <Card className="bg-white/5 border border-blue-500/20 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-default">
       <CardContent className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5">
-        <div className="bg-white/10 p-2 rounded">{icon}</div>
+        <div className="bg-blue-500/10 p-2 rounded">{icon}</div>
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-gray-100 mb-1">
             {title}

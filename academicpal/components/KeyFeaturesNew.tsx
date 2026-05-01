@@ -130,7 +130,7 @@ const features = [
     iconColor: 'text-blue-400',
     bgGradient: 'from-blue-500/10 to-blue-500/10',
     borderColor: 'border-blue-500/30',
-    link: 'https://academicpal-ml-chatbot-g6gn.vercel.app/',
+    link: '/notes-finder',
     buttonText: 'Try AI Search',
     category: 'AI Tools',
     isPopular: true,

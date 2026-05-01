@@ -51,14 +51,14 @@ export default function ContactPage() {
       <section className="max-w-4xl mx-auto space-y-12">
         <header>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 mt-10 font-semibold font-poppins">
-            Contact <span className="text-white">AcademicPal</span>
+            Contact <span className="text-blue-500">AcademicPal</span>
           </h1>
           <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed">
             Have questions, feedback, or want to contribute? Reach out to us — we’re here to help!
           </p>
         </header>
 
-        <Card className="bg-black border border-white/20 backdrop-blur-md rounded-lg shadow-md">
+        <Card className="bg-white/5 border border-blue-500/20 backdrop-blur-md rounded-lg shadow-md">
           <CardContent className="p-6 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="bg-transparent border border-white/30 text-white placeholder-gray-400 mt-2"
+                  className="bg-black/30 border border-blue-500/30 text-white caret-white placeholder:text-white/50 mt-2 focus-visible:ring-blue-500/40"
                 />
               </div>
 
@@ -89,7 +89,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="bg-transparent border border-white/30 text-white placeholder-gray-400 mt-2"
+                  className="bg-black/30 border border-blue-500/30 text-white caret-white placeholder:text-white/50 mt-2 focus-visible:ring-blue-500/40"
                 />
               </div>
 
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-transparent border border-white/30 text-white placeholder-gray-400 mt-2"
+                  className="bg-black/30 border border-blue-500/30 text-white caret-white placeholder:text-white/50 mt-2 focus-visible:ring-blue-500/40"
                 />
               </div>
 
@@ -118,7 +118,7 @@ export default function ContactPage() {
 
               <Button
                 type="submit"
-                className="bg-gray-200 text-black hover:bg-gray-300 transition w-full md:w-auto"
+                className="bg-blue-500 hover:bg-blue-600 text-white transition w-full md:w-auto"
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Send Message"}
@@ -127,25 +127,25 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Separator className="border-gray-700" />
+        <Separator className="bg-white/10" />
 
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold mb-6 font-semibold font-poppins">Other Ways to Reach Us</h2>
           <ul className="space-y-4 text-gray-300">
             <li className="flex items-center gap-3">
-              <Mail className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
-              <a href="mailto:support@academicpal.com" className="underline hover:text-white transition text-sm md:text-base">
+              <Mail className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
+              <a href="mailto:support@academicpal.com" className="underline text-blue-400 hover:text-blue-300 transition text-sm md:text-base">
                 hariharanath247@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
-              <a href="tel:+919789777877" className="underline hover:text-white transition text-sm md:text-base">
+              <Phone className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
+              <a href="tel:+919789777877" className="underline text-blue-400 hover:text-blue-300 transition text-sm md:text-base">
                 +91 7989777877
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
+              <MapPin className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
               <address className="not-italic text-sm md:text-base">
                 Karkala, Nitte, Karnataka
               </address>
@@ -157,7 +157,7 @@ export default function ContactPage() {
           <Link href="/home" passHref>
             <Button
               variant="outline"
-              className="bg-gray-200 text-black hover:bg-gray-300 transition w-full md:w-auto"
+              className="w-full md:w-auto border-blue-500/40 text-blue-300 hover:bg-blue-500/10 hover:text-blue-200 transition"
             >
               Go to Homepage
             </Button>
@@ -165,7 +165,7 @@ export default function ContactPage() {
           <Link href="/about" passHref>
             <Button
               variant="outline"
-              className="bg-gray-200 text-black hover:bg-gray-300 transition w-full md:w-auto"
+              className="w-full md:w-auto border-blue-500/40 text-blue-300 hover:bg-blue-500/10 hover:text-blue-200 transition"
             >
               About AcademicPal
             </Button>
