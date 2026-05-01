@@ -22,39 +22,39 @@
 
 ---
 
-## 🏗️ System & Deployment Architecture
+##  System & Deployment Architecture
 
 > Visualizing how AcademicPal's components interact and are deployed. Dark-themed for clarity and modern aesthetics.
 
 ```mermaid
 %%{init: {"theme": "dark", "themeVariables": {"background": "#111111", "primaryColor": "#1e1e1e", "primaryTextColor": "#ffffff", "primaryBorderColor": "#ffffff", "lineColor": "#ffffff", "secondaryColor": "#1a1a1a", "tertiaryColor": "#0d0d0d", "clusterBkg": "#1a1a1a", "titleColor": "#ffffff", "edgeLabelBackground": "#111111"}}}%%
 graph TB
-    subgraph Client["🖥️ Client"]
+    subgraph Client[" Client"]
         Browser["User Browser"]
     end
 
-    subgraph FE["⚛️ Frontend — Next.js 16 + TypeScript"]
+    subgraph FE[" Frontend — Next.js 16 + TypeScript"]
         UI["React UI Components\nTailwind CSS · ShadCN · Framer Motion"]
         AuthClient["Firebase Auth Client\nGoogle / GitHub OAuth"]
         SocketClient["Socket.io Client\nReal-time Chat"]
     end
 
-    subgraph BE["🔧 Backend — Next.js API Routes (Serverless)"]
+    subgraph BE[" Backend — Next.js API Routes (Serverless)"]
         APIRoutes["API Routes /api/*\nREST Endpoints"]
         SocketServer["Socket.io Server\nReal-time Events"]
     end
 
-    subgraph AI["🤖 AI & ML"]
+    subgraph AI[" AI & ML"]
         GeminiAPI["Google Gemini API\nAI Chatbot & Content"]
         MLHandler["ML Model Handler\nPython Environment"]
     end
 
-    subgraph DB["🗄️ Data Layer"]
+    subgraph DB[" Data Layer"]
         MongoDB[("MongoDB\nUsers · Blogs · Forums\nFlashcards · Plans")]
         FirestoreDB[("Firebase Firestore\nReal-time & Auth Data")]
     end
 
-    subgraph Deploy["🚀 Deployment & DevOps"]
+    subgraph Deploy[" Deployment & DevOps"]
         Vercel["Vercel\nProduction Hosting + CDN"]
         Docker["Docker\nContainerization"]
         CI["GitHub Actions\nCI/CD Pipeline"]
@@ -76,7 +76,7 @@ graph TB
     Docker -->|Container| Vercel
 ```
 
-### 📑 Architecture Components
+###  Architecture Components
 
 | Component | Technology | Description |
 |-----------|-----------|-------------|
@@ -94,7 +94,7 @@ graph TB
 
 ---
 
-## 📦 How to Deploy
+##  How to Deploy
 
 ### Option 1: Vercel (Recommended — Zero Config)
 
