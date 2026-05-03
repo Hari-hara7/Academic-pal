@@ -46,12 +46,14 @@ graph TB
 
     subgraph AI[" AI & ML"]
         GeminiAPI["Google Gemini API\nAI Chatbot & Content"]
+        NotesQAService["Notes Q&A Service (RAG)\nFastAPI + Embeddings"]
         MLHandler["ML Model Handler\nPython Environment"]
     end
 
     subgraph DB[" Data Layer"]
         MongoDB[("MongoDB\nUsers · Blogs · Forums\nFlashcards · Plans")]
         FirestoreDB[("Firebase Firestore\nReal-time & Auth Data")]
+        NotesStore[("Notes Vector Store\nIn-memory embeddings")]
     end
 
     subgraph Deploy[" Deployment & DevOps"]
@@ -68,8 +70,11 @@ graph TB
     SocketClient <-->|WebSocket| SocketServer
     APIRoutes -->|Mongoose ODM| MongoDB
     APIRoutes -->|AI Requests| GeminiAPI
+    APIRoutes -->|Notes Q&A| NotesQAService
     APIRoutes -->|ML Inference| MLHandler
     MLHandler --> MongoDB
+    NotesQAService -->|Embeddings + Answers| GeminiAPI
+    NotesQAService --> NotesStore
     SocketServer --> FirestoreDB
     CI -->|Build & Test| Docker
     CI -->|Auto Deploy| Vercel
@@ -85,6 +90,7 @@ graph TB
 | **API Layer** | Next.js Serverless API Routes | Handles all server-side logic — CRUD operations, AI requests, analytics, and real-time coordination |
 | **Real-time Engine** | Socket.io (Client + Server) | Powers live group chat, peer notifications, and collaborative study features |
 | **AI Assistant** | Google Gemini API | Provides the AI chatbot, smart search, study content generation, and doubt solving |
+| **Notes Q&A (RAG)** | FastAPI + Embeddings | Upload notes, retrieve relevant chunks, and answer using only the provided material |
 | **ML Model Handler** | Python Environment | Runs ML models for academic recommendations, performance predictions, and intelligent suggestions |
 | **Primary Database** | MongoDB + Mongoose ODM | Stores users, flashcards, blogs, forums, study plans, timetables, tutoring, and mind maps |
 | **Real-time Storage** | Firebase Firestore | Manages authentication state, real-time data sync, and live collaboration |
@@ -187,6 +193,7 @@ JWT_SECRET=your_jwt_secret
 |---------|-------------|
 | **AI Assistant** | Gemini-powered chatbot for instant academic help and doubt solving |
 | **Smart Search** | AI-enhanced search across all resources with semantic understanding |
+| **Notes Q&A (RAG)** | Upload notes and get context-aware answers grounded only in your material |
 | **Study Planner** | Intelligent schedule generation based on your goals and deadlines |
 
 ###  Academic Resources

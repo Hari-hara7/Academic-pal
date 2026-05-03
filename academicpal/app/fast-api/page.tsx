@@ -13,9 +13,7 @@ export default function FastAPI() {
       <NavBar />
       
       <main className="pt-20">
-        {/* Hero Section */}
         <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-          {/* Background effects matching the main HeroSection */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-blue-500/5" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.1),transparent_50%)]" />

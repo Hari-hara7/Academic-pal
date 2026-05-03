@@ -150,6 +150,18 @@ const features = [
     isPopular: true,
   },
   {
+    title: 'Notes Q&A (Context-Aware)',
+    description: 'Upload PDFs or text notes and get answers grounded only in your material.',
+    icon: Sparkles,
+    iconColor: 'text-blue-400',
+    bgGradient: 'from-blue-500/15 to-blue-400/10',
+    borderColor: 'border-blue-500/30',
+    link: '/notes-qa',
+    buttonText: 'Try Notes Q&A',
+    category: 'AI Tools',
+    isPopular: true,
+  },
+  {
     title: 'Flashcards',
     description: 'Memorize key concepts with interactive flashcards.',
     icon: Brain,
