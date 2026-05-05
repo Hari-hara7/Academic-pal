@@ -1,7 +1,7 @@
 fastapi==0.111.0
 uvicorn==0.30.0
-python-multipart==0.0.9
-pypdf==4.2.0
+python-multipart==0.0.26
+pypdf==6.10.2
 google-generativeai==0.7.2
-python-dotenv==1.0.1
+python-dotenv==1.2.2
 protobuf>=4.25.0
