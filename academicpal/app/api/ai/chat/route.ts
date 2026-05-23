@@ -3,9 +3,14 @@ import model from "@/lib/geminiClient";
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const body = await req.json();
+    const messages = Array.isArray(body?.messages) ? body.messages : [];
 
-    const lastUserMessage = messages[messages.length - 1]?.content;
+    const lastUserMessage = String(messages[messages.length - 1]?.content ?? "").trim();
+
+    if (!lastUserMessage) {
+      return NextResponse.json({ error: "Message is required" }, { status: 400 });
+    }
 
 const prompt = `
 You are **AcademicPal AI Assistant**, an advanced academic companion designed for B.Tech students across all engineering branches.
@@ -28,12 +33,27 @@ Respond as AcademicPal AI Assistant:
 
 
     const result = await model.generateContent(prompt);
-    const responseText = result.response.text();
+    const responseText = result.response?.text?.().trim();
+
+    if (!responseText) {
+      throw new Error("Gemini returned an empty response");
+    }
 
     return NextResponse.json({ text: responseText });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("AI Error:", error);
-    return NextResponse.json({ error: "AI Assistant failed" }, { status: 500 });
+    const status =
+      typeof error === "object" && error !== null && "status" in error && typeof (error as { status?: unknown }).status === "number"
+        ? (error as { status: number }).status
+        : 500;
+    const message =
+      error instanceof Error
+        ? error.message
+        : "AI Assistant failed";
+    return NextResponse.json(
+      { error: message },
+      { status }
+    );
   }
 }
 

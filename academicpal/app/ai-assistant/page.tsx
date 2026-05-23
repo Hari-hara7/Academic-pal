@@ -26,13 +26,13 @@ export default function AIAssistantPage() {
         >
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="relative">
-              <div className="absolute inset-0 bg-blue-500/30 blur-md rounded-lg" />
+              <div className="absolute inset-0 bg-dark-500/30 blur-md rounded-lg" />
               <Image
                 src="/academicpal.jpg"
                 alt="AcademicPal Logo"
-                width={36}
-                height={36}
-                className="rounded-lg relative z-10 ring-2 ring-blue-500/20"
+                width={50}
+                height={50}
+                className="rounded-lg relative z-10 ring-2"
               />
             </div>
             <div className="flex items-center gap-2">

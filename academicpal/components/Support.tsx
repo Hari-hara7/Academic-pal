@@ -27,10 +27,11 @@ export default function SupportAndHelp() {
   const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const submitSupportRequest = async () => {
@@ -61,7 +62,7 @@ export default function SupportAndHelp() {
     placeholder: string;
     name: string;
     value: string;
-    onChange: (e: any) => void;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
     type?: string;
   }) => (
     <div className="relative">

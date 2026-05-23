@@ -54,7 +54,7 @@ export default function ContactPage() {
             Contact <span className="text-blue-500">AcademicPal</span>
           </h1>
           <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed">
-            Have questions, feedback, or want to contribute? Reach out to us — we’re here to help!
+            Have questions, feedback, or want to contribute? Reach out to us  we’re here to help!
           </p>
         </header>
 

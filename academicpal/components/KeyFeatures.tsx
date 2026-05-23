@@ -314,7 +314,7 @@ const KeyFeatures = () => {
             <div className="relative max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-400 leading-relaxed font-medium px-3 sm:px-4 md:px-6 lg:px-8">
                 Discover our comprehensive suite of tools designed to{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent font-semibold">
                   enhance your academic journey
                 </span>{' '}
                 and boost your productivity.
@@ -436,7 +436,7 @@ const KeyFeatures = () => {
               
               <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 mb-5 sm:mb-6 md:mb-8 lg:mb-10 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-3xl mx-auto leading-relaxed px-2 sm:px-4 md:px-6 lg:px-8">
                 Join{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent font-semibold">
                   thousands of students
                 </span>{' '}
                 who are already using AcademicPal to enhance their learning experience and achieve academic excellence.
@@ -468,7 +468,7 @@ const KeyFeatures = () => {
               
               <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10 lg:mt-12 pt-4 sm:pt-6 md:pt-7 lg:pt-8 border-t border-gray-700/50 px-2 sm:px-4 md:px-6 lg:px-8">
                 <div className="flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 text-gray-400">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse flex-shrink-0" />
                   <span className="font-medium text-xs sm:text-sm md:text-base">Free to Start</span>
                 </div>
                 <div className="flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 text-gray-400">
@@ -476,7 +476,7 @@ const KeyFeatures = () => {
                   <span className="font-medium text-xs sm:text-sm md:text-base">16+ Features</span>
                 </div>
                 <div className="flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 text-gray-400">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '1s'}} />
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '1s'}} />
                   <span className="font-medium text-xs sm:text-sm md:text-base">24/7 Access</span>
                 </div>
               </div>

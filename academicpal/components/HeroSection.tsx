@@ -100,13 +100,9 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3 px-2.5 xs:px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 xs:py-2 sm:py-2.5 md:py-3 bg-white/5 border border-blue-500/30 rounded-full backdrop-blur-sm group hover:border-blue-500/50 transition-all duration-300"
               >
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className="p-0.5 xs:p-1 sm:p-1.5 bg-blue-500 rounded-full"
-                >
+                <div className="p-0.5 xs:p-1 sm:p-1.5 bg-blue-500 rounded-full">
                   <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-4 sm:h-4 text-white" />
-                </motion.div>
+                </div>
                 <span className="text-xs xs:text-xs sm:text-sm md:text-base font-medium text-white group-hover:text-blue-400 transition-colors">
                   Trusted by 4,000+ students 
                 </span>

@@ -33,10 +33,12 @@ export default function Home() {
         <Workit />
         <MarqueeDemo />
           <Faq />
-          <Contact />
-          <BottomNav />
-          <Help />
-          <Contact2 />
+          {/*<Contact />*/}
+          {/*  <Contact2 /> */}
+         {/* <Help /> */}
+
+         
+        <BottomNav />
         </main>
         <Footer />
       </div>

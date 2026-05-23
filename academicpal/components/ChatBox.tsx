@@ -48,14 +48,19 @@ export default function ChatBox() {
       });
 
       const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "AI Assistant failed");
+      }
+
       setMessages((prev) => [
         ...prev,
-        { id: uuidv4(), role: "assistant", content: data.text || "Error occurred." },
+        { id: uuidv4(), role: "assistant", content: data.text || "No response received." },
       ]);
-    } catch {
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "AI Assistant failed. Please try again.";
       setMessages((prev) => [
         ...prev,
-        { id: uuidv4(), role: "assistant", content: "Network error. Try again." },
+        { id: uuidv4(), role: "assistant", content: errorMessage },
       ]);
     } finally {
       setLoading(false);
@@ -96,10 +101,10 @@ export default function ChatBox() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-6 sm:mt-8 w-full max-w-xl">
                 {[
-                  { icon: "📚", text: "Explain complex concepts" },
-                  { icon: "✍️", text: "Help with homework" },
-                  { icon: "🔬", text: "Research assistance" },
-                  { icon: "💡", text: "Study tips & strategies" },
+                  { icon: "", text: "Explain complex concepts" },
+                  { icon: "", text: "Help with homework" },
+                  { icon: "", text: "Research assistance" },
+                  { icon: "", text: "Study tips & strategies" },
                 ].map((item, i) => (
                   <div
                     key={i}
