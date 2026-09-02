@@ -3,4 +3,4 @@ uvicorn==0.30.0
 python-multipart==0.0.9
 pypdf==4.2.0
 google-generativeai==0.7.2
-python-dotenv==1.0.1
+python-dotenv==1.2.2
